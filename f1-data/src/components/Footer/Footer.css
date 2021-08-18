@@ -1,0 +1,21 @@
+footer {
+  background-color: #212529;
+  padding: 15px 5px;
+  margin-top: 2%;
+  position: absolute;
+  width: 100%;
+}
+
+.info {
+  color: white;
+  font-size: small;
+}
+
+#lastRow {
+  margin-top: 1%;
+  border-top: 1px solid white;
+}
+
+#author {
+  margin-top: 1%;
+}

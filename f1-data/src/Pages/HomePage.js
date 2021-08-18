@@ -6,11 +6,12 @@ import Container from "react-bootstrap/Container";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import NavBar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const HomePage = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Container>
         <Row>
           <Col>
@@ -36,6 +37,7 @@ const HomePage = () => {
             ></GenericCard>
           </Col>
         </Row>
+        <br/>
         <Row>
           <Col>
             <GenericCard
@@ -51,6 +53,7 @@ const HomePage = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };
