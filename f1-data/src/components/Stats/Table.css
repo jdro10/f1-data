@@ -1,0 +1,5 @@
+.table {
+    overflow:hidden;
+    overflow-y: scroll;
+    height: 275px;
+}

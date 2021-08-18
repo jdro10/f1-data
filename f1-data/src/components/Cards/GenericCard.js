@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-const GenericCard = ({ cardTitle, cardBody }) => {
+const GenericCard = ({ cardTitle, cardBody, cardHeight }) => {
   return (
-    <Card style={{ height: "15rem" }}>
+    <Card style={{ height: cardHeight }}>
       <Card.Body>
         <Card.Title>{cardTitle}</Card.Title>
         <Card.Body>{cardBody}</Card.Body>
