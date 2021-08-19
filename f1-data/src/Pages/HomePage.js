@@ -8,6 +8,7 @@ import "react-circular-progressbar/dist/styles.css";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import DriversStandings from "../components/Stats/DriversStandings";
+import ConstructorsStandings from "../components/Stats/ConstructorsStandings";
 
 const HomePage = () => {
   return (
@@ -33,7 +34,7 @@ const HomePage = () => {
             <GenericCard
               cardTitle="Round"
               cardBody={
-                <div style={{ width: 120, height: 100 }}>
+                <div style={{ width: 150, height: 100 }}>
                   <CircularProgressbar value={(11 * 100) / 23} text={"11/23"} />
                 </div>
               }
@@ -45,15 +46,15 @@ const HomePage = () => {
         <Row>
           <Col>
             <GenericCard
-              cardTitle="Driver's standings"
+              cardTitle="Drivers' standings"
               cardBody={<DriversStandings />}
               cardHeight="27rem"
             ></GenericCard>
           </Col>
           <Col>
             <GenericCard
-              cardTitle="Construtors standings"
-              cardBody={<DriversStandings />}
+              cardTitle="Constructors standings"
+              cardBody={<ConstructorsStandings />}
               cardHeight="27rem"
             ></GenericCard>
           </Col>

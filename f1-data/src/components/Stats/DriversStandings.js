@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import "./Table.css";
 
 const DriversStandings = () => {
@@ -26,9 +28,13 @@ const DriversStandings = () => {
   return (
     <div className="table">
       {loadingDriversStandings ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <Container>
+        <Row className="justify-content-md-center">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </Row>
+      </Container>
       ) : (
         <Table responsive="sm">
           <thead>
@@ -42,7 +48,7 @@ const DriversStandings = () => {
           </thead>
           <tbody>
             {driversStandings.map((driver, index) => (
-              <tr>
+              <tr key={index}>
                 <td>{driver.position}</td>
                 <td>{driver.Driver.permanentNumber}</td>
                 <td>
