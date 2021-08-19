@@ -8,6 +8,7 @@ import "react-circular-progressbar/dist/styles.css";
 import DriversStandings from "./DriversStandings";
 import ConstructorsStandings from "./ConstructorsStandings";
 import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/Button";
 
 const LatestStats = () => {
   const [latestRaceResult, setLatestRaceResult] = useState(null);
@@ -62,6 +63,7 @@ const LatestStats = () => {
                   )}
                 </h2>
               }
+              cardFooter={<Button variant="primary">Race result</Button>}
               cardHeight="18rem"
             ></GenericCard>
           </Col>
@@ -83,6 +85,7 @@ const LatestStats = () => {
                   )}
                 </h1>
               }
+              cardFooter={<Button variant="primary">Driver information</Button>}
               cardHeight="18rem"
             ></GenericCard>
           </Col>
@@ -103,6 +106,7 @@ const LatestStats = () => {
                   </div>
                 )
               }
+              cardFooter={<h5>Next round: Belgian Grand Prix - 00:23:54</h5>}
               cardHeight="18rem"
             ></GenericCard>
           </Col>
@@ -118,7 +122,7 @@ const LatestStats = () => {
           </Col>
           <Col>
             <GenericCard
-              cardTitle="Constructors standings"
+              cardTitle="Constructors' standings"
               cardBody={<ConstructorsStandings />}
               cardHeight="27rem"
             ></GenericCard>
