@@ -62,7 +62,7 @@ const LatestStats = () => {
                   )}
                 </h2>
               }
-              cardHeight="15rem"
+              cardHeight="18rem"
             ></GenericCard>
           </Col>
           <Col>
@@ -83,7 +83,7 @@ const LatestStats = () => {
                   )}
                 </h1>
               }
-              cardHeight="15rem"
+              cardHeight="18rem"
             ></GenericCard>
           </Col>
           <Col>
@@ -103,7 +103,7 @@ const LatestStats = () => {
                   </div>
                 )
               }
-              cardHeight="15rem"
+              cardHeight="18rem"
             ></GenericCard>
           </Col>
         </Row>

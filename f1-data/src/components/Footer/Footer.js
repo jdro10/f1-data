@@ -47,7 +47,7 @@ const Footer = () => {
           </Col>
           
         </Row>
-        <Row className="justify-content-md-center" id="lastRow">
+        <Row className="justify-content-md-center" xs="auto" id="lastRow">
           <Col>
             <p id="author">2021 Jorge Oliveira</p>
           </Col>
