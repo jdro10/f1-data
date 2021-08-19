@@ -3,26 +3,54 @@ import "./Footer.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { GiCheckeredFlag } from "react-icons/gi";
+import { FaGithub } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import { BsBootstrap } from "react-icons/bs";
+import { SiVisualstudiocode } from "react-icons/si";
+import { IoLogoNpm } from "react-icons/io";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer>
       <Container>
-        <Row>
+        <Row className="justify-content-md-center" xs="auto">
           <Col>
-            <p className="info">F1 Data visualizer</p>
+            <GiCheckeredFlag size={40} />
           </Col>
           <Col>
-            <h4 className="info">API</h4>
-            <p className="info">
-              <a href="http://ergast.com"> Ergast API</a>
-            </p>
+            <FaGithub size={40}/>
           </Col>
+          <Col>
+            <FaReact size={40}/>
+          </Col>
+          <Col>
+            <IoLogoJavascript size={40}/>
+          </Col>
+          <Col>
+            <FaHtml5 size={40}/>
+          </Col>
+          <Col>
+            <FaCss3Alt size={40}/>
+          </Col>
+          <Col>
+            <BsBootstrap size={40}/>
+          </Col>
+          <Col>
+            <SiVisualstudiocode size={40}/>
+          </Col>
+          <Col>
+            <IoLogoNpm size={40}/>
+          </Col>
+          
         </Row>
-        <Row id="lastRow">
-          <p id="author" className="info">
-            Jorge Oliveira
-          </p>
+        <Row className="justify-content-md-center" id="lastRow">
+          <Col>
+            <p id="author">2021 Jorge Oliveira</p>
+          </Col>
         </Row>
       </Container>
     </footer>

@@ -4,6 +4,8 @@ footer {
   margin-top: 1%;
   position: absolute;
   width: 100%;
+  min-height: 16.1%;
+  color: #bbb;
 }
 
 .info {
@@ -17,5 +19,5 @@ footer {
 }
 
 #author {
-  margin-top: 1%;
+  margin-top: 1.5%;
 }
