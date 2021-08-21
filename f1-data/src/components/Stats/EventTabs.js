@@ -5,11 +5,11 @@ import Col from "react-bootstrap/Col";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Map from "../Map/Map";
-import { FaMedal } from "react-icons/fa";
 import Flag from "react-world-flags";
 import RaceClassification from "./RaceClassification";
+import RaceQualifying from "./RaceQualifying";
 
-const EventTabs = ({ raceInfo, raceClassification }) => {
+const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   const [eventCountryCode, setEventCountryCode] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const EventTabs = ({ raceInfo, raceClassification }) => {
     };
 
     fetchCountryCode();
-  }, []);
+  }, [raceInfo.circuitCountry]);
 
   return (
     <div>
@@ -41,19 +41,19 @@ const EventTabs = ({ raceInfo, raceClassification }) => {
             </Row>
             <Row className="justify-content-md-center">
               <Col md="auto">
+                <h3>{raceInfo.raceDate}</h3>
+              </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+              <Col md="auto">
                 <h3>
-                  {raceInfo.raceDate +
-                    " " +
-                    raceInfo.raceTime.substring(
-                      0,
-                      raceInfo.raceTime.length - 1
-                    )}
+                  {raceInfo.raceTime.substring(0, raceInfo.raceTime.length - 1)}
                 </h3>
               </Col>
             </Row>
             <Row className="justify-content-md-center">
               <Col md="auto">
-                <Flag code={eventCountryCode} height="30" />
+                <Flag code={eventCountryCode} height="50" />
               </Col>
             </Row>
           </Container>
@@ -66,41 +66,51 @@ const EventTabs = ({ raceInfo, raceClassification }) => {
           </Container>
         </Tab>
         <Tab eventKey="circuit" title="Circuit">
-          <Row>
-            <Col>
-              <h1>{raceInfo.circuitName}</h1>
-              <h3>{raceInfo.circuitCountry}</h3>
-              <h3>{raceInfo.circuitLocality}</h3>
-              <Flag code={eventCountryCode} height="30" />
-            </Col>
-            <Col>
-              <Map
-                coordinates={[
-                  raceInfo.circuitLatitude,
-                  raceInfo.circuitLongitude,
-                ]}
-              ></Map>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <RaceClassification raceClassification={raceClassification} />
-            </Col>
-          </Row>
+          <Container style={{ minHeight: "250px" }}>
+            <Row>
+              <Col>
+                <h1>{raceInfo.circuitName}</h1>
+                <h3>{raceInfo.circuitCountry}</h3>
+                <h3>{raceInfo.circuitLocality}</h3>
+                <Flag code={eventCountryCode} height="30" />
+              </Col>
+              <Col>
+                <Map
+                  coordinates={[
+                    raceInfo.circuitLatitude,
+                    raceInfo.circuitLongitude,
+                  ]}
+                ></Map>
+              </Col>
+            </Row>
+          </Container>
+          <Container>
+            <Row>
+              <Col>
+                <RaceClassification raceClassification={raceClassification} />
+              </Col>
+            </Row>
+          </Container>
         </Tab>
         <Tab eventKey="podium" title="Podium">
-          <Row>
-            <Col>
-              <RaceClassification raceClassification={raceClassification} />
-            </Col>
-          </Row>
+          <Container style={{ minHeight: "250px" }}></Container>
+          <Container>
+            <Row>
+              <Col>
+                <RaceClassification raceClassification={raceClassification} />
+              </Col>
+            </Row>
+          </Container>
         </Tab>
         <Tab eventKey="qualifying" title="Qualifying">
-          <Row>
-            <Col>
-              <RaceClassification raceClassification={raceClassification} />
-            </Col>
-          </Row>
+          <Container style={{ minHeight: "250px" }}></Container>
+          <Container>
+            <Row>
+              <Col>
+                <RaceQualifying raceQualifying={raceQualifying} />
+              </Col>
+            </Row>
+          </Container>
         </Tab>
       </Tabs>
     </div>
