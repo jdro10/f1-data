@@ -1,5 +1,8 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import { FaStopwatch } from "react-icons/fa";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const RaceClassification = ({ raceClassification }) => {
   return (
@@ -26,7 +29,18 @@ const RaceClassification = ({ raceClassification }) => {
             <td>
               {driver.status === "Finished" ? driver.Time.time : driver.status}
             </td>
-            <td>{driver.points}</td>
+            {driver.FastestLap && driver.FastestLap.rank === "1" ? (
+              <td>
+                <Row>
+                  <Col>{driver.points}</Col>
+                  <Col>
+                    <FaStopwatch />
+                  </Col>
+                </Row>
+              </td>
+            ) : (
+              <td>{driver.points}</td>
+            )}
           </tr>
         ))}
       </tbody>
