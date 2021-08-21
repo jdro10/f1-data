@@ -80,6 +80,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
                     raceInfo.circuitLatitude,
                     raceInfo.circuitLongitude,
                   ]}
+                  circuitName={raceInfo.circuitName}
                 ></Map>
               </Col>
             </Row>

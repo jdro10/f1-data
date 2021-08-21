@@ -2,7 +2,7 @@ import React from "react";
 import "./Map.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-const Map = ({ coordinates }) => {
+const Map = ({ coordinates, circuitName }) => {
   return (
     <MapContainer center={coordinates} zoom={14} scrollWheelZoom={true}>
       <TileLayer
@@ -11,7 +11,7 @@ const Map = ({ coordinates }) => {
       />
       <Marker position={coordinates}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          {circuitName} <br /> {coordinates[0] + " | " + coordinates[1]}
         </Popup>
       </Marker>
     </MapContainer>
