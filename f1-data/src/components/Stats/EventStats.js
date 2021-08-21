@@ -43,7 +43,12 @@ const RaceGeneralStats = ({ season, round }) => {
       );
       const data = await response.json();
 
-      setRaceQualifying(data.MRData.RaceTable.Races[0].QualifyingResults);
+      if(data.MRData.RaceTable.Races[0] === undefined){
+        setRaceClassification(null);
+      } else {
+        setRaceQualifying(data.MRData.RaceTable.Races[0].QualifyingResults);
+      }
+
       setLoadingRaceQualifying(false);
     };
 

@@ -7,7 +7,7 @@ const RaceResult = () => {
   return (
     <div>
       <NavBar />
-      <EventStats season="2021" round="3"/>
+      <EventStats season="1950" round="2"/>
       <Footer />
     </div>
   );
