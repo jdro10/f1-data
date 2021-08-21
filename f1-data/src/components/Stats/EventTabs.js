@@ -8,6 +8,7 @@ import Map from "../Map/Map";
 import Flag from "react-world-flags";
 import RaceClassification from "./RaceClassification";
 import RaceQualifying from "./RaceQualifying";
+import EventPodium from "./EventPodium";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   const [eventCountryCode, setEventCountryCode] = useState(null);
@@ -94,7 +95,9 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           </Container>
         </Tab>
         <Tab eventKey="podium" title="Podium">
-          <Container style={{ minHeight: "250px" }}></Container>
+          <Container style={{ minHeight: "250px" }}>
+            <EventPodium eventClassification={raceClassification} />
+          </Container>
           <Container>
             <Row>
               <Col>
@@ -104,7 +107,9 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           </Container>
         </Tab>
         <Tab eventKey="qualifying" title="Qualifying">
-          <Container style={{ minHeight: "250px" }}></Container>
+          <Container style={{ minHeight: "250px" }}>
+            <EventPodium eventClassification={raceQualifying} />
+          </Container>
           <Container>
             <Row>
               <Col>
