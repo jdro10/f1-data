@@ -30,7 +30,12 @@ const RaceGeneralStats = ({ season, round }) => {
         circuitLatitude: data.MRData.RaceTable.Races[0].Circuit.Location.lat,
         circuitLongitude: data.MRData.RaceTable.Races[0].Circuit.Location.long,
         raceDate: data.MRData.RaceTable.Races[0].date,
-        raceTime: data.MRData.RaceTable.Races[0].time,
+        raceTime: data.MRData.RaceTable.Races[0].hasOwnProperty("time")
+          ? data.MRData.RaceTable.Races[0].time.substring(
+              0,
+              data.MRData.RaceTable.Races[0].time.length - 1
+            )
+          : "N/A",
       });
 
       setRaceClassification(data.MRData.RaceTable.Races[0].Results);
@@ -43,8 +48,8 @@ const RaceGeneralStats = ({ season, round }) => {
       );
       const data = await response.json();
 
-      if(data.MRData.RaceTable.Races[0] === undefined){
-        setRaceClassification(null);
+      if (data.MRData.RaceTable.Races[0] === undefined) {
+        setRaceQualifying(null);
       } else {
         setRaceQualifying(data.MRData.RaceTable.Races[0].QualifyingResults);
       }

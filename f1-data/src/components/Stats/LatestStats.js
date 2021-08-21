@@ -9,6 +9,7 @@ import DriversStandings from "./DriversStandings";
 import ConstructorsStandings from "./ConstructorsStandings";
 import SyncLoader from "react-spinners/SyncLoader";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const LatestStats = () => {
   const [latestRaceResult, setLatestRaceResult] = useState(null);
@@ -61,7 +62,22 @@ const LatestStats = () => {
                   )}
                 </h2>
               }
-              cardFooter={<Button variant="primary">Race result</Button>}
+              cardFooter={
+                loadingLatestRaceResult ? (
+                  ""
+                ) : (
+                  <Link
+                    to={
+                      "/race/" +
+                      latestRaceResult.season +
+                      "/" +
+                      latestRaceResult.round
+                    }
+                  >
+                    <Button variant="primary">Race result</Button>
+                  </Link>
+                )
+              }
               cardHeight="18rem"
             ></GenericCard>
           </Col>

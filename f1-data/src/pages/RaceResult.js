@@ -2,12 +2,16 @@ import React from "react";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import EventStats from "../components/Stats/EventStats";
+import { useParams } from "react-router-dom";
 
 const RaceResult = () => {
+  const { season } = useParams();
+  const { round } = useParams();
+
   return (
     <div>
       <NavBar />
-      <EventStats season="1950" round="2"/>
+      <EventStats season={season} round={round} />
       <Footer />
     </div>
   );

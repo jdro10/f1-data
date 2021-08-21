@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/home" component={HomePage} />
-        <Route path="/raceResult" component={RaceResult} />
+        <Route path="/race/:season/:round" component={RaceResult} />
       </Switch>
     </Router>
   );

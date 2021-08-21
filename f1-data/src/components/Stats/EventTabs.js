@@ -47,14 +47,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             </Row>
             <Row className="justify-content-md-center">
               <Col md="auto">
-                <h3>
-                  {raceInfo.hasOwnProperty("time")
-                    ? raceInfo.raceTime.substring(
-                        0,
-                        raceInfo.raceTime.length - 1
-                      )
-                    : "N/A"}
-                </h3>
+                <h3>{raceInfo.raceTime}</h3>
               </Col>
             </Row>
             <Row className="justify-content-md-center">
