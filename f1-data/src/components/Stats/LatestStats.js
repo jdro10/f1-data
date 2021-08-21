@@ -7,7 +7,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import DriversStandings from "./DriversStandings";
 import ConstructorsStandings from "./ConstructorsStandings";
-import Spinner from "react-bootstrap/Spinner";
+import SyncLoader from "react-spinners/SyncLoader";
 import Button from "react-bootstrap/Button";
 
 const LatestStats = () => {
@@ -53,9 +53,7 @@ const LatestStats = () => {
               cardBody={
                 <h2>
                   {loadingLatestRaceResult ? (
-                    <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                    <SyncLoader color="black" loading="true" size={10} />
                   ) : (
                     latestRaceResult.raceName +
                     " - " +
@@ -73,9 +71,7 @@ const LatestStats = () => {
               cardBody={
                 <h1>
                   {loadingLatestRaceResult ? (
-                    <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                    <SyncLoader color="black" loading="true" size={10} />
                   ) : (
                     latestRaceResult.raceWinnerNumber +
                     " - " +
@@ -94,9 +90,7 @@ const LatestStats = () => {
               cardTitle="Round"
               cardBody={
                 loadingLatestRaceResult ? (
-                  <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </Spinner>
+                  <SyncLoader color="black" loading="true" size={10} />
                 ) : (
                   <div style={{ width: 150, height: 100 }}>
                     <CircularProgressbar

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import EventTabs from "./EventTabs";
+import SyncLoader from "react-spinners/SyncLoader";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const RaceGeneralStats = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -52,7 +55,13 @@ const RaceGeneralStats = ({ season, round }) => {
     <div>
       <Container fluid="md">
         {loadingRaceResult || loadingRaceQualifying ? (
-          <p>loading</p>
+          <Container style={{ marginTop: "2%", minHeight: "700px" }}>
+            <Row className="justify-content-md-center">
+              <Col md="auto">
+                <SyncLoader color="black" loading="true" size={20} />
+              </Col>
+            </Row>
+          </Container>
         ) : (
           <Container>
             <EventTabs

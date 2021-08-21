@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import SyncLoader from "react-spinners/SyncLoader";
 import "./Table.css";
 
 const ConstructorsStandings = () => {
@@ -31,9 +31,7 @@ const ConstructorsStandings = () => {
       {loadingConstructorsStandings ? (
         <Container>
           <Row className="justify-content-md-center">
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
+          <SyncLoader color="black" loading="true" size={10} />
           </Row>
         </Container>
       ) : (
