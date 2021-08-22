@@ -58,7 +58,7 @@ const RaceInfo = ({ race }) => {
         </Col>
 
         <Col md="auto">
-          <h3>{race.time.substring(0, race.time.length - 1)}</h3>
+          <h3>{race.hasOwnProperty("time") ? race.time.substring(0, race.time.length - 1) : "N/A"}</h3>
         </Col>
 
         <Col md="auto">

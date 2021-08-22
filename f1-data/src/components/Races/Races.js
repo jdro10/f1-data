@@ -5,10 +5,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RaceInfo from "./RaceInfo";
 import SyncLoader from "react-spinners/SyncLoader";
+import Dropdown from "react-bootstrap/Dropdown";
+import "./Races.css";
 
 const Races = () => {
+  const FIRST_SEASON = 1950;
   const [season, setSeason] = useState("2021");
   const [seasonSchedule, setSeasonSchedule] = useState(null);
+  const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [loadingSeasonSchedule, setLoadingSchedule] = useState(true);
 
   useEffect(() => {
@@ -20,8 +24,21 @@ const Races = () => {
       setLoadingSchedule(false);
     };
 
+    function fillArrayBetweenTwoNumbers(start, end) {
+      setSeasonsYearsList(
+        Array(end - start + 1)
+          .fill()
+          .map((_, i) => start + i)
+      );
+    }
+
     fetchSeasonSchedule();
+    fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
   }, [season]);
+
+  const seasonYearChange = (text) => {
+    setSeason(text);
+  };
 
   return (
     <div>
@@ -36,9 +53,26 @@ const Races = () => {
           </Container>
         ) : (
           <div>
-            <Row className="justify-content-md-center">
-              <Col md="auto">
+            <Row>
+              <Col xs={11}>
                 <h1>Formula One - {season} season</h1>
+              </Col>
+              <Col>
+                <Dropdown>
+                  <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                    {season}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="dropdown-menu">
+                    {seasonsYearsList.map((season, index) => (
+                      <Dropdown.Item
+                        key={index}
+                        onClick={(e) => seasonYearChange(e.target.textContent)}
+                      >
+                        {season}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
               </Col>
             </Row>
             <Accordion flush>
