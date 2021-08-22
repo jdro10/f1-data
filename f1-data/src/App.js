@@ -10,9 +10,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home" component={HomePage} />
-        <Route path="/race/:season/:round" component={RaceResult} />
-        <Route path="/schedule" component={SeasonSchedule} />
+        <Route path="/" exact={true} component={HomePage} />
+        <Route path="/race/:season/:round" exact={true} component={RaceResult} />
+        <Route path="/schedule" exact={true} component={SeasonSchedule} />
       </Switch>
     </Router>
   );

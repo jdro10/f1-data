@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import GenericCard from "../Cards/GenericCard";
+import GenericCard from "../../Cards/GenericCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import DriversStandings from "./DriversStandings";
-import ConstructorsStandings from "./ConstructorsStandings";
+import DriversStandings from "../Standings/DriversStandings";
+import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import SyncLoader from "react-spinners/SyncLoader";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";

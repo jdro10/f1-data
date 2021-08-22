@@ -4,11 +4,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import Map from "../Map/Map";
+import Map from "../../Map/Map";
 import Flag from "react-world-flags";
-import RaceClassification from "./RaceClassification";
-import RaceQualifying from "./RaceQualifying";
-import EventPodium from "./EventPodium";
+import RaceClassification from "../Classifications/RaceClassification";
+import RaceQualifying from "../Classifications/RaceQualifying";
+import EventPodium from "../EventData/EventPodium";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   const [eventCountryCode, setEventCountryCode] = useState(null);
