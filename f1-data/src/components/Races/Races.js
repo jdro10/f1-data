@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import RaceInfo from "./RaceInfo";
+import SyncLoader from "react-spinners/SyncLoader";
 
-const Schedule = () => {
+const Races = () => {
   const [season, setSeason] = useState("2021");
   const [seasonSchedule, setSeasonSchedule] = useState(null);
   const [loadingSeasonSchedule, setLoadingSchedule] = useState(true);
@@ -23,10 +27,20 @@ const Schedule = () => {
     <div>
       <Container>
         {loadingSeasonSchedule ? (
-          <p>loading</p>
+          <Container style={{ marginTop: "2%", minHeight: "700px" }}>
+            <Row className="justify-content-md-center">
+              <Col md="auto">
+                <SyncLoader color="black" loading="true" size={20} />
+              </Col>
+            </Row>
+          </Container>
         ) : (
           <div>
-            <h1>Formula 1 - {season} season</h1>
+            <Row className="justify-content-md-center">
+              <Col md="auto">
+                <h1>Formula One - {season} season</h1>
+              </Col>
+            </Row>
             <Accordion flush>
               {seasonSchedule.map((race, index) => (
                 <Accordion.Item eventKey={index} index={index}>
@@ -34,7 +48,7 @@ const Schedule = () => {
                     #{race.round + " " + race.raceName}
                   </Accordion.Header>
                   <Accordion.Body>
-                    <h1>Race</h1>
+                    <RaceInfo race={race} />
                   </Accordion.Body>
                 </Accordion.Item>
               ))}
@@ -46,4 +60,4 @@ const Schedule = () => {
   );
 };
 
-export default Schedule;
+export default Races;

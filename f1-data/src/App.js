@@ -4,7 +4,7 @@ import { Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import RaceResult from "./pages/RaceResult";
-import SeasonSchedule from "./pages/SeasonSchedule";
+import SeasonRaces from "./pages/SeasonRaces";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
         <Route path="/race/:season/:round" exact={true} component={RaceResult} />
-        <Route path="/schedule" exact={true} component={SeasonSchedule} />
+        <Route path="/schedule" exact={true} component={SeasonRaces} />
       </Switch>
     </Router>
   );
