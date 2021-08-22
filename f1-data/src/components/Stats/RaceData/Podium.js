@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const EventPodium = ({ eventClassification }) => {
+const Podium = ({ eventClassification }) => {
   return (
     <div>
       {eventClassification === null ? (
@@ -150,4 +150,4 @@ const EventPodium = ({ eventClassification }) => {
   );
 };
 
-export default EventPodium;
+export default Podium;

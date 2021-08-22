@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import EventStats from "../components/Stats/EventData/EventStats";
+import Race from "../components/Stats/RaceData/Race";
 import { useParams } from "react-router-dom";
 
 const RaceResult = () => {
@@ -11,7 +11,7 @@ const RaceResult = () => {
   return (
     <div>
       <NavBar />
-      <EventStats season={season} round={round} />
+      <Race season={season} round={round} />
       <Footer />
     </div>
   );

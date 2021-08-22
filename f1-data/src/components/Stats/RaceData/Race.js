@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import EventTabs from "./EventTabs";
+import Tabs from "./Tabs";
 import SyncLoader from "react-spinners/SyncLoader";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const RaceGeneralStats = ({ season, round }) => {
+const Race = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
   const [raceClassification, setRaceClassification] = useState(null);
   const [raceQualifying, setRaceQualifying] = useState(null);
@@ -74,7 +74,7 @@ const RaceGeneralStats = ({ season, round }) => {
           </Container>
         ) : (
           <Container>
-            <EventTabs
+            <Tabs
               raceInfo={raceInfo}
               raceClassification={raceClassification}
               raceQualifying={raceQualifying}
@@ -86,4 +86,4 @@ const RaceGeneralStats = ({ season, round }) => {
   );
 };
 
-export default RaceGeneralStats;
+export default Race;
