@@ -51,6 +51,7 @@ const LatestStats = () => {
       const data = await response.json();
 
       setNextRaceData({
+        season: data.MRData.RaceTable.season,
         round: data.MRData.RaceTable.Races[parseInt(round)].round,
         raceName: data.MRData.RaceTable.Races[parseInt(round)].raceName,
         circuitCountryCode: await fetchCountryCode(
@@ -87,12 +88,21 @@ const LatestStats = () => {
   return (
     <div>
       <Container>
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            {" "}
+            <h1 style={{ marginBottom: "3%" }}>
+              {loadingNextRaceData ? "" : nextRaceData.season} Formula One
+              season{" "}
+            </h1>
+          </Col>
+        </Row>
         <Row>
           <Col>
             <GenericCard
               cardTitle={
                 loadingLatestRaceResult
-                  ? ""
+                  ? "Latest race - "
                   : "Latest race - " + latestRaceResult.date
               }
               cardBody={
@@ -134,7 +144,7 @@ const LatestStats = () => {
           <Col>
             <GenericCard
               cardTitle={
-                loadingNextRaceData ? "" : "Next race - " + nextRaceData.date
+                loadingNextRaceData ? "Next race - " : "Next race - " + nextRaceData.date
               }
               cardBody={
                 loadingNextRaceData ? (
@@ -168,12 +178,16 @@ const LatestStats = () => {
                   <SyncLoader color="black" loading="true" size={10} />
                 ) : (
                   <div style={{ width: 150, height: 100 }}>
-                    <CircularProgressbar
-                      value={
-                        (latestRaceResult.round * 100) / totalNumberOfRaces
-                      }
-                      text={latestRaceResult.round + "/" + totalNumberOfRaces}
-                    />
+                    {loadingNextRaceData ? (
+                      ""
+                    ) : (
+                      <CircularProgressbar
+                        value={
+                          (latestRaceResult.round * 100) / totalNumberOfRaces
+                        }
+                        text={latestRaceResult.round + "/" + totalNumberOfRaces}
+                      />
+                    )}
                   </div>
                 )
               }
