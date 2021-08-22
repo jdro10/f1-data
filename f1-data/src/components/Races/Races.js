@@ -52,7 +52,7 @@ const Races = () => {
             </Row>
           </Container>
         ) : (
-          <div>
+          <div style={{ marginTop: "2%", minHeight: "700px" }}>
             <Row>
               <Col xs={11}>
                 <h1>Formula One - {season} season</h1>
