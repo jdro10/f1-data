@@ -11,6 +11,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Flag from "react-world-flags";
+import Countdown from "react-countdown";
 
 const LatestStats = () => {
   const [nextRaceData, setNextRaceData] = useState(null);
@@ -176,7 +177,23 @@ const LatestStats = () => {
                   </div>
                 )
               }
-              cardFooter={<h5>Next round: Belgian Grand Prix - 00:23:54</h5>}
+              cardFooter={
+                loadingNextRaceData ? (
+                  ""
+                ) : (
+                  <h4>
+                    Next race:{" "}
+                    <Countdown
+                      date={
+                        Date.now() +
+                        (new Date(nextRaceData.date).getTime() +
+                          nextRaceData.time.split(":")[0] * 3600000 -
+                          new Date().getTime())
+                      }
+                    />
+                  </h4>
+                )
+              }
               cardHeight="18rem"
             ></GenericCard>
           </Col>
