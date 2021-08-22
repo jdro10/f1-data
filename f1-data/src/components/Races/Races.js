@@ -43,7 +43,7 @@ const Races = () => {
             </Row>
             <Accordion flush>
               {seasonSchedule.map((race, index) => (
-                <Accordion.Item eventKey={index} index={index}>
+                <Accordion.Item eventKey={index} key={index}>
                   <Accordion.Header>
                     #{race.round + " " + race.raceName}
                   </Accordion.Header>
