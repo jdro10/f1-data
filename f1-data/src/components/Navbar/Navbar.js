@@ -2,13 +2,18 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import "./Navbar.css";
+import {Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
     <Navbar className="navbar" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>F1 Data</Navbar.Brand>
-        <Navbar.Toggle />
+        <Link to="/"><Navbar.Brand>Home</Navbar.Brand></Link>
+        <Link to="/schedule"><Navbar.Brand>Races</Navbar.Brand></Link>
+        <Link to="/schedule"><Navbar.Brand>Drivers</Navbar.Brand></Link>
+        <Link to="/schedule"><Navbar.Brand>Teams</Navbar.Brand></Link>
+        <Link to="/schedule"><Navbar.Brand>Standings</Navbar.Brand></Link>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Brand href="https://github.com/jdro10">
             <svg
