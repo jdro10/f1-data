@@ -59,7 +59,6 @@ const DriversStandings = () => {
                     width="25"
                   />
                 </td>
-                <td>{driver.Driver.nationality}</td>
                 <td>{driver.Driver.permanentNumber}</td>
                 <td>
                   {driver.Driver.givenName + " " + driver.Driver.familyName}
