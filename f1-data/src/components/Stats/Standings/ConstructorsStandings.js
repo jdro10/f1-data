@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SyncLoader from "react-spinners/SyncLoader";
 import "./Table.css";
+import Flag from "react-world-flags";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const ConstructorsStandings = () => {
   const [constructorsStandings, setConstructorsStandings] = useState(null);
@@ -49,7 +51,12 @@ const ConstructorsStandings = () => {
             {constructorsStandings.map((constructor, index) => (
               <tr key={index}>
                 <td>{constructor.position}</td>
-                <td>{constructor.Constructor.nationality}</td>
+                <td>
+                  <Flag
+                    code={CountriesCodeNationality[constructor.Constructor.nationality]}
+                    height="15" width="25"
+                  />
+                </td>
                 <td>{constructor.Constructor.name}</td>
                 <td>{constructor.wins}</td>
                 <td>{constructor.points}</td>

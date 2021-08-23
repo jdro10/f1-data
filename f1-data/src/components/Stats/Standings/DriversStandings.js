@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SyncLoader from "react-spinners/SyncLoader";
 import "./Table.css";
+import Flag from "react-world-flags";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const DriversStandings = () => {
   const [driversStandings, setDriversStandings] = useState(null);
@@ -23,21 +25,23 @@ const DriversStandings = () => {
     };
 
     fetchDriversStandings();
+    console.log();
   }, []);
 
   return (
     <div className="table">
       {loadingDriversStandings ? (
         <Container>
-        <Row className="justify-content-md-center">
-        <SyncLoader color="black" loading="true" size={10} />
-        </Row>
-      </Container>
+          <Row className="justify-content-md-center">
+            <SyncLoader color="black" loading="true" size={10} />
+          </Row>
+        </Container>
       ) : (
         <Table responsive="sm">
           <thead>
             <tr>
               <th>Position</th>
+              <th>Nationality</th>
               <th>Number</th>
               <th>Name</th>
               <th>Wins</th>
@@ -48,6 +52,14 @@ const DriversStandings = () => {
             {driversStandings.map((driver, index) => (
               <tr key={index}>
                 <td>{driver.position}</td>
+                <td>
+                  <Flag
+                    code={CountriesCodeNationality[driver.Driver.nationality]}
+                    height="15"
+                    width="25"
+                  />
+                </td>
+                <td>{driver.Driver.nationality}</td>
                 <td>{driver.Driver.permanentNumber}</td>
                 <td>
                   {driver.Driver.givenName + " " + driver.Driver.familyName}

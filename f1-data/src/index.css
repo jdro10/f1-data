@@ -5,4 +5,5 @@ body {
   font-family: 'Titillium Web', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F8F8 !important;
 }
