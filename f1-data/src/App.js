@@ -19,6 +19,7 @@ function App() {
         />
         <Route path="/schedule" exact={true} component={SeasonRaces} />
         <Route path="/error" exact={true} component={ErrorPage} />
+        <Route component={ErrorPage}/>
       </Switch>
     </Router>
   );
