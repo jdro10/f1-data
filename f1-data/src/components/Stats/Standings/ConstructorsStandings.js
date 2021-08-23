@@ -38,7 +38,6 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
           ))}
         </tbody>
       </Table>
-      )}
     </div>
   );
 };
