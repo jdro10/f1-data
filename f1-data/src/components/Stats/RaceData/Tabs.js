@@ -40,16 +40,21 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab eventKey="race" title="Race">
-          <Container style={{ minHeight: "250px" }}>
-            <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
-          </Container>
-          {raceClassification != null ? (
-            <Container>
-              <RaceClassification raceClassification={raceClassification} />
+          <Container>
+            <Container style={{ minHeight: "250px" }}>
+              <RaceTab
+                raceInfo={raceInfo}
+                eventCountryCode={eventCountryCode}
+              />
             </Container>
-          ) : (
-            ""
-          )}
+            {raceClassification != null ? (
+              <Container>
+                <RaceClassification raceClassification={raceClassification} />
+              </Container>
+            ) : (
+              ""
+            )}
+          </Container>
         </Tab>
         <Tab eventKey="circuit" title="Circuit">
           <Container>
