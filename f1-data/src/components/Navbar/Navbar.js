@@ -22,7 +22,7 @@ const NavBar = () => {
         <Link to="/schedule">
           <Navbar.Brand>Teams</Navbar.Brand>
         </Link>
-        <Link to="/schedule">
+        <Link to="/standings">
           <Navbar.Brand>Standings</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">

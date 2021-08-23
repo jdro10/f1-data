@@ -14,11 +14,16 @@ import PreviousRaceWinner from "./PreviousRaceWinner";
 
 const MainFeed = () => {
   const [nextRaceData, setNextRaceData] = useState(null);
+  const [driversStandings, setDriversStandings] = useState(null);
   const [previousRaceResult, setPreviousRaceResult] = useState(null);
   const [totalNumberOfRaces, setTotalNumberOfRaces] = useState(null);
+  const [constructorsStandings, setConstructorsStandings] = useState(null);
   const [loadingNextRaceData, setLoadingNextRaceData] = useState(true);
   const [loadingPreviousRaceResult, setLoadingPreviousRaceResult] =
     useState(true);
+  const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
+    useState(true);
+  const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
 
   useEffect(() => {
     const fetchPreviousRaceResult = async () => {
@@ -83,7 +88,33 @@ const MainFeed = () => {
       setLoadingNextRaceData(false);
     };
 
+    const fetchConstructorsStandings = async () => {
+      const response = await fetch(
+        `http://ergast.com/api/f1/current/constructorStandings.json`
+      );
+      const data = await response.json();
+
+      setConstructorsStandings(
+        data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+      );
+      setLoadingConstructorsStandings(false);
+    };
+
+    const fetchDriversStandings = async () => {
+      const response = await fetch(
+        `http://ergast.com/api/f1/current/driverStandings.json`
+      );
+      const data = await response.json();
+
+      setDriversStandings(
+        data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+      );
+      setLoadingDriversStandings(false);
+    };
+
     fetchPreviousRaceResult();
+    fetchConstructorsStandings();
+    fetchDriversStandings();
   }, []);
 
   const fetchCountryCode = async (circuitCountry) => {
@@ -151,10 +182,48 @@ const MainFeed = () => {
       <br />
       <Row>
         <Col>
-          <StandingsCard standings={<DriversStandings />} />
+          <StandingsCard
+            standings={
+              loadingDriversStandings ? (
+                <Container>
+                  <Row className="justify-content-md-center">
+                    <SyncLoader color="black" loading="true" size={10} />
+                  </Row>
+                </Container>
+              ) : (
+                <DriversStandings
+                  style={{
+                    overflow: "hidden",
+                    overflowY: "scroll",
+                    height: "275px",
+                  }}
+                  driversStandings={driversStandings}
+                />
+              )
+            }
+          />
         </Col>
         <Col>
-          <StandingsCard standings={<ConstructorsStandings />} />
+          <StandingsCard
+            standings={
+              loadingConstructorsStandings ? (
+                <Container>
+                  <Row className="justify-content-md-center">
+                    <SyncLoader color="black" loading="true" size={10} />
+                  </Row>
+                </Container>
+              ) : (
+                <ConstructorsStandings
+                  style={{
+                    overflow: "hidden",
+                    overflowY: "scroll",
+                    height: "275px",
+                  }}
+                  constructorsStandings={constructorsStandings}
+                />
+              )
+            }
+          />
         </Col>
       </Row>
     </Container>

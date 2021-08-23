@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import RaceResult from "./pages/RaceResult";
 import SeasonRaces from "./pages/SeasonRaces";
 import ErrorPage from "./pages/ErrorPage";
+import StandingsPage from "./pages/StandingsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         />
         <Route path="/schedule" exact={true} component={SeasonRaces} />
         <Route path="/error" exact={true} component={ErrorPage} />
+        <Route path="/standings" exact={true} component={StandingsPage} />
         <Route component={ErrorPage}/>
       </Switch>
     </Router>
