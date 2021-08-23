@@ -15,7 +15,7 @@ const NextRaceCard = ({ nextRaceData }) => {
         </div>
       }
       cardFooter={
-        <Link to={"/home"}>
+        <Link to={"/race/" + nextRaceData.season + "/" + nextRaceData.round}>
           <Button variant="primary">Race information</Button>
         </Link>
       }

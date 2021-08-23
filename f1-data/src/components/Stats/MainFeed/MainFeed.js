@@ -32,16 +32,16 @@ const MainFeed = () => {
         round: data.MRData.RaceTable.round,
         raceName: data.MRData.RaceTable.Races[0].raceName,
         date: data.MRData.RaceTable.Races[0].date,
+        time: data.MRData.RaceTable.Races[0].time.substring(
+          0,
+          data.MRData.RaceTable.Races[0].time.length - 1
+        ),
         circuitCountryCode: await fetchCountryCode(
           data.MRData.RaceTable.Races[0].Circuit.Location.country
         ),
         circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
-        raceWinnerNumber: data.MRData.RaceTable.Races[0].Results[0].number,
-        raceWinnerGivenName:
-          data.MRData.RaceTable.Races[0].Results[0].Driver.givenName,
-        raceWinnerFamilyName:
-          data.MRData.RaceTable.Races[0].Results[0].Driver.familyName,
       });
+
       setLoadingPreviousRaceResult(false);
       fetchNextRaceData(data.MRData.RaceTable.round);
     };

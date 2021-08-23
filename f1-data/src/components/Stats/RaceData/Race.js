@@ -4,6 +4,7 @@ import Tabs from "./Tabs";
 import SyncLoader from "react-spinners/SyncLoader";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import RaceCountdown from "./RaceCountdown";
 
 const Race = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -19,26 +20,32 @@ const Race = ({ season, round }) => {
       );
       const data = await response.json();
 
-      setRaceInfo({
-        season: data.MRData.RaceTable.season,
-        round: data.MRData.RaceTable.round,
-        raceName: data.MRData.RaceTable.Races[0].raceName,
-        circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
-        circuitCountry: data.MRData.RaceTable.Races[0].Circuit.Location.country,
-        circuitLocality:
-          data.MRData.RaceTable.Races[0].Circuit.Location.locality,
-        circuitLatitude: data.MRData.RaceTable.Races[0].Circuit.Location.lat,
-        circuitLongitude: data.MRData.RaceTable.Races[0].Circuit.Location.long,
-        raceDate: data.MRData.RaceTable.Races[0].date,
-        raceTime: data.MRData.RaceTable.Races[0].hasOwnProperty("time")
-          ? data.MRData.RaceTable.Races[0].time.substring(
-              0,
-              data.MRData.RaceTable.Races[0].time.length - 1
-            )
-          : "N/A",
-      });
+      if (data.MRData.RaceTable.Races[0] === undefined) {
+        setRaceClassification(null);
+      } else {
+        setRaceInfo({
+          season: data.MRData.RaceTable.season,
+          round: data.MRData.RaceTable.round,
+          raceName: data.MRData.RaceTable.Races[0].raceName,
+          circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
+          circuitCountry:
+            data.MRData.RaceTable.Races[0].Circuit.Location.country,
+          circuitLocality:
+            data.MRData.RaceTable.Races[0].Circuit.Location.locality,
+          circuitLatitude: data.MRData.RaceTable.Races[0].Circuit.Location.lat,
+          circuitLongitude:
+            data.MRData.RaceTable.Races[0].Circuit.Location.long,
+          raceDate: data.MRData.RaceTable.Races[0].date,
+          raceTime: data.MRData.RaceTable.Races[0].hasOwnProperty("time")
+            ? data.MRData.RaceTable.Races[0].time.substring(
+                0,
+                data.MRData.RaceTable.Races[0].time.length - 1
+              )
+            : "N/A",
+        });
+        setRaceClassification(data.MRData.RaceTable.Races[0].Results);
+      }
 
-      setRaceClassification(data.MRData.RaceTable.Races[0].Results);
       setLoadingRaceResult(false);
     };
 
@@ -72,6 +79,8 @@ const Race = ({ season, round }) => {
               </Col>
             </Row>
           </Container>
+        ) : raceClassification == null ? (
+          <RaceCountdown season={season} round={round} />
         ) : (
           <Container>
             <Tabs
