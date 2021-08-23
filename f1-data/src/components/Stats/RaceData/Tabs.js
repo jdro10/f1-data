@@ -15,12 +15,18 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
 
   useEffect(() => {
     const fetchCountryCode = async () => {
-      const response = await fetch(
+      await fetch(
         `https://restcountries.eu/rest/v2/name/${raceInfo.circuitCountry}?fullText=true`
-      );
-      const data = await response.json();
-
-      setEventCountryCode(data[0].alpha3Code);
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          setEventCountryCode(data[0].alpha3Code);
+        })
+        .catch((error) => setEventCountryCode(null));
     };
 
     fetchCountryCode();
