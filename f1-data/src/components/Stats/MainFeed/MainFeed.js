@@ -8,9 +8,9 @@ import DriversStandings from "../Standings/DriversStandings";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "../MainFeed/NextRaceCards";
-import GeneralInfoCard from "../MainFeed/GeneralInfoCard";
 import StandingsCard from "./StandingsCard";
 import SyncLoader from "react-spinners/SyncLoader";
+import PreviousRaceWinner from "./PreviousRaceWinner";
 
 const MainFeed = () => {
   const [nextRaceData, setNextRaceData] = useState(null);
@@ -40,6 +40,17 @@ const MainFeed = () => {
           data.MRData.RaceTable.Races[0].Circuit.Location.country
         ),
         circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
+        raceWinnerName:
+          data.MRData.RaceTable.Races[0].Results[0].Driver.givenName +
+          " " +
+          data.MRData.RaceTable.Races[0].Results[0].Driver.familyName,
+        raceWinnerNumber:
+          data.MRData.RaceTable.Races[0].Results[0].Driver.permanentNumber,
+        raceWinnerNationality:
+          data.MRData.RaceTable.Races[0].Results[0].Driver.nationality,
+        raceWinnerConstructorName:
+          data.MRData.RaceTable.Races[0].Results[0].Constructor.name,
+        raceWinnerTime: data.MRData.RaceTable.Races[0].Results[0].Time.time,
       });
 
       setLoadingPreviousRaceResult(false);
@@ -96,42 +107,43 @@ const MainFeed = () => {
       </Row>
       <Row>
         <Col>
-          {loadingPreviousRaceResult ? (
-            <GenericCard
-              cardTitle="Previous race"
-              cardBody={<SyncLoader color="black" loading="true" size={10} />}
-              cardFooter={<SyncLoader color="black" loading="true" size={10} />}
-              cardHeight="18rem"
-            />
-          ) : (
-            <PreviousRaceCard previousRaceData={previousRaceResult} />
-          )}
-        </Col>
-        <Col>
           {loadingNextRaceData ? (
             <GenericCard
               cardTitle="Next Race"
               cardBody={<SyncLoader color="black" loading="true" size={10} />}
               cardFooter={<SyncLoader color="black" loading="true" size={10} />}
-              cardHeight="18rem"
+              cardHeight="24rem"
             />
           ) : (
             <NextRaceCard nextRaceData={nextRaceData} />
           )}
         </Col>
         <Col>
+          {loadingPreviousRaceResult ? (
+            <GenericCard
+              cardTitle="Previous race"
+              cardBody={<SyncLoader color="black" loading="true" size={10} />}
+              cardFooter={<SyncLoader color="black" loading="true" size={10} />}
+              cardHeight="24rem"
+            />
+          ) : (
+            <PreviousRaceCard previousRaceData={previousRaceResult} />
+          )}
+        </Col>
+
+        <Col>
           {!loadingPreviousRaceResult && !loadingNextRaceData ? (
-            <GeneralInfoCard
+            <PreviousRaceWinner
               previousRaceData={previousRaceResult}
-              nextRaceData={nextRaceData}
               totalNumberOfRaces={totalNumberOfRaces}
             />
           ) : (
             <GenericCard
-              cardTitle="Round"
+              cardTitle="Previous race winner"
               cardBody={<SyncLoader color="black" loading="true" size={10} />}
               cardFooter={<SyncLoader color="black" loading="true" size={10} />}
-              cardHeight="18rem"
+              cardHeight="24rem"
+              variant={"primary"}
             />
           )}
         </Col>

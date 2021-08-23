@@ -2,11 +2,22 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 
-const GenericCard = ({ cardTitle, cardBody, cardFooter, cardHeight }) => {
+const GenericCard = ({
+  cardTitle,
+  cardBody,
+  cardFooter,
+  cardHeight,
+  variant,
+}) => {
   return (
-    <Card style={{ height: cardHeight }} className="text-center">
+    <Card
+      style={{ height: cardHeight }}
+      className="text-center"
+      bg={variant}
+      text={variant === "light" ? "dark" : "white"}
+    >
+      <Card.Header>{cardTitle}</Card.Header>
       <Card.Body>
-        <Card.Title>{cardTitle}</Card.Title>
         <Card.Body>
           <Row className="justify-content-md-center">{cardBody}</Row>
         </Card.Body>

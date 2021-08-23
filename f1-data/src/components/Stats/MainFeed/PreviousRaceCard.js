@@ -10,6 +10,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
       cardTitle={"Previous race - " + previousRaceData.date}
       cardBody={
         <div>
+          <h4>Round {previousRaceData.round}</h4>
           <h2>
             {previousRaceData.raceName + " - " + previousRaceData.circuitName}
           </h2>
@@ -23,7 +24,8 @@ const PreviousRaceCard = ({ previousRaceData }) => {
           <Button variant="primary">Race result</Button>
         </Link>
       }
-      cardHeight="18rem"
+      cardHeight="24rem"
+      variant={"light"}
     ></GenericCard>
   );
 };

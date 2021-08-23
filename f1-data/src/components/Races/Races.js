@@ -75,7 +75,7 @@ const Races = () => {
                 </Dropdown>
               </Col>
             </Row>
-            <Accordion flush>
+            <Accordion>
               {seasonSchedule.map((race, index) => (
                 <Accordion.Item eventKey={index} key={index}>
                   <Accordion.Header>

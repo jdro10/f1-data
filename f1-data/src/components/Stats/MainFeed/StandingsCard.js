@@ -7,6 +7,7 @@ const StandingsCard = ({ standings }) => {
       cardTitle="Drivers' standings"
       cardBody={standings}
       cardHeight="27rem"
+      variant={"light"}
     ></GenericCard>
   );
 };
