@@ -7,9 +7,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SyncLoader from "react-spinners/SyncLoader";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const StandingsPage = () => {
+  const FIRST_SEASON = 1958;
   const [season, setSeason] = useState("2021");
+  const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
   const [constructorsStandings, setConstructorsStandings] = useState(null);
   const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
@@ -41,18 +44,50 @@ const StandingsPage = () => {
       setLoadingDriversStandings(false);
     };
 
+    function fillArrayBetweenTwoNumbers(start, end) {
+      setSeasonsYearsList(
+        Array(end - start + 1)
+          .fill()
+          .map((_, i) => start + i)
+      );
+    }
+
     fetchConstructorsStandings();
     fetchDriversStandings();
+    fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
   }, [season]);
+
+  const seasonYearChange = (text) => {
+    setSeason(text);
+  };
 
   return (
     <div>
       <NavBar />
-      {!loadingDriversStandings && !loadingDriversStandings ? (
+      {!loadingConstructorsStandings && !loadingDriversStandings ? (
         <Container style={{ minHeight: "700px" }}>
-          <Row className="justify-content-md-center">
-            <Col md="auto">
-              <h1>2021 Formula One season</h1>
+          <Row>
+            <Col xs={11}>
+              <h1>{season} Formula One season</h1>
+            </Col>
+            <Col>
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                  {season}
+                </Dropdown.Toggle>
+                <Dropdown.Menu
+                  style={{ maxHeight: "500px", overflowY: "scroll" }}
+                >
+                  {seasonsYearsList.map((season, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      onClick={(e) => seasonYearChange(e.target.textContent)}
+                    >
+                      {season}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
             </Col>
           </Row>
           <Row className="justify-content-md-center">
@@ -77,7 +112,7 @@ const StandingsPage = () => {
           </Row>
         </Container>
       ) : (
-        <Container style={{minHeight: "700px"}}>
+        <Container style={{ minHeight: "700px" }}>
           <Row className="justify-content-md-center">
             <Col md="auto">
               <SyncLoader color="black" loading="true" size={10} />
