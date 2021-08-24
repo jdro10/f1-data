@@ -18,6 +18,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
           <Map
             coordinates={[raceInfo.circuitLatitude, raceInfo.circuitLongitude]}
             circuitName={raceInfo.circuitName}
+            mapHeight={{height: "600px"}}
           ></Map>
         </Col>
       </Row>
