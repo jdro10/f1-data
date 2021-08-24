@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <Navbar className="navbar" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>F1 Data</Navbar.Brand>
+        <Navbar.Brand>RData</Navbar.Brand>
         <Link to="/">
           <Navbar.Brand>Home</Navbar.Brand>
         </Link>
