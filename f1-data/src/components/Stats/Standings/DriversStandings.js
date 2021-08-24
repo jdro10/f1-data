@@ -9,10 +9,11 @@ const DriversStandings = ({ style, driversStandings }) => {
       <Table responsive="sm">
         <thead>
           <tr>
-            <th>Position</th>
-            <th>Nationality</th>
-            <th>Number</th>
+            <th>Pos</th>
+            <th>Country</th>
+            <th>No</th>
             <th>Name</th>
+            <th>Team</th>
             <th>Wins</th>
             <th>Points</th>
           </tr>
@@ -32,6 +33,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td>
                 {driver.Driver.givenName + " " + driver.Driver.familyName}
               </td>
+              <td>{driver.Constructors[0].name}</td>
               <td>{driver.wins}</td>
               <td>{driver.points}</td>
             </tr>
