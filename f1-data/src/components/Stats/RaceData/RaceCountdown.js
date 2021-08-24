@@ -22,6 +22,7 @@ const RaceCountdown = ({ season, round }) => {
           season: data.MRData.RaceTable.season,
           round: data.MRData.RaceTable.round,
           raceName: data.MRData.RaceTable.Races[parseInt(round) - 1].raceName,
+          circuitId: data.MRData.RaceTable.Races[parseInt(round) - 1].Circuit.circuitId,
           circuitName:
             data.MRData.RaceTable.Races[parseInt(round) - 1].Circuit
               .circuitName,

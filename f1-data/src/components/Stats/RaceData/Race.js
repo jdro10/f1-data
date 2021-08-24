@@ -27,6 +27,7 @@ const Race = ({ season, round }) => {
           season: data.MRData.RaceTable.season,
           round: data.MRData.RaceTable.round,
           raceName: data.MRData.RaceTable.Races[0].raceName,
+          circuitId: data.MRData.RaceTable.Races[0].Circuit.circuitId,
           circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
           circuitCountry:
             data.MRData.RaceTable.Races[0].Circuit.Location.country,
