@@ -52,33 +52,50 @@ const Footer = () => {
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Col md="auto">
-            All racing data was obtained through{" "}
+          <Col md="auto" style={{ textAlign: "center" }}>
+            <h5>API</h5>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col md="auto" style={{ textAlign: "center" }}>
+            All racing data is obtained through{" "}
             <a href="http://ergast.com/mrd/">Ergast API</a>.
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Col md="auto">
-            Countries data was obtained through{" "}
+          <Col md="auto" style={{ textAlign: "center" }}>
+            Countries data is obtained through{" "}
             <a href="https://restcountries.eu/">REST Countries API</a>.
           </Col>
         </Row>
         <br />
         <Row className="justify-content-md-center">
-          <Col md="auto">
+          <Col md="auto" style={{ textAlign: "center" }}>
             <h5>Disclaimer</h5>
           </Col>
         </Row>
         <Row className="justify-content-md-center">
-          <Col md="auto">
+          <Col md="auto" style={{ textAlign: "center" }}>
             This website was developed for learning and educational purposes
             only.
           </Col>
         </Row>
-        <br/>
+        <Row className="justify-content-md-center">
+          <Col md="auto" style={{ textAlign: "center" }}>
+            Data displayed may be inaccurate. By using this website you
+            acknowledge this.
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col md="auto" style={{ textAlign: "center" }}>
+            The author disclaims all responsibility for any loss or damage
+            arising from the use of this website.
+          </Col>
+        </Row>
+        <br />
         <Row className="justify-content-md-center">
           <Col md={7}>
-            <p>
+            <p style={{ textAlign: "center" }}>
               This website is unofficial and is not associated in any way with
               the Formula 1 companies. F1, FORMULA ONE, FORMULA 1, FIA FORMULA
               ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trade
