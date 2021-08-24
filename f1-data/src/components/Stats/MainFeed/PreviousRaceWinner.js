@@ -10,23 +10,38 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
       cardBody={
         <div>
           <h3>
-            {previousRaceData.raceWinnerNumber +
+            {previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
+              .permanentNumber +
               " - " +
-              previousRaceData.raceWinnerName}
+              previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
+                .givenName}
           </h3>
 
-          <h4>{previousRaceData.raceWinnerConstructorName}</h4>
-          <h4>{previousRaceData.raceWinnerTime}</h4>
+          <h4>
+            {
+              previousRaceData.MRData.RaceTable.Races[0].Results[0].Constructor
+                .name
+            }
+          </h4>
+          <h4>
+            {previousRaceData.MRData.RaceTable.Races[0].Results[0].Time.time}
+          </h4>
           <Flag
             code={
-              CountriesCodeNationality[previousRaceData.raceWinnerNationality]
+              CountriesCodeNationality[
+                previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
+                  .nationality
+              ]
             }
             height={50}
           />
         </div>
       }
       cardFooter={
-        <h4>Round: {previousRaceData.round + " / " + totalNumberOfRaces}</h4>
+        <h4>
+          Round:{" "}
+          {previousRaceData.MRData.RaceTable.round + " / " + totalNumberOfRaces}
+        </h4>
       }
       cardHeight="24rem"
       variant={"primary"}
