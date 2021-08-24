@@ -16,12 +16,6 @@ const NavBar = () => {
         <Link to="/schedule">
           <Navbar.Brand>Races</Navbar.Brand>
         </Link>
-        <Link to="/schedule">
-          <Navbar.Brand>Drivers</Navbar.Brand>
-        </Link>
-        <Link to="/schedule">
-          <Navbar.Brand>Teams</Navbar.Brand>
-        </Link>
         <Link to="/standings">
           <Navbar.Brand>Standings</Navbar.Brand>
         </Link>

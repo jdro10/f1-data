@@ -66,23 +66,29 @@ const MainFeed = () => {
       const response = await fetch(`http://ergast.com/api/f1/current.json`);
       const data = await response.json();
 
-      setNextRaceData({
-        season: data.MRData.RaceTable.season,
-        round: data.MRData.RaceTable.Races[parseInt(round)].round,
-        raceName: data.MRData.RaceTable.Races[parseInt(round)].raceName,
-        circuitCountryCode: await fetchCountryCode(
-          data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location.country
-        ),
-        raceCountry:
-          data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location.country,
-        circuitName:
-          data.MRData.RaceTable.Races[parseInt(round)].Circuit.circuitName,
-        date: data.MRData.RaceTable.Races[parseInt(round)].date,
-        time: data.MRData.RaceTable.Races[parseInt(round)].time.substring(
-          0,
-          data.MRData.RaceTable.Races[0].time.length - 1
-        ),
-      });
+      if (round >= data.MRData.RaceTable.Races.length) {
+        setNextRaceData(null);
+      } else {
+        setNextRaceData({
+          season: data.MRData.RaceTable.season,
+          round: data.MRData.RaceTable.Races[parseInt(round)].round,
+          raceName: data.MRData.RaceTable.Races[parseInt(round)].raceName,
+          circuitCountryCode: await fetchCountryCode(
+            data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location
+              .country
+          ),
+          raceCountry:
+            data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location
+              .country,
+          circuitName:
+            data.MRData.RaceTable.Races[parseInt(round)].Circuit.circuitName,
+          date: data.MRData.RaceTable.Races[parseInt(round)].date,
+          time: data.MRData.RaceTable.Races[parseInt(round)].time.substring(
+            0,
+            data.MRData.RaceTable.Races[0].time.length - 1
+          ),
+        });
+      }
 
       setTotalNumberOfRaces(data.MRData.RaceTable.Races.length);
       setLoadingNextRaceData(false);
@@ -132,7 +138,8 @@ const MainFeed = () => {
         <Col md="auto">
           {" "}
           <h1 style={{ marginBottom: "3%" }}>
-            {loadingNextRaceData ? "" : nextRaceData.season} Formula One season{" "}
+            {loadingNextRaceData ? "" : previousRaceResult.season} Formula One
+            season{" "}
           </h1>
         </Col>
       </Row>
@@ -144,6 +151,14 @@ const MainFeed = () => {
               cardBody={<SyncLoader color="black" loading="true" size={10} />}
               cardFooter={<SyncLoader color="black" loading="true" size={10} />}
               cardHeight="24rem"
+            />
+          ) : nextRaceData == null ? (
+            <GenericCard
+              cardTitle="Next Race"
+              cardBody={<h1>There's no upcoming events.</h1>}
+              cardFooter={<h4>Please check back later</h4>}
+              cardHeight="24rem"
+              variant={"light"}
             />
           ) : (
             <NextRaceCard nextRaceData={nextRaceData} />

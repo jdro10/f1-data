@@ -19,6 +19,7 @@ const Standings = () => {
 
   useEffect(() => {
     const fetchConstructorsStandings = async () => {
+      setLoadingConstructorsStandings(true);
       const response = await fetch(
         `http://ergast.com/api/f1/${season}/constructorStandings.json`
       );
@@ -31,6 +32,7 @@ const Standings = () => {
     };
 
     const fetchDriversStandings = async () => {
+      setLoadingDriversStandings(true);
       const response = await fetch(
         `http://ergast.com/api/f1/${season}/driverStandings.json`
       );
