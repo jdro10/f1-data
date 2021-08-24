@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Tabs from "./Tabs";
-import SyncLoader from "react-spinners/SyncLoader";
+import PuffLoader from "react-spinners/PuffLoader";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RaceCountdown from "./RaceCountdown";
@@ -76,7 +76,7 @@ const Race = ({ season, round }) => {
           <Container style={{ marginTop: "2%", minHeight: "700px" }}>
             <Row className="justify-content-md-center">
               <Col md="auto">
-                <SyncLoader color="black" loading="true" size={20} />
+                <PuffLoader color="black" loading="true" size={50} />
               </Col>
             </Row>
           </Container>

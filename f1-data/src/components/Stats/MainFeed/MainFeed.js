@@ -9,7 +9,7 @@ import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "../MainFeed/NextRaceCards";
 import StandingsCard from "./StandingsCard";
-import SyncLoader from "react-spinners/SyncLoader";
+import PuffLoader from "react-spinners/PuffLoader";
 import PreviousRaceWinner from "./PreviousRaceWinner";
 
 const MainFeed = () => {
@@ -148,8 +148,7 @@ const MainFeed = () => {
           {loadingNextRaceData ? (
             <GenericCard
               cardTitle="Next Race"
-              cardBody={<SyncLoader color="black" loading="true" size={10} />}
-              cardFooter={<SyncLoader color="black" loading="true" size={10} />}
+              cardBody={<PuffLoader color="black" loading="true" size={30} />}
               cardHeight="24rem"
             />
           ) : nextRaceData == null ? (
@@ -168,8 +167,7 @@ const MainFeed = () => {
           {loadingPreviousRaceResult ? (
             <GenericCard
               cardTitle="Previous race"
-              cardBody={<SyncLoader color="black" loading="true" size={10} />}
-              cardFooter={<SyncLoader color="black" loading="true" size={10} />}
+              cardBody={<PuffLoader color="black" loading="true" size={30} />}
               cardHeight="24rem"
             />
           ) : (
@@ -186,8 +184,7 @@ const MainFeed = () => {
           ) : (
             <GenericCard
               cardTitle="Previous race winner"
-              cardBody={<SyncLoader color="black" loading="true" size={10} />}
-              cardFooter={<SyncLoader color="black" loading="true" size={10} />}
+              cardBody={<PuffLoader color="black" loading="true" size={30} />}
               cardHeight="24rem"
               variant={"primary"}
             />
@@ -202,7 +199,7 @@ const MainFeed = () => {
               loadingDriversStandings ? (
                 <Container>
                   <Row className="justify-content-md-center">
-                    <SyncLoader color="black" loading="true" size={10} />
+                    <PuffLoader color="black" loading="true" size={30} />
                   </Row>
                 </Container>
               ) : (
@@ -224,7 +221,7 @@ const MainFeed = () => {
               loadingConstructorsStandings ? (
                 <Container>
                   <Row className="justify-content-md-center">
-                    <SyncLoader color="black" loading="true" size={10} />
+                    <PuffLoader color="black" loading="true" size={30} />
                   </Row>
                 </Container>
               ) : (
