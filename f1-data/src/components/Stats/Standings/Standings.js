@@ -53,7 +53,7 @@ const Standings = () => {
       setSeasonsYearsList(
         Array(end - start + 1)
           .fill()
-          .map((_, i) => start + i)
+          .map((_, i) => start + i).reverse()
       );
     }
 
