@@ -32,32 +32,7 @@ const MainFeed = () => {
       );
       const data = await response.json();
 
-      setPreviousRaceResult({
-        season: data.MRData.RaceTable.season,
-        round: data.MRData.RaceTable.round,
-        raceName: data.MRData.RaceTable.Races[0].raceName,
-        date: data.MRData.RaceTable.Races[0].date,
-        time: data.MRData.RaceTable.Races[0].time.substring(
-          0,
-          data.MRData.RaceTable.Races[0].time.length - 1
-        ),
-        circuitCountryCode: await fetchCountryCode(
-          data.MRData.RaceTable.Races[0].Circuit.Location.country
-        ),
-        circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
-        raceWinnerName:
-          data.MRData.RaceTable.Races[0].Results[0].Driver.givenName +
-          " " +
-          data.MRData.RaceTable.Races[0].Results[0].Driver.familyName,
-        raceWinnerNumber:
-          data.MRData.RaceTable.Races[0].Results[0].Driver.permanentNumber,
-        raceWinnerNationality:
-          data.MRData.RaceTable.Races[0].Results[0].Driver.nationality,
-        raceWinnerConstructorName:
-          data.MRData.RaceTable.Races[0].Results[0].Constructor.name,
-        raceWinnerTime: data.MRData.RaceTable.Races[0].Results[0].Time.time,
-      });
-
+      setPreviousRaceResult(data);
       setLoadingPreviousRaceResult(false);
       fetchNextRaceData(data.MRData.RaceTable.round);
     };
@@ -69,25 +44,7 @@ const MainFeed = () => {
       if (round >= data.MRData.RaceTable.Races.length) {
         setNextRaceData(null);
       } else {
-        setNextRaceData({
-          season: data.MRData.RaceTable.season,
-          round: data.MRData.RaceTable.Races[parseInt(round)].round,
-          raceName: data.MRData.RaceTable.Races[parseInt(round)].raceName,
-          circuitCountryCode: await fetchCountryCode(
-            data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location
-              .country
-          ),
-          raceCountry:
-            data.MRData.RaceTable.Races[parseInt(round)].Circuit.Location
-              .country,
-          circuitName:
-            data.MRData.RaceTable.Races[parseInt(round)].Circuit.circuitName,
-          date: data.MRData.RaceTable.Races[parseInt(round)].date,
-          time: data.MRData.RaceTable.Races[parseInt(round)].time.substring(
-            0,
-            data.MRData.RaceTable.Races[0].time.length - 1
-          ),
-        });
+        setNextRaceData(data.MRData.RaceTable.Races[parseInt(round)]);
       }
 
       setTotalNumberOfRaces(data.MRData.RaceTable.Races.length);
@@ -119,18 +76,9 @@ const MainFeed = () => {
     };
 
     fetchPreviousRaceResult();
-    fetchConstructorsStandings();
     fetchDriversStandings();
+    fetchConstructorsStandings();
   }, []);
-
-  const fetchCountryCode = async (circuitCountry) => {
-    const response = await fetch(
-      `https://restcountries.eu/rest/v2/name/${circuitCountry}?fullText=true`
-    );
-    const data = await response.json();
-
-    return data[0].alpha3Code;
-  };
 
   return (
     <Container>
