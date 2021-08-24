@@ -8,7 +8,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const Standings = () => {
-  const FIRST_SEASON = 1958;
+  const FIRST_SEASON = 1950;
   const [season, setSeason] = useState("2021");
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
@@ -25,9 +25,14 @@ const Standings = () => {
       );
       const data = await response.json();
 
-      setConstructorsStandings(
-        data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-      );
+      if (data.MRData.StandingsTable.StandingsLists[0] !== undefined) {
+        setConstructorsStandings(
+          data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+        );
+      } else {
+        setConstructorsStandings(null);
+      }
+
       setLoadingConstructorsStandings(false);
     };
 
