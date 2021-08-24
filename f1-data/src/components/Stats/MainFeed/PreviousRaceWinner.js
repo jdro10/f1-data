@@ -14,7 +14,10 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
               .permanentNumber +
               " - " +
               previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
-                .givenName}
+                .givenName +
+              " " +
+              previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
+                .familyName}
           </h3>
 
           <h4>
