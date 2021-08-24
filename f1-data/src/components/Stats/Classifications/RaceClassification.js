@@ -30,8 +30,10 @@ const RaceClassification = ({ raceClassification }) => {
               <td>{driver.Constructor.name}</td>
               <td>{driver.laps}</td>
               <td>
-                {driver.status === "Finished"
-                  ? driver.Time.time
+                {driver.Time !== undefined
+                  ? driver.status === "Finished"
+                    ? driver.Time.time
+                    : driver.status
                   : driver.status}
               </td>
               {driver.FastestLap && driver.FastestLap.rank === "1" ? (

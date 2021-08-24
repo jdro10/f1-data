@@ -16,7 +16,7 @@ const Map = ({ coordinates, circuitName, mapHeight }) => {
   return (
     <MapContainer
       center={coordinates}
-      zoom={14}
+      zoom={12}
       scrollWheelZoom={true}
       whenCreated={setMap}
     >
