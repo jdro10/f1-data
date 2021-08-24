@@ -46,7 +46,9 @@ const Circuit = ({ circuitId }) => {
 
   return (
     <div>
-      {loadingFastestLap || loadingFirstGrandPrix ? (
+      {loadingFastestLap ||
+      loadingFirstGrandPrix ||
+      fastestLap === undefined ? (
         ""
       ) : (
         <div>
@@ -59,7 +61,7 @@ const Circuit = ({ circuitId }) => {
                   {fastestLap.season}
                   {" - "}
                   {fastestLap.Results[0].Driver.givenName}{" "}
-                  {fastestLap.Results[0].Driver.familyName}
+                  {fastestLap.Results[0].Driver.familyName}{" "}
                 </h5>
               </Col>
             </Col>
