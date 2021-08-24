@@ -2,6 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Flag from "react-world-flags";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const Podium = ({ eventClassification }) => {
   return (
@@ -35,7 +37,14 @@ const Podium = ({ eventClassification }) => {
                 </Row>
                 <Row className="justify-content-md-center">
                   <Col md="auto">
-                    <h3>{eventClassification[1].Driver.nationality}</h3>
+                    <Flag
+                      code={
+                        CountriesCodeNationality[
+                          eventClassification[1].Driver.nationality
+                        ]
+                      }
+                      height="30"
+                    />
                   </Col>
                 </Row>
                 <Row className="justify-content-md-center">
@@ -77,7 +86,14 @@ const Podium = ({ eventClassification }) => {
                 </Row>
                 <Row className="justify-content-md-center">
                   <Col md="auto">
-                    <h3>{eventClassification[0].Driver.nationality}</h3>
+                    <Flag
+                      code={
+                        CountriesCodeNationality[
+                          eventClassification[0].Driver.nationality
+                        ]
+                      }
+                      height="30"
+                    />
                   </Col>
                 </Row>
                 <Row className="justify-content-md-center">
@@ -119,7 +135,14 @@ const Podium = ({ eventClassification }) => {
                 </Row>
                 <Row className="justify-content-md-center">
                   <Col md="auto">
-                    <h3>{eventClassification[2].Driver.nationality}</h3>
+                    <Flag
+                      code={
+                        CountriesCodeNationality[
+                          eventClassification[2].Driver.nationality
+                        ]
+                      }
+                      height="30"
+                    />
                   </Col>
                 </Row>
                 <Row className="justify-content-md-center">
