@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 import Tabs from "./Tabs";
 import { Redirect } from "react-router-dom";
+import "./RaceCountdown.css"
 
 const RaceCountdown = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -22,7 +23,8 @@ const RaceCountdown = ({ season, round }) => {
           season: data.MRData.RaceTable.season,
           round: data.MRData.RaceTable.round,
           raceName: data.MRData.RaceTable.Races[parseInt(round) - 1].raceName,
-          circuitId: data.MRData.RaceTable.Races[parseInt(round) - 1].Circuit.circuitId,
+          circuitId:
+            data.MRData.RaceTable.Races[parseInt(round) - 1].Circuit.circuitId,
           circuitName:
             data.MRData.RaceTable.Races[parseInt(round) - 1].Circuit
               .circuitName,
@@ -64,9 +66,9 @@ const RaceCountdown = ({ season, round }) => {
       ) : (
         <Container>
           <Tabs raceInfo={raceInfo} />
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-center text-center">
             <Col md="auto">
-              <h1 style={{ fontSize: "100px" }}>
+              <h1 className="countdown">
                 <Countdown
                   date={
                     Date.now() +

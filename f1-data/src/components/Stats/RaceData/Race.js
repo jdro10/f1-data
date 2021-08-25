@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Tabs from "./Tabs";
 import PuffLoader from "react-spinners/PuffLoader";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import RaceCountdown from "./RaceCountdown";
 
 const Race = ({ season, round }) => {
@@ -73,11 +72,9 @@ const Race = ({ season, round }) => {
     <div>
       <Container fluid="md">
         {loadingRaceResult || loadingRaceQualifying ? (
-          <Container style={{ marginTop: "2%", minHeight: "700px" }}>
-            <Row className="justify-content-md-center">
-              <Col md="auto">
-                <PuffLoader color="black" loading="true" size={50} />
-              </Col>
+          <Container style={{ marginTop: "5%", minHeight: "700px" }}>
+            <Row className="justify-content-center text-center">
+              <PuffLoader color="black" loading="true" size={50} />
             </Row>
           </Container>
         ) : raceClassification == null ? (

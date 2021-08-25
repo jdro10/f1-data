@@ -70,10 +70,12 @@ const Standings = () => {
     <div>
       {!loadingConstructorsStandings && !loadingDriversStandings ? (
         <Container style={{ minHeight: "700px" }}>
-          <Row>
-            <Col xs={11}>
+          <Row className="justify-content-center text-center">
+            <Col>
               <h1>{season} Formula One season</h1>
             </Col>
+          </Row>
+          <Row className="justify-content-center text-center" style={{ marginBottom: "2%" }}>
             <Col>
               <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -94,7 +96,7 @@ const Standings = () => {
               </Dropdown>
             </Col>
           </Row>
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-center text-center">
             <Col md="auto">
               <h1>Constructors' standings</h1>
             </Col>
@@ -118,9 +120,7 @@ const Standings = () => {
       ) : (
         <Container style={{ minHeight: "500px", marginTop: "7%" }}>
           <Row className="justify-content-center text-center">
-            <Col md="auto">
               <PuffLoader color="black" loading="true" size={50} />
-            </Col>
           </Row>
         </Container>
       )}

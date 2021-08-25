@@ -28,7 +28,8 @@ const Races = () => {
       setSeasonsYearsList(
         Array(end - start + 1)
           .fill()
-          .map((_, i) => start + i).reverse()
+          .map((_, i) => start + i)
+          .reverse()
       );
     }
 
@@ -41,56 +42,58 @@ const Races = () => {
   };
 
   return (
-    <div>
-      <Container>
-        {loadingSeasonSchedule ? (
-          <Container style={{ marginTop: "10%", minHeight: "700px" }}>
-            <Row className="justify-content-md-center text-center">
-              <Col xs={12}>
-                <PuffLoader color="black" loading="true" size={50} />
-              </Col>
-            </Row>
-          </Container>
-        ) : (
-          <div style={{ marginTop: "2%", minHeight: "700px" }}>
-            <Row>
-              <Col xs={11}>
-                <h1>Formula One - {season} season</h1>
-              </Col>
-              <Col>
-                <Dropdown>
-                  <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    {season}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu className="dropdown-menu">
-                    {seasonsYearsList.map((season, index) => (
-                      <Dropdown.Item
-                        key={index}
-                        onClick={(e) => seasonYearChange(e.target.textContent)}
-                      >
-                        {season}
-                      </Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
-            </Row>
-            <Accordion>
-              {seasonSchedule.map((race, index) => (
-                <Accordion.Item eventKey={index} key={index}>
-                  <Accordion.Header>
-                    #{race.round + " " + race.raceName}
-                  </Accordion.Header>
-                  <Accordion.Body>
-                    <RaceInfo race={race} />
-                  </Accordion.Body>
-                </Accordion.Item>
-              ))}
-            </Accordion>
-          </div>
-        )}
-      </Container>
-    </div>
+    <Container>
+      {loadingSeasonSchedule ? (
+        <Container style={{ marginTop: "10%", minHeight: "700px" }}>
+          <Row className="justify-content-center text-center">
+              <PuffLoader color="black" loading="true" size={50} />
+          </Row>
+        </Container>
+      ) : (
+        <Container style={{ marginTop: "2%", minHeight: "700px" }}>
+          <Row className="justify-content-center text-center">
+            <Col>
+              <h1>Formula One - {season} season</h1>
+            </Col>
+          </Row>
+          <Row
+            className="justify-content-center text-center"
+            style={{ marginBottom: "2%" }}
+          >
+            <Col>
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                  {season}
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="dropdown-menu">
+                  {seasonsYearsList.map((season, index) => (
+                    <Dropdown.Item
+                      key={index}
+                      onClick={(e) => seasonYearChange(e.target.textContent)}
+                    >
+                      {season}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+            </Col>
+          </Row>
+
+          <Accordion>
+            {seasonSchedule.map((race, index) => (
+              <Accordion.Item eventKey={index} key={index}>
+                <Accordion.Header>
+                  #{race.round + " " + race.raceName}
+                </Accordion.Header>
+                <Accordion.Body>
+                  <RaceInfo race={race} />
+                </Accordion.Body>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+        </Container>
+      )}
+    </Container>
   );
 };
 

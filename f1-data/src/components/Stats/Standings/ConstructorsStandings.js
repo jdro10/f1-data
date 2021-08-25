@@ -42,7 +42,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
           </tbody>
         </Table>
       ) : (
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-center text-center">
           <Col md="auto">
             <h3>
               There's no constructors' standings data available for this season.
