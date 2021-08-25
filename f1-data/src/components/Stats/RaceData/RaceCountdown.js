@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 import Tabs from "./Tabs";
 import { Redirect } from "react-router-dom";
-import "./RaceCountdown.css"
+import "./RaceCountdown.css";
 
 const RaceCountdown = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -58,31 +58,33 @@ const RaceCountdown = ({ season, round }) => {
   }, [season, round]);
 
   return (
-    <Container style={{ minHeight: "700px" }}>
-      {loadingRaceInfo ? (
-        ""
-      ) : raceInfo === null ? (
-        <Redirect to="/error" />
-      ) : (
-        <Container>
-          <Tabs raceInfo={raceInfo} />
-          <Row className="justify-content-center text-center">
-            <Col md="auto">
-              <h1 className="countdown">
-                <Countdown
-                  date={
-                    Date.now() +
-                    (new Date(raceInfo.raceDate).getTime() +
-                      raceInfo.raceTime.split(":")[0] * 3600000 -
-                      new Date().getTime())
-                  }
-                />
-              </h1>
-            </Col>
-          </Row>
-        </Container>
-      )}
-    </Container>
+    <div>
+      <Container fluid="md" style={{ minHeight: "700px" }}>
+        {loadingRaceInfo ? (
+          ""
+        ) : raceInfo === null ? (
+          <Redirect to="/error" />
+        ) : (
+          <div>
+            <Tabs raceInfo={raceInfo} />
+            <Row className="justify-content-center text-center">
+              <Col>
+                <h1 className="countdown">
+                  <Countdown
+                    date={
+                      Date.now() +
+                      (new Date(raceInfo.raceDate).getTime() +
+                        raceInfo.raceTime.split(":")[0] * 3600000 -
+                        new Date().getTime())
+                    }
+                  />
+                </h1>
+              </Col>
+            </Row>
+          </div>
+        )}
+      </Container>
+    </div>
   );
 };
 
