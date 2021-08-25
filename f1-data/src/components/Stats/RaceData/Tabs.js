@@ -86,7 +86,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
               </div>
             ) : (
               <Container style={{ minHeight: "250px" }}>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-center text-center">
                   <Col md="auto">
                     <h1>Race hasn't happened yet, check back later!</h1>
                   </Col>
@@ -107,7 +107,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             </div>
           ) : (
             <Container style={{ minHeight: "250px" }}>
-              <Row className="justify-content-md-center">
+              <Row className="justify-content-center text-center">
                 <Col md="auto">
                   <h1>Qualifying hasn't happened yet, check back later!</h1>
                 </Col>

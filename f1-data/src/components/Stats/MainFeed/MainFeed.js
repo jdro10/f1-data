@@ -82,7 +82,7 @@ const MainFeed = () => {
 
   return (
     <Container>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-center text-center">
         <Col md="auto">
           {" "}
           <h1 style={{ marginBottom: "3%" }}>
