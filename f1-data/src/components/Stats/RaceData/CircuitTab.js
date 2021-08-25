@@ -8,7 +8,7 @@ import Circuit from "./CircuitData";
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
   return (
     <div>
-      <Row>
+      <Row className="justify-content-center text-center">
         <Col>
           <h1>{raceInfo.circuitName}</h1>
           <h3>
@@ -18,7 +18,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
           <h3>{raceInfo.circuitLocality}</h3>
           <Circuit circuitId={raceInfo.circuitId} numberOfLaps={raceInfo.numberOfLaps} />
         </Col>
-        <Col>
+        <Col  md="auto">
           <Map
             coordinates={[raceInfo.circuitLatitude, raceInfo.circuitLongitude]}
             circuitName={raceInfo.circuitName}

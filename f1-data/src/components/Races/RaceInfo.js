@@ -32,8 +32,8 @@ const RaceInfo = ({ race }) => {
 
   return (
     <Container>
-      <Row className="justify-content-md-center">
-        <Col md="auto">
+      <Row className="justify-content-md-center text-center">
+        <Col xs={12} md="auto">
           {loadigCountryCode && countryCode != null ? (
             ""
           ) : (
@@ -41,27 +41,31 @@ const RaceInfo = ({ race }) => {
           )}
         </Col>
 
-        <Col md="auto">
+        <Col xs={12} md="auto">
           <h3>#{race.round}</h3>
         </Col>
 
-        <Col md="auto">
+        <Col xs={12} md="auto">
           <h3>{race.raceName}</h3>
         </Col>
 
-        <Col md="auto">
+        <Col xs={12} md="auto">
           <h3>{race.Circuit.Location.country}</h3>
         </Col>
 
-        <Col md="auto">
+        <Col xs={12} md="auto">
           <h3>{race.date}</h3>
         </Col>
 
-        <Col md="auto">
-          <h3>{race.hasOwnProperty("time") ? race.time.substring(0, race.time.length - 1) : "N/A"}</h3>
+        <Col xs={12} md="auto">
+          <h3>
+            {race.hasOwnProperty("time")
+              ? race.time.substring(0, race.time.length - 1)
+              : "N/A"}
+          </h3>
         </Col>
 
-        <Col md="auto">
+        <Col xs={12} md="auto">
           <Link to={"/race/" + race.season + "/" + race.round}>
             <BsBoxArrowUpRight size={35} />
           </Link>

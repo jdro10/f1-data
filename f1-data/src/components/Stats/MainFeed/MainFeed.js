@@ -86,62 +86,93 @@ const MainFeed = () => {
         <Col md="auto">
           {" "}
           <h1 style={{ marginBottom: "3%" }}>
-            {loadingNextRaceData ? "" : previousRaceResult.MRData.RaceTable.season} Formula One
-            season{" "}
+            {loadingNextRaceData
+              ? ""
+              : previousRaceResult.MRData.RaceTable.season}{" "}
+            Formula One season{" "}
           </h1>
         </Col>
       </Row>
       <Row>
         <Col>
           {loadingNextRaceData ? (
-            <GenericCard
-              cardTitle="Next Race"
-              cardBody={<PuffLoader color="black" loading="true" size={30} />}
-              cardHeight="24rem"
-            />
+            <div>
+              <p></p>
+              <GenericCard
+                cardTitle="Next Race"
+                cardBody={<PuffLoader color="black" loading="true" size={30} />}
+                cardHeight="24rem"
+              />
+              <p></p>
+            </div>
           ) : nextRaceData == null ? (
-            <GenericCard
-              cardTitle="Next Race"
-              cardBody={<h1>There's no upcoming events.</h1>}
-              cardFooter={<h4>Please check back later</h4>}
-              cardHeight="24rem"
-              variant={"light"}
-            />
+            <div>
+              <p></p>
+              <GenericCard
+                cardTitle="Next Race"
+                cardBody={<h1>There's no upcoming events.</h1>}
+                cardFooter={<h4>Please check back later</h4>}
+                cardHeight="24rem"
+                variant={"light"}
+              />
+              <p></p>
+            </div>
           ) : (
-            <NextRaceCard nextRaceData={nextRaceData} />
+            <div>
+              <p></p>
+              <NextRaceCard nextRaceData={nextRaceData} />
+              <p></p>
+            </div>
           )}
         </Col>
         <Col>
           {loadingPreviousRaceResult ? (
-            <GenericCard
-              cardTitle="Previous race"
-              cardBody={<PuffLoader color="black" loading="true" size={30} />}
-              cardHeight="24rem"
-            />
+            <div>
+              <p></p>
+              <GenericCard
+                cardTitle="Previous race"
+                cardBody={<PuffLoader color="black" loading="true" size={30} />}
+                cardHeight="24rem"
+              />
+              <p></p>
+            </div>
           ) : (
-            <PreviousRaceCard previousRaceData={previousRaceResult} />
+            <div>
+              <p></p>
+              <PreviousRaceCard previousRaceData={previousRaceResult} />
+              <p></p>
+            </div>
           )}
         </Col>
 
         <Col>
           {!loadingPreviousRaceResult && !loadingNextRaceData ? (
-            <PreviousRaceWinner
-              previousRaceData={previousRaceResult}
-              totalNumberOfRaces={totalNumberOfRaces}
-            />
+            <div>
+              <p></p>
+              <PreviousRaceWinner
+                previousRaceData={previousRaceResult}
+                totalNumberOfRaces={totalNumberOfRaces}
+              />
+              <p></p>
+            </div>
           ) : (
-            <GenericCard
-              cardTitle="Previous race winner"
-              cardBody={<PuffLoader color="black" loading="true" size={30} />}
-              cardHeight="24rem"
-              variant={"primary"}
-            />
+            <div>
+              <p></p>
+              <GenericCard
+                cardTitle="Previous race winner"
+                cardBody={<PuffLoader color="black" loading="true" size={30} />}
+                cardHeight="24rem"
+                variant={"primary"}
+              />
+              <p></p>
+            </div>
           )}
         </Col>
       </Row>
       <br />
       <Row>
         <Col>
+          <p></p>
           <StandingsCard
             type={"Drivers'"}
             standings={
@@ -163,8 +194,10 @@ const MainFeed = () => {
               )
             }
           />
+          <p></p>
         </Col>
         <Col>
+          <p></p>
           <StandingsCard
             type={"Constructors'"}
             standings={
@@ -186,6 +219,7 @@ const MainFeed = () => {
               )
             }
           />
+          <p></p>
         </Col>
       </Row>
     </Container>
