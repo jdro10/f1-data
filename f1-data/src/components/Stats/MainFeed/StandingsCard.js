@@ -1,10 +1,10 @@
 import React from "react";
 import GenericCard from "../../Cards/GenericCard";
 
-const StandingsCard = ({ standings }) => {
+const StandingsCard = ({ type, standings }) => {
   return (
     <GenericCard
-      cardTitle="Drivers' standings"
+      cardTitle={type + " standings"}
       cardBody={standings}
       cardHeight="27rem"
       variant={"light"}
