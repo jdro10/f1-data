@@ -143,6 +143,7 @@ const MainFeed = () => {
       <Row>
         <Col>
           <StandingsCard
+            type={"Drivers'"}
             standings={
               loadingDriversStandings ? (
                 <Container>
@@ -165,6 +166,7 @@ const MainFeed = () => {
         </Col>
         <Col>
           <StandingsCard
+            type={"Constructors'"}
             standings={
               loadingConstructorsStandings ? (
                 <Container>
