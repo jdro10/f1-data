@@ -10,7 +10,7 @@ import StandingsPage from "./pages/StandingsPage";
 
 function App() {
   return (
-    <Router basename="/">
+    <Router basename="/f1-data">
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
         <Route

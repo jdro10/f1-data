@@ -21,7 +21,7 @@ const Standings = () => {
     const fetchConstructorsStandings = async () => {
       setLoadingConstructorsStandings(true);
       const response = await fetch(
-        `http://ergast.com/api/f1/${season}/constructorStandings.json`
+        `https://ergast.com/api/f1/${season}/constructorStandings.json`
       );
       const data = await response.json();
 
@@ -39,7 +39,7 @@ const Standings = () => {
     const fetchDriversStandings = async () => {
       setLoadingDriversStandings(true);
       const response = await fetch(
-        `http://ergast.com/api/f1/${season}/driverStandings.json`
+        `https://ergast.com/api/f1/${season}/driverStandings.json`
       );
       const data = await response.json();
 

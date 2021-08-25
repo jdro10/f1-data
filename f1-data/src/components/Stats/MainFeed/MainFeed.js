@@ -28,7 +28,7 @@ const MainFeed = () => {
   useEffect(() => {
     const fetchPreviousRaceResult = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/current/last/results.json`
+        `https://ergast.com/api/f1/current/last/results.json`
       );
       const data = await response.json();
 
@@ -38,7 +38,7 @@ const MainFeed = () => {
     };
 
     const fetchNextRaceData = async (round) => {
-      const response = await fetch(`http://ergast.com/api/f1/current.json`);
+      const response = await fetch(`https://ergast.com/api/f1/current.json`);
       const data = await response.json();
 
       if (round >= data.MRData.RaceTable.Races.length) {
@@ -53,7 +53,7 @@ const MainFeed = () => {
 
     const fetchConstructorsStandings = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/current/constructorStandings.json`
+        `https://ergast.com/api/f1/current/constructorStandings.json`
       );
       const data = await response.json();
 
@@ -65,7 +65,7 @@ const MainFeed = () => {
 
     const fetchDriversStandings = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/current/driverStandings.json`
+        `https://ergast.com/api/f1/current/driverStandings.json`
       );
       const data = await response.json();
 
