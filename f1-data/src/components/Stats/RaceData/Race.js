@@ -16,7 +16,7 @@ const Race = ({ season, round }) => {
   useEffect(() => {
     const fetchRaceResult = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/${season}/${round}/results.json`
+        `https://ergast.com/api/f1/${season}/${round}/results.json`
       );
       const data = await response.json();
 
@@ -52,7 +52,7 @@ const Race = ({ season, round }) => {
 
     const fetchRaceQualifying = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/${season}/${round}/qualifying.json`
+        `https://ergast.com/api/f1/${season}/${round}/qualifying.json`
       );
       const data = await response.json();
 

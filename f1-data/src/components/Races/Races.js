@@ -17,7 +17,7 @@ const Races = () => {
 
   useEffect(() => {
     const fetchSeasonSchedule = async () => {
-      const response = await fetch(`http://ergast.com/api/f1/${season}.json`);
+      const response = await fetch(`https://ergast.com/api/f1/${season}.json`);
       const data = await response.json();
 
       setSeasonSchedule(data.MRData.RaceTable.Races);

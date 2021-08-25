@@ -12,7 +12,7 @@ const RaceCountdown = ({ season, round }) => {
 
   useEffect(() => {
     const fetchRaceInfo = async () => {
-      const response = await fetch(`http://ergast.com/api/f1/${season}.json`);
+      const response = await fetch(`https://ergast.com/api/f1/${season}.json`);
       const data = await response.json();
 
       if (data.MRData.RaceTable.Races[parseInt(round) - 1] === undefined) {
