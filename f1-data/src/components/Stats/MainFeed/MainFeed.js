@@ -86,7 +86,7 @@ const MainFeed = () => {
         <Col md="auto">
           {" "}
           <h1 style={{ marginBottom: "3%" }}>
-            {loadingNextRaceData ? "" : previousRaceResult.season} Formula One
+            {loadingNextRaceData ? "" : previousRaceResult.MRData.RaceTable.season} Formula One
             season{" "}
           </h1>
         </Col>
