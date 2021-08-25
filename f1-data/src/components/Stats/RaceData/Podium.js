@@ -10,7 +10,10 @@ const Podium = ({ eventClassification }) => {
     <div>
       <Container>
         <Row className="text-center">
-          <Col xs={{ span: 12, order: "first" }} md={4}>
+          <Col
+            xs={{ span: 12, order: "second" }}
+            md={{ span: 4, order: "first" }}
+          >
             <div id="secondPlace">
               <Row className="justify-content-md-center">
                 <Col md="auto">
@@ -59,7 +62,10 @@ const Podium = ({ eventClassification }) => {
               </Row>
             </div>
           </Col>
-          <Col xs={12} md={4}>
+          <Col
+            xs={{ span: 12, order: "first" }}
+            md={{ span: 4, order: "second" }}
+          >
             <div id="firstPlace">
               <Row className="justify-content-md-center">
                 <Col md="auto">
@@ -108,7 +114,7 @@ const Podium = ({ eventClassification }) => {
               </Row>
             </div>
           </Col>
-          <Col xs={{ span: 12, order: "last" }} md={4}>
+          <Col xs={{ span: 12, order: "last" }} md={{ span: 4, order: "last" }}>
             <div id="thirdPlace">
               <Row className="justify-content-md-center">
                 <Col md="auto">

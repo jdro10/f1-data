@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Tabs from "./Tabs";
 import PuffLoader from "react-spinners/PuffLoader";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import RaceCountdown from "./RaceCountdown";
 
 const Race = ({ season, round }) => {

@@ -100,8 +100,8 @@ const MainFeed = () => {
           <PuffLoader color="black" loading="true" size={30} />
         </Row>
       ) : (
-        <Row>
-          <Col>
+        <Row className="justify-content-center text-center">
+          <Col xs={12} sm={12} md={8} lg={4}>
             {nextRaceData == null ? (
               <div>
                 <p></p>
@@ -122,12 +122,12 @@ const MainFeed = () => {
               </div>
             )}
           </Col>
-          <Col>
+          <Col xs={12} sm={12} md={8} lg={4}>
             <p></p>
             <PreviousRaceCard previousRaceData={previousRaceResult} />
             <p></p>
           </Col>
-          <Col>
+          <Col xs={12} sm={12} md={8} lg={4}>
             <div>
               <p></p>
               <PreviousRaceWinner
@@ -150,7 +150,6 @@ const MainFeed = () => {
       ) : (
         <Row>
           <Col>
-            <p></p>
             <StandingsCard
               type={"Drivers'"}
               standings={
@@ -164,10 +163,8 @@ const MainFeed = () => {
                 />
               }
             />
-            <p></p>
           </Col>
           <Col>
-            <p></p>
             <StandingsCard
               type={"Constructors'"}
               standings={
@@ -181,7 +178,6 @@ const MainFeed = () => {
                 />
               }
             />
-            <p></p>
           </Col>
         </Row>
       )}
