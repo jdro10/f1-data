@@ -53,7 +53,8 @@ const Standings = () => {
       setSeasonsYearsList(
         Array(end - start + 1)
           .fill()
-          .map((_, i) => start + i).reverse()
+          .map((_, i) => start + i)
+          .reverse()
       );
     }
 
@@ -115,8 +116,8 @@ const Standings = () => {
           </Row>
         </Container>
       ) : (
-        <Container style={{ minHeight: "700px" }}>
-          <Row className="justify-content-md-center">
+        <Container style={{ minHeight: "500px", marginTop: "7%" }}>
+          <Row className="justify-content-center text-center">
             <Col md="auto">
               <PuffLoader color="black" loading="true" size={50} />
             </Col>

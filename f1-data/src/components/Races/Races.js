@@ -44,9 +44,9 @@ const Races = () => {
     <div>
       <Container>
         {loadingSeasonSchedule ? (
-          <Container style={{ marginTop: "2%", minHeight: "700px" }}>
-            <Row className="justify-content-md-center">
-              <Col md="auto">
+          <Container style={{ marginTop: "10%", minHeight: "700px" }}>
+            <Row className="justify-content-md-center text-center">
+              <Col xs={12}>
                 <PuffLoader color="black" loading="true" size={50} />
               </Col>
             </Row>
