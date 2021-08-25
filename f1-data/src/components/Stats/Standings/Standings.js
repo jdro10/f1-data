@@ -120,9 +120,7 @@ const Standings = () => {
       ) : (
         <Container style={{ minHeight: "500px", marginTop: "7%" }}>
           <Row className="justify-content-center text-center">
-            <Col md="auto">
               <PuffLoader color="black" loading="true" size={50} />
-            </Col>
           </Row>
         </Container>
       )}

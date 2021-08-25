@@ -81,72 +81,53 @@ const MainFeed = () => {
   }, []);
 
   return (
-    <Container>
+    <Container style={{ minHeight: "700px" }}>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          {" "}
           <h1 style={{ marginBottom: "3%" }}>
             {loadingNextRaceData
               ? ""
               : previousRaceResult.MRData.RaceTable.season}{" "}
-            Formula One season{" "}
+            Formula One
           </h1>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          {loadingNextRaceData ? (
-            <div>
-              <p></p>
-              <GenericCard
-                cardTitle="Next Race"
-                cardBody={<PuffLoader color="black" loading="true" size={30} />}
-                cardHeight="24rem"
-              />
-              <p></p>
-            </div>
-          ) : nextRaceData == null ? (
-            <div>
-              <p></p>
-              <GenericCard
-                cardTitle="Next Race"
-                cardBody={<h1>There's no upcoming events.</h1>}
-                cardFooter={<h4>Please check back later</h4>}
-                cardHeight="24rem"
-                variant={"light"}
-              />
-              <p></p>
-            </div>
-          ) : (
-            <div>
-              <p></p>
-              <NextRaceCard nextRaceData={nextRaceData} />
-              <p></p>
-            </div>
-          )}
-        </Col>
-        <Col>
-          {loadingPreviousRaceResult ? (
-            <div>
-              <p></p>
-              <GenericCard
-                cardTitle="Previous race"
-                cardBody={<PuffLoader color="black" loading="true" size={30} />}
-                cardHeight="24rem"
-              />
-              <p></p>
-            </div>
-          ) : (
-            <div>
-              <p></p>
-              <PreviousRaceCard previousRaceData={previousRaceResult} />
-              <p></p>
-            </div>
-          )}
-        </Col>
-
-        <Col>
-          {!loadingPreviousRaceResult && !loadingNextRaceData ? (
+      {loadingPreviousRaceResult || loadingNextRaceData ? (
+        <Row
+          className="justify-content-center text-center"
+          style={{ minHeight: "200px" }}
+        >
+          <PuffLoader color="black" loading="true" size={30} />
+        </Row>
+      ) : (
+        <Row>
+          <Col>
+            {nextRaceData == null ? (
+              <div>
+                <p></p>
+                <GenericCard
+                  cardTitle="Next Race"
+                  cardBody={<h1>There's no upcoming events.</h1>}
+                  cardFooter={<h4>Please check back later</h4>}
+                  cardHeight="24rem"
+                  variant={"light"}
+                />
+                <p></p>
+              </div>
+            ) : (
+              <div>
+                <p></p>
+                <NextRaceCard nextRaceData={nextRaceData} />
+                <p></p>
+              </div>
+            )}
+          </Col>
+          <Col>
+            <p></p>
+            <PreviousRaceCard previousRaceData={previousRaceResult} />
+            <p></p>
+          </Col>
+          <Col>
             <div>
               <p></p>
               <PreviousRaceWinner
@@ -155,34 +136,24 @@ const MainFeed = () => {
               />
               <p></p>
             </div>
-          ) : (
-            <div>
-              <p></p>
-              <GenericCard
-                cardTitle="Previous race winner"
-                cardBody={<PuffLoader color="black" loading="true" size={30} />}
-                cardHeight="24rem"
-                variant={"primary"}
-              />
-              <p></p>
-            </div>
-          )}
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      )}
       <br />
-      <Row>
-        <Col>
-          <p></p>
-          <StandingsCard
-            type={"Drivers'"}
-            standings={
-              loadingDriversStandings ? (
-                <Container>
-                  <Row className="justify-content-md-center">
-                    <PuffLoader color="black" loading="true" size={30} />
-                  </Row>
-                </Container>
-              ) : (
+      {loadingDriversStandings || loadingConstructorsStandings ? (
+        <Row
+          className="justify-content-center text-center"
+          style={{ minHeight: "200px" }}
+        >
+          <PuffLoader color="black" loading="true" size={30} />
+        </Row>
+      ) : (
+        <Row>
+          <Col>
+            <p></p>
+            <StandingsCard
+              type={"Drivers'"}
+              standings={
                 <DriversStandings
                   style={{
                     overflow: "hidden",
@@ -191,23 +162,15 @@ const MainFeed = () => {
                   }}
                   driversStandings={driversStandings}
                 />
-              )
-            }
-          />
-          <p></p>
-        </Col>
-        <Col>
-          <p></p>
-          <StandingsCard
-            type={"Constructors'"}
-            standings={
-              loadingConstructorsStandings ? (
-                <Container>
-                  <Row className="justify-content-md-center">
-                    <PuffLoader color="black" loading="true" size={30} />
-                  </Row>
-                </Container>
-              ) : (
+              }
+            />
+            <p></p>
+          </Col>
+          <Col>
+            <p></p>
+            <StandingsCard
+              type={"Constructors'"}
+              standings={
                 <ConstructorsStandings
                   style={{
                     overflow: "hidden",
@@ -216,12 +179,12 @@ const MainFeed = () => {
                   }}
                   constructorsStandings={constructorsStandings}
                 />
-              )
-            }
-          />
-          <p></p>
-        </Col>
-      </Row>
+              }
+            />
+            <p></p>
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 };
