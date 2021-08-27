@@ -47,7 +47,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
             previousRaceData.MRData.RaceTable.round
           }
         >
-          <Button variant="primary">Race result</Button>
+          <Button variant="dark">Race result</Button>
         </Link>
       }
       cardHeight="24rem"

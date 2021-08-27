@@ -16,13 +16,15 @@ const GenericCard = ({
       bg={variant}
       text={variant === "light" ? "dark" : "white"}
     >
-      <Card.Header><b>{cardTitle}</b></Card.Header>
+      <Card.Header>
+        <b>{cardTitle}</b>
+      </Card.Header>
       <Card.Body>
         <Card.Body>
           <Row className="justify-content-md-center">{cardBody}</Row>
         </Card.Body>
       </Card.Body>
-      <Card.Footer>{cardFooter}</Card.Footer>
+      {cardFooter !== undefined ? <Card.Footer>{cardFooter}</Card.Footer> : ""}
     </Card>
   );
 };
