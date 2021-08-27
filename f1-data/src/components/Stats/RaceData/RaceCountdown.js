@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 import Tabs from "./Tabs";
 import { Redirect } from "react-router-dom";
-import "./RaceCountdown.css";
+import "../Styles/RaceCountdown.css";
 
 const RaceCountdown = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);

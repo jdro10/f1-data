@@ -12,8 +12,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
         <Table responsive="sm">
           <thead>
             <tr>
-              <th>Position</th>
-              <th>Nationality</th>
+              <th>Pos</th>
               <th>Name</th>
               <th>Wins</th>
               <th>Points</th>
@@ -24,17 +23,22 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
               <tr key={index}>
                 <td>{constructor.position}</td>
                 <td>
-                  <Flag
-                    code={
-                      CountriesCodeNationality[
-                        constructor.Constructor.nationality
-                      ]
-                    }
-                    height="15"
-                    width="25"
-                  />
+                  <Row className="justify-content-center text-" xs="auto">
+                    <Col xs={4}>
+                      <Flag
+                        code={
+                          CountriesCodeNationality[
+                            constructor.Constructor.nationality
+                          ]
+                        }
+                        height="15"
+                        width="25"
+                      />
+                    </Col>
+                    <Col xs={8}>{constructor.Constructor.name}</Col>
+                  </Row>
                 </td>
-                <td>{constructor.Constructor.name}</td>
+
                 <td>{constructor.wins}</td>
                 <td>{constructor.points}</td>
               </tr>

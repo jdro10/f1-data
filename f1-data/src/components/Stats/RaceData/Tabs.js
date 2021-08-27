@@ -38,50 +38,35 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab eventKey="race" title="Race">
-          <Container>
-            <Container style={{ minHeight: "250px" }}>
-              <RaceTab
-                raceInfo={raceInfo}
-                eventCountryCode={eventCountryCode}
-              />
-            </Container>
-            {raceClassification != null ? (
-              <Container>
-                <RaceClassification raceClassification={raceClassification} />
-              </Container>
-            ) : (
-              ""
-            )}
+          <Container style={{ minHeight: "250px" }}>
+            <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
           </Container>
+          {raceClassification != null ? (
+            <RaceClassification raceClassification={raceClassification} />
+          ) : (
+            ""
+          )}
         </Tab>
         <Tab eventKey="circuit" title="Circuit">
-          <Container>
-            <Container style={{ minHeight: "250px" }}>
-              <CircuitTab
-                raceInfo={raceInfo}
-                eventCountryCode={eventCountryCode}
-              />
-            </Container>
-            {raceClassification != null ? (
-              <Container>
-                <RaceClassification raceClassification={raceClassification} />
-              </Container>
-            ) : (
-              ""
-            )}
+          <Container style={{ minHeight: "250px" }}>
+            <CircuitTab
+              raceInfo={raceInfo}
+              eventCountryCode={eventCountryCode}
+            />
           </Container>
+          {raceClassification != null ? (
+            <RaceClassification raceClassification={raceClassification} />
+          ) : (
+            ""
+          )}
         </Tab>
 
         {raceClassification != null ? (
           <Tab eventKey="podium" title="Podium">
-            <div>
-              <Container style={{ minHeight: "250px" }}>
-                <EventPodium eventClassification={raceClassification} />
-              </Container>
-              <Container>
-                <RaceClassification raceClassification={raceClassification} />
-              </Container>
-            </div>
+            <Container style={{ minHeight: "250px" }}>
+              <EventPodium eventClassification={raceClassification} />
+            </Container>
+            <RaceClassification raceClassification={raceClassification} />
           </Tab>
         ) : (
           ""
@@ -89,14 +74,10 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
 
         {raceQualifying != null ? (
           <Tab eventKey="qualifying" title="Qualifying">
-            <div>
-              <Container style={{ minHeight: "250px" }}>
-                <EventPodium eventClassification={raceQualifying} />
-              </Container>
-              <Container>
-                <RaceQualifying raceQualifying={raceQualifying} />
-              </Container>
-            </div>
+            <Container style={{ minHeight: "250px" }}>
+              <EventPodium eventClassification={raceQualifying} />
+            </Container>
+            <RaceQualifying raceQualifying={raceQualifying} />
           </Tab>
         ) : (
           ""

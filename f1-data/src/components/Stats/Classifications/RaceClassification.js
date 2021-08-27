@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import { FaStopwatch } from "react-icons/fa";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../Styles/Table.css";
 
 const RaceClassification = ({ raceClassification }) => {
   return (
@@ -11,24 +12,32 @@ const RaceClassification = ({ raceClassification }) => {
         <thead>
           <tr>
             <th>Pos</th>
-            <th>Number</th>
+            <th className="hideSM">Number</th>
             <th>Driver</th>
-            <th>Team</th>
-            <th>Laps</th>
+            <th className="hideSM">Team</th>
+            <th className="hideSM">Laps</th>
             <th>Time/Retired</th>
-            <th>Points</th>
+            <th>Pts</th>
           </tr>
         </thead>
         <tbody>
           {raceClassification.map((driver, index) => (
             <tr key={index}>
               <td>{driver.position}</td>
-              <td>{driver.number}</td>
-              <td>
+              <td className="hideSM">{driver.number}</td>
+
+              <td className="hideSM">
                 {driver.Driver.givenName + " " + driver.Driver.familyName}
               </td>
-              <td>{driver.Constructor.name}</td>
-              <td>{driver.laps}</td>
+              {!driver.Driver.hasOwnProperty("code") ? (
+                <td className="showSM">{driver.Driver.givenName}</td>
+              ) : (
+                <td className="showSM">
+                  {driver.Driver.givenName + " " + driver.Driver.familyName}
+                </td>
+              )}
+              <td className="hideSM">{driver.Constructor.name}</td>
+              <td className="hideSM">{driver.laps}</td>
               <td>
                 {driver.Time !== undefined
                   ? driver.status === "Finished"
