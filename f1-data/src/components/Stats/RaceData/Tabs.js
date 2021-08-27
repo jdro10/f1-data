@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
@@ -40,81 +38,50 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab eventKey="race" title="Race">
-          <Container>
-            <Container style={{ minHeight: "250px" }}>
-              <RaceTab
-                raceInfo={raceInfo}
-                eventCountryCode={eventCountryCode}
-              />
-            </Container>
-            {raceClassification != null ? (
-              <Container>
-                <RaceClassification raceClassification={raceClassification} />
-              </Container>
-            ) : (
-              ""
-            )}
+          <Container style={{ minHeight: "250px" }}>
+            <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
           </Container>
-        </Tab>
-        <Tab eventKey="circuit" title="Circuit">
-          <Container>
-            <Container style={{ minHeight: "250px" }}>
-              <CircuitTab
-                raceInfo={raceInfo}
-                eventCountryCode={eventCountryCode}
-              />
-            </Container>
-            {raceClassification != null ? (
-              <Container>
-                <RaceClassification raceClassification={raceClassification} />
-              </Container>
-            ) : (
-              ""
-            )}
-          </Container>
-        </Tab>
-        <Tab eventKey="podium" title="Podium">
-          <Container>
-            {raceClassification != null ? (
-              <div>
-                <Container style={{ minHeight: "250px" }}>
-                  <EventPodium eventClassification={raceClassification} />
-                </Container>
-                <Container>
-                  <RaceClassification raceClassification={raceClassification} />
-                </Container>
-              </div>
-            ) : (
-              <Container style={{ minHeight: "250px" }}>
-                <Row className="justify-content-center text-center">
-                  <Col md="auto">
-                    <h1>Race hasn't happened yet, check back later!</h1>
-                  </Col>
-                </Row>
-              </Container>
-            )}
-          </Container>
-        </Tab>
-        <Tab eventKey="qualifying" title="Qualifying">
           {raceClassification != null ? (
-            <div>
-              <Container style={{ minHeight: "250px" }}>
-                <EventPodium eventClassification={raceQualifying} />
-              </Container>
-              <Container>
-                <RaceQualifying raceQualifying={raceQualifying} />
-              </Container>
-            </div>
+            <RaceClassification raceClassification={raceClassification} />
           ) : (
-            <Container style={{ minHeight: "250px" }}>
-              <Row className="justify-content-center text-center">
-                <Col md="auto">
-                  <h1>Qualifying hasn't happened yet, check back later!</h1>
-                </Col>
-              </Row>
-            </Container>
+            ""
           )}
         </Tab>
+        <Tab eventKey="circuit" title="Circuit">
+          <Container style={{ minHeight: "250px" }}>
+            <CircuitTab
+              raceInfo={raceInfo}
+              eventCountryCode={eventCountryCode}
+            />
+          </Container>
+          {raceClassification != null ? (
+            <RaceClassification raceClassification={raceClassification} />
+          ) : (
+            ""
+          )}
+        </Tab>
+
+        {raceClassification != null ? (
+          <Tab eventKey="podium" title="Podium">
+            <Container style={{ minHeight: "250px" }}>
+              <EventPodium eventClassification={raceClassification} />
+            </Container>
+            <RaceClassification raceClassification={raceClassification} />
+          </Tab>
+        ) : (
+          ""
+        )}
+
+        {raceQualifying != null ? (
+          <Tab eventKey="qualifying" title="Qualifying">
+            <Container style={{ minHeight: "250px" }}>
+              <EventPodium eventClassification={raceQualifying} />
+            </Container>
+            <RaceQualifying raceQualifying={raceQualifying} />
+          </Tab>
+        ) : (
+          ""
+        )}
       </Tabs>
     </div>
   );
