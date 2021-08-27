@@ -157,7 +157,7 @@ const MainFeed = () => {
                   style={{
                     overflow: "hidden",
                     overflowY: "scroll",
-                    height: "275px",
+                    height: "330px",
                   }}
                   driversStandings={driversStandings}
                 />
@@ -172,7 +172,7 @@ const MainFeed = () => {
                   style={{
                     overflow: "hidden",
                     overflowY: "scroll",
-                    height: "275px",
+                    height: "330px",
                   }}
                   constructorsStandings={constructorsStandings}
                 />

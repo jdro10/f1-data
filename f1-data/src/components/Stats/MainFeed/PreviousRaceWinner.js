@@ -47,7 +47,7 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
         </h4>
       }
       cardHeight="24rem"
-      variant={"primary"}
+      variant={"dark"}
     ></GenericCard>
   );
 };

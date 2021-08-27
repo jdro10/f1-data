@@ -51,9 +51,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                   <Col xs={8}>
                     {!driver.Driver.hasOwnProperty("code") ? (
                       <td className="showSM">
-                        {driver.Driver.givenName +
-                          " " +
-                          driver.Driver.familyName}
+                        {driver.Driver.familyName.substring(0, 3).toUpperCase()}
                       </td>
                     ) : (
                       <td className="showSM">{driver.Driver.code}</td>

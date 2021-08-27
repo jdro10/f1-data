@@ -62,7 +62,7 @@ const Races = () => {
           >
             <Col>
               <Dropdown>
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
                   {season}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
