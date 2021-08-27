@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <footer>
       <Container>
-        <Row className="justify-content-center text-center" xs="auto">
+        <Row className="justify-content-center text-center" xs="auto" id="row">
           <Col>
             <GiCheckeredFlag size={40} />
           </Col>

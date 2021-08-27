@@ -16,7 +16,7 @@ const GenericCard = ({
       bg={variant}
       text={variant === "light" ? "dark" : "white"}
     >
-      <Card.Header>{cardTitle}</Card.Header>
+      <Card.Header><b>{cardTitle}</b></Card.Header>
       <Card.Body>
         <Card.Body>
           <Row className="justify-content-md-center">{cardBody}</Row>
