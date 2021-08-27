@@ -25,17 +25,9 @@ const RaceClassification = ({ raceClassification }) => {
             <tr key={index}>
               <td>{driver.position}</td>
               <td className="hideSM">{driver.number}</td>
-
-              <td className="hideSM">
+              <td>
                 {driver.Driver.givenName + " " + driver.Driver.familyName}
               </td>
-              {!driver.Driver.hasOwnProperty("code") ? (
-                <td className="showSM">{driver.Driver.givenName}</td>
-              ) : (
-                <td className="showSM">
-                  {driver.Driver.givenName + " " + driver.Driver.familyName}
-                </td>
-              )}
               <td className="hideSM">{driver.Constructor.name}</td>
               <td className="hideSM">{driver.laps}</td>
               <td>
