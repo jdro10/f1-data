@@ -14,7 +14,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   useEffect(() => {
     const fetchCountryCode = async () => {
       await fetch(
-        `https://restcountries.eu/rest/v2/name/${raceInfo.circuitCountry}?fullText=true`
+        `https://restcountries.eu/rest/v2/name/${raceInfo.Circuit.Location.country}?fullText=true`
       )
         .then((res) => {
           if (res.ok) {
@@ -28,7 +28,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
     };
 
     fetchCountryCode();
-  }, [raceInfo.circuitCountry]);
+  }, [raceInfo.Circuit.Location.country]);
 
   return (
     <div>

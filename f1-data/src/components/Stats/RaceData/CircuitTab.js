@@ -10,18 +10,21 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
     <div>
       <Row className="justify-content-center text-center">
         <Col>
-          <h1>{raceInfo.circuitName}</h1>
+          <h1>{raceInfo.Circuit.circuitName}</h1>
           <h3>
             <Flag code={eventCountryCode} height="30" />{" "}
-            {raceInfo.circuitCountry}
+            {raceInfo.Circuit.Location.country}
           </h3>
-          <h3>{raceInfo.circuitLocality}</h3>
-          <Circuit circuitId={raceInfo.circuitId} numberOfLaps={raceInfo.numberOfLaps} />
+          <h3>{raceInfo.Circuit.Location.locality}</h3>
+          <Circuit circuitId={raceInfo.Circuit.circuitId} />
         </Col>
-        <Col  md="auto">
+        <Col md="auto">
           <Map
-            coordinates={[raceInfo.circuitLatitude, raceInfo.circuitLongitude]}
-            circuitName={raceInfo.circuitName}
+            coordinates={[
+              raceInfo.Circuit.Location.lat,
+              raceInfo.Circuit.Location.long,
+            ]}
+            circuitName={raceInfo.Circuit.circuitName}
             mapHeight={{ height: "600px" }}
           ></Map>
         </Col>

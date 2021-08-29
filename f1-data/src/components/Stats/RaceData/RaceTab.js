@@ -1,4 +1,3 @@
-import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Flag from "react-world-flags";
@@ -13,12 +12,16 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>{raceInfo.raceDate}</h3>
+          <h3>{raceInfo.date}</h3>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>{raceInfo.raceTime}</h3>
+          <h3>
+            {raceInfo.hasOwnProperty("time")
+              ? raceInfo.time.substring(0, raceInfo.time.length - 1)
+              : "N/A"}
+          </h3>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
