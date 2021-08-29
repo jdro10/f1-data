@@ -10,19 +10,21 @@ const NavBar = () => {
   return (
     <Navbar className="navbar" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand><GiCheckeredFlag size={30}/></Navbar.Brand>
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Navbar.Brand>
+          <GiCheckeredFlag size={30} />
+        </Navbar.Brand>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Navbar.Brand>Home</Navbar.Brand>
         </Link>
-        <Link to="/schedule" style={{ textDecoration: 'none' }}>
+        <Link to="/schedule" style={{ textDecoration: "none" }}>
           <Navbar.Brand>Races</Navbar.Brand>
         </Link>
-        <Link to="/standings" style={{ textDecoration: 'none' }}>
+        <Link to="/standings" style={{ textDecoration: "none" }}>
           <Navbar.Brand>Standings</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Brand href="https://github.com/jdro10">
-            <AiFillGithub size={25}/>
+            <AiFillGithub size={25} />
           </Navbar.Brand>
         </Navbar.Collapse>
       </Container>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Map.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-const Map = ({ coordinates, circuitName, mapHeight }) => {
+const Map = ({ coordinates, circuitName }) => {
   const [map, setMap] = useState(null);
 
   useEffect(() => {

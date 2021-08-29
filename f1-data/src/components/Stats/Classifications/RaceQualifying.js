@@ -33,7 +33,13 @@ const RaceQualifying = ({ raceQualifying }) => {
                 <td className="showSM">{driver.Driver.code}</td>
               )}
               <td className="hideSM">{driver.Constructor.name}</td>
-              <td>{driver.hasOwnProperty("Q1") ? driver.Q1 : "-"}</td>
+              <td>
+                {driver.hasOwnProperty("Q1")
+                  ? driver.Q1 === ""
+                    ? "-"
+                    : driver.Q1
+                  : "-"}
+              </td>
               <td>{driver.hasOwnProperty("Q2") ? driver.Q2 : "-"}</td>
               <td>{driver.hasOwnProperty("Q3") ? driver.Q3 : "-"}</td>
             </tr>

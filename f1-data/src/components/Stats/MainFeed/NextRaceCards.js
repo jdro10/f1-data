@@ -29,7 +29,9 @@ const NextRaceCard = ({ nextRaceData }) => {
       cardBody={
         <div>
           <h4>Round {nextRaceData.round}</h4>
-          <h3>{nextRaceData.raceName + " - " + nextRaceData.Circuit.circuitName}</h3>
+          <h3>
+            {nextRaceData.raceName + " - " + nextRaceData.Circuit.circuitName}
+          </h3>
           {loadingCountryCode ? "" : <Flag code={countryCode} height="50" />}
           <h2>
             <Countdown

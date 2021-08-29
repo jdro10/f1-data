@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Tabs from "./Tabs";
+import EventTabs from "./EventTabs";
 import PuffLoader from "react-spinners/PuffLoader";
 import Row from "react-bootstrap/Row";
 import RaceCountdown from "./RaceCountdown";
@@ -19,30 +19,8 @@ const Race = ({ season, round }) => {
       );
       const data = await response.json();
 
-      if (data.MRData.RaceTable.Races[0] === undefined) {
-        setRaceClassification(null);
-      } else {
-        setRaceInfo({
-          season: data.MRData.RaceTable.season,
-          round: data.MRData.RaceTable.round,
-          raceName: data.MRData.RaceTable.Races[0].raceName,
-          circuitId: data.MRData.RaceTable.Races[0].Circuit.circuitId,
-          circuitName: data.MRData.RaceTable.Races[0].Circuit.circuitName,
-          circuitCountry:
-            data.MRData.RaceTable.Races[0].Circuit.Location.country,
-          circuitLocality:
-            data.MRData.RaceTable.Races[0].Circuit.Location.locality,
-          circuitLatitude: data.MRData.RaceTable.Races[0].Circuit.Location.lat,
-          circuitLongitude:
-            data.MRData.RaceTable.Races[0].Circuit.Location.long,
-          raceDate: data.MRData.RaceTable.Races[0].date,
-          raceTime: data.MRData.RaceTable.Races[0].hasOwnProperty("time")
-            ? data.MRData.RaceTable.Races[0].time.substring(
-                0,
-                data.MRData.RaceTable.Races[0].time.length - 1
-              )
-            : "N/A",
-        });
+      if (data.MRData.RaceTable.Races[0] !== undefined) {
+        setRaceInfo(data.MRData.RaceTable.Races[0]);
         setRaceClassification(data.MRData.RaceTable.Races[0].Results);
       }
 
@@ -55,9 +33,7 @@ const Race = ({ season, round }) => {
       );
       const data = await response.json();
 
-      if (data.MRData.RaceTable.Races[0] === undefined) {
-        setRaceQualifying(null);
-      } else {
+      if (data.MRData.RaceTable.Races[0] !== undefined) {
         setRaceQualifying(data.MRData.RaceTable.Races[0].QualifyingResults);
       }
 
@@ -81,7 +57,7 @@ const Race = ({ season, round }) => {
           <RaceCountdown season={season} round={round} />
         ) : (
           <Container>
-            <Tabs
+            <EventTabs
               raceInfo={raceInfo}
               raceClassification={raceClassification}
               raceQualifying={raceQualifying}
