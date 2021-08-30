@@ -3,6 +3,15 @@ import Col from "react-bootstrap/Col";
 import Flag from "react-world-flags";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
+  const getLocalRaceDate = (date, time) => {
+    const raceDate = new Date(date + "T" + time);
+    const hours = (raceDate.getHours() < 10 ? "0" : "") + raceDate.getHours();
+    const minutes =
+      (raceDate.getMinutes() < 10 ? "0" : "") + raceDate.getMinutes();
+
+    return hours + ":" + minutes + ":00";
+  };
+
   return (
     <div>
       <Row className="justify-content-center text-center">
@@ -19,7 +28,7 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
         <Col md="auto">
           <h3>
             {raceInfo.hasOwnProperty("time")
-              ? raceInfo.time.substring(0, raceInfo.time.length - 1)
+              ? getLocalRaceDate(raceInfo.date, raceInfo.time)
               : "N/A"}
           </h3>
         </Col>
