@@ -30,6 +30,15 @@ const RaceInfo = ({ race }) => {
     fetchCountryCode();
   }, [race.Circuit.Location.country]);
 
+  const getLocalRaceDate = (date, time) => {
+    const raceDate = new Date(date + "T" + time);
+    const hours = (raceDate.getHours() < 10 ? "0" : "") + raceDate.getHours();
+    const minutes =
+      (raceDate.getMinutes() < 10 ? "0" : "") + raceDate.getMinutes();
+
+    return hours + ":" + minutes + ":00";
+  };
+
   return (
     <Container>
       <Row className="justify-content-md-center text-center">
@@ -60,7 +69,7 @@ const RaceInfo = ({ race }) => {
         <Col xs={12} md="auto">
           <h3>
             {race.hasOwnProperty("time")
-              ? race.time.substring(0, race.time.length - 1)
+              ? getLocalRaceDate(race.date, race.time)
               : "N/A"}
           </h3>
         </Col>
