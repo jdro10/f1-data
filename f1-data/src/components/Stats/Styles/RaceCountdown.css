@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap');
+
 @media only screen and (min-width: 480px) {
   .countdown {
     font-size: 50px;
@@ -20,4 +22,9 @@
   .countdown {
     font-size: 125px;
   }
+}
+
+.main-page-countdown {
+  font-family: 'Titillium Web', sans-serif !important;
+  font-weight: 700;
 }

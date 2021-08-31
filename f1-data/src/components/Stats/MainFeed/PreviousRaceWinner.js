@@ -9,7 +9,7 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
       cardTitle="Previous race winner"
       cardBody={
         <div>
-          <h3>
+          <h1>
             {previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
               .permanentNumber +
               " - " +
@@ -18,17 +18,17 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
               " " +
               previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
                 .familyName}
-          </h3>
+          </h1>
 
-          <h4>
+          <h5>
             {
               previousRaceData.MRData.RaceTable.Races[0].Results[0].Constructor
                 .name
             }
-          </h4>
-          <h4>
+          </h5>
+          <h5>
             {previousRaceData.MRData.RaceTable.Races[0].Results[0].Time.time}
-          </h4>
+          </h5>
           <CircleFlag
             countryCode={
               CountriesCodeNationality[
@@ -36,7 +36,7 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
                   .nationality
               ].toLowerCase()
             }
-            height={65}
+            height={100}
           />
         </div>
       }
@@ -46,7 +46,7 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
           {previousRaceData.MRData.RaceTable.round + " / " + totalNumberOfRaces}
         </h4>
       }
-      cardHeight="24rem"
+      cardHeight="26rem"
       variant={"dark"}
     ></GenericCard>
   );

@@ -101,52 +101,51 @@ const MainFeed = () => {
         </Row>
       ) : (
         <Row className="justify-content-center text-center">
-          <Col xs={12} sm={12} md={8} lg={4}>
-            {nextRaceData == null ? (
+          <Row>
+            <Col>
+              {nextRaceData == null ? (
+                <div>
+                  <p></p>
+                  <GenericCard
+                    cardTitle="Next Race"
+                    cardBody={<h1>There's no upcoming events.</h1>}
+                    cardFooter={<h4>Please check back later</h4>}
+                    cardHeight="24rem"
+                    variant={"light"}
+                  />
+                  <p></p>
+                </div>
+              ) : (
+                <div>
+                  <p></p>
+                  <NextRaceCard nextRaceData={nextRaceData} />
+                  <p></p>
+                </div>
+              )}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p></p>
+              <PreviousRaceCard previousRaceData={previousRaceResult} />
+              <p></p>
+            </Col>
+            <Col>
               <div>
                 <p></p>
-                <GenericCard
-                  cardTitle="Next Race"
-                  cardBody={<h1>There's no upcoming events.</h1>}
-                  cardFooter={<h4>Please check back later</h4>}
-                  cardHeight="24rem"
-                  variant={"light"}
+                <PreviousRaceWinner
+                  previousRaceData={previousRaceResult}
+                  totalNumberOfRaces={totalNumberOfRaces}
                 />
                 <p></p>
               </div>
-            ) : (
-              <div>
-                <p></p>
-                <NextRaceCard nextRaceData={nextRaceData} />
-                <p></p>
-              </div>
-            )}
-          </Col>
-          <Col xs={12} sm={12} md={8} lg={4}>
-            <p></p>
-            <PreviousRaceCard previousRaceData={previousRaceResult} />
-            <p></p>
-          </Col>
-          <Col xs={12} sm={12} md={8} lg={4}>
-            <div>
-              <p></p>
-              <PreviousRaceWinner
-                previousRaceData={previousRaceResult}
-                totalNumberOfRaces={totalNumberOfRaces}
-              />
-              <p></p>
-            </div>
-          </Col>
+            </Col>
+          </Row>
         </Row>
       )}
       <br />
       {loadingDriversStandings || loadingConstructorsStandings ? (
-        <Row
-          className="justify-content-center text-center"
-          style={{ minHeight: "200px" }}
-        >
-          <Spinner animation="border" />
-        </Row>
+        ""
       ) : (
         <Row>
           <Col>

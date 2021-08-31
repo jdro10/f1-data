@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
-import { CircleFlag } from 'react-circle-flags'
+import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 
 const PreviousRaceCard = ({ previousRaceData }) => {
@@ -25,17 +25,19 @@ const PreviousRaceCard = ({ previousRaceData }) => {
   return (
     <GenericCard
       cardTitle={
-        "Previous race - " + previousRaceData.MRData.RaceTable.Races[0].date
+        "Previous race"
       }
       cardBody={
         <div>
-          <h4>Round {previousRaceData.MRData.RaceTable.round}</h4>
-          <h2>
-            {previousRaceData.MRData.RaceTable.Races[0].raceName +
-              " - " +
-              previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
-          </h2>
-          {loadingCountryCode ? "" : <CircleFlag countryCode={countryCode.toLowerCase()} height="60" />}
+          <h5>Round {previousRaceData.MRData.RaceTable.round}</h5>
+          <h1>{previousRaceData.MRData.RaceTable.Races[0].raceName}</h1>
+          <h5>{previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}</h5>
+          <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
+          {loadingCountryCode ? (
+            ""
+          ) : (
+            <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
+          )}
         </div>
       }
       cardFooter={
@@ -50,7 +52,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
           <Button variant="dark">Race result</Button>
         </Link>
       }
-      cardHeight="24rem"
+      cardHeight="26rem"
       variant={"light"}
     ></GenericCard>
   );
