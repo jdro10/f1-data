@@ -61,13 +61,9 @@ const RaceQualifying = ({ raceQualifying }) => {
                     />
                   </Col>
                   <Col xs={6}>
-                    {!driver.Driver.hasOwnProperty("code") ? (
-                      <td className="showSM">
-                        {driver.Driver.familyName.substring(0, 3).toUpperCase()}
-                      </td>
-                    ) : (
-                      <td className="showSM">{driver.Driver.code}</td>
-                    )}
+                    {!driver.Driver.hasOwnProperty("code")
+                      ? driver.Driver.familyName.substring(0, 3).toUpperCase()
+                      : driver.Driver.code}
                   </Col>
                 </Row>
               </td>

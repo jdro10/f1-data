@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Countdown from "react-countdown";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../Styles/RaceCountdown.css";
 
 const NextRaceCard = ({ nextRaceData }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -32,19 +31,19 @@ const NextRaceCard = ({ nextRaceData }) => {
         style={{ marginTop: "1%" }}
         className="justify-content-center text-center"
       >
-        <Col xs={3} sm={1}>
+        <Col xs={3} sm={2}>
           <h1>{days}</h1>
           <h5>days</h5>
         </Col>
-        <Col xs={3} sm={1}>
+        <Col xs={3} sm={2}>
           <h1>{hours}</h1>
           <h5>hours</h5>
         </Col>
-        <Col xs={3} sm={1}>
+        <Col xs={3} sm={2}>
           <h1>{minutes}</h1>
           <h5>min.</h5>
         </Col>
-        <Col xs={3} sm={1}>
+        <Col xs={3} sm={2}>
           <h1>{seconds}</h1>
           <h5>sec.</h5>
         </Col>

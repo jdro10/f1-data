@@ -4,6 +4,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import { CircleFlag } from "react-circle-flags";
 import Table from "react-bootstrap/Table";
 import { TeamColors } from "../../../data/TeamColors";
+import "../Styles/Table.css";
 
 const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
   const [fastestLap, setFastestLap] = useState(null);
@@ -33,7 +34,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
 
     const fetchPolePosition = async () => {
       const response = await fetch(
-        `http://ergast.com/api/f1/${previousRaceData.MRData.RaceTable.season}/${previousRaceData.MRData.RaceTable.round}/qualifying.json`
+        `https://ergast.com/api/f1/${previousRaceData.MRData.RaceTable.season}/${previousRaceData.MRData.RaceTable.round}/qualifying.json`
       );
       const data = await response.json();
 
@@ -86,16 +87,16 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       height={20}
                     />
                   </td>
-                  <td>
+                  <td className="hideSM">
                     {driver.Driver.givenName + " " + driver.Driver.familyName}
                   </td>
+                  <td className="showSM">{driver.Driver.code}</td>
                   <td>{driver.Time.time}</td>
                 </tr>
               ))}
-              <br></br>
             </tbody>
           </Table>
-          <Table responsive>
+          <Table responsive style={{ marginTop: "15px" }}>
             <tbody>
               {fastestLap !== null ? (
                 <tr>
@@ -113,34 +114,25 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       }}
                     />
                   </td>
-                  <td>
+                  <td className="hideSM">
                     {fastestLap.Driver.givenName +
                       " " +
                       fastestLap.Driver.familyName}
                   </td>
+                  <td className="showSM">{fastestLap.Driver.code}</td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
                   <td>{fastestLap.FastestLap.AverageSpeed.speed + " kph"}</td>
                 </tr>
               ) : (
                 <tr>
                   <td>FL</td>
-                  <td>
-                    <CircleFlag countryCode={""} height={20} />
-                  </td>
-                  <td>
-                    <CircleFlag countryCode={""} height={20} />
-                  </td>
-                  <td>
-                    <CircleFlag countryCode={""} height={20} />
-                  </td>
-                  <td>
-                    <CircleFlag countryCode={""} height={20} />
-                  </td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
                 </tr>
               )}
-              {loadingPolePosition ? (
-                ""
-              ) : (
+              {loadingPolePosition ? null : (
                 <tr>
                   <td>PP</td>
                   <td>
@@ -164,11 +156,12 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       height={20}
                     />
                   </td>
-                  <td>
+                  <td className="hideSM">
                     {polePosition.Driver.givenName +
                       " " +
                       polePosition.Driver.familyName}
                   </td>
+                  <td className="showSM">{polePosition.Driver.code}</td>
                   <td>{polePosition.Q3}</td>
                 </tr>
               )}

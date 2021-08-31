@@ -27,18 +27,15 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                   <Row className="justify-content-center text-" xs="auto">
                     <Col xs={4}>
                       <CircleFlag
-                        countryCode={
-                          CountriesCodeNationality[
-                            constructor.Constructor.nationality
-                          ].toLowerCase()
-                        }
+                        countryCode={CountriesCodeNationality[
+                          constructor.Constructor.nationality
+                        ].toLowerCase()}
                         height={30}
                       />
                     </Col>
                     <Col xs={8}>{constructor.Constructor.name}</Col>
                   </Row>
                 </td>
-
                 <td>{constructor.wins}</td>
                 <td>{constructor.points}</td>
               </tr>
