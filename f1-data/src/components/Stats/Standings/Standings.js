@@ -4,7 +4,7 @@ import DriversStandings from "./DriversStandings";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import PuffLoader from "react-spinners/PuffLoader";
+import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const Standings = () => {
@@ -123,7 +123,7 @@ const Standings = () => {
       ) : (
         <Container style={{ minHeight: "500px", marginTop: "7%" }}>
           <Row className="justify-content-center text-center">
-            <PuffLoader color="black" loading="true" size={50} />
+            <Spinner animation="border" />
           </Row>
         </Container>
       )}

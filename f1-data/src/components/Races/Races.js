@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RaceInfo from "./RaceInfo";
-import PuffLoader from "react-spinners/PuffLoader";
+import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Races.css";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -39,7 +39,7 @@ const Races = () => {
 
   const seasonYearChange = (text) => {
     setSeason(text);
-    setLoadingSchedule(true)
+    setLoadingSchedule(true);
   };
 
   return (
@@ -47,7 +47,7 @@ const Races = () => {
       {loadingSeasonSchedule ? (
         <Container style={{ marginTop: "10%", minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
-            <PuffLoader color="black" loading="true" size={50} />
+            <Spinner animation="border" />
           </Row>
         </Container>
       ) : (

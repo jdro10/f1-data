@@ -9,7 +9,7 @@ import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "../MainFeed/NextRaceCards";
 import StandingsCard from "./StandingsCard";
-import PuffLoader from "react-spinners/PuffLoader";
+import Spinner from "react-bootstrap/Spinner";
 import PreviousRaceWinner from "./PreviousRaceWinner";
 
 const MainFeed = () => {
@@ -97,7 +97,7 @@ const MainFeed = () => {
           className="justify-content-center text-center"
           style={{ minHeight: "200px" }}
         >
-          <PuffLoader color="black" loading="true" size={30} />
+          <Spinner animation="border" />
         </Row>
       ) : (
         <Row className="justify-content-center text-center">
@@ -145,7 +145,7 @@ const MainFeed = () => {
           className="justify-content-center text-center"
           style={{ minHeight: "200px" }}
         >
-          <PuffLoader color="black" loading="true" size={30} />
+          <Spinner animation="border" />
         </Row>
       ) : (
         <Row>
