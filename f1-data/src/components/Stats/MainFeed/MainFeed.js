@@ -10,7 +10,7 @@ import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "../MainFeed/NextRaceCards";
 import StandingsCard from "./StandingsCard";
 import Spinner from "react-bootstrap/Spinner";
-import PreviousRaceWinner from "./PreviousRaceWinner";
+import PreviousRaceStats from "./PreviousRaceStats";
 
 const MainFeed = () => {
   const [nextRaceData, setNextRaceData] = useState(null);
@@ -133,7 +133,7 @@ const MainFeed = () => {
             <Col>
               <div>
                 <p></p>
-                <PreviousRaceWinner
+                <PreviousRaceStats
                   previousRaceData={previousRaceResult}
                   totalNumberOfRaces={totalNumberOfRaces}
                 />

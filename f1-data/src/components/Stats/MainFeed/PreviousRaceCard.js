@@ -24,19 +24,25 @@ const PreviousRaceCard = ({ previousRaceData }) => {
 
   return (
     <GenericCard
-      cardTitle={
-        "Previous race"
-      }
+      cardTitle={"Previous race"}
       cardBody={
         <div>
           <h5>Round {previousRaceData.MRData.RaceTable.round}</h5>
           <h1>{previousRaceData.MRData.RaceTable.Races[0].raceName}</h1>
-          <h5>{previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}</h5>
+          <h5>
+            {previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
+          </h5>
           <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
           {loadingCountryCode ? (
             ""
           ) : (
-            <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
+            <div>
+              <br></br>
+              <CircleFlag
+                countryCode={countryCode.toLowerCase()}
+                height={120}
+              />
+            </div>
           )}
         </div>
       }
@@ -49,10 +55,10 @@ const PreviousRaceCard = ({ previousRaceData }) => {
             previousRaceData.MRData.RaceTable.round
           }
         >
-          <Button variant="dark">Race result</Button>
+          <Button variant="dark">Full race result</Button>
         </Link>
       }
-      cardHeight="26rem"
+      cardHeight="30rem"
       variant={"light"}
     ></GenericCard>
   );
