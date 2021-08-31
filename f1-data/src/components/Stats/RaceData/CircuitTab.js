@@ -2,7 +2,7 @@ import React from "react";
 import Map from "../../Map/Map";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 import Circuit from "./CircuitData";
 
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
@@ -12,7 +12,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
         <Col>
           <h1>{raceInfo.Circuit.circuitName}</h1>
           <h3>
-            <Flag code={eventCountryCode} height="30" />{" "}
+            <CircleFlag countryCode={eventCountryCode} height="30" />{" "}
             {raceInfo.Circuit.Location.country}
           </h3>
           <h3>{raceInfo.Circuit.Location.locality}</h3>

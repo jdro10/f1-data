@@ -1,9 +1,10 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../Styles/Table.css";
 
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
   return (
@@ -25,14 +26,13 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                 <td>
                   <Row className="justify-content-center text-" xs="auto">
                     <Col xs={4}>
-                      <Flag
-                        code={
+                      <CircleFlag
+                        countryCode={
                           CountriesCodeNationality[
                             constructor.Constructor.nationality
-                          ]
+                          ].toLowerCase()
                         }
-                        height="15"
-                        width="25"
+                        height={30}
                       />
                     </Col>
                     <Col xs={8}>{constructor.Constructor.name}</Col>

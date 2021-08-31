@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 
 const PreviousRaceCard = ({ previousRaceData }) => {
@@ -15,7 +15,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
       );
       const data = await response.json();
 
-      setCountryCode(data[0].alpha3Code);
+      setCountryCode(data[0].alpha2Code);
       setLoadingCountryCode(false);
     };
 
@@ -24,18 +24,26 @@ const PreviousRaceCard = ({ previousRaceData }) => {
 
   return (
     <GenericCard
-      cardTitle={
-        "Previous race - " + previousRaceData.MRData.RaceTable.Races[0].date
-      }
+      cardTitle={"Previous race"}
       cardBody={
         <div>
-          <h4>Round {previousRaceData.MRData.RaceTable.round}</h4>
-          <h2>
-            {previousRaceData.MRData.RaceTable.Races[0].raceName +
-              " - " +
-              previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
-          </h2>
-          {loadingCountryCode ? "" : <Flag code={countryCode} height="50" />}
+          <h5>Round {previousRaceData.MRData.RaceTable.round}</h5>
+          <h1>{previousRaceData.MRData.RaceTable.Races[0].raceName}</h1>
+          <h5>
+            {previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
+          </h5>
+          <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
+          {loadingCountryCode ? (
+            ""
+          ) : (
+            <div>
+              <br></br>
+              <CircleFlag
+                countryCode={countryCode.toLowerCase()}
+                height={120}
+              />
+            </div>
+          )}
         </div>
       }
       cardFooter={
@@ -47,10 +55,10 @@ const PreviousRaceCard = ({ previousRaceData }) => {
             previousRaceData.MRData.RaceTable.round
           }
         >
-          <Button variant="dark">Race result</Button>
+          <Button variant="dark">Full race result</Button>
         </Link>
       }
-      cardHeight="24rem"
+      cardHeight="30rem"
       variant={"light"}
     ></GenericCard>
   );

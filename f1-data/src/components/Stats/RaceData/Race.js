@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import EventTabs from "./EventTabs";
-import PuffLoader from "react-spinners/PuffLoader";
+import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row";
 import RaceCountdown from "./RaceCountdown";
 
@@ -50,7 +50,7 @@ const Race = ({ season, round }) => {
         {loadingRaceResult || loadingRaceQualifying ? (
           <Container style={{ marginTop: "5%", minHeight: "700px" }}>
             <Row className="justify-content-center text-center">
-              <PuffLoader color="black" loading="true" size={50} />
+              <Spinner animation="border" />
             </Row>
           </Container>
         ) : raceClassification == null ? (

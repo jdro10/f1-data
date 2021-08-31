@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RaceInfo from "./RaceInfo";
-import PuffLoader from "react-spinners/PuffLoader";
+import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Races.css";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const Races = () => {
   const FIRST_SEASON = 1950;
@@ -39,6 +39,7 @@ const Races = () => {
 
   const seasonYearChange = (text) => {
     setSeason(text);
+    setLoadingSchedule(true);
   };
 
   return (
@@ -46,7 +47,7 @@ const Races = () => {
       {loadingSeasonSchedule ? (
         <Container style={{ marginTop: "10%", minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
-            <PuffLoader color="black" loading="true" size={50} />
+            <Spinner animation="border" />
           </Row>
         </Container>
       ) : (
@@ -78,19 +79,13 @@ const Races = () => {
               </Dropdown>
             </Col>
           </Row>
-
-          <Accordion>
+          <ListGroup>
             {seasonSchedule.map((race, index) => (
-              <Accordion.Item eventKey={index} key={index}>
-                <Accordion.Header>
-                  #{race.round + " " + race.raceName}
-                </Accordion.Header>
-                <Accordion.Body>
-                  <RaceInfo race={race} />
-                </Accordion.Body>
-              </Accordion.Item>
+              <ListGroup.Item>
+                <RaceInfo race={race} />
+              </ListGroup.Item>
             ))}
-          </Accordion>
+          </ListGroup>
         </Container>
       )}
     </Container>

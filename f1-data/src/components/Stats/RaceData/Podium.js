@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const Podium = ({ eventClassification }) => {
@@ -31,13 +31,11 @@ const Podium = ({ eventClassification }) => {
               </Row>
               <Row className="justify-content-md-center">
                 <Col md="auto">
-                  <Flag
-                    code={
-                      CountriesCodeNationality[
-                        eventClassification[1].Driver.nationality
-                      ]
-                    }
-                    height="30"
+                  <CircleFlag
+                    countryCode={CountriesCodeNationality[
+                      eventClassification[1].Driver.nationality
+                    ].toLowerCase()}
+                    height="60"
                   />
                 </Col>
               </Row>
@@ -83,13 +81,11 @@ const Podium = ({ eventClassification }) => {
               </Row>
               <Row className="justify-content-md-center">
                 <Col md="auto">
-                  <Flag
-                    code={
-                      CountriesCodeNationality[
-                        eventClassification[0].Driver.nationality
-                      ]
-                    }
-                    height="30"
+                  <CircleFlag
+                    countryCode={CountriesCodeNationality[
+                      eventClassification[0].Driver.nationality
+                    ].toLowerCase()}
+                    height="60"
                   />
                 </Col>
               </Row>
@@ -132,13 +128,11 @@ const Podium = ({ eventClassification }) => {
               </Row>
               <Row className="justify-content-md-center">
                 <Col md="auto">
-                  <Flag
-                    code={
-                      CountriesCodeNationality[
-                        eventClassification[2].Driver.nationality
-                      ]
-                    }
-                    height="30"
+                  <CircleFlag
+                    countryCode={CountriesCodeNationality[
+                      eventClassification[2].Driver.nationality
+                    ].toLowerCase()}
+                    height="60"
                   />
                 </Col>
               </Row>

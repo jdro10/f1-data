@@ -9,8 +9,8 @@ import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "../MainFeed/NextRaceCards";
 import StandingsCard from "./StandingsCard";
-import PuffLoader from "react-spinners/PuffLoader";
-import PreviousRaceWinner from "./PreviousRaceWinner";
+import Spinner from "react-bootstrap/Spinner";
+import PreviousRaceStats from "./PreviousRaceStats";
 
 const MainFeed = () => {
   const [nextRaceData, setNextRaceData] = useState(null);
@@ -97,56 +97,55 @@ const MainFeed = () => {
           className="justify-content-center text-center"
           style={{ minHeight: "200px" }}
         >
-          <PuffLoader color="black" loading="true" size={30} />
+          <Spinner animation="border" />
         </Row>
       ) : (
         <Row className="justify-content-center text-center">
-          <Col xs={12} sm={12} md={8} lg={4}>
-            {nextRaceData == null ? (
+          <Row>
+            <Col>
+              {nextRaceData == null ? (
+                <div>
+                  <p></p>
+                  <GenericCard
+                    cardTitle="Next Race"
+                    cardBody={<h1>There's no upcoming events.</h1>}
+                    cardFooter={<h4>Please check back later</h4>}
+                    cardHeight="24rem"
+                    variant={"light"}
+                  />
+                  <p></p>
+                </div>
+              ) : (
+                <div>
+                  <p></p>
+                  <NextRaceCard nextRaceData={nextRaceData} />
+                  <p></p>
+                </div>
+              )}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p></p>
+              <PreviousRaceCard previousRaceData={previousRaceResult} />
+              <p></p>
+            </Col>
+            <Col>
               <div>
                 <p></p>
-                <GenericCard
-                  cardTitle="Next Race"
-                  cardBody={<h1>There's no upcoming events.</h1>}
-                  cardFooter={<h4>Please check back later</h4>}
-                  cardHeight="24rem"
-                  variant={"light"}
+                <PreviousRaceStats
+                  previousRaceData={previousRaceResult}
+                  totalNumberOfRaces={totalNumberOfRaces}
                 />
                 <p></p>
               </div>
-            ) : (
-              <div>
-                <p></p>
-                <NextRaceCard nextRaceData={nextRaceData} />
-                <p></p>
-              </div>
-            )}
-          </Col>
-          <Col xs={12} sm={12} md={8} lg={4}>
-            <p></p>
-            <PreviousRaceCard previousRaceData={previousRaceResult} />
-            <p></p>
-          </Col>
-          <Col xs={12} sm={12} md={8} lg={4}>
-            <div>
-              <p></p>
-              <PreviousRaceWinner
-                previousRaceData={previousRaceResult}
-                totalNumberOfRaces={totalNumberOfRaces}
-              />
-              <p></p>
-            </div>
-          </Col>
+            </Col>
+          </Row>
         </Row>
       )}
       <br />
       {loadingDriversStandings || loadingConstructorsStandings ? (
-        <Row
-          className="justify-content-center text-center"
-          style={{ minHeight: "200px" }}
-        >
-          <PuffLoader color="black" loading="true" size={30} />
-        </Row>
+        ""
       ) : (
         <Row>
           <Col>
