@@ -57,7 +57,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
       }
       cardBody={
         <div>
-          <h4>Race result</h4>
+          <h4><b>Race result</b></h4>
           <Table responsive>
             <tbody className="justify-content-center">
               {previousRaceData.MRData.RaceTable.Races[0].Results.slice(
@@ -96,7 +96,8 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
               ))}
             </tbody>
           </Table>
-          <Table responsive style={{ marginTop: "15px" }}>
+          <h4><b>Fastest lap / Pole position</b></h4>
+          <Table responsive>
             <tbody>
               {fastestLap !== null ? (
                 <tr>
