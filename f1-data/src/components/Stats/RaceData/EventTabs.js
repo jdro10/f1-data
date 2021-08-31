@@ -22,7 +22,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           }
         })
         .then((data) => {
-          setEventCountryCode(data[0].alpha3Code);
+          setEventCountryCode(data[0].alpha2Code.toLowerCase());
         })
         .catch((error) => setEventCountryCode(null));
     };

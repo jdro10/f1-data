@@ -1,6 +1,6 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
   const getLocalRaceDate = (date, time) => {
@@ -35,7 +35,7 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <Flag code={eventCountryCode} height="50" />
+          <CircleFlag countryCode={eventCountryCode} height="50" />
         </Col>
       </Row>
     </div>

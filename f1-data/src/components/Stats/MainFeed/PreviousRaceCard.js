@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
-import Flag from "react-world-flags";
+import { CircleFlag } from 'react-circle-flags'
 import Button from "react-bootstrap/Button";
 
 const PreviousRaceCard = ({ previousRaceData }) => {
@@ -15,7 +15,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
       );
       const data = await response.json();
 
-      setCountryCode(data[0].alpha3Code);
+      setCountryCode(data[0].alpha2Code);
       setLoadingCountryCode(false);
     };
 
@@ -35,7 +35,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
               " - " +
               previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
           </h2>
-          {loadingCountryCode ? "" : <Flag code={countryCode} height="50" />}
+          {loadingCountryCode ? "" : <CircleFlag countryCode={countryCode.toLowerCase()} height="60" />}
         </div>
       }
       cardFooter={

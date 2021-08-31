@@ -1,7 +1,7 @@
 import React from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
-import Flag from "react-world-flags";
+import { CircleFlag } from 'react-circle-flags'
 
 const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
   return (
@@ -29,14 +29,14 @@ const PreviousRaceWinner = ({ previousRaceData, totalNumberOfRaces }) => {
           <h4>
             {previousRaceData.MRData.RaceTable.Races[0].Results[0].Time.time}
           </h4>
-          <Flag
-            code={
+          <CircleFlag
+            countryCode={
               CountriesCodeNationality[
                 previousRaceData.MRData.RaceTable.Races[0].Results[0].Driver
                   .nationality
-              ]
+              ].toLowerCase()
             }
-            height={50}
+            height={65}
           />
         </div>
       }

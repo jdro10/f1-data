@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
-import Flag from "react-world-flags";
+import { CircleFlag } from 'react-circle-flags'
 import Button from "react-bootstrap/Button";
 import Countdown from "react-countdown";
 
@@ -16,7 +16,7 @@ const NextRaceCard = ({ nextRaceData }) => {
       );
       const data = await response.json();
 
-      setCountryCode(data[0].alpha3Code);
+      setCountryCode(data[0].alpha2Code);
       setLoadingCountryCode(false);
     };
 
@@ -32,7 +32,7 @@ const NextRaceCard = ({ nextRaceData }) => {
           <h3>
             {nextRaceData.raceName + " - " + nextRaceData.Circuit.circuitName}
           </h3>
-          {loadingCountryCode ? "" : <Flag code={countryCode} height="50" />}
+          {loadingCountryCode ? "" : <CircleFlag countryCode={countryCode.toLowerCase()} height="65" />}
           <h2>
             <Countdown
               date={

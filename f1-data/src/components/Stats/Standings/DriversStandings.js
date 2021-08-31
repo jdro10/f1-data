@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -28,10 +28,11 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td className="hideSM">
                 <Row className="justify-content-center text-center">
                   <Col xs={6} sm={4}>
-                    <Flag
-                      code={CountriesCodeNationality[driver.Driver.nationality]}
-                      height="15"
-                      width="25"
+                    <CircleFlag
+                      countryCode={CountriesCodeNationality[
+                        driver.Driver.nationality
+                      ].toLowerCase()}
+                      height={30}
                     />
                   </Col>
                   <Col xs={10} sm={8}>
@@ -42,10 +43,11 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td className="showSM">
                 <Row className="justify-content-center text-center">
                   <Col xs={4}>
-                    <Flag
-                      code={CountriesCodeNationality[driver.Driver.nationality]}
-                      height="15"
-                      width="25"
+                    <CircleFlag
+                      countryCode={CountriesCodeNationality[
+                        driver.Driver.nationality
+                      ].toLowerCase()}
+                      height={20}
                     />
                   </Col>
                   <Col xs={8}>
