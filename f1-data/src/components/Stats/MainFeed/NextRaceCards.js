@@ -71,7 +71,7 @@ const NextRaceCard = ({ nextRaceData }) => {
           ) : (
             <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
           )}
-          <div className="main-page-countdown">
+          <div>
             <Countdown
               date={
                 Date.now() +
