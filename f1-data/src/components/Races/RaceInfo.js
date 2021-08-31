@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import Flag from "react-world-flags";
+import { CircleFlag } from "react-circle-flags";
+import Alert from "react-bootstrap/Alert";
 
 const RaceInfo = ({ race }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -21,7 +20,7 @@ const RaceInfo = ({ race }) => {
           }
         })
         .then((data) => {
-          setCountryCode(data[0].alpha3Code);
+          setCountryCode(data[0].alpha2Code.toLowerCase());
           setLoadingCountryCode(false);
         })
         .catch((error) => setCountryCode(null));
@@ -40,47 +39,32 @@ const RaceInfo = ({ race }) => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center text-center">
-        <Col xs={12} md="auto">
-          {loadigCountryCode && countryCode != null ? (
-            ""
-          ) : (
-            <Flag code={countryCode} height="40" />
-          )}
-        </Col>
-
-        <Col xs={12} md="auto">
-          <h3>#{race.round}</h3>
-        </Col>
-
-        <Col xs={12} md="auto">
-          <h3>{race.raceName}</h3>
-        </Col>
-
-        <Col xs={12} md="auto">
-          <h3>{race.Circuit.Location.country}</h3>
-        </Col>
-
-        <Col xs={12} md="auto">
-          <h3>{race.date}</h3>
-        </Col>
-
-        <Col xs={12} md="auto">
-          <h3>
-            {race.hasOwnProperty("time")
-              ? getLocalRaceDate(race.date, race.time)
-              : "N/A"}
-          </h3>
-        </Col>
-
-        <Col xs={12} md="auto">
-          <Link to={"/race/" + race.season + "/" + race.round}>
-            <BsBoxArrowUpRight size={35} />
-          </Link>
-        </Col>
-      </Row>
-    </Container>
+    <Row className="center-xs justify-content-between">
+      <Col xs={12} md={12} lg="auto" className="text-center">
+        {loadigCountryCode && countryCode != null ? (
+          ""
+        ) : (
+          <CircleFlag countryCode={countryCode} height={80} />
+        )}
+      </Col>
+      <Col xs={12} md={12} lg="auto">
+        <Link to={"/race/" + race.season + "/" + race.round}>
+          <Alert variant="primary">Round #{race.round}</Alert>
+        </Link>
+      </Col>
+      <Col xs={12} md={12} lg={6} className="center-xs">
+        <h3>{race.raceName}</h3>
+        <h5>{race.Circuit.circuitName}</h5>
+      </Col>
+      <Col xs={12} md={12} lg={3} className="center-xs center">
+        <h5>{race.date}</h5>
+        <h5>
+          {race.hasOwnProperty("time")
+            ? getLocalRaceDate(race.date, race.time)
+            : ""}
+        </h5>
+      </Col>
+    </Row>
   );
 };
 

@@ -35,7 +35,7 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <CircleFlag countryCode={eventCountryCode} height="50" />
+          <CircleFlag countryCode={eventCountryCode} height="100" />
         </Col>
       </Row>
     </div>
