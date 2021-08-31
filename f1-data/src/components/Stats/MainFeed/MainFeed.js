@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import DriversStandings from "../Standings/DriversStandings";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
-import NextRaceCard from "../MainFeed/NextRaceCards";
+import NextRaceCard from "./NextRaceCard";
 import StandingsCard from "./StandingsCard";
 import Spinner from "react-bootstrap/Spinner";
 import PreviousRaceStats from "./PreviousRaceStats";
@@ -102,7 +102,7 @@ const MainFeed = () => {
       ) : (
         <Row className="justify-content-center text-center">
           <Row>
-            <Col>
+            <Col lg={12}>
               {nextRaceData == null ? (
                 <div>
                   <p></p>
@@ -125,12 +125,12 @@ const MainFeed = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col xs={12} lg={6}>
               <p></p>
               <PreviousRaceCard previousRaceData={previousRaceResult} />
               <p></p>
             </Col>
-            <Col>
+            <Col xs={12} lg={6}>
               <div>
                 <p></p>
                 <PreviousRaceStats
