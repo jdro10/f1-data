@@ -45,13 +45,14 @@ const Races = () => {
   return (
     <Container>
       {loadingSeasonSchedule ? (
-        <Container style={{ marginTop: "10%", minHeight: "700px" }}>
+        <Container style={{ minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
+            <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
             <Spinner animation="border" />
           </Row>
         </Container>
       ) : (
-        <Container style={{ marginTop: "2%", minHeight: "700px" }}>
+        <Container style={{ minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>Formula One - {season} season</h1>

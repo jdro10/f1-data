@@ -123,7 +123,7 @@ const Standings = () => {
       ) : (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
-            <h1 style={{ marginBottom: "3%" }}>Formula One season</h1>
+            <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
             <Spinner animation="border" />
           </Row>
         </Container>
