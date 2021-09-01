@@ -28,7 +28,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>
                 <Row className="justify-content-center text-center">
-                  <Col>
+                  <Col xs={2} md={2}>
                     <CircleFlag
                       countryCode={CountriesCodeNationality[
                         driver.Driver.nationality
@@ -36,7 +36,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
-                  <Col>
+                  <Col xs={2} md={2}>
                     <div
                       style={{
                         width: "7px",
@@ -49,10 +49,10 @@ const DriversStandings = ({ style, driversStandings }) => {
                       }}
                     />
                   </Col>
-                  <Col className="hideXS">
+                  <Col className="hideXS" md={8}>
                     {driver.Driver.givenName + " " + driver.Driver.familyName}
                   </Col>
-                  <Col className="showXS">
+                  <Col className="showXS" xs={8}>
                     {!driver.Driver.hasOwnProperty("code")
                       ? driver.Driver.familyName.substring(0, 3).toUpperCase()
                       : driver.Driver.code}
