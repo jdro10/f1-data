@@ -14,28 +14,30 @@ const Race = ({ season, round }) => {
 
   useEffect(() => {
     const fetchRaceResult = async () => {
-      const response = await fetch(
-        `https://ergast.com/api/f1/${season}/${round}/results.json`
-      );
-      const data = await response.json();
-
-      if (data.MRData.RaceTable.Races[0] !== undefined) {
-        setRaceInfo(data.MRData.RaceTable.Races[0]);
-        setRaceClassification(data.MRData.RaceTable.Races[0].Results);
-      }
+      await fetch(`https://ergast.com/api/f1/${season}/${round}/results.json`)
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.MRData.RaceTable.Races[0] !== undefined) {
+            setRaceInfo(result.MRData.RaceTable.Races[0]);
+            setRaceClassification(result.MRData.RaceTable.Races[0].Results);
+          }
+        });
 
       setLoadingRaceResult(false);
     };
 
     const fetchRaceQualifying = async () => {
-      const response = await fetch(
+      await fetch(
         `https://ergast.com/api/f1/${season}/${round}/qualifying.json`
-      );
-      const data = await response.json();
-
-      if (data.MRData.RaceTable.Races[0] !== undefined) {
-        setRaceQualifying(data.MRData.RaceTable.Races[0].QualifyingResults);
-      }
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.MRData.RaceTable.Races[0] !== undefined) {
+            setRaceQualifying(
+              result.MRData.RaceTable.Races[0].QualifyingResults
+            );
+          }
+        });
 
       setLoadingRaceQualifying(false);
     };

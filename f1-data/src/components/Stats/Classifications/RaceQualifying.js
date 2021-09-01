@@ -1,9 +1,9 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import "../Styles/Table.css";
-import { TeamColors } from "../../../data/TeamColors";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import TeamColor from "../../TeamColor/TeamColor";
 
 const RaceQualifying = ({ raceQualifying }) => {
   return (
@@ -28,36 +28,20 @@ const RaceQualifying = ({ raceQualifying }) => {
               <td className="hideXS">
                 <Row className="row nopadding">
                   <Col xs={1}>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          driver.Constructor.constructorId
-                        )
-                          ? TeamColors[driver.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
                   <Col xs={11}>
-                    {driver.Driver.givenName + " " + driver.Driver.familyName}
+                    {driver.Driver.givenName} {driver.Driver.familyName}
                   </Col>
                 </Row>
               </td>
               <td className="showXS">
                 <Row className="row nopadding">
                   <Col xs={2}>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          driver.Constructor.constructorId
-                        )
-                          ? TeamColors[driver.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
                   <Col xs={6}>
@@ -67,7 +51,6 @@ const RaceQualifying = ({ raceQualifying }) => {
                   </Col>
                 </Row>
               </td>
-
               <td className="hideXS">{driver.Constructor.name}</td>
               <td>
                 {driver.hasOwnProperty("Q1")

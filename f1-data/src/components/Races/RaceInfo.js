@@ -14,13 +14,9 @@ const RaceInfo = ({ race }) => {
       await fetch(
         `https://restcountries.eu/rest/v2/name/${race.Circuit.Location.country}?fullText=true`
       )
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-        })
-        .then((data) => {
-          setCountryCode(data[0].alpha2Code.toLowerCase());
+        .then((res) => res.json())
+        .then((result) => {
+          setCountryCode(result[0].alpha2Code.toLowerCase());
           setLoadingCountryCode(false);
         })
         .catch((error) => setCountryCode(null));
@@ -41,10 +37,12 @@ const RaceInfo = ({ race }) => {
   return (
     <Row className="center-xs justify-content-between">
       <Col xs={12} md={12} lg="auto" className="text-center">
-        {loadigCountryCode && countryCode != null ? (
-          ""
-        ) : (
-          <CircleFlag countryCode={countryCode} height={80} style={{marginBottom: "2%"}}/>
+        {loadigCountryCode && countryCode != null ? null : (
+          <CircleFlag
+            countryCode={countryCode}
+            height={80}
+            style={{ marginBottom: "2%" }}
+          />
         )}
       </Col>
       <Col xs={12} md={12} lg="auto">
@@ -61,7 +59,7 @@ const RaceInfo = ({ race }) => {
         <h5>
           {race.hasOwnProperty("time")
             ? getLocalRaceDate(race.date, race.time)
-            : ""}
+            : null}
         </h5>
       </Col>
     </Row>

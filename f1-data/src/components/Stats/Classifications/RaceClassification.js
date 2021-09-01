@@ -4,7 +4,7 @@ import { FaStopwatch } from "react-icons/fa";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
-import { TeamColors } from "../../../data/TeamColors";
+import TeamColor from "../../TeamColor/TeamColor";
 
 const RaceClassification = ({ raceClassification }) => {
   return (
@@ -29,24 +29,15 @@ const RaceClassification = ({ raceClassification }) => {
               <td>
                 <Row className="row nopadding">
                   <Col xs={2} md={1}>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          driver.Constructor.constructorId
-                        )
-                          ? TeamColors[driver.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
                   <Col xs={6} md={11}>
-                    {driver.Driver.givenName + " " + driver.Driver.familyName}
+                    {driver.Driver.givenName} {driver.Driver.familyName}
                   </Col>
                 </Row>
               </td>
-
               <td className="hideXS">{driver.Constructor.name}</td>
               <td className="hideXS">{driver.laps}</td>
               <td>

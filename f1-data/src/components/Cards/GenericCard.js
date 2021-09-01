@@ -24,7 +24,9 @@ const GenericCard = ({
           <Row className="justify-content-md-center">{cardBody}</Row>
         </Card.Body>
       </Card.Body>
-      {cardFooter !== undefined ? <Card.Footer>{cardFooter}</Card.Footer> : ""}
+      {cardFooter !== undefined ? (
+        <Card.Footer>{cardFooter}</Card.Footer>
+      ) : null}
     </Card>
   );
 };
