@@ -81,7 +81,7 @@ const Races = () => {
           </Row>
           <ListGroup>
             {seasonSchedule.map((race, index) => (
-              <ListGroup.Item>
+              <ListGroup.Item key={index}>
                 <RaceInfo race={race} />
               </ListGroup.Item>
             ))}

@@ -12,6 +12,7 @@ import { SiVisualstudiocode } from "react-icons/si";
 import { IoLogoNpm } from "react-icons/io";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
+import { SiLeaflet } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -40,10 +41,13 @@ const Footer = () => {
             <BsBootstrap size={40} />
           </Col>
           <Col>
-            <SiVisualstudiocode size={40} />
+            <SiLeaflet size={40} />
           </Col>
           <Col>
             <IoLogoNpm size={40} />
+          </Col>
+          <Col>
+            <SiVisualstudiocode size={40} />
           </Col>
         </Row>
         <Row className="justify-content-md-center" xs="auto" id="lastRow">
