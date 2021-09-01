@@ -81,7 +81,7 @@ const MainFeed = () => {
   }, []);
 
   return (
-    <Container style={{ minHeight: "700px" }}>
+    <Container style={{ minHeight: "500px" }}>
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <h1 style={{ marginBottom: "3%" }}>
