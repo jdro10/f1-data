@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Countdown from "react-countdown";
 import EventTabs from "./EventTabs";
 import { Redirect } from "react-router-dom";
-import "../Styles/RaceCountdown.css";
+import ClockCoutdown from "../../Countdown/ClockCountdown";
 
 const RaceCountdown = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -13,12 +11,15 @@ const RaceCountdown = ({ season, round }) => {
 
   useEffect(() => {
     const fetchRaceInfo = async () => {
-      const response = await fetch(`https://ergast.com/api/f1/${season}.json`);
-      const data = await response.json();
-
-      if (data.MRData.RaceTable.Races[parseInt(round) - 1] !== undefined) {
-        setRaceInfo(data.MRData.RaceTable.Races[parseInt(round) - 1]);
-      }
+      await fetch(`https://ergast.com/api/f1/${season}.json`)
+        .then((res) => res.json())
+        .then((result) => {
+          if (
+            result.MRData.RaceTable.Races[parseInt(round) - 1] !== undefined
+          ) {
+            setRaceInfo(result.MRData.RaceTable.Races[parseInt(round) - 1]);
+          }
+        });
 
       setLoadingRaceInfo(false);
     };
@@ -26,56 +27,16 @@ const RaceCountdown = ({ season, round }) => {
     fetchRaceInfo();
   }, [season, round]);
 
-  const renderer = ({ days, hours, minutes, seconds }) => {
-    return (
-      <Row
-        style={{ marginTop: "2%" }}
-        className="justify-content-center text-center"
-      >
-        <Col xs={2} sm={2}>
-          <h1 className="countdown">{days}</h1>
-          <h5 className="countdown">days</h5>
-        </Col>
-        <Col xs={2} sm={3}>
-          <h1 className="countdown">{hours}</h1>
-          <h5 className="countdown">hours</h5>
-        </Col>
-        <Col xs={2} sm={2}>
-          <h1 className="countdown">{minutes}</h1>
-          <h5 className="countdown">min.</h5>
-        </Col>
-        <Col xs={2} sm={2}>
-          <h1 className="countdown">{seconds}</h1>
-          <h5 className="countdown">sec.</h5>
-        </Col>
-      </Row>
-    );
-  };
-
   return (
     <div>
       <Container fluid="md" style={{ minHeight: "700px" }}>
-        {loadingRaceInfo ? (
-          ""
-        ) : raceInfo === null ? (
+        {loadingRaceInfo ? null : raceInfo === null ? (
           <Redirect to="/error" />
         ) : (
           <div>
             <EventTabs season={season} round={round} raceInfo={raceInfo} />
             <Row className="justify-content-center text-center">
-              <Col>
-                <div>
-                  <Countdown
-                    date={
-                      Date.now() +
-                      (new Date(raceInfo.date).getTime() +
-                        raceInfo.time.split(":")[0] * 3600000 -
-                        new Date().getTime())
-                    }
-                    renderer={renderer}
-                  />
-                </div>
-              </Col>
+              <ClockCoutdown date={raceInfo.date} time={raceInfo.time} />
             </Row>
           </div>
         )}

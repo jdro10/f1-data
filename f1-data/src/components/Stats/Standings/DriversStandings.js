@@ -5,7 +5,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
-import { TeamColors } from "../../../data/TeamColors";
+import TeamColor from "../../TeamColor/TeamColor";
 
 const DriversStandings = ({ style, driversStandings }) => {
   return (
@@ -37,20 +37,12 @@ const DriversStandings = ({ style, driversStandings }) => {
                     />
                   </Col>
                   <Col xs={4} md={2}>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          driver.Constructors[0].constructorId
-                        )
-                          ? TeamColors[driver.Constructors[0].constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={driver.Constructors[0].constructorId}
                     />
                   </Col>
                   <Col className="hideXS" md={8}>
-                    {driver.Driver.givenName + " " + driver.Driver.familyName}
+                    {driver.Driver.givenName} {driver.Driver.familyName}
                   </Col>
                   <Col className="showXS" xs={10}>
                     {!driver.Driver.hasOwnProperty("code")

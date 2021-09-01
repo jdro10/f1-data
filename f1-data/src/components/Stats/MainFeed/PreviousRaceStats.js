@@ -3,7 +3,7 @@ import GenericCard from "../../Cards/GenericCard";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import { CircleFlag } from "react-circle-flags";
 import Table from "react-bootstrap/Table";
-import { TeamColors } from "../../../data/TeamColors";
+import TeamColor from "../../TeamColor/TeamColor";
 import "../Styles/Table.css";
 
 const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
@@ -33,13 +33,16 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
     };
 
     const fetchPolePosition = async () => {
-      const response = await fetch(
+      await fetch(
         `https://ergast.com/api/f1/${previousRaceData.MRData.RaceTable.season}/${previousRaceData.MRData.RaceTable.round}/qualifying.json`
-      );
-      const data = await response.json();
-
-      setPolePosition(data.MRData.RaceTable.Races[0].QualifyingResults[0]);
-      setLoadingPolePosition(false);
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setPolePosition(
+            result.MRData.RaceTable.Races[0].QualifyingResults[0]
+          );
+          setLoadingPolePosition(false);
+        });
     };
 
     fetchPolePosition();
@@ -52,9 +55,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
 
   return (
     <GenericCard
-      cardTitle={
-        "Previous race: " + previousRaceData.MRData.RaceTable.Races[0].raceName
-      }
+      cardTitle={`Previous race: ${previousRaceData.MRData.RaceTable.Races[0].raceName}`}
       cardBody={
         <div>
           <h4>
@@ -69,16 +70,8 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                 <tr key={index}>
                   <td>{driver.position}</td>
                   <td>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          driver.Constructor.constructorId
-                        )
-                          ? TeamColors[driver.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={driver.Constructor.constructorId}
                     />
                   </td>
                   <td>
@@ -90,7 +83,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                     />
                   </td>
                   <td className="hideXS">
-                    {driver.Driver.givenName + " " + driver.Driver.familyName}
+                    {driver.Driver.givenName} {driver.Driver.familyName}
                   </td>
                   <td className="showXS">{driver.Driver.code}</td>
                   <td>{driver.Time.time}</td>
@@ -103,54 +96,28 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
           </h4>
           <Table responsive>
             <tbody>
-              {fastestLap !== null ? (
+              {fastestLap === null ? null : (
                 <tr>
                   <td>FL</td>
                   <td>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          fastestLap.Constructor.constructorId
-                        )
-                          ? TeamColors[fastestLap.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={fastestLap.Constructor.constructorId}
                     />
                   </td>
                   <td className="hideXS">
-                    {fastestLap.Driver.givenName +
-                      " " +
-                      fastestLap.Driver.familyName}
+                    {fastestLap.Driver.givenName} {fastestLap.Driver.familyName}
                   </td>
                   <td className="showXS">{fastestLap.Driver.code}</td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
-                  <td>{fastestLap.FastestLap.AverageSpeed.speed + " kph"}</td>
-                </tr>
-              ) : (
-                <tr>
-                  <td>FL</td>
-                  <td>N/A</td>
-                  <td>N/A</td>
-                  <td>N/A</td>
-                  <td>N/A</td>
+                  <td>{fastestLap.FastestLap.AverageSpeed.speed} kph</td>
                 </tr>
               )}
               {loadingPolePosition ? null : (
                 <tr>
                   <td>PP</td>
                   <td>
-                    <div
-                      style={{
-                        width: "7px",
-                        height: "25px",
-                        backgroundColor: TeamColors.hasOwnProperty(
-                          polePosition.Constructor.constructorId
-                        )
-                          ? TeamColors[polePosition.Constructor.constructorId]
-                          : "#000000",
-                      }}
+                    <TeamColor
+                      constructorId={polePosition.Constructor.constructorId}
                     />
                   </td>
                   <td>
@@ -162,9 +129,8 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                     />
                   </td>
                   <td className="hideXS">
-                    {polePosition.Driver.givenName +
-                      " " +
-                      polePosition.Driver.familyName}
+                    {polePosition.Driver.givenName}{" "}
+                    {polePosition.Driver.familyName}
                   </td>
                   <td className="showXS">{polePosition.Driver.code}</td>
                   <td>{polePosition.Q3}</td>
@@ -176,13 +142,13 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
       }
       cardFooter={
         <h4>
-          Round:{" "}
-          {previousRaceData.MRData.RaceTable.round + " / " + totalNumberOfRaces}
+          Round: {previousRaceData.MRData.RaceTable.round} /{" "}
+          {totalNumberOfRaces}
         </h4>
       }
       cardHeight="30rem"
       variant={"light"}
-    ></GenericCard>
+    />
   );
 };
 

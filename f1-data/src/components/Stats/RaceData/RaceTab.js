@@ -29,7 +29,7 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
           <h3>
             {raceInfo.hasOwnProperty("time")
               ? getLocalRaceDate(raceInfo.date, raceInfo.time)
-              : "N/A"}
+              : null}
           </h3>
         </Col>
       </Row>
