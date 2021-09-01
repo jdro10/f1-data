@@ -26,7 +26,7 @@ const Map = ({ coordinates, circuitName }) => {
       />
       <Marker position={coordinates}>
         <Popup>
-          {circuitName} <br /> {coordinates[0] + " | " + coordinates[1]}
+          {circuitName} <br /> {coordinates[0]} | {coordinates[1]}
         </Popup>
       </Marker>
     </MapContainer>

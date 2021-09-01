@@ -17,24 +17,21 @@ const Races = () => {
 
   useEffect(() => {
     const fetchSeasonSchedule = async () => {
-      const response = await fetch(`https://ergast.com/api/f1/${season}.json`);
-      const data = await response.json();
-
-      setSeasonSchedule(data.MRData.RaceTable.Races);
-      setLoadingSchedule(false);
+      await fetch(`https://ergast.com/api/f1/${season}.json`)
+        .then((res) => res.json())
+        .then((result) => {
+          setSeasonSchedule(result.MRData.RaceTable.Races);
+          setLoadingSchedule(false);
+        });
     };
 
-    function fillArrayBetweenTwoNumbers(start, end) {
-      setSeasonsYearsList(
-        Array(end - start + 1)
-          .fill()
-          .map((_, i) => start + i)
-          .reverse()
-      );
-    }
-
     fetchSeasonSchedule();
-    fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
+    setSeasonsYearsList(
+      Array(new Date().getFullYear() - FIRST_SEASON + 1)
+        .fill()
+        .map((_, i) => FIRST_SEASON + i)
+        .reverse()
+    );
   }, [season]);
 
   const seasonYearChange = (text) => {
@@ -45,14 +42,14 @@ const Races = () => {
   return (
     <Container>
       {loadingSeasonSchedule ? (
-        <Container style={{ minHeight: "700px" }}>
+        <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
             <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
             <Spinner animation="border" />
           </Row>
         </Container>
       ) : (
-        <Container style={{ minHeight: "700px" }}>
+        <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>Formula One - {season} season</h1>

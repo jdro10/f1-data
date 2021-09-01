@@ -5,7 +5,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
-import { TeamColors } from "../../../data/TeamColors";
+import TeamColor from "../../TeamColor/TeamColor";
 
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
   return (
@@ -35,16 +35,8 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                       />
                     </Col>
                     <Col xs={2}>
-                      <div
-                        style={{
-                          width: "7px",
-                          height: "25px",
-                          backgroundColor: TeamColors.hasOwnProperty(
-                            constructor.Constructor.constructorId
-                          )
-                            ? TeamColors[constructor.Constructor.constructorId]
-                            : "#000000",
-                        }}
+                      <TeamColor
+                        constructorId={constructor.Constructor.constructorId}
                       />
                     </Col>
                     <Col xs={6}>{constructor.Constructor.name}</Col>

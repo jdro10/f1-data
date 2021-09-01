@@ -10,13 +10,14 @@ const PreviousRaceCard = ({ previousRaceData }) => {
 
   useEffect(() => {
     const fetchCountryCode = async () => {
-      const response = await fetch(
+      await fetch(
         `https://restcountries.eu/rest/v2/name/${previousRaceData.MRData.RaceTable.Races[0].Circuit.Location.country}?fullText=true`
-      );
-      const data = await response.json();
-
-      setCountryCode(data[0].alpha2Code);
-      setLoadingCountryCode(false);
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setCountryCode(result[0].alpha2Code);
+          setLoadingCountryCode(false);
+        });
     };
 
     fetchCountryCode();
@@ -33,34 +34,27 @@ const PreviousRaceCard = ({ previousRaceData }) => {
             {previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
           </h5>
           <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
-          {loadingCountryCode ? (
-            ""
-          ) : (
-            <div>
-              <br></br>
+          {loadingCountryCode ? null : (
+            <>
+              <br />
               <CircleFlag
                 countryCode={countryCode.toLowerCase()}
                 height={120}
               />
-            </div>
+            </>
           )}
         </div>
       }
       cardFooter={
         <Link
-          to={
-            "/race/" +
-            previousRaceData.MRData.RaceTable.season +
-            "/" +
-            previousRaceData.MRData.RaceTable.round
-          }
+          to={`/race/${previousRaceData.MRData.RaceTable.season}/${previousRaceData.MRData.RaceTable.round}`}
         >
           <Button variant="dark">Full race result</Button>
         </Link>
       }
       cardHeight="30rem"
       variant={"light"}
-    ></GenericCard>
+    />
   );
 };
 

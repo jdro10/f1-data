@@ -16,13 +16,9 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
       await fetch(
         `https://restcountries.eu/rest/v2/name/${raceInfo.Circuit.Location.country}?fullText=true`
       )
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-        })
-        .then((data) => {
-          setEventCountryCode(data[0].alpha2Code.toLowerCase());
+        .then((res) => res.json())
+        .then((result) => {
+          setEventCountryCode(result[0].alpha2Code.toLowerCase());
         })
         .catch((error) => setEventCountryCode(null));
     };
@@ -43,10 +39,9 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           </Container>
           {raceClassification != null ? (
             <RaceClassification raceClassification={raceClassification} />
-          ) : (
-            ""
-          )}
+          ) : null}
         </Tab>
+
         <Tab eventKey="circuit" title="Circuit">
           <Container style={{ minHeight: "250px" }}>
             <CircuitTab
@@ -56,9 +51,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           </Container>
           {raceClassification != null ? (
             <RaceClassification raceClassification={raceClassification} />
-          ) : (
-            ""
-          )}
+          ) : null}
         </Tab>
 
         {raceClassification != null ? (
@@ -68,9 +61,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             </Container>
             <RaceClassification raceClassification={raceClassification} />
           </Tab>
-        ) : (
-          ""
-        )}
+        ) : null}
 
         {raceQualifying != null ? (
           <Tab eventKey="qualifying" title="Qualifying">
@@ -79,9 +70,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             </Container>
             <RaceQualifying raceQualifying={raceQualifying} />
           </Tab>
-        ) : (
-          ""
-        )}
+        ) : null}
       </Tabs>
     </div>
   );
