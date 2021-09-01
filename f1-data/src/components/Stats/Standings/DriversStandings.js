@@ -10,13 +10,13 @@ import { TeamColors } from "../../../data/TeamColors";
 const DriversStandings = ({ style, driversStandings }) => {
   return (
     <div style={style}>
-      <Table responsive="sm">
+      <Table responsive="xs">
         <thead>
           <tr>
             <th>Pos</th>
             <th className="hideXS">No</th>
             <th>Name</th>
-            <th>Team</th>
+            <th className="hideXS">Team</th>
             <th className="hideXS">Wins</th>
             <th>Points</th>
           </tr>
@@ -28,7 +28,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>
                 <Row className="justify-content-center text-center">
-                  <Col xs={2} sm={2}>
+                  <Col>
                     <CircleFlag
                       countryCode={CountriesCodeNationality[
                         driver.Driver.nationality
@@ -36,7 +36,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
-                  <Col xs={2} sm={1}>
+                  <Col>
                     <div
                       style={{
                         width: "7px",
@@ -49,17 +49,17 @@ const DriversStandings = ({ style, driversStandings }) => {
                       }}
                     />
                   </Col>
-                  <Col className="hideXS" sm={8}>
+                  <Col className="hideXS">
                     {driver.Driver.givenName + " " + driver.Driver.familyName}
                   </Col>
-                  <Col className="showXS" xs={6}>
+                  <Col className="showXS">
                     {!driver.Driver.hasOwnProperty("code")
                       ? driver.Driver.familyName.substring(0, 3).toUpperCase()
                       : driver.Driver.code}
                   </Col>
                 </Row>
               </td>
-              <td>{driver.Constructors[0].name}</td>
+              <td className="hideXS">{driver.Constructors[0].name}</td>
               <td className="hideXS">{driver.wins}</td>
               <td>{driver.points}</td>
             </tr>
