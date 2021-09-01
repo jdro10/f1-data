@@ -57,7 +57,9 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
       }
       cardBody={
         <div>
-          <h4><b>Race result</b></h4>
+          <h4>
+            <b>Race result</b>
+          </h4>
           <Table responsive>
             <tbody className="justify-content-center">
               {previousRaceData.MRData.RaceTable.Races[0].Results.slice(
@@ -87,16 +89,18 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       height={20}
                     />
                   </td>
-                  <td className="hideSM">
+                  <td className="hideXS">
                     {driver.Driver.givenName + " " + driver.Driver.familyName}
                   </td>
-                  <td className="showSM">{driver.Driver.code}</td>
+                  <td className="showXS">{driver.Driver.code}</td>
                   <td>{driver.Time.time}</td>
                 </tr>
               ))}
             </tbody>
           </Table>
-          <h4><b>Fastest lap / Pole position</b></h4>
+          <h4>
+            <b>Fastest lap / Pole position</b>
+          </h4>
           <Table responsive>
             <tbody>
               {fastestLap !== null ? (
@@ -115,12 +119,12 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       }}
                     />
                   </td>
-                  <td className="hideSM">
+                  <td className="hideXS">
                     {fastestLap.Driver.givenName +
                       " " +
                       fastestLap.Driver.familyName}
                   </td>
-                  <td className="showSM">{fastestLap.Driver.code}</td>
+                  <td className="showXS">{fastestLap.Driver.code}</td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
                   <td>{fastestLap.FastestLap.AverageSpeed.speed + " kph"}</td>
                 </tr>
@@ -157,12 +161,12 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                       height={20}
                     />
                   </td>
-                  <td className="hideSM">
+                  <td className="hideXS">
                     {polePosition.Driver.givenName +
                       " " +
                       polePosition.Driver.familyName}
                   </td>
-                  <td className="showSM">{polePosition.Driver.code}</td>
+                  <td className="showXS">{polePosition.Driver.code}</td>
                   <td>{polePosition.Q3}</td>
                 </tr>
               )}
