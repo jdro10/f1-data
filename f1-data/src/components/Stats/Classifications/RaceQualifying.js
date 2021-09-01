@@ -12,9 +12,9 @@ const RaceQualifying = ({ raceQualifying }) => {
         <thead>
           <tr>
             <th>Pos</th>
-            <th className="hideSM">Number</th>
+            <th className="hideXS">Number</th>
             <th>Driver</th>
-            <th className="hideSM">Team</th>
+            <th className="hideXS">Team</th>
             <th>Q1</th>
             <th>Q2</th>
             <th>Q3</th>
@@ -24,8 +24,8 @@ const RaceQualifying = ({ raceQualifying }) => {
           {raceQualifying.map((driver, index) => (
             <tr key={index}>
               <td>{driver.position}</td>
-              <td className="hideSM">{driver.number}</td>
-              <td className="hideSM">
+              <td className="hideXS">{driver.number}</td>
+              <td className="hideXS">
                 <Row className="row nopadding">
                   <Col xs={1}>
                     <div
@@ -45,7 +45,7 @@ const RaceQualifying = ({ raceQualifying }) => {
                   </Col>
                 </Row>
               </td>
-              <td className="showSM">
+              <td className="showXS">
                 <Row className="row nopadding">
                   <Col xs={2}>
                     <div
@@ -68,7 +68,7 @@ const RaceQualifying = ({ raceQualifying }) => {
                 </Row>
               </td>
 
-              <td className="hideSM">{driver.Constructor.name}</td>
+              <td className="hideXS">{driver.Constructor.name}</td>
               <td>
                 {driver.hasOwnProperty("Q1")
                   ? driver.Q1 === ""

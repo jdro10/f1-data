@@ -5,6 +5,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
+import { TeamColors } from "../../../data/TeamColors";
 
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
   return (
@@ -15,7 +16,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
             <tr>
               <th>Pos</th>
               <th>Name</th>
-              <th>Wins</th>
+              <th className="hideXS">Wins</th>
               <th>Points</th>
             </tr>
           </thead>
@@ -24,19 +25,32 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
               <tr key={index}>
                 <td>{constructor.position}</td>
                 <td>
-                  <Row className="justify-content-center text-" xs="auto">
+                  <Row>
                     <Col xs={4}>
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
                           constructor.Constructor.nationality
                         ].toLowerCase()}
-                        height={30}
+                        height={20}
                       />
                     </Col>
-                    <Col xs={8}>{constructor.Constructor.name}</Col>
+                    <Col xs={2}>
+                      <div
+                        style={{
+                          width: "7px",
+                          height: "25px",
+                          backgroundColor: TeamColors.hasOwnProperty(
+                            constructor.Constructor.constructorId
+                          )
+                            ? TeamColors[constructor.Constructor.constructorId]
+                            : "#000000",
+                        }}
+                      />
+                    </Col>
+                    <Col xs={6}>{constructor.Constructor.name}</Col>
                   </Row>
                 </td>
-                <td>{constructor.wins}</td>
+                <td className="hideXS">{constructor.wins}</td>
                 <td>{constructor.points}</td>
               </tr>
             ))}

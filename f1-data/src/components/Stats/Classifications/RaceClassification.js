@@ -13,10 +13,10 @@ const RaceClassification = ({ raceClassification }) => {
         <thead>
           <tr>
             <th>Pos</th>
-            <th className="hideSM">Number</th>
+            <th className="hideXS">Number</th>
             <th>Driver</th>
-            <th className="hideSM">Team</th>
-            <th className="hideSM">Laps</th>
+            <th className="hideXS">Team</th>
+            <th className="hideXS">Laps</th>
             <th>Time/Retired</th>
             <th>Pts</th>
           </tr>
@@ -25,7 +25,7 @@ const RaceClassification = ({ raceClassification }) => {
           {raceClassification.map((driver, index) => (
             <tr key={index}>
               <td>{driver.position}</td>
-              <td className="hideSM">{driver.number}</td>
+              <td className="hideXS">{driver.number}</td>
               <td>
                 <Row className="row nopadding">
                   <Col xs={2}>
@@ -33,10 +33,11 @@ const RaceClassification = ({ raceClassification }) => {
                       style={{
                         width: "7px",
                         height: "25px",
-                        backgroundColor:
-                          TeamColors.hasOwnProperty(driver.Constructor.constructorId)
-                            ? TeamColors[driver.Constructor.constructorId]
-                            : '#000000',
+                        backgroundColor: TeamColors.hasOwnProperty(
+                          driver.Constructor.constructorId
+                        )
+                          ? TeamColors[driver.Constructor.constructorId]
+                          : "#000000",
                       }}
                     />
                   </Col>
@@ -46,8 +47,8 @@ const RaceClassification = ({ raceClassification }) => {
                 </Row>
               </td>
 
-              <td className="hideSM">{driver.Constructor.name}</td>
-              <td className="hideSM">{driver.laps}</td>
+              <td className="hideXS">{driver.Constructor.name}</td>
+              <td className="hideXS">{driver.laps}</td>
               <td>
                 {driver.Time !== undefined
                   ? driver.status === "Finished"
