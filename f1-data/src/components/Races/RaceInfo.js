@@ -44,7 +44,7 @@ const RaceInfo = ({ race }) => {
         {loadigCountryCode && countryCode != null ? (
           ""
         ) : (
-          <CircleFlag countryCode={countryCode} height={80} />
+          <CircleFlag countryCode={countryCode} height={80} style={{marginBottom: "2%"}}/>
         )}
       </Col>
       <Col xs={12} md={12} lg="auto">

@@ -26,6 +26,32 @@ const RaceCountdown = ({ season, round }) => {
     fetchRaceInfo();
   }, [season, round]);
 
+  const renderer = ({ days, hours, minutes, seconds }) => {
+    return (
+      <Row
+        style={{ marginTop: "2%" }}
+        className="justify-content-center text-center"
+      >
+        <Col xs={2} sm={2}>
+          <h1 className="countdown">{days}</h1>
+          <h5 className="countdown">days</h5>
+        </Col>
+        <Col xs={2} sm={3}>
+          <h1 className="countdown">{hours}</h1>
+          <h5 className="countdown">hours</h5>
+        </Col>
+        <Col xs={2} sm={2}>
+          <h1 className="countdown">{minutes}</h1>
+          <h5 className="countdown">min.</h5>
+        </Col>
+        <Col xs={2} sm={2}>
+          <h1 className="countdown">{seconds}</h1>
+          <h5 className="countdown">sec.</h5>
+        </Col>
+      </Row>
+    );
+  };
+
   return (
     <div>
       <Container fluid="md" style={{ minHeight: "700px" }}>
@@ -38,7 +64,7 @@ const RaceCountdown = ({ season, round }) => {
             <EventTabs season={season} round={round} raceInfo={raceInfo} />
             <Row className="justify-content-center text-center">
               <Col>
-                <h1 className="countdown">
+                <div>
                   <Countdown
                     date={
                       Date.now() +
@@ -46,8 +72,9 @@ const RaceCountdown = ({ season, round }) => {
                         raceInfo.time.split(":")[0] * 3600000 -
                         new Date().getTime())
                     }
+                    renderer={renderer}
                   />
-                </h1>
+                </div>
               </Col>
             </Row>
           </div>
