@@ -28,7 +28,7 @@ const RaceClassification = ({ raceClassification }) => {
               <td className="hideXS">{driver.number}</td>
               <td>
                 <Row className="row nopadding">
-                  <Col xs={2}>
+                  <Col xs={2} md={1}>
                     <div
                       style={{
                         width: "7px",
@@ -41,7 +41,7 @@ const RaceClassification = ({ raceClassification }) => {
                       }}
                     />
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={6} md={11}>
                     {driver.Driver.givenName + " " + driver.Driver.familyName}
                   </Col>
                 </Row>
