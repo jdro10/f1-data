@@ -5,8 +5,8 @@ const TeamColor = ({ constructorId }) => {
   return (
     <div
       style={{
-        width: "7px",
-        height: "25px",
+        width: "3px",
+        height: "27px",
         backgroundColor: TeamColors.hasOwnProperty(constructorId)
           ? TeamColors[constructorId]
           : "#000000",
