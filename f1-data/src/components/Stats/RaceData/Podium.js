@@ -104,7 +104,7 @@ const Podium = ({ eventClassification }) => {
                       ? eventClassification[0].status
                       : eventClassification[0].hasOwnProperty("Q3")
                       ? eventClassification[0].Q3
-                      : eventClassification[1].Q1}
+                      : eventClassification[0].Q1}
                   </h3>
                 </Col>
               </Row>
@@ -151,7 +151,7 @@ const Podium = ({ eventClassification }) => {
                       ? eventClassification[2].status
                       : eventClassification[2].hasOwnProperty("Q3")
                       ? eventClassification[2].Q3
-                      : eventClassification[1].Q1}
+                      : eventClassification[2].Q1}
                   </h3>
                 </Col>
               </Row>
