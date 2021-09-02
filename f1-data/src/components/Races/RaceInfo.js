@@ -37,13 +37,11 @@ const RaceInfo = ({ race }) => {
   return (
     <Row className="center-xs justify-content-between">
       <Col xs={12} md={12} lg="auto" className="text-center">
-        {loadigCountryCode && countryCode != null ? null : (
-          <CircleFlag
-            countryCode={countryCode}
-            height={80}
-            style={{ marginBottom: "2%" }}
-          />
-        )}
+        <CircleFlag
+          countryCode={loadigCountryCode ? null : countryCode}
+          height={80}
+          style={{ marginBottom: "2%" }}
+        />
       </Col>
       <Col xs={12} md={12} lg="auto">
         <Link to={"/race/" + race.season + "/" + race.round}>
