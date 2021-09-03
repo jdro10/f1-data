@@ -8,7 +8,7 @@ import { GiCheckeredFlag } from "react-icons/gi";
 
 const NavBar = () => {
   return (
-    <Navbar className="navbar" bg="dark" variant="dark" aria-label="Github">
+    <Navbar className="navbar" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
           <GiCheckeredFlag size={30} />
@@ -23,7 +23,7 @@ const NavBar = () => {
           <Navbar.Brand>Standings</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Brand href="https://github.com/jdro10">
+          <Navbar.Brand href="https://github.com/jdro10" aria-label="Github">
             <AiFillGithub size={25} />
           </Navbar.Brand>
         </Navbar.Collapse>
