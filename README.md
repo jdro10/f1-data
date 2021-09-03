@@ -1,6 +1,6 @@
 # f1-data
 
-Website all about Formula One data. (https://jdro10.github.io/f1-data)
+Progressive Web App all about Formula One data. (https://jdro10.github.io/f1-data)
 
 ### API
 
