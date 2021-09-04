@@ -83,9 +83,12 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                     />
                   </td>
                   <td className="hideXS">
-                    {driver.Driver.givenName} {driver.Driver.familyName}
+                    {driver.Driver.givenName}{" "}
+                    <b>{driver.Driver.familyName.toUpperCase()}</b>
                   </td>
-                  <td className="showXS">{driver.Driver.code}</td>
+                  <td className="showXS">
+                    <b>{driver.Driver.familyName.toUpperCase()}</b>
+                  </td>
                   <td>{driver.Time.time}</td>
                 </tr>
               ))}
@@ -105,9 +108,12 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                     />
                   </td>
                   <td className="hideXS">
-                    {fastestLap.Driver.givenName} {fastestLap.Driver.familyName}
+                    {fastestLap.Driver.givenName}{" "}
+                    <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
                   </td>
-                  <td className="showXS">{fastestLap.Driver.code}</td>
+                  <td className="showXS">
+                    <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                  </td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
                   <td>{fastestLap.FastestLap.AverageSpeed.speed} kph</td>
                 </tr>
@@ -130,9 +136,11 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                   </td>
                   <td className="hideXS">
                     {polePosition.Driver.givenName}{" "}
-                    {polePosition.Driver.familyName}
+                    <b>{polePosition.Driver.familyName.toUpperCase()}</b>
                   </td>
-                  <td className="showXS">{polePosition.Driver.code}</td>
+                  <td className="showXS">
+                    <b>{polePosition.Driver.familyName.toUpperCase()}</b>
+                  </td>
                   <td>{polePosition.Q3}</td>
                 </tr>
               )}
