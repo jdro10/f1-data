@@ -1,28 +1,31 @@
+import { lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { HashRouter as Router } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import RaceResult from "./pages/RaceResult";
-import SeasonRaces from "./pages/SeasonRaces";
-import ErrorPage from "./pages/ErrorPage";
-import StandingsPage from "./pages/StandingsPage";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const RaceResult = lazy(() => import("./pages/RaceResult"));
+const SeasonRaces = lazy(() => import("./pages/SeasonRaces"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage"));
+const StandingsPage = lazy(() => import("./pages/StandingsPage"));
 
 function App() {
   return (
-    <Router basename="/">
-      <Switch>
-        <Route path="/" exact={true} component={HomePage} />
-        <Route
-          path="/race/:season/:round"
-          exact={true}
-          component={RaceResult}
-        />
-        <Route path="/schedule" exact={true} component={SeasonRaces} />
-        <Route path="/error" exact={true} component={ErrorPage} />
-        <Route path="/standings" exact={true} component={StandingsPage} />
-        <Route component={ErrorPage}/>
-      </Switch>
-    </Router>
+    <Suspense fallback={null}>
+      <Router basename="/">
+        <Switch>
+          <Route path="/" exact={true} component={HomePage} />
+          <Route
+            path="/race/:season/:round"
+            exact={true}
+            component={RaceResult}
+          />
+          <Route path="/schedule" exact={true} component={SeasonRaces} />
+          <Route path="/error" exact={true} component={ErrorPage} />
+          <Route path="/standings" exact={true} component={StandingsPage} />
+          <Route component={ErrorPage} />
+        </Switch>
+      </Router>
+    </Suspense>
   );
 }
 
