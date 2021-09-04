@@ -29,6 +29,12 @@ async function networkFirst(req) {
 }
 
 self.addEventListener("fetch", (event) => {
+  if (
+    event.request.cache === "only-if-cached" &&
+    event.request.mode !== "same-origin"
+  )
+    return;
+
   const req = event.request;
   event.respondWith(networkFirst(req));
 });
