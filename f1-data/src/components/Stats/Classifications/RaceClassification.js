@@ -27,19 +27,19 @@ const RaceClassification = ({ raceClassification }) => {
               <td>{driver.position}</td>
               <td className="hideXS">{driver.number}</td>
               <td>
-                <Row className="row nopadding">
-                  <Col xs={2} md={1} className="showXS">
+                <Row className="g-2">
+                  <Col xs={2} md={2} className="showXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                       height="45px"
                     />
                   </Col>
-                  <Col xs={2} md={1} className="hideXS">
+                  <Col xs={2} className="hideXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
-                  <Col xs={6} md={11}>
+                  <Col xs={6} md={10}>
                     {driver.Driver.givenName}{" "}
                     <b>{driver.Driver.familyName.toUpperCase()}</b>
                   </Col>
