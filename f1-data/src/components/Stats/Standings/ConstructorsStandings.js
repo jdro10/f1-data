@@ -26,7 +26,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                 <td>{constructor.position}</td>
                 <td>
                   <Row>
-                    <Col xs={4}>
+                    <Col xs={2}>
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
                           constructor.Constructor.nationality
@@ -39,7 +39,9 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                         constructorId={constructor.Constructor.constructorId}
                       />
                     </Col>
-                    <Col xs={6}>{constructor.Constructor.name}</Col>
+                    <Col xs={8} className="text-start">
+                      {constructor.Constructor.name.toUpperCase()}
+                    </Col>
                   </Row>
                 </td>
                 <td className="hideXS">{constructor.wins}</td>

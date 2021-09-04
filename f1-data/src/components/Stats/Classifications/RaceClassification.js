@@ -31,10 +31,12 @@ const RaceClassification = ({ raceClassification }) => {
                   <Col xs={2} md={1}>
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
+                      height="45px"
                     />
                   </Col>
                   <Col xs={6} md={11}>
-                    {driver.Driver.givenName} {driver.Driver.familyName}
+                    {driver.Driver.givenName}{" "}
+                    <b>{driver.Driver.familyName.toUpperCase()}</b>
                   </Col>
                 </Row>
               </td>

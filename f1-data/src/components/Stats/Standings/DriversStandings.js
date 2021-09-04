@@ -15,20 +15,19 @@ const DriversStandings = ({ style, driversStandings }) => {
           <tr>
             <th>Pos</th>
             <th className="hideXS">No</th>
-            <th>Name</th>
-            <th>Team</th>
+            <th>Name/Team</th>
             <th className="hideXS">Wins</th>
             <th>Points</th>
           </tr>
         </thead>
         <tbody>
           {driversStandings.map((driver, index) => (
-            <tr key={index}>
+            <tr key={index} className="align-middle">
               <td>{driver.position}</td>
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>
-                <Row className="justify-content-center text-center">
-                  <Col xs={4} md={2}>
+                <Row>
+                  <Col xs={2} className="align-self-center">
                     <CircleFlag
                       countryCode={CountriesCodeNationality[
                         driver.Driver.nationality
@@ -36,22 +35,30 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
-                  <Col xs={4} md={2}>
+                  <Col xs={2}>
                     <TeamColor
                       constructorId={driver.Constructors[0].constructorId}
+                      height="42px"
                     />
                   </Col>
-                  <Col className="hideXS" md={8}>
-                    {driver.Driver.givenName} {driver.Driver.familyName}
-                  </Col>
-                  <Col className="showXS" xs={10}>
-                    {!driver.Driver.hasOwnProperty("code")
-                      ? driver.Driver.familyName.substring(0, 3).toUpperCase()
-                      : driver.Driver.code}
+                  <Col xs={8} className="text-start">
+                    <Row>
+                      <Col className="showXS">
+                        <b>{driver.Driver.familyName.toUpperCase()}</b>
+                      </Col>
+                      <Col className="hideXS">
+                        {driver.Driver.givenName}{" "}
+                        <b>{driver.Driver.familyName.toUpperCase()}</b>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col style={{ fontSize: "13px" }}>
+                        {driver.Constructors[0].name}
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
               </td>
-              <td>{driver.Constructors[0].name}</td>
               <td className="hideXS">{driver.wins}</td>
               <td>{driver.points}</td>
             </tr>
