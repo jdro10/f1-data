@@ -4,7 +4,6 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
 import RaceQualifying from "../Classifications/RaceQualifying";
-import EventPodium from "./Podium";
 import RaceTab from "./RaceTab";
 import CircuitTab from "./CircuitTab";
 
@@ -43,31 +42,16 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         </Tab>
 
         <Tab eventKey="circuit" title="Circuit">
-          <Container style={{ minHeight: "250px" }}>
+          <Container style={{ minHeight: "500px" }}>
             <CircuitTab
               raceInfo={raceInfo}
               eventCountryCode={eventCountryCode}
             />
           </Container>
-          {raceClassification != null ? (
-            <RaceClassification raceClassification={raceClassification} />
-          ) : null}
         </Tab>
-
-        {raceClassification != null ? (
-          <Tab eventKey="podium" title="Podium">
-            <Container style={{ minHeight: "250px" }}>
-              <EventPodium eventClassification={raceClassification} />
-            </Container>
-            <RaceClassification raceClassification={raceClassification} />
-          </Tab>
-        ) : null}
 
         {raceQualifying != null ? (
           <Tab eventKey="qualifying" title="Qualifying">
-            <Container style={{ minHeight: "250px" }}>
-              <EventPodium eventClassification={raceQualifying} />
-            </Container>
             <RaceQualifying raceQualifying={raceQualifying} />
           </Tab>
         ) : null}

@@ -33,7 +33,8 @@ const RaceQualifying = ({ raceQualifying }) => {
                     />
                   </Col>
                   <Col xs={11}>
-                    {driver.Driver.givenName} {driver.Driver.familyName}
+                    {driver.Driver.givenName}{" "}
+                    <b>{driver.Driver.familyName.toUpperCase()}</b>
                   </Col>
                 </Row>
               </td>

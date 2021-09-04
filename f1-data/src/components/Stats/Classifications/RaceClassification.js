@@ -28,10 +28,15 @@ const RaceClassification = ({ raceClassification }) => {
               <td className="hideXS">{driver.number}</td>
               <td>
                 <Row className="row nopadding">
-                  <Col xs={2} md={1}>
+                  <Col xs={2} md={1} className="showXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                       height="45px"
+                    />
+                  </Col>
+                  <Col xs={2} md={1} className="hideXS">
+                    <TeamColor
+                      constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
                   <Col xs={6} md={11}>
