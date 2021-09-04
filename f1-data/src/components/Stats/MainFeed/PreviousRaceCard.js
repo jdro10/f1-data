@@ -34,6 +34,12 @@ const PreviousRaceCard = ({ previousRaceData }) => {
             {previousRaceData.MRData.RaceTable.Races[0].Circuit.circuitName}
           </h5>
           <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
+          <h6>
+            {previousRaceData.MRData.RaceTable.Races[0].time.substring(
+              0,
+              previousRaceData.MRData.RaceTable.Races[0].time.length - 1
+            )}
+          </h6>
           {loadingCountryCode ? null : (
             <>
               <br />
@@ -52,7 +58,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
           <Button variant="dark">Full race result</Button>
         </Link>
       }
-      cardHeight="30rem"
+      cardHeight="36rem"
       variant={"light"}
     />
   );

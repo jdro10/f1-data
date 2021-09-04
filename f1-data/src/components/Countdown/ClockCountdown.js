@@ -2,7 +2,7 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 
-const ClockCoutdown = ({ date, time }) => {
+const ClockCountdown = ({ date, time }) => {
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <>
@@ -39,4 +39,4 @@ const ClockCoutdown = ({ date, time }) => {
   );
 };
 
-export default ClockCoutdown;
+export default ClockCountdown;

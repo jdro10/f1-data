@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import EventTabs from "./EventTabs";
 import { Redirect } from "react-router-dom";
-import ClockCoutdown from "../../Countdown/ClockCountdown";
 
-const RaceCountdown = ({ season, round }) => {
+const FutureRace = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
   const [raceQualifying, setRaceQualifying] = useState(null);
   const [loadingRaceInfo, setLoadingRaceInfo] = useState(true);
@@ -59,9 +57,6 @@ const RaceCountdown = ({ season, round }) => {
               raceInfo={raceInfo}
               raceQualifying={raceQualifying}
             />
-            <Row className="justify-content-center text-center">
-              <ClockCoutdown date={raceInfo.date} time={raceInfo.time} />
-            </Row>
           </div>
         )}
       </Container>
@@ -69,4 +64,4 @@ const RaceCountdown = ({ season, round }) => {
   );
 };
 
-export default RaceCountdown;
+export default FutureRace;

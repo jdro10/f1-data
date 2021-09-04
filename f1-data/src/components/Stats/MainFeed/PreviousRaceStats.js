@@ -5,6 +5,8 @@ import { CircleFlag } from "react-circle-flags";
 import Table from "react-bootstrap/Table";
 import TeamColor from "../../TeamColor/TeamColor";
 import "../Styles/Table.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
   const [fastestLap, setFastestLap] = useState(null);
@@ -67,29 +69,43 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                 0,
                 3
               ).map((driver, index) => (
-                <tr key={index}>
+                <tr key={index} className="align-middle">
                   <td>{driver.position}</td>
                   <td>
-                    <TeamColor
-                      constructorId={driver.Constructor.constructorId}
-                    />
+                    <Row>
+                      <Col xs={1}>
+                        <CircleFlag
+                          countryCode={CountriesCodeNationality[
+                            driver.Driver.nationality
+                          ].toLowerCase()}
+                          height={20}
+                        />
+                      </Col>
+                      <Col xs={1}>
+                        <TeamColor
+                          constructorId={driver.Constructor.constructorId}
+                          height="42px"
+                        />
+                      </Col>
+                      <Col xs={8} className="text-start">
+                        <Row>
+                          <Col className="hideXS">
+                            {driver.Driver.givenName}{" "}
+                            <b>{driver.Driver.familyName.toUpperCase()}</b>
+                          </Col>
+                          <Col className="showXS">
+                            <b>{driver.Driver.familyName.toUpperCase()}</b>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col style={{ fontSize: "13px" }}>
+                            {driver.Constructor.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
                   </td>
-                  <td>
-                    <CircleFlag
-                      countryCode={CountriesCodeNationality[
-                        driver.Driver.nationality
-                      ].toLowerCase()}
-                      height={20}
-                    />
-                  </td>
-                  <td className="hideXS">
-                    {driver.Driver.givenName}{" "}
-                    <b>{driver.Driver.familyName.toUpperCase()}</b>
-                  </td>
-                  <td className="showXS">
-                    <b>{driver.Driver.familyName.toUpperCase()}</b>
-                  </td>
-                  <td>{driver.Time.time}</td>
+                  <td>+{driver.points}</td>
                 </tr>
               ))}
             </tbody>
@@ -103,43 +119,83 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                 <tr>
                   <td>FL</td>
                   <td>
-                    <TeamColor
-                      constructorId={fastestLap.Constructor.constructorId}
-                    />
-                  </td>
-                  <td className="hideXS">
-                    {fastestLap.Driver.givenName}{" "}
-                    <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
-                  </td>
-                  <td className="showXS">
-                    <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                    <Row>
+                      <Col xs={1} className="align-self-center">
+                        <CircleFlag
+                          countryCode={CountriesCodeNationality[
+                            fastestLap.Driver.nationality
+                          ].toLowerCase()}
+                          height={20}
+                        />
+                      </Col>
+                      <Col xs={1}>
+                        <TeamColor
+                          constructorId={fastestLap.Constructor.constructorId}
+                          height="42px"
+                        />
+                      </Col>
+                      <Col xs={8} className="text-start">
+                        <Row>
+                          <Col className="hideXS">
+                            {fastestLap.Driver.givenName}{" "}
+                            <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                          </Col>
+                          <Col className="showXS">
+                            <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col style={{ fontSize: "13px" }}>
+                            {fastestLap.Constructor.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
                   </td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
                   <td>{fastestLap.FastestLap.AverageSpeed.speed} kph</td>
                 </tr>
               )}
               {loadingPolePosition ? null : (
-                <tr>
+                <tr className="align-middle">
                   <td>PP</td>
                   <td>
-                    <TeamColor
-                      constructorId={polePosition.Constructor.constructorId}
-                    />
-                  </td>
-                  <td>
-                    <CircleFlag
-                      countryCode={CountriesCodeNationality[
-                        polePosition.Driver.nationality
-                      ].toLowerCase()}
-                      height={20}
-                    />
-                  </td>
-                  <td className="hideXS">
-                    {polePosition.Driver.givenName}{" "}
-                    <b>{polePosition.Driver.familyName.toUpperCase()}</b>
-                  </td>
-                  <td className="showXS">
-                    <b>{polePosition.Driver.familyName.toUpperCase()}</b>
+                    <Row>
+                      <Col xs={1} className="align-self-center">
+                        <CircleFlag
+                          countryCode={CountriesCodeNationality[
+                            polePosition.Driver.nationality
+                          ].toLowerCase()}
+                          height={20}
+                        />
+                      </Col>
+                      <Col xs={1}>
+                        <TeamColor
+                          constructorId={polePosition.Constructor.constructorId}
+                          height="42px"
+                        />
+                      </Col>
+                      <Col xs={8} className="text-start">
+                        <Row>
+                          <Col className="hideXS">
+                            {polePosition.Driver.givenName}{" "}
+                            <b>
+                              {polePosition.Driver.familyName.toUpperCase()}
+                            </b>
+                          </Col>
+                          <Col className="showXS">
+                            <b>
+                              {polePosition.Driver.familyName.toUpperCase()}
+                            </b>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col style={{ fontSize: "13px" }}>
+                            {polePosition.Constructor.name}
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
                   </td>
                   <td>{polePosition.Q3}</td>
                 </tr>
@@ -154,7 +210,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
           {totalNumberOfRaces}
         </h4>
       }
-      cardHeight="30rem"
+      cardHeight="36rem"
       variant={"light"}
     />
   );

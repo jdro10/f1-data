@@ -11,12 +11,12 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
           style={{
             overflow: "hidden",
             overflowY: "scroll",
-            height: "330px",
+            height: "390px",
           }}
           constructorsStandings={constructorsStandings}
         />
       }
-      cardHeight="27rem"
+      cardHeight="30rem"
       variant={"light"}
     />
   );

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import EventTabs from "./EventTabs";
 import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row";
-import RaceCountdown from "./RaceCountdown";
+import FutureRace from "./FutureRace";
 
 const Race = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
@@ -56,7 +56,7 @@ const Race = ({ season, round }) => {
             </Row>
           </Container>
         ) : raceClassification == null ? (
-          <RaceCountdown season={season} round={round} />
+          <FutureRace season={season} round={round} />
         ) : (
           <Container>
             <EventTabs

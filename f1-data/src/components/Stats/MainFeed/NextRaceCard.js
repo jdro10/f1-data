@@ -31,8 +31,9 @@ const NextRaceCard = ({ nextRaceData }) => {
         <>
           <h5>Round {nextRaceData.round}</h5>
           <h1>{nextRaceData.raceName}</h1>
+          <h5>{nextRaceData.Circuit.circuitName}</h5>
+          <h6>{nextRaceData.date}</h6>
           <h6>
-            {nextRaceData.Circuit.circuitName} | {nextRaceData.date} |{" "}
             {nextRaceData.time.substring(0, nextRaceData.time.length - 1)}
           </h6>
           {loadingCountryCode ? null : (
@@ -46,7 +47,7 @@ const NextRaceCard = ({ nextRaceData }) => {
           <Button variant="dark">Race information</Button>
         </Link>
       }
-      cardHeight="30rem"
+      cardHeight="33rem"
       variant={"light"}
     />
   );
