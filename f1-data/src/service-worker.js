@@ -16,27 +16,21 @@ self.addEventListener("install", async (event) => {
   }
 });
 
-self.addEventListener("fetch", function (event) {
-  if (
-    event.request.cache === "only-if-cached" &&
-    event.request.mode !== "same-origin"
-  )
-    return;
+async function networkFirst(req) {
+  const cache = await caches.open(CACHE_NAME);
+  try {
+    const fresh = await fetch(req);
+    cache.put(req, fresh.clone());
+    return fresh;
+  } catch (e) {
+    const cachedResponse = await cache.match(req);
+    return cachedResponse;
+  }
+}
 
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      if (response) {
-        return response;
-      } else {
-        return fetch(event.request).then(function (res) {
-          return caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(event.request.url, res.clone());
-            return res;
-          });
-        });
-      }
-    })
-  );
+self.addEventListener("fetch", (event) => {
+  const req = event.request;
+  event.respondWith(networkFirst(req));
 });
 
 clientsClaim();
