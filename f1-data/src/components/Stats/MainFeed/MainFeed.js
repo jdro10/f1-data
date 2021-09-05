@@ -27,8 +27,9 @@ const MainFeed = () => {
         .then((result) => {
           setPreviousRaceResult(result);
           setLoadingPreviousRace(false);
-          fetchNextRaceData(result.MRData.RaceTable.round);
-        });
+          return result;
+        })
+        .then((res) => fetchNextRaceData(res.MRData.RaceTable.round));
     };
 
     const fetchNextRaceData = async (round) => {
