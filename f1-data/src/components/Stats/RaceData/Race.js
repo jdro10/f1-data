@@ -58,13 +58,11 @@ const Race = ({ season, round }) => {
         ) : raceClassification == null ? (
           <FutureRace season={season} round={round} />
         ) : (
-          <Container>
-            <EventTabs
-              raceInfo={raceInfo}
-              raceClassification={raceClassification}
-              raceQualifying={raceQualifying}
-            />
-          </Container>
+          <EventTabs
+            raceInfo={raceInfo}
+            raceClassification={raceClassification}
+            raceQualifying={raceQualifying}
+          />
         )}
       </Container>
     </div>

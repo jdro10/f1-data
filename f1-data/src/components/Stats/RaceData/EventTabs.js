@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
@@ -35,9 +34,8 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab eventKey="race" title="Race">
-          <Container style={{ minHeight: "250px" }}>
-            <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
-          </Container>
+          <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
+
           {raceClassification != null ? (
             <RaceClassification raceClassification={raceClassification} />
           ) : (
@@ -48,12 +46,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         </Tab>
 
         <Tab eventKey="circuit" title="Circuit">
-          <Container style={{ minHeight: "500px" }}>
-            <CircuitTab
-              raceInfo={raceInfo}
-              eventCountryCode={eventCountryCode}
-            />
-          </Container>
+          <CircuitTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
         </Tab>
 
         {raceQualifying != null ? (
