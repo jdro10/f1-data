@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 import ClockCoutdown from "../../Countdown/ClockCountdown";
+import { getLocalRaceDate } from "../../../helpers/Helpers";
 
 const NextRaceCard = ({ nextRaceData }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -33,9 +34,7 @@ const NextRaceCard = ({ nextRaceData }) => {
           <h1>{nextRaceData.raceName}</h1>
           <h5>{nextRaceData.Circuit.circuitName}</h5>
           <h6>{nextRaceData.date}</h6>
-          <h6>
-            {nextRaceData.time.substring(0, nextRaceData.time.length - 1)}
-          </h6>
+          <h6>{getLocalRaceDate(nextRaceData.date, nextRaceData.time)}</h6>
           {loadingCountryCode ? null : (
             <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
           )}
