@@ -15,22 +15,11 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
 
   useEffect(() => {
     const getFastestLap = () => {
-      let bestLap = previousRaceData.MRData.RaceTable.Races[0];
-
-      previousRaceData.MRData.RaceTable.Races.forEach((lap) => {
-        if (lap.Results[0].FastestLap === undefined) {
-          setFastestLap(null);
+      previousRaceData.MRData.RaceTable.Races[0].Results.forEach((lap) => {
+        if (lap.FastestLap && lap.FastestLap.rank === "1") {
+          setFastestLap(lap);
           return;
-        } else {
-          if (
-            lap.Results[0].FastestLap.Time.time <
-            bestLap.Results[0].FastestLap.Time.time
-          ) {
-            bestLap = lap;
-          }
         }
-
-        setFastestLap(bestLap);
       });
     };
 
@@ -116,7 +105,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
           <Table responsive>
             <tbody>
               {fastestLap === null ? null : (
-                <tr>
+                <tr className="align-middle">
                   <td>FL</td>
                   <td>
                     <Row>
@@ -153,7 +142,6 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                     </Row>
                   </td>
                   <td>{fastestLap.FastestLap.Time.time}</td>
-                  <td>{fastestLap.FastestLap.AverageSpeed.speed} kph</td>
                 </tr>
               )}
               {loadingPolePosition ? null : (
