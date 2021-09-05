@@ -3,6 +3,7 @@ import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
+import { getLocalRaceDate } from "../../../helpers/Helpers";
 
 const PreviousRaceCard = ({ previousRaceData }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -35,9 +36,9 @@ const PreviousRaceCard = ({ previousRaceData }) => {
           </h5>
           <h6>{previousRaceData.MRData.RaceTable.Races[0].date}</h6>
           <h6>
-            {previousRaceData.MRData.RaceTable.Races[0].time.substring(
-              0,
-              previousRaceData.MRData.RaceTable.Races[0].time.length - 1
+            {getLocalRaceDate(
+              previousRaceData.MRData.RaceTable.Races[0].date,
+              previousRaceData.MRData.RaceTable.Races[0].time
             )}
           </h6>
           {loadingCountryCode ? null : (

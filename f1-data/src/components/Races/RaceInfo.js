@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Alert from "react-bootstrap/Alert";
+import { getLocalRaceDate } from "../../helpers/Helpers";
 
 const RaceInfo = ({ race }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -24,15 +25,6 @@ const RaceInfo = ({ race }) => {
 
     fetchCountryCode();
   }, [race.Circuit.Location.country]);
-
-  const getLocalRaceDate = (date, time) => {
-    const raceDate = new Date(date + "T" + time);
-    const hours = (raceDate.getHours() < 10 ? "0" : "") + raceDate.getHours();
-    const minutes =
-      (raceDate.getMinutes() < 10 ? "0" : "") + raceDate.getMinutes();
-
-    return hours + ":" + minutes + ":00";
-  };
 
   return (
     <Row className="center-xs justify-content-between">
