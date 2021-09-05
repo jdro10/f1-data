@@ -26,7 +26,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td>{driver.position}</td>
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>
-                <Row>
+                <Row className="g-0">
                   <Col xs={2} className="align-self-center">
                     <CircleFlag
                       countryCode={CountriesCodeNationality[
