@@ -1,13 +1,20 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 480px) {
   .leaflet-container {
-    width: 320px;
+    width: 305px;
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .leaflet-container {
+    width: 340px;
     height: 250px;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .leaflet-container {
-    width: 650px;
-    height: 250px;
+    width: 850px;
+    height: 400px;
   }
 }
