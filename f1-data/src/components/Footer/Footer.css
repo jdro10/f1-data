@@ -14,8 +14,9 @@ footer {
 }
 
 #lastRow {
-  margin-top: 1%;
+  margin-top: 3%;
   border-top: 1px solid white;
+  margin-bottom: 3%;
 }
 
 #author {

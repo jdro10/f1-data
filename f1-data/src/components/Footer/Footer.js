@@ -50,11 +50,7 @@ const Footer = () => {
             <SiVisualstudiocode size={40} />
           </Col>
         </Row>
-        <Row className="justify-content-md-center" xs="auto" id="lastRow">
-          <Col>
-            <p id="author"></p>
-          </Col>
-        </Row>
+        <Row className="justify-content-md-center" xs="auto" id="lastRow" />
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             <h5>API</h5>

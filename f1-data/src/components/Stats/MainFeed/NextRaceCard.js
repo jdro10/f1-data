@@ -36,9 +36,10 @@ const NextRaceCard = ({ nextRaceData }) => {
           <h6>{nextRaceData.date}</h6>
           <h6>{getLocalRaceDate(nextRaceData.date, nextRaceData.time)}</h6>
           {loadingCountryCode ? null : (
-            <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
+            <CircleFlag countryCode={countryCode.toLowerCase()} height={100}/>
           )}
-          <ClockCoutdown date={nextRaceData.date} time={nextRaceData.time} />
+          <p></p>
+          <ClockCoutdown date={nextRaceData.date} time={nextRaceData.time}/>
         </>
       }
       cardFooter={
@@ -46,7 +47,7 @@ const NextRaceCard = ({ nextRaceData }) => {
           <Button variant="dark">Race information</Button>
         </Link>
       }
-      cardHeight="33rem"
+      cardHeight="32rem"
       variant={"light"}
     />
   );

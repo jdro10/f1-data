@@ -11,12 +11,12 @@ const DriversStandingsCard = ({ driversStandings }) => {
           style={{
             overflow: "hidden",
             overflowY: "scroll",
-            height: "390px",
+            height: "465px",
           }}
           driversStandings={driversStandings}
         />
       }
-      cardHeight="30rem"
+      cardHeight="34rem"
       variant={"light"}
     />
   );

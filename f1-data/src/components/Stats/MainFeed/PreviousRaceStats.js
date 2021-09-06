@@ -198,7 +198,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
           {totalNumberOfRaces}
         </h4>
       }
-      cardHeight="36rem"
+      cardHeight="34rem"
       variant={"light"}
     />
   );

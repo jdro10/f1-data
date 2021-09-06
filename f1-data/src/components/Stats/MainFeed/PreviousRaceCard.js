@@ -50,6 +50,18 @@ const PreviousRaceCard = ({ previousRaceData }) => {
               />
             </>
           )}
+          <h5 style={{ marginTop: "5%" }}>
+            {
+              previousRaceData.MRData.RaceTable.Races[0].Circuit.Location
+                .country
+            }
+          </h5>
+          <h5>
+            {
+              previousRaceData.MRData.RaceTable.Races[0].Circuit.Location
+                .locality
+            }
+          </h5>
         </div>
       }
       cardFooter={
@@ -59,7 +71,7 @@ const PreviousRaceCard = ({ previousRaceData }) => {
           <Button variant="dark">Full race result</Button>
         </Link>
       }
-      cardHeight="36rem"
+      cardHeight="34rem"
       variant={"light"}
     />
   );
