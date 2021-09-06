@@ -7,16 +7,9 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
     <GenericCard
       cardTitle="Constructors' standings"
       cardBody={
-        <ConstructorsStandings
-          style={{
-            overflow: "hidden",
-            overflowY: "scroll",
-            height: "390px",
-          }}
-          constructorsStandings={constructorsStandings}
-        />
+        <ConstructorsStandings constructorsStandings={constructorsStandings} />
       }
-      cardHeight="30rem"
+      cardHeight="34rem"
       variant={"light"}
     />
   );

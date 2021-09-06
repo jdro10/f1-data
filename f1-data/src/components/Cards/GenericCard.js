@@ -20,9 +20,7 @@ const GenericCard = ({
         <b>{cardTitle}</b>
       </Card.Header>
       <Card.Body>
-        <Card.Body>
-          <Row className="justify-content-md-center">{cardBody}</Row>
-        </Card.Body>
+        <Row className="justify-content-md-center">{cardBody}</Row>
       </Card.Body>
       {cardFooter !== undefined ? (
         <Card.Footer>{cardFooter}</Card.Footer>

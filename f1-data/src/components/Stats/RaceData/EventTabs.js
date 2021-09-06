@@ -40,6 +40,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             <RaceClassification raceClassification={raceClassification} />
           ) : (
             <Row className="justify-content-center text-center">
+              <p></p>
               <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
             </Row>
           )}
