@@ -11,8 +11,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 const Races = () => {
   const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
-    localStorage.getItem("seasonScheduleInput") !== null
-      ? localStorage.getItem("seasonScheduleInput")
+    sessionStorage.getItem("seasonScheduleInput") !== null
+      ? sessionStorage.getItem("seasonScheduleInput")
       : "2021"
   );
   const [seasonSchedule, setSeasonSchedule] = useState(null);
@@ -41,7 +41,7 @@ const Races = () => {
 
   const seasonYearChange = (text) => {
     setSeason(text);
-    localStorage.setItem("seasonScheduleInput", text);
+    sessionStorage.setItem("seasonScheduleInput", text);
     setLoadingSchedule(true);
   };
 
