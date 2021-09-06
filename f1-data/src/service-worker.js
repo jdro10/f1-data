@@ -32,8 +32,13 @@ self.addEventListener("fetch", (event) => {
   if (
     event.request.cache === "only-if-cached" &&
     event.request.mode !== "same-origin"
-  )
+  ) {
     return;
+  }
+
+  if (!(event.request.url.indexOf("http") === 0)) {
+    return;
+  }
 
   const req = event.request;
   event.respondWith(networkFirst(req));
