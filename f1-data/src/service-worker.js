@@ -35,10 +35,6 @@ self.addEventListener("fetch", (event) => {
   )
     return;
 
-  if (!(event.request.url.indexOf("http") === 0)) {
-    return;
-  }
-
   const req = event.request;
   event.respondWith(networkFirst(req));
 });
