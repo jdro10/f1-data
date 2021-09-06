@@ -5,7 +5,7 @@ import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
 
 const CACHE_NAME = "f1-data";
-const CACHE_URLS = ["/", "/f1-data", "/schedule", "/standings"];
+const CACHE_URLS = ["/f1-data", "/schedule", "/standings"];
 
 self.addEventListener("install", async (event) => {
   const cache = await caches.open(CACHE_NAME);
