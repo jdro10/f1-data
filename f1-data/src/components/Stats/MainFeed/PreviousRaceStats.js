@@ -62,7 +62,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                   <td>{driver.position}</td>
                   <td>
                     <Row>
-                      <Col xs={1}>
+                      <Col xs={2}>
                         <CircleFlag
                           countryCode={CountriesCodeNationality[
                             driver.Driver.nationality
@@ -109,7 +109,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                   <td>FL</td>
                   <td>
                     <Row>
-                      <Col xs={1} className="align-self-center">
+                      <Col xs={2} className="align-self-center">
                         <CircleFlag
                           countryCode={CountriesCodeNationality[
                             fastestLap.Driver.nationality
@@ -149,7 +149,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
                   <td>PP</td>
                   <td>
                     <Row>
-                      <Col xs={1} className="align-self-center">
+                      <Col xs={2} className="align-self-center">
                         <CircleFlag
                           countryCode={CountriesCodeNationality[
                             polePosition.Driver.nationality
