@@ -35,7 +35,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
-                  <Col xs={2}>
+                  <Col xs={1}>
                     <TeamColor
                       constructorId={driver.Constructors[0].constructorId}
                       height="42px"
