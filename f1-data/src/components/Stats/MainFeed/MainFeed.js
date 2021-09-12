@@ -85,10 +85,7 @@ const MainFeed = () => {
         </Col>
       </Row>
       {loadingPreviousRace || loadingNextRaceData ? (
-        <Row
-          className="justify-content-center text-center"
-          style={{ minHeight: "200px" }}
-        >
+        <Row className="justify-content-center text-center">
           <Spinner animation="border" />
         </Row>
       ) : (

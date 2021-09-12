@@ -46,7 +46,7 @@ const FutureRace = ({ season, round }) => {
 
   return (
     <div>
-      <Container fluid="md" style={{ minHeight: "700px" }}>
+      <Container fluid="md" style={{ minHeight: "500px" }}>
         {loadingRaceInfo || loadingRaceQualifying ? null : raceInfo === null ? (
           <Redirect to="/error" />
         ) : (
