@@ -10,7 +10,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
         <ConstructorsStandings constructorsStandings={constructorsStandings} />
       }
       cardHeight="34rem"
-      variant={"light"}
+      variant="light"
     />
   );
 };

@@ -57,7 +57,7 @@ const NextRaceCard = ({ nextRace }) => {
         </Link>
       }
       cardHeight="32rem"
-      variant={"light"}
+      variant="light"
     />
   );
 };

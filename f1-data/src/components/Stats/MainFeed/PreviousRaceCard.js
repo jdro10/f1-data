@@ -64,7 +64,7 @@ const PreviousRaceCard = ({ lastRace }) => {
         </Link>
       }
       cardHeight="34rem"
-      variant={"light"}
+      variant="light"
     />
   );
 };

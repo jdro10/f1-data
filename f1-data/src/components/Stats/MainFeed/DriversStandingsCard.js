@@ -17,7 +17,7 @@ const DriversStandingsCard = ({ driversStandings }) => {
         />
       }
       cardHeight="34rem"
-      variant={"light"}
+      variant="light"
     />
   );
 };
