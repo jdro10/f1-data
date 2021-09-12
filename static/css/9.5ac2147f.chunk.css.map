@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Stats/Styles/Table.css"],"names":[],"mappings":"AAAA,yCACE,QACE,YACF,CACF,CAEA,yCACE,QACE,YACF,CACF","file":"9.5ac2147f.chunk.css","sourcesContent":["@media only screen and (max-width: 480px) {\n  .hideXS {\n    display: none;\n  }\n}\n\n@media only screen and (min-width: 481px) {\n  .showXS {\n    display: none;\n  }\n}\n"]}
