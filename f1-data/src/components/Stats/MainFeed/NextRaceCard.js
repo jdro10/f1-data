@@ -7,14 +7,14 @@ import ClockCoutdown from "../../Countdown/ClockCountdown";
 import { getLocalRaceDate } from "../../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
-const NextRaceCard = ({ nextRaceData }) => {
+const NextRaceCard = ({ nextRace }) => {
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
 
   useEffect(() => {
     const fetchCountryCode = async () => {
       await fetch(
-        `https://restcountries.eu/rest/v2/name/${nextRaceData.Circuit.Location.country}?fullText=true`
+        `https://restcountries.eu/rest/v2/name/${nextRace.Circuit.Location.country}?fullText=true`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -24,7 +24,7 @@ const NextRaceCard = ({ nextRaceData }) => {
         .catch((error) => {
           setCountryCode(
             CountriesCodeNationality[
-              nextRaceData.Circuit.Location.country
+              nextRace.Circuit.Location.country
             ].toLowerCase()
           );
           setLoadingCountryCode(false);
@@ -32,27 +32,27 @@ const NextRaceCard = ({ nextRaceData }) => {
     };
 
     fetchCountryCode();
-  }, [nextRaceData.Circuit.Location.country]);
+  }, [nextRace.Circuit.Location.country]);
 
   return (
     <GenericCard
       cardTitle="Next race"
       cardBody={
         <>
-          <h5>Round {nextRaceData.round}</h5>
-          <h1>{nextRaceData.raceName}</h1>
-          <h5>{nextRaceData.Circuit.circuitName}</h5>
-          <h6>{nextRaceData.date}</h6>
-          <h6>{getLocalRaceDate(nextRaceData.date, nextRaceData.time)}</h6>
+          <h5>Round {nextRace.round}</h5>
+          <h1>{nextRace.raceName}</h1>
+          <h5>{nextRace.Circuit.circuitName}</h5>
+          <h6>{nextRace.date}</h6>
+          <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
           {loadingCountryCode ? null : (
             <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
           )}
           <p></p>
-          <ClockCoutdown date={nextRaceData.date} time={nextRaceData.time} />
+          <ClockCoutdown date={nextRace.date} time={nextRace.time} />
         </>
       }
       cardFooter={
-        <Link to={`/race/${nextRaceData.season}/${nextRaceData.round}`}>
+        <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
           <Button variant="dark">Race information</Button>
         </Link>
       }

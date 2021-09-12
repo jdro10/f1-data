@@ -50,7 +50,7 @@ const Race = ({ season, round }) => {
     <div>
       <Container fluid="md">
         {loadingRaceResult || loadingRaceQualifying ? (
-          <Container style={{ marginTop: "5%", minHeight: "700px" }}>
+          <Container style={{ marginTop: "5%", minHeight: "500px" }}>
             <Row className="justify-content-center text-center">
               <Spinner animation="border" />
             </Row>

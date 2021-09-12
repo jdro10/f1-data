@@ -8,14 +8,14 @@ import "../Styles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
+const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
   const [loadingPolePosition, setLoadingPolePosition] = useState(true);
 
   useEffect(() => {
     const getFastestLap = () => {
-      previousRaceData.MRData.RaceTable.Races[0].Results.forEach((lap) => {
+      lastRace.MRData.RaceTable.Races[0].Results.forEach((lap) => {
         if (lap.FastestLap && lap.FastestLap.rank === "1") {
           setFastestLap(lap);
           return;
@@ -25,7 +25,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
 
     const fetchPolePosition = async () => {
       await fetch(
-        `https://ergast.com/api/f1/${previousRaceData.MRData.RaceTable.season}/${previousRaceData.MRData.RaceTable.round}/qualifying.json`
+        `https://ergast.com/api/f1/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}/qualifying.json`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -39,14 +39,14 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
     fetchPolePosition();
     getFastestLap();
   }, [
-    previousRaceData.MRData.RaceTable.season,
-    previousRaceData.MRData.RaceTable.round,
-    previousRaceData.MRData.RaceTable.Races,
+    lastRace.MRData.RaceTable.season,
+    lastRace.MRData.RaceTable.round,
+    lastRace.MRData.RaceTable.Races,
   ]);
 
   return (
     <GenericCard
-      cardTitle={`Previous race: ${previousRaceData.MRData.RaceTable.Races[0].raceName}`}
+      cardTitle={`Previous race: ${lastRace.MRData.RaceTable.Races[0].raceName}`}
       cardBody={
         <div>
           <h4>
@@ -54,49 +54,48 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
           </h4>
           <Table responsive>
             <tbody className="justify-content-center">
-              {previousRaceData.MRData.RaceTable.Races[0].Results.slice(
-                0,
-                3
-              ).map((driver, index) => (
-                <tr key={index} className="align-middle">
-                  <td>{driver.position}</td>
-                  <td>
-                    <Row>
-                      <Col xs={2}>
-                        <CircleFlag
-                          countryCode={CountriesCodeNationality[
-                            driver.Driver.nationality
-                          ].toLowerCase()}
-                          height={20}
-                        />
-                      </Col>
-                      <Col xs={1}>
-                        <TeamColor
-                          constructorId={driver.Constructor.constructorId}
-                          height="42px"
-                        />
-                      </Col>
-                      <Col xs={8} className="text-start">
-                        <Row>
-                          <Col className="hideXS">
-                            {driver.Driver.givenName}{" "}
-                            <b>{driver.Driver.familyName.toUpperCase()}</b>
-                          </Col>
-                          <Col className="showXS">
-                            <b>{driver.Driver.familyName.toUpperCase()}</b>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col style={{ fontSize: "13px" }}>
-                            {driver.Constructor.name}
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </td>
-                  <td>+{driver.points}</td>
-                </tr>
-              ))}
+              {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
+                (driver, index) => (
+                  <tr key={index} className="align-middle">
+                    <td>{driver.position}</td>
+                    <td>
+                      <Row>
+                        <Col xs={2} className="align-self-center">
+                          <CircleFlag
+                            countryCode={CountriesCodeNationality[
+                              driver.Driver.nationality
+                            ].toLowerCase()}
+                            height={20}
+                          />
+                        </Col>
+                        <Col xs={1}>
+                          <TeamColor
+                            constructorId={driver.Constructor.constructorId}
+                            height="42px"
+                          />
+                        </Col>
+                        <Col xs={8} className="text-start">
+                          <Row>
+                            <Col className="hideXS">
+                              {driver.Driver.givenName}{" "}
+                              <b>{driver.Driver.familyName.toUpperCase()}</b>
+                            </Col>
+                            <Col className="showXS">
+                              <b>{driver.Driver.familyName.toUpperCase()}</b>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col style={{ fontSize: "13px" }}>
+                              {driver.Constructor.name}
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                    </td>
+                    <td>+{driver.points}</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </Table>
           <h4>
@@ -194,8 +193,7 @@ const PreviousRaceStats = ({ previousRaceData, totalNumberOfRaces }) => {
       }
       cardFooter={
         <h4>
-          Round: {previousRaceData.MRData.RaceTable.round} /{" "}
-          {totalNumberOfRaces}
+          Round: {lastRace.MRData.RaceTable.round} / {numberOfRaces}
         </h4>
       }
       cardHeight="34rem"
