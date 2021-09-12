@@ -197,7 +197,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
         </h4>
       }
       cardHeight="34rem"
-      variant={"light"}
+      variant="light"
     />
   );
 };
