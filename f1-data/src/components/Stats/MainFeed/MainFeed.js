@@ -67,6 +67,10 @@ const MainFeed = () => {
     fetchConstructorsStandings();
   }, []);
 
+  const cardsSpacing = {
+    marginBottom: "10px",
+  };
+
   return (
     <Container style={{ minHeight: "500px" }}>
       <Row className="justify-content-center text-center">
@@ -83,34 +87,26 @@ const MainFeed = () => {
         </Row>
       ) : (
         <Row className="justify-content-center text-center">
-          <Col lg={12}>
-            <>
-              <NextRaceCard nextRace={nextRace} />
-              <p></p>
-            </>
+          <Col lg={12} style={cardsSpacing}>
+            <NextRaceCard nextRace={nextRace} />
           </Col>
-          <Col xs={12} lg={6}>
-            <>
-              <PreviousRaceCard lastRace={lastRace} />
-              <p></p>
-            </>
+          <Col xs={12} lg={6} style={cardsSpacing}>
+            <PreviousRaceCard lastRace={lastRace} />
           </Col>
-          <Col xs={12} lg={6}>
+          <Col xs={12} lg={6} style={cardsSpacing}>
             <PreviousRaceStats
               lastRace={lastRace}
               numberOfRaces={TOTAL_NUMBER_OF_RACES}
             />
-            <p></p>
           </Col>
         </Row>
       )}
       {loadingDriversStandings || loadingTeamsStandings ? null : (
         <Row>
-          <Col>
+          <Col style={cardsSpacing}>
             <DriversStandingsCard driversStandings={driversStandings} />
-            <p></p>
           </Col>
-          <Col>
+          <Col style={cardsSpacing}>
             <ConstructorsStandingsCard
               constructorsStandings={constructorsStandings}
             />
