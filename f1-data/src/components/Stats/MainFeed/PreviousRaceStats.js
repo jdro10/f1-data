@@ -60,7 +60,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     <td>{driver.position}</td>
                     <td>
                       <Row>
-                        <Col xs={2}>
+                        <Col xs={2} className="align-self-center">
                           <CircleFlag
                             countryCode={CountriesCodeNationality[
                               driver.Driver.nationality
