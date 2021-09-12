@@ -7,6 +7,7 @@ import RaceTab from "./RaceTab";
 import CircuitTab from "./CircuitTab";
 import Row from "react-bootstrap/Row";
 import ClockCountdown from "../../Countdown/ClockCountdown";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   const [eventCountryCode, setEventCountryCode] = useState(null);
@@ -20,7 +21,13 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         .then((result) => {
           setEventCountryCode(result[0].alpha2Code.toLowerCase());
         })
-        .catch((error) => setEventCountryCode(null));
+        .catch((error) => {
+          setEventCountryCode(
+            CountriesCodeNationality[
+              raceInfo.Circuit.Location.country
+            ].toLowerCase()
+          );
+        });
     };
 
     fetchCountryCode();

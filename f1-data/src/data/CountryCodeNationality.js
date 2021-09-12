@@ -38,5 +38,7 @@ export const CountriesCodeNationality = {
   Indian: "IN",
   Polish: "PL",
   Indonesian: "ID",
-  Rhodesian: "ZW"
+  Rhodesian: "ZW",
+  Russia: "RU",
+  Korea:  "KR"
 };
