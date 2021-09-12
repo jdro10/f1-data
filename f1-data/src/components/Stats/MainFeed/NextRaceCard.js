@@ -5,6 +5,7 @@ import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 import ClockCoutdown from "../../Countdown/ClockCountdown";
 import { getLocalRaceDate } from "../../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const NextRaceCard = ({ nextRaceData }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -18,6 +19,14 @@ const NextRaceCard = ({ nextRaceData }) => {
         .then((res) => res.json())
         .then((result) => {
           setCountryCode(result[0].alpha2Code);
+          setLoadingCountryCode(false);
+        })
+        .catch((error) => {
+          setCountryCode(
+            CountriesCodeNationality[
+              nextRaceData.Circuit.Location.country
+            ].toLowerCase()
+          );
           setLoadingCountryCode(false);
         });
     };
@@ -36,10 +45,10 @@ const NextRaceCard = ({ nextRaceData }) => {
           <h6>{nextRaceData.date}</h6>
           <h6>{getLocalRaceDate(nextRaceData.date, nextRaceData.time)}</h6>
           {loadingCountryCode ? null : (
-            <CircleFlag countryCode={countryCode.toLowerCase()} height={100}/>
+            <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
           )}
           <p></p>
-          <ClockCoutdown date={nextRaceData.date} time={nextRaceData.time}/>
+          <ClockCoutdown date={nextRaceData.date} time={nextRaceData.time} />
         </>
       }
       cardFooter={

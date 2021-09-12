@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Alert from "react-bootstrap/Alert";
 import { getLocalRaceDate } from "../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceInfo = ({ race }) => {
   const [countryCode, setCountryCode] = useState(null);
@@ -20,7 +21,14 @@ const RaceInfo = ({ race }) => {
           setCountryCode(result[0].alpha2Code.toLowerCase());
           setLoadingCountryCode(false);
         })
-        .catch((error) => setCountryCode(null));
+        .catch((error) => {
+          setCountryCode(
+            CountriesCodeNationality[
+              race.Circuit.Location.country
+            ].toLowerCase()
+          );
+          setLoadingCountryCode(false);
+        });
     };
 
     fetchCountryCode();

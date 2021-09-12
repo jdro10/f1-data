@@ -3,27 +3,36 @@ import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 
 const ClockCountdown = ({ date, time }) => {
-  const renderer = ({ days, hours, minutes, seconds }) => {
-    return (
-      <>
-        <Col xs={3} sm={2} lg={1}>
-          <h1>{days}</h1>
-          <h5>days</h5>
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return (
+        <Col>
+          <h1>Race in progress</h1>
+          <h5>Waiting for race results</h5>
         </Col>
-        <Col xs={3} sm={2} lg={1}>
-          <h1>{hours}</h1>
-          <h5>hour.</h5>
-        </Col>
-        <Col xs={3} sm={2} lg={1}>
-          <h1>{minutes}</h1>
-          <h5>min.</h5>
-        </Col>
-        <Col xs={3} sm={2} lg={1}>
-          <h1>{seconds}</h1>
-          <h5>sec.</h5>
-        </Col>
-      </>
-    );
+      );
+    } else {
+      return (
+        <>
+          <Col xs={3} sm={2} lg={1}>
+            <h1>{days}</h1>
+            <h5>days</h5>
+          </Col>
+          <Col xs={3} sm={2} lg={1}>
+            <h1>{hours}</h1>
+            <h5>hour.</h5>
+          </Col>
+          <Col xs={3} sm={2} lg={1}>
+            <h1>{minutes}</h1>
+            <h5>min.</h5>
+          </Col>
+          <Col xs={3} sm={2} lg={1}>
+            <h1>{seconds}</h1>
+            <h5>sec.</h5>
+          </Col>
+        </>
+      );
+    }
   };
 
   return (
