@@ -13,50 +13,50 @@ const Standings = () => {
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
   const [constructorsStandings, setConstructorsStandings] = useState(null);
-  const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
-    useState(true);
+  const [loadingTeamsStandings, setLoadingTeamsStandings] = useState(true);
   const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
 
   useEffect(() => {
     const fetchConstructorsStandings = async () => {
-      setLoadingConstructorsStandings(true);
-      const response = await fetch(
+      setLoadingTeamsStandings(true);
+      await fetch(
         `https://ergast.com/api/f1/${season}/constructorStandings.json`
-      );
-      const data = await response.json();
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.MRData.StandingsTable.StandingsLists[0] !== undefined) {
+            setConstructorsStandings(
+              result.MRData.StandingsTable.StandingsLists[0]
+                .ConstructorStandings
+            );
+          } else {
+            setConstructorsStandings(null);
+          }
+        });
 
-      if (data.MRData.StandingsTable.StandingsLists[0] !== undefined) {
-        setConstructorsStandings(
-          data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-        );
-      } else {
-        setConstructorsStandings(null);
-      }
-
-      setLoadingConstructorsStandings(false);
+      setLoadingTeamsStandings(false);
     };
 
     const fetchDriversStandings = async () => {
       setLoadingDriversStandings(true);
-      const response = await fetch(
-        `https://ergast.com/api/f1/${season}/driverStandings.json`
-      );
-      const data = await response.json();
-
-      setDriversStandings(
-        data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-      );
-      setLoadingDriversStandings(false);
+      await fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
+        .then((res) => res.json())
+        .then((result) => {
+          setDriversStandings(
+            result.MRData.StandingsTable.StandingsLists[0].DriverStandings
+          );
+          setLoadingDriversStandings(false);
+        });
     };
 
-    function fillArrayBetweenTwoNumbers(start, end) {
+    const fillArrayBetweenTwoNumbers = (start, end) => {
       setSeasonsYearsList(
         Array(end - start + 1)
           .fill()
           .map((_, i) => start + i)
           .reverse()
       );
-    }
+    };
 
     fetchConstructorsStandings();
     fetchDriversStandings();
@@ -66,9 +66,17 @@ const Standings = () => {
   const seasonYearChange = (text) => {
     setSeason(text);
   };
+
   return (
-    <div>
-      {!loadingConstructorsStandings && !loadingDriversStandings ? (
+    <Container>
+      {loadingTeamsStandings || loadingDriversStandings ? (
+        <Container style={{ minHeight: "500px" }}>
+          <Row className="justify-content-center text-center">
+            <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
+            <Spinner animation="border" />
+          </Row>
+        </Container>
+      ) : (
         <Container style={{ minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
             <Col>
@@ -120,15 +128,8 @@ const Standings = () => {
             </Row>
           </Row>
         </Container>
-      ) : (
-        <Container style={{ minHeight: "500px" }}>
-          <Row className="justify-content-center text-center">
-            <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
-            <Spinner animation="border" />
-          </Row>
-        </Container>
       )}
-    </div>
+    </Container>
   );
 };
 
