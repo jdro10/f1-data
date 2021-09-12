@@ -84,12 +84,10 @@ const MainFeed = () => {
       ) : (
         <Row className="justify-content-center text-center">
           <Col lg={12}>
-            {nextRace !== null ? (
-              <>
-                <NextRaceCard nextRace={nextRace} />
-                <p></p>
-              </>
-            ) : null}
+            <>
+              <NextRaceCard nextRace={nextRace} />
+              <p></p>
+            </>
           </Col>
           <Col xs={12} lg={6}>
             <>
