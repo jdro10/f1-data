@@ -5,7 +5,7 @@ import DriversStandings from "../Standings/DriversStandings";
 const DriversStandingsCard = ({ driversStandings }) => {
   return (
     <GenericCard
-      cardTitle="Drivers' standings"
+      cardTitle="DRIVERS' STANDINGS"
       cardBody={
         <DriversStandings
           style={{

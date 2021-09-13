@@ -75,9 +75,9 @@ const MainFeed = () => {
     <Container style={{ minHeight: "500px" }}>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h1 style={{ marginBottom: "3%" }}>
-            {loadingLastRace ? null : lastRace.MRData.RaceTable.season} Formula
-            One
+          <h1>
+            {loadingLastRace ? null : lastRace.MRData.RaceTable.season} FORMULA
+            ONE
           </h1>
         </Col>
       </Row>

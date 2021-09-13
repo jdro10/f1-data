@@ -7,6 +7,10 @@ import ClockCoutdown from "../../Countdown/ClockCountdown";
 import { getLocalRaceDate } from "../../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
+const boldFont = {
+  fontWeight: 600
+}
+
 const NextRaceCard = ({ nextRace }) => {
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
@@ -36,11 +40,11 @@ const NextRaceCard = ({ nextRace }) => {
 
   return (
     <GenericCard
-      cardTitle="Next race"
+      cardTitle="NEXT RACE"
       cardBody={
         <>
           <h5>Round {nextRace.round}</h5>
-          <h1>{nextRace.raceName}</h1>
+          <h1 style={boldFont}>{nextRace.raceName.toUpperCase()}</h1>
           <h5>{nextRace.Circuit.circuitName}</h5>
           <h6>{nextRace.date}</h6>
           <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>

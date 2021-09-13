@@ -49,7 +49,7 @@ const RaceInfo = ({ race }) => {
         </Link>
       </Col>
       <Col xs={12} md={12} lg={6} className="center-xs">
-        <h3>{race.raceName}</h3>
+        <h3>{race.raceName.toUpperCase()}</h3>
         <h5>{race.Circuit.circuitName}</h5>
       </Col>
       <Col xs={12} md={12} lg={3} className="center-xs center">

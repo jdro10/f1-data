@@ -5,6 +5,10 @@ import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 import { getLocalRaceDate } from "../../../helpers/Helpers";
 
+const boldFont = {
+  fontWeight: 600,
+};
+
 const PreviousRaceCard = ({ lastRace }) => {
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
@@ -26,11 +30,13 @@ const PreviousRaceCard = ({ lastRace }) => {
 
   return (
     <GenericCard
-      cardTitle={"Previous race"}
+      cardTitle="PREVIOUS RACE"
       cardBody={
         <div>
           <h5>Round {lastRace.MRData.RaceTable.round}</h5>
-          <h1>{lastRace.MRData.RaceTable.Races[0].raceName}</h1>
+          <h1 style={boldFont}>
+            {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
+          </h1>
           <h5>{lastRace.MRData.RaceTable.Races[0].Circuit.circuitName}</h5>
           <h6>{lastRace.MRData.RaceTable.Races[0].date}</h6>
           <h6>
