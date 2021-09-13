@@ -5,7 +5,7 @@ import ConstructorsStandings from "../Standings/ConstructorsStandings";
 const ConstructorsStandingsCard = ({ constructorsStandings }) => {
   return (
     <GenericCard
-      cardTitle="Constructors' standings"
+      cardTitle="CONSTRUCTORS' STANDINGS"
       cardBody={
         <ConstructorsStandings constructorsStandings={constructorsStandings} />
       }

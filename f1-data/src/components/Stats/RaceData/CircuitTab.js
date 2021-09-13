@@ -6,6 +6,13 @@ import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import TeamColor from "../../TeamColor/TeamColor";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
+
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
   const [fastestLap, setFastestLap] = useState(null);
   const [firstGrandPrix, setFirstGrandPrix] = useState(null);
@@ -78,12 +85,13 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
       {loadingWikiData ? null : (
         <Row>
           <p style={{ textAlign: "justify" }}>
-            {circuitInformation[wikiPageId]["extract"]}{" "}
-            (Source: <a
+            {circuitInformation[wikiPageId]["extract"]} (Source:{" "}
+            <a
               href={`https://en.wikipedia.org/wiki/${circuitInformation[wikiPageId]["title"]}`}
             >
               Wikipedia
-            </a>)
+            </a>
+            )
           </p>
         </Row>
       )}
@@ -99,7 +107,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
             mapHeight={{ height: "700px" }}
           />
         </Col>
-        <Col style={{marginTop: "5%"}}>
+        <Col style={{ marginTop: "5%" }}>
           {loadingFastestLap || loadingFirstGrandPrix ? null : (
             <>
               <Row className="text-center">
@@ -125,9 +133,9 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
                     <Col xs={4}>
                       <h5 style={{ fontSize: "20px" }}>
                         {fastestLap.Results[0].Driver.givenName}{" "}
-                        <b>
+                        <p style={boldFont}>
                           {fastestLap.Results[0].Driver.familyName.toUpperCase()}
-                        </b>
+                        </p>
                       </h5>
                     </Col>
                     <Col xs={2}>

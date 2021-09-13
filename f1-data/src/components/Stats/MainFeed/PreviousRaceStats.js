@@ -8,6 +8,13 @@ import "../Styles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
+
 const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
@@ -46,12 +53,10 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
 
   return (
     <GenericCard
-      cardTitle={`Previous race: ${lastRace.MRData.RaceTable.Races[0].raceName}`}
+      cardTitle="PREVIOUS RACE"
       cardBody={
         <div>
-          <h4>
-            <b>Race result</b>
-          </h4>
+          <h4 style={boldFont}>PODIUM</h4>
           <Table responsive>
             <tbody className="justify-content-center">
               {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
@@ -78,10 +83,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                           <Row>
                             <Col className="hideXS">
                               {driver.Driver.givenName}{" "}
-                              <b>{driver.Driver.familyName.toUpperCase()}</b>
+                              <p style={boldFont}>
+                                {driver.Driver.familyName.toUpperCase()}
+                              </p>
                             </Col>
                             <Col className="showXS">
-                              <b>{driver.Driver.familyName.toUpperCase()}</b>
+                              <p style={boldFont}>
+                                {driver.Driver.familyName.toUpperCase()}
+                              </p>
                             </Col>
                           </Row>
                           <Row>
@@ -98,9 +107,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
               )}
             </tbody>
           </Table>
-          <h4>
-            <b>Fastest lap / Pole position</b>
-          </h4>
+          <h4 style={boldFont}>FASTEST LAP / POLE POSITION</h4>
           <Table responsive>
             <tbody>
               {fastestLap === null ? null : (
@@ -126,10 +133,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                         <Row>
                           <Col className="hideXS">
                             {fastestLap.Driver.givenName}{" "}
-                            <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                            <p style={boldFont}>
+                              {fastestLap.Driver.familyName.toUpperCase()}
+                            </p>
                           </Col>
                           <Col className="showXS">
-                            <b>{fastestLap.Driver.familyName.toUpperCase()}</b>
+                            <p style={boldFont}>
+                              {fastestLap.Driver.familyName.toUpperCase()}
+                            </p>
                           </Col>
                         </Row>
                         <Row>
@@ -166,14 +177,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                         <Row>
                           <Col className="hideXS">
                             {polePosition.Driver.givenName}{" "}
-                            <b>
+                            <p style={boldFont}>
                               {polePosition.Driver.familyName.toUpperCase()}
-                            </b>
+                            </p>
                           </Col>
                           <Col className="showXS">
-                            <b>
+                            <p style={boldFont}>
                               {polePosition.Driver.familyName.toUpperCase()}
-                            </b>
+                            </p>
                           </Col>
                         </Row>
                         <Row>

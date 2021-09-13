@@ -7,6 +7,13 @@ import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
+
 const DriversStandings = ({ style, driversStandings }) => {
   return (
     <div style={style}>
@@ -44,11 +51,15 @@ const DriversStandings = ({ style, driversStandings }) => {
                   <Col xs={8} className="text-start">
                     <Row>
                       <Col className="showXS">
-                        <b>{driver.Driver.familyName.toUpperCase()}</b>
+                        <p style={boldFont}>
+                          {driver.Driver.familyName.toUpperCase()}
+                        </p>
                       </Col>
                       <Col className="hideXS">
                         {driver.Driver.givenName}{" "}
-                        <b>{driver.Driver.familyName.toUpperCase()}</b>
+                        <p style={boldFont}>
+                          {driver.Driver.familyName.toUpperCase()}
+                        </p>
                       </Col>
                     </Row>
                     <Row>

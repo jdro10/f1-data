@@ -72,7 +72,7 @@ const Standings = () => {
       {loadingTeamsStandings || loadingDriversStandings ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
-            <h1 style={{ marginBottom: "3%" }}>Formula One</h1>
+            <h1 style={{ marginBottom: "3%" }}>FORMULA ONE</h1>
             <Spinner animation="border" />
           </Row>
         </Container>
@@ -80,7 +80,7 @@ const Standings = () => {
         <Container style={{ minHeight: "700px" }}>
           <Row className="justify-content-center text-center">
             <Col>
-              <h1>{season} Formula One season</h1>
+              <h1>{season} FORMULA ONE</h1>
             </Col>
           </Row>
           <Row
@@ -109,7 +109,7 @@ const Standings = () => {
           </Row>
           <Row className="justify-content-center text-center">
             <Col md="auto">
-              <h1>Constructors' standings</h1>
+              <h2>CONSTRUCTORS' STANDINGS</h2>
             </Col>
             <Row>
               <Col>
@@ -119,7 +119,7 @@ const Standings = () => {
               </Col>
             </Row>
             <Col md="auto">
-              <h1>Drivers' standings</h1>
+              <h2>DRIVERS' STANDINGS</h2>
             </Col>
             <Row>
               <Col>
