@@ -20,11 +20,11 @@ const DriversStandings = ({ style, driversStandings }) => {
       <Table responsive="xs">
         <thead>
           <tr>
-            <th>Pos</th>
-            <th className="hideXS">No</th>
-            <th>Name/Team</th>
-            <th className="hideXS">Wins</th>
-            <th>Points</th>
+            <th>POS</th>
+            <th className="hideXS">NO</th>
+            <th>NAME/TEAM</th>
+            <th className="hideXS">WINS</th>
+            <th>POINTS</th>
           </tr>
         </thead>
         <tbody>

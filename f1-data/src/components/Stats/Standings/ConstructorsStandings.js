@@ -14,10 +14,10 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
         <Table responsive="sm">
           <thead>
             <tr>
-              <th>Pos</th>
-              <th>Name</th>
-              <th className="hideXS">Wins</th>
-              <th>Points</th>
+              <th>POS</th>
+              <th>NAME</th>
+              <th className="hideXS">WINS</th>
+              <th>POINTS</th>
             </tr>
           </thead>
           <tbody>
