@@ -26,7 +26,7 @@ export const CountriesCodeNationality = {
   Belgian: "BE",
   Belgium: "BE",
   "South African": "ZA",
-  Danish: "DN",
+  Danish: "DK",
   Liechtensteiner: "LI",
   "Hong Kong": "HK",
   Irish: "IE",

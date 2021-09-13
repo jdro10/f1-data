@@ -16,19 +16,19 @@ const ClockCountdown = ({ date, time }) => {
         <>
           <Col xs={3} sm={2} lg={1}>
             <h1>{days}</h1>
-            <h5>days</h5>
+            <h5>DAYS</h5>
           </Col>
           <Col xs={3} sm={2} lg={1}>
             <h1>{hours}</h1>
-            <h5>hour.</h5>
+            <h5>HRS</h5>
           </Col>
           <Col xs={3} sm={2} lg={1}>
             <h1>{minutes}</h1>
-            <h5>min.</h5>
+            <h5>MIN</h5>
           </Col>
           <Col xs={3} sm={2} lg={1}>
             <h1>{seconds}</h1>
-            <h5>sec.</h5>
+            <h5>SEC</h5>
           </Col>
         </>
       );

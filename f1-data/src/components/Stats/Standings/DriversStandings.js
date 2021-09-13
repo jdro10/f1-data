@@ -19,7 +19,7 @@ const DriversStandings = ({ style, driversStandings }) => {
   const history = useHistory();
 
   const rowClick = (driverId) => {
-    history.push(`/schedule`);
+    history.push(`/driver/${driverId}`);
   };
 
   return (
@@ -40,7 +40,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               key={index}
               className="align-middle"
               style={{ cursor: "pointer" }}
-              onClick={() => rowClick(1)}
+              onClick={() => rowClick(driver.Driver.driverId)}
             >
               <td>{driver.position}</td>
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
