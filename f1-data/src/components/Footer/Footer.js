@@ -59,13 +59,31 @@ const Footer = () => {
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             All racing data is obtained through{" "}
-            <a href="http://ergast.com/mrd/" style={{color: "white"}}>Ergast API</a>.
+            <a href="http://ergast.com/mrd/" style={{ color: "white" }}>
+              Ergast API
+            </a>
+            .
           </Col>
         </Row>
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             Countries data is obtained through{" "}
-            <a href="https://restcountries.eu/" style={{color: "white"}}>REST Countries API</a>.
+            <a href="https://restcountries.eu/" style={{ color: "white" }}>
+              REST Countries API
+            </a>
+            .
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col md="auto" style={{ textAlign: "center" }}>
+            Some drivers, teams and circuits data are obtained through{" "}
+            <a
+              href="https://en.wikipedia.org/wiki/Main_Page"
+              style={{ color: "white" }}
+            >
+              Wikipedia API
+            </a>
+            .
           </Col>
         </Row>
         <br />

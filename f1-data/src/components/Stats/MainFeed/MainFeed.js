@@ -9,6 +9,10 @@ import PreviousRaceStats from "./PreviousRaceStats";
 import DriversStandingsCard from "./DriversStandingsCard";
 import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
 
+const cardsSpacing = {
+  marginBottom: "10px",
+};
+
 const MainFeed = () => {
   const TOTAL_NUMBER_OF_RACES = "23";
   const [nextRace, setNextRace] = useState(null);
@@ -66,10 +70,6 @@ const MainFeed = () => {
     fetchDriversStandings();
     fetchConstructorsStandings();
   }, []);
-
-  const cardsSpacing = {
-    marginBottom: "10px",
-  };
 
   return (
     <Container style={{ minHeight: "500px" }}>
