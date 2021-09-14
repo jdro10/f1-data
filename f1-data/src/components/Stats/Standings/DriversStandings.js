@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -15,21 +16,32 @@ const boldFont = {
 };
 
 const DriversStandings = ({ style, driversStandings }) => {
+  const history = useHistory();
+
+  const rowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
+
   return (
     <div style={style}>
-      <Table responsive="xs">
+      <Table className="table-hover" responsive="xs">
         <thead>
           <tr>
-            <th>Pos</th>
-            <th className="hideXS">No</th>
-            <th>Name/Team</th>
-            <th className="hideXS">Wins</th>
-            <th>Points</th>
+            <th>POS</th>
+            <th className="hideXS">NO</th>
+            <th>NAME/TEAM</th>
+            <th className="hideXS">WINS</th>
+            <th>POINTS</th>
           </tr>
         </thead>
         <tbody>
           {driversStandings.map((driver, index) => (
-            <tr key={index} className="align-middle">
+            <tr
+              key={index}
+              className="align-middle"
+              style={{ cursor: "pointer" }}
+              onClick={() => rowClick(driver.Driver.driverId)}
+            >
               <td>{driver.position}</td>
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>

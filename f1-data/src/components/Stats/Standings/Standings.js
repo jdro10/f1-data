@@ -9,7 +9,11 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 const Standings = () => {
   const FIRST_SEASON = 1950;
-  const [season, setSeason] = useState("2021");
+  const [season, setSeason] = useState(
+    sessionStorage.getItem("seasonStandingsInput") !== null
+      ? sessionStorage.getItem("seasonStandingsInput")
+      : "2021"
+  );
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
   const [constructorsStandings, setConstructorsStandings] = useState(null);
@@ -65,6 +69,7 @@ const Standings = () => {
 
   const seasonYearChange = (text) => {
     setSeason(text);
+    sessionStorage.setItem("seasonStandingsInput", text);
   };
 
   return (

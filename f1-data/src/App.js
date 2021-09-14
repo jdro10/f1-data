@@ -7,6 +7,7 @@ const RaceResult = lazy(() => import("./pages/RaceResult"));
 const SeasonRaces = lazy(() => import("./pages/SeasonRaces"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const StandingsPage = lazy(() => import("./pages/StandingsPage"));
+const DriverPage = lazy(() => import("./pages/DriverPage"));
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
             path="/race/:season/:round"
             exact={true}
             component={RaceResult}
+          />
+          <Route
+            path="/driver/:driverId"
+            exact={true}
+            component={DriverPage}
           />
           <Route path="/schedule" exact={true} component={SeasonRaces} />
           <Route path="/error" exact={true} component={ErrorPage} />

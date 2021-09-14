@@ -6,19 +6,25 @@ import Col from "react-bootstrap/Col";
 import "../Styles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
 const RaceClassification = ({ raceClassification }) => {
   return (
     <div>
       <Table responsive="sm">
         <thead>
           <tr>
-            <th>Pos</th>
-            <th className="hideXS">Number</th>
-            <th>Driver</th>
-            <th className="hideXS">Team</th>
-            <th className="hideXS">Laps</th>
-            <th>Time/Retired</th>
-            <th>Pts</th>
+            <th>POS</th>
+            <th className="hideXS">NUMBER</th>
+            <th>DRIVER</th>
+            <th className="hideXS">TEAM</th>
+            <th className="hideXS">LAPS</th>
+            <th>TIME/RETIRED</th>
+            <th>PTS</th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +47,9 @@ const RaceClassification = ({ raceClassification }) => {
                   </Col>
                   <Col xs={6} md={10}>
                     {driver.Driver.givenName}{" "}
-                    <b>{driver.Driver.familyName.toUpperCase()}</b>
+                    <p style={boldFont}>
+                      {driver.Driver.familyName.toUpperCase()}
+                    </p>
                   </Col>
                 </Row>
               </td>

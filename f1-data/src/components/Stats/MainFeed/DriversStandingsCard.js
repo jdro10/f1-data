@@ -1,6 +1,8 @@
 import React from "react";
 import GenericCard from "../../Cards/GenericCard";
+import { Link } from "react-router-dom";
 import DriversStandings from "../Standings/DriversStandings";
+import Button from "react-bootstrap/Button";
 
 const DriversStandingsCard = ({ driversStandings }) => {
   return (
@@ -11,13 +13,18 @@ const DriversStandingsCard = ({ driversStandings }) => {
           style={{
             overflow: "hidden",
             overflowY: "scroll",
-            height: "480px",
+            height: "415px",
           }}
           driversStandings={driversStandings}
         />
       }
       cardHeight="34rem"
       variant="light"
+      cardFooter={
+        <Link to="/standings">
+          <Button variant="dark">Full standings</Button>
+        </Link>
+      }
     />
   );
 };

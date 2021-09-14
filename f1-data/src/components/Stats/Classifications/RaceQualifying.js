@@ -5,15 +5,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TeamColor from "../../TeamColor/TeamColor";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
+
 const RaceQualifying = ({ raceQualifying }) => {
   return (
     <Table responsive="sm">
       <thead>
         <tr>
-          <th>Pos</th>
-          <th className="hideXS">Number</th>
-          <th>Driver</th>
-          <th className="hideXS">Team</th>
+          <th>POS</th>
+          <th className="hideXS">NUMBER</th>
+          <th>DRIVER</th>
+          <th className="hideXS">TEAM</th>
           <th>Q1</th>
           <th>Q2</th>
           <th>Q3</th>
@@ -31,7 +38,9 @@ const RaceQualifying = ({ raceQualifying }) => {
                 </Col>
                 <Col>
                   {driver.Driver.givenName}{" "}
-                  <b>{driver.Driver.familyName.toUpperCase()}</b>
+                  <p style={boldFont}>
+                    {driver.Driver.familyName.toUpperCase()}
+                  </p>
                 </Col>
               </Row>
             </td>
@@ -41,11 +50,11 @@ const RaceQualifying = ({ raceQualifying }) => {
                   <TeamColor constructorId={driver.Constructor.constructorId} />
                 </Col>
                 <Col xs={6}>
-                  <b>
+                  <p style={boldFont}>
                     {!driver.Driver.hasOwnProperty("code")
                       ? driver.Driver.familyName.substring(0, 3).toUpperCase()
                       : driver.Driver.code}
-                  </b>
+                  </p>
                 </Col>
               </Row>
             </td>
