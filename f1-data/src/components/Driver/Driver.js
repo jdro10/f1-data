@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import { CircleFlag } from "react-circle-flags";
 import { BsPersonFill } from "react-icons/bs";
 import "../SharedStyles/Table.css";
-import TeamColor from "../TeamColor/TeamColor";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
-import { FaClock } from "react-icons/fa";
-import { GiPodium } from "react-icons/gi";
-import { GiPodiumWinner } from "react-icons/gi";
-import { SiFastly } from "react-icons/si";
-import { GiRaceCar } from "react-icons/gi";
-
-const boldFont = {
-  fontWeight: "600",
-  fontSize: "25px",
-};
-
-const fontSize = {
-  fontSize: "25px",
-};
+import ProfileStats from "../ProfileStats/ProfileStats";
 
 const Driver = ({ driverId }) => {
   const [lastGP, setLastGP] = useState(null);
@@ -204,86 +189,11 @@ const Driver = ({ driverId }) => {
               <Spinner animation="border" />
             </Row>
           ) : (
-            <Row className="justify-content-center">
-              <Table responsive className="table-width">
-                <tbody>
-                  <tr>
-                    <td style={boldFont}>Current/Last team</td>
-                    <td className="text-end" style={fontSize}>
-                      <Row className="justify-content-end text-end">
-                        <Col xs={1}>
-                          <TeamColor
-                            constructorId={
-                              lastGP.Results[0].Constructor.constructorId
-                            }
-                            height="42px"
-                          />
-                        </Col>
-                        <Col xs="auto">
-                          {lastGP.Results[0].Constructor.name}
-                        </Col>
-                      </Row>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Wins</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.wins} <GiPodiumWinner />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Podiums</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.podiums} <GiPodium />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Fastest laps</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalFastestLaps} <FaClock />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Pole positions</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.poles} <SiFastly />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total points</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalPoints} <GiRaceCar size={30} />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total GPs entered</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalGrandPrix} <GiRaceCar size={30} />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>First GP</td>
-                    <td className="text-end" style={fontSize}>
-                      {firstGP.raceName} {firstGP.season}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Last GP</td>
-                    <td className="text-end" style={fontSize}>
-                      {lastGP !== undefined
-                        ? lastGP.raceName + " " + lastGP.season
-                        : "N/A"}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total laps raced</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalLapsRaced} <GiRaceCar size={30} />
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Row>
+            <ProfileStats
+              stats={driverStats}
+              firstGP={firstGP}
+              lastGP={lastGP}
+            />
           )}
         </>
       )}
