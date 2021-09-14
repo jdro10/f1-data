@@ -16,16 +16,19 @@ function App() {
       const todayDate = new Date();
       todayDate.setHours(0, 0, 0, 0);
 
-      const nextWednesday = nextDay(3);
+      const nextTuesday = nextDay(2);
       const nextUpdateDate = localStorage.getItem("nextUpdate");
 
+      console.log(nextTuesday)
+      console.log(todayDate)
+
       if (!nextUpdateDate) {
-        localStorage.setItem("nextUpdate", nextWednesday);
+        localStorage.setItem("nextUpdate", nextTuesday);
       }
 
-      if (nextUpdateDate && todayDate.getTime() > nextWednesday.getTime()) {
+      if (nextUpdateDate && todayDate.getTime() > nextTuesday.getTime()) {
         localStorage.clear();
-        localStorage.setItem("nextUpdate", nextWednesday);
+        localStorage.setItem("nextUpdate", nextTuesday);
       }
     }
 
