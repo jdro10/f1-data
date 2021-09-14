@@ -86,32 +86,38 @@ const MainFeed = () => {
           <Spinner animation="border" />
         </Row>
       ) : (
-        <Row className="justify-content-center text-center">
-          <Col lg={12} style={cardsSpacing}>
-            <NextRaceCard nextRace={nextRace} />
-          </Col>
-          <Col xs={12} lg={6} style={cardsSpacing}>
-            <PreviousRaceCard lastRace={lastRace} />
-          </Col>
-          <Col xs={12} lg={6} style={cardsSpacing}>
-            <PreviousRaceStats
-              lastRace={lastRace}
-              numberOfRaces={TOTAL_NUMBER_OF_RACES}
-            />
-          </Col>
-        </Row>
-      )}
-      {loadingDriversStandings || loadingTeamsStandings ? null : (
-        <Row>
-          <Col style={cardsSpacing}>
-            <DriversStandingsCard driversStandings={driversStandings} />
-          </Col>
-          <Col style={cardsSpacing}>
-            <ConstructorsStandingsCard
-              constructorsStandings={constructorsStandings}
-            />
-          </Col>
-        </Row>
+        <>
+          <Row className="justify-content-center text-center">
+            <Col lg={12} style={cardsSpacing}>
+              <NextRaceCard nextRace={nextRace} />
+            </Col>
+            <Col xs={12} lg={6} style={cardsSpacing}>
+              <PreviousRaceCard lastRace={lastRace} />
+            </Col>
+            <Col xs={12} lg={6} style={cardsSpacing}>
+              <PreviousRaceStats
+                lastRace={lastRace}
+                numberOfRaces={TOTAL_NUMBER_OF_RACES}
+              />
+            </Col>
+          </Row>
+          {loadingDriversStandings || loadingTeamsStandings ? (
+            <Row className="justify-content-center text-center">
+              <Spinner animation="border" />
+            </Row>
+          ) : (
+            <Row>
+              <Col style={cardsSpacing}>
+                <DriversStandingsCard driversStandings={driversStandings} />
+              </Col>
+              <Col style={cardsSpacing}>
+                <ConstructorsStandingsCard
+                  constructorsStandings={constructorsStandings}
+                />
+              </Col>
+            </Row>
+          )}
+        </>
       )}
     </Container>
   );
