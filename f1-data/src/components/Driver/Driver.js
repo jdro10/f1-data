@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
@@ -8,15 +7,7 @@ import { CircleFlag } from "react-circle-flags";
 import { BsPersonFill } from "react-icons/bs";
 import "../SharedStyles/Table.css";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
-
-const boldFont = {
-  fontWeight: "600",
-  fontSize: "25px",
-};
-
-const fontSize = {
-  fontSize: "25px",
-};
+import ProfileStats from "../ProfileStats/ProfileStats";
 
 const Driver = ({ driverId }) => {
   const [lastGP, setLastGP] = useState(null);
@@ -84,13 +75,15 @@ const Driver = ({ driverId }) => {
           setDriverRaces(result.MRData.RaceTable.Races);
           setFirstGP(result.MRData.RaceTable.Races[0]);
           setLastGP(
-            result.MRData.RaceTable.Races[parseInt(result.MRData.total - 1)]
+            result.MRData.RaceTable.Races[
+              parseInt(result.MRData.RaceTable.Races.length - 1)
+            ]
           );
           setLoadingDriverRaces(false);
         });
     };
 
-    const driversPodiumPlaces = () => {
+    const driverStats = () => {
       if (!loadingDriverRaces) {
         const wins = driverRaces.filter(
           (race) => race.Results[0].position === "1"
@@ -138,7 +131,7 @@ const Driver = ({ driverId }) => {
       fetchDriverResults();
     }
 
-    driversPodiumPlaces();
+    driverStats();
   }, [driverId, loading, driverRaces, loadingDriverRaces]);
 
   return (
@@ -198,68 +191,11 @@ const Driver = ({ driverId }) => {
               <Spinner animation="border" />
             </Row>
           ) : (
-            <Row className="justify-content-center">
-              <Table responsive className="table-width">
-                <tbody>
-                  <tr>
-                    <td style={boldFont}>Wins</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.wins}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Podiums</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.podiums}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Fastest laps</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalFastestLaps}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Pole positions</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.poles}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total points</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalPoints}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total GPs entered</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalGrandPrix}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>First GP</td>
-                    <td className="text-end" style={fontSize}>
-                      {firstGP.raceName} {firstGP.season}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Last GP</td>
-                    <td className="text-end" style={fontSize}>
-                      {lastGP !== undefined
-                        ? lastGP.raceName + " " + lastGP.season
-                        : "N/A"}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={boldFont}>Total laps raced</td>
-                    <td className="text-end" style={fontSize}>
-                      {driverStats.totalLapsRaced}
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Row>
+            <ProfileStats
+              stats={driverStats}
+              firstGP={firstGP}
+              lastGP={lastGP}
+            />
           )}
         </>
       )}
