@@ -4,7 +4,7 @@ import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../Styles/Table.css";
+import "../../SharedStyles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 
 const ConstructorsStandings = ({ style, constructorsStandings }) => {

@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import { FaStopwatch } from "react-icons/fa";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../Styles/Table.css";
+import "../../SharedStyles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 
 const boldFont = {

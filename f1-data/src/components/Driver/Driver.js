@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import { CircleFlag } from "react-circle-flags";
 import { BsPersonFill } from "react-icons/bs";
+import "../SharedStyles/Table.css";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const boldFont = {
@@ -198,7 +199,7 @@ const Driver = ({ driverId }) => {
             </Row>
           ) : (
             <Row className="justify-content-center">
-              <Table responsive style={{ width: "75%", margin: "auto" }}>
+              <Table responsive className="table-width">
                 <tbody>
                   <tr>
                     <td style={boldFont}>Wins</td>
