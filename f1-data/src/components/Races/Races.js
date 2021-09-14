@@ -20,14 +20,27 @@ const Races = () => {
   const [loadingSeasonSchedule, setLoadingSchedule] = useState(true);
 
   useEffect(() => {
+    const seasonYear = sessionStorage.getItem("seasonSchedule");
+
     const fetchSeasonSchedule = async () => {
       await fetch(`https://ergast.com/api/f1/${season}.json`)
         .then((res) => res.json())
         .then((result) => {
           setSeasonSchedule(result.MRData.RaceTable.Races);
+          sessionStorage.setItem(
+            "seasonSchedule",
+            JSON.stringify(result.MRData.RaceTable.Races)
+          );
           setLoadingSchedule(false);
         });
     };
+
+    if (seasonYear) {
+      setSeasonSchedule(JSON.parse(sessionStorage.getItem("seasonSchedule")));
+      setLoadingSchedule(false);
+    } else {
+      fetchSeasonSchedule();
+    }
 
     setSeasonsYearsList(
       Array("2021" - FIRST_SEASON + 1)
@@ -35,8 +48,6 @@ const Races = () => {
         .map((_, i) => FIRST_SEASON + i)
         .reverse()
     );
-
-    fetchSeasonSchedule();
   }, [season]);
 
   const seasonYearChange = (text) => {
