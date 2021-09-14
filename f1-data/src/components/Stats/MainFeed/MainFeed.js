@@ -25,19 +25,11 @@ const MainFeed = () => {
   const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
 
   useEffect(() => {
-    const lastRaceResultStored = localStorage.getItem("lastRaceResult");
-    const nextRaceDataStored = localStorage.getItem("nextRaceData");
-    const driversStandingsStored = localStorage.getItem("driverStandings2021");
-    const constructorsStandingsStored = localStorage.getItem(
-      "constructorStandings2021"
-    );
-
     const fetchLastRaceResult = async () => {
       await fetch(`https://ergast.com/api/f1/current/last/results.json`)
         .then((res) => res.json())
         .then((result) => {
           setLastRace(result);
-          localStorage.setItem("lastRaceResult", JSON.stringify(result));
           setLoadingLastRace(false);
         });
     };
@@ -47,10 +39,6 @@ const MainFeed = () => {
         .then((res) => res.json())
         .then((result) => {
           setNextRace(result.MRData.RaceTable.Races[0]);
-          localStorage.setItem(
-            "nextRaceData",
-            JSON.stringify(result.MRData.RaceTable.Races[0])
-          );
           setLoadingNextRace(false);
         });
     };
@@ -61,13 +49,6 @@ const MainFeed = () => {
         .then((result) => {
           setConstructorsStandings(
             result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-          );
-          localStorage.setItem(
-            "constructorStandings2021",
-            JSON.stringify(
-              result.MRData.StandingsTable.StandingsLists[0]
-                .ConstructorStandings
-            )
           );
           setLoadingTeamsStandings(false);
         });
@@ -80,43 +61,14 @@ const MainFeed = () => {
           setDriversStandings(
             result.MRData.StandingsTable.StandingsLists[0].DriverStandings
           );
-          localStorage.setItem(
-            "driverStandings2021",
-            JSON.stringify(
-              result.MRData.StandingsTable.StandingsLists[0].DriverStandings
-            )
-          );
           setLoadingDriversStandings(false);
         });
     };
 
-    if (lastRaceResultStored) {
-      setLastRace(JSON.parse(localStorage.getItem("lastRaceResult")));
-      setLoadingLastRace(false);
-    } else {
-      fetchLastRaceResult();
-    }
-
-    if (nextRaceDataStored) {
-      setNextRace(JSON.parse(localStorage.getItem("nextRaceData")));
-      setLoadingNextRace(false);
-    } else {
-      fetchNextRaceData();
-    }
-
-    if (driversStandingsStored && constructorsStandingsStored) {
-      setDriversStandings(
-        JSON.parse(localStorage.getItem("driverStandings2021"))
-      );
-      setConstructorsStandings(
-        JSON.parse(localStorage.getItem("constructorStandings2021"))
-      );
-      setLoadingTeamsStandings(false);
-      setLoadingDriversStandings(false);
-    } else {
-      fetchDriversStandings();
-      fetchConstructorsStandings();
-    }
+    fetchLastRaceResult();
+    fetchNextRaceData();
+    fetchDriversStandings();
+    fetchConstructorsStandings();
   }, []);
 
   return (

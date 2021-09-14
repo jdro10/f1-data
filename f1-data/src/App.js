@@ -16,16 +16,24 @@ function App() {
       const todayDate = new Date();
       todayDate.setHours(0, 0, 0, 0);
 
-      const nextTuesday = nextDay(2);
+      const nextFriday = nextDay(5);
       const nextUpdateDate = localStorage.getItem("nextUpdate");
 
       if (!nextUpdateDate) {
-        localStorage.setItem("nextUpdate", nextTuesday);
+        localStorage.setItem("nextUpdate", nextFriday);
       }
 
-      if (nextUpdateDate && todayDate.getTime() > nextTuesday.getTime()) {
+      if (
+        nextUpdateDate &&
+        todayDate.getTime() > new Date(nextUpdateDate).getTime()
+      ) {
         localStorage.clear();
-        localStorage.setItem("nextUpdate", nextTuesday);
+        localStorage.setItem("nextUpdate", nextFriday);
+        caches.keys().then(function (cacheNames) {
+          cacheNames.forEach(function (cacheName) {
+            caches.delete(cacheName);
+          });
+        });
       }
     }
 

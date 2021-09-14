@@ -22,11 +22,6 @@ const Standings = () => {
     useState(true);
 
   useEffect(() => {
-    const driverStandings = localStorage.getItem("driverStandings" + season);
-    const constructorStandings = localStorage.getItem(
-      "constructorStandings" + season
-    );
-
     const fetchConstructorsStandings = async () => {
       setLoadingConstructorsStandings(true);
       await fetch(
@@ -38,13 +33,6 @@ const Standings = () => {
             setConstructorsStandings(
               result.MRData.StandingsTable.StandingsLists[0]
                 .ConstructorStandings
-            );
-            localStorage.setItem(
-              "constructorStandings" + season,
-              JSON.stringify(
-                result.MRData.StandingsTable.StandingsLists[0]
-                  .ConstructorStandings
-              )
             );
           } else {
             setConstructorsStandings(null);
@@ -62,12 +50,6 @@ const Standings = () => {
           setDriversStandings(
             result.MRData.StandingsTable.StandingsLists[0].DriverStandings
           );
-          localStorage.setItem(
-            "driverStandings" + season,
-            JSON.stringify(
-              result.MRData.StandingsTable.StandingsLists[0].DriverStandings
-            )
-          );
           setLoadingDriversStandings(false);
         });
     };
@@ -81,20 +63,8 @@ const Standings = () => {
       );
     };
 
-    if (driverStandings && constructorStandings) {
-      setDriversStandings(
-        JSON.parse(localStorage.getItem("driverStandings" + season))
-      );
-      setConstructorsStandings(
-        JSON.parse(localStorage.getItem("constructorStandings" + season))
-      );
-      setLoadingDriversStandings(false);
-      setLoadingConstructorsStandings(false);
-    } else {
-      fetchConstructorsStandings();
-      fetchDriversStandings();
-    }
-
+    fetchConstructorsStandings();
+    fetchDriversStandings();
     fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
   }, [season]);
 
