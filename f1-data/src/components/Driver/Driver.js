@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { CircleFlag } from "react-circle-flags";
 import { BsPersonFill } from "react-icons/bs";
 import "../SharedStyles/Table.css";
+import TeamColor from "../TeamColor/TeamColor";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const boldFont = {
@@ -201,6 +202,24 @@ const Driver = ({ driverId }) => {
             <Row className="justify-content-center">
               <Table responsive className="table-width">
                 <tbody>
+                  <tr>
+                    <td style={boldFont}>Current/Last team</td>
+                    <td className="text-end" style={fontSize}>
+                      <Row className="justify-content-end text-end">
+                        <Col xs={1}>
+                          <TeamColor
+                            constructorId={
+                              lastGP.Results[0].Constructor.constructorId
+                            }
+                            height="42px"
+                          />
+                        </Col>
+                        <Col xs="auto">
+                          {lastGP.Results[0].Constructor.name}
+                        </Col>
+                      </Row>
+                    </td>
+                  </tr>
                   <tr>
                     <td style={boldFont}>Wins</td>
                     <td className="text-end" style={fontSize}>
