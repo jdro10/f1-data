@@ -17,12 +17,18 @@ const Standings = () => {
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
   const [constructorsStandings, setConstructorsStandings] = useState(null);
-  const [loadingTeamsStandings, setLoadingTeamsStandings] = useState(true);
   const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
+  const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
+    useState(true);
 
   useEffect(() => {
+    const driverStandings = localStorage.getItem("driverStandings" + season);
+    const constructorStandings = localStorage.getItem(
+      "constructorStandings" + season
+    );
+
     const fetchConstructorsStandings = async () => {
-      setLoadingTeamsStandings(true);
+      setLoadingConstructorsStandings(true);
       await fetch(
         `https://ergast.com/api/f1/${season}/constructorStandings.json`
       )
@@ -33,12 +39,19 @@ const Standings = () => {
               result.MRData.StandingsTable.StandingsLists[0]
                 .ConstructorStandings
             );
+            localStorage.setItem(
+              "constructorStandings" + season,
+              JSON.stringify(
+                result.MRData.StandingsTable.StandingsLists[0]
+                  .ConstructorStandings
+              )
+            );
           } else {
             setConstructorsStandings(null);
           }
         });
 
-      setLoadingTeamsStandings(false);
+      setLoadingConstructorsStandings(false);
     };
 
     const fetchDriversStandings = async () => {
@@ -48,6 +61,12 @@ const Standings = () => {
         .then((result) => {
           setDriversStandings(
             result.MRData.StandingsTable.StandingsLists[0].DriverStandings
+          );
+          localStorage.setItem(
+            "driverStandings" + season,
+            JSON.stringify(
+              result.MRData.StandingsTable.StandingsLists[0].DriverStandings
+            )
           );
           setLoadingDriversStandings(false);
         });
@@ -62,8 +81,20 @@ const Standings = () => {
       );
     };
 
-    fetchConstructorsStandings();
-    fetchDriversStandings();
+    if (driverStandings && constructorStandings) {
+      setDriversStandings(
+        JSON.parse(localStorage.getItem("driverStandings" + season))
+      );
+      setConstructorsStandings(
+        JSON.parse(localStorage.getItem("constructorStandings" + season))
+      );
+      setLoadingDriversStandings(false);
+      setLoadingConstructorsStandings(false);
+    } else {
+      fetchConstructorsStandings();
+      fetchDriversStandings();
+    }
+
     fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
   }, [season]);
 
@@ -74,7 +105,7 @@ const Standings = () => {
 
   return (
     <Container>
-      {loadingTeamsStandings || loadingDriversStandings ? (
+      {loadingConstructorsStandings || loadingDriversStandings ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
             <h1 style={{ marginBottom: "3%" }}>FORMULA ONE</h1>

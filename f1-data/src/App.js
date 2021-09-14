@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
@@ -10,6 +11,34 @@ const StandingsPage = lazy(() => import("./pages/StandingsPage"));
 const DriverPage = lazy(() => import("./pages/DriverPage"));
 
 function App() {
+  useEffect(() => {
+    function refreshLocalStorage() {
+      const todayDate = new Date();
+      todayDate.setHours(0, 0, 0, 0);
+
+      const nextTuesday = nextDay(2);
+      const nextUpdateDate = localStorage.getItem("nextUpdate");
+
+      if (!nextUpdateDate) {
+        localStorage.setItem("nextUpdate", nextTuesday);
+      }
+
+      if (nextUpdateDate && todayDate.getTime() > nextTuesday.getTime()) {
+        localStorage.clear();
+        localStorage.setItem("nextUpdate", nextTuesday);
+      }
+    }
+
+    function nextDay(x) {
+      var now = new Date();
+      now.setDate(now.getDate() + ((x + (7 - now.getDay())) % 7));
+      now.setHours(0, 0, 0, 0);
+      return now;
+    }
+
+    refreshLocalStorage();
+  }, []);
+
   return (
     <Suspense fallback={null}>
       <Router basename="/">
@@ -20,11 +49,7 @@ function App() {
             exact={true}
             component={RaceResult}
           />
-          <Route
-            path="/driver/:driverId"
-            exact={true}
-            component={DriverPage}
-          />
+          <Route path="/driver/:driverId" exact={true} component={DriverPage} />
           <Route path="/schedule" exact={true} component={SeasonRaces} />
           <Route path="/error" exact={true} component={ErrorPage} />
           <Route path="/standings" exact={true} component={StandingsPage} />
