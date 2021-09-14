@@ -85,9 +85,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
             <tr>
               <td style={boldFont}>Last GP</td>
               <td className="text-end" style={fontSize}>
-                {lastGP !== undefined
-                  ? lastGP.raceName + " " + lastGP.season
-                  : "N/A"}
+                {lastGP.raceName + " " + lastGP.season}
               </td>
             </tr>
             <tr>

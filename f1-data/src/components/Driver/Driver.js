@@ -75,13 +75,15 @@ const Driver = ({ driverId }) => {
           setDriverRaces(result.MRData.RaceTable.Races);
           setFirstGP(result.MRData.RaceTable.Races[0]);
           setLastGP(
-            result.MRData.RaceTable.Races[parseInt(result.MRData.total - 1)]
+            result.MRData.RaceTable.Races[
+              parseInt(result.MRData.RaceTable.Races.length - 1)
+            ]
           );
           setLoadingDriverRaces(false);
         });
     };
 
-    const driversPodiumPlaces = () => {
+    const driverStats = () => {
       if (!loadingDriverRaces) {
         const wins = driverRaces.filter(
           (race) => race.Results[0].position === "1"
@@ -129,7 +131,7 @@ const Driver = ({ driverId }) => {
       fetchDriverResults();
     }
 
-    driversPodiumPlaces();
+    driverStats();
   }, [driverId, loading, driverRaces, loadingDriverRaces]);
 
   return (
