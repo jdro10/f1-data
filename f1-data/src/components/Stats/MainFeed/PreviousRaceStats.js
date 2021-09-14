@@ -35,6 +35,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
   };
 
   useEffect(() => {
+    const lastEventPolePosition = localStorage.getItem("lastEventPolePosition");
+
     const getFastestLap = () => {
       lastRace.MRData.RaceTable.Races[0].Results.forEach((lap) => {
         if (lap.FastestLap && lap.FastestLap.rank === "1") {
@@ -53,11 +55,25 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
           setPolePosition(
             result.MRData.RaceTable.Races[0].QualifyingResults[0]
           );
+          localStorage.setItem(
+            "lastEventPolePosition",
+            JSON.stringify(
+              result.MRData.RaceTable.Races[0].QualifyingResults[0]
+            )
+          );
           setLoadingPolePosition(false);
         });
     };
 
-    fetchPolePosition();
+    if (lastEventPolePosition) {
+      setPolePosition(
+        JSON.parse(localStorage.getItem("lastEventPolePosition"))
+      );
+      setLoadingPolePosition(false);
+    } else {
+      fetchPolePosition();
+    }
+
     getFastestLap();
   }, [
     lastRace.MRData.RaceTable.season,

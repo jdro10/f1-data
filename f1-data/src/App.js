@@ -19,9 +19,6 @@ function App() {
       const nextTuesday = nextDay(2);
       const nextUpdateDate = localStorage.getItem("nextUpdate");
 
-      console.log(nextTuesday)
-      console.log(todayDate)
-
       if (!nextUpdateDate) {
         localStorage.setItem("nextUpdate", nextTuesday);
       }
