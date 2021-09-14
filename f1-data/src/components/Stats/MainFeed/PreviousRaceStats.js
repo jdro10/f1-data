@@ -7,6 +7,7 @@ import TeamColor from "../../TeamColor/TeamColor";
 import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -26,6 +27,12 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
   const [loadingPolePosition, setLoadingPolePosition] = useState(true);
+
+  const history = useHistory();
+
+  const rowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
 
   useEffect(() => {
     const getFastestLap = () => {
@@ -64,11 +71,16 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
       cardBody={
         <div>
           <h4 style={driverName}>PODIUM</h4>
-          <Table responsive>
+          <Table responsive className="table-hover">
             <tbody className="justify-content-center">
               {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
                 (driver, index) => (
-                  <tr key={index} className="align-middle">
+                  <tr
+                    key={index}
+                    className="align-middle"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => rowClick(driver.Driver.driverId)}
+                  >
                     <td>{driver.position}</td>
                     <td>
                       <Row>
@@ -115,10 +127,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
             </tbody>
           </Table>
           <h4 style={boldFont}>FASTEST LAP / POLE POSITION</h4>
-          <Table responsive>
+          <Table responsive className="table-hover">
             <tbody>
               {fastestLap === null ? null : (
-                <tr className="align-middle">
+                <tr
+                  className="align-middle"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => rowClick(fastestLap.Driver.driverId)}
+                >
                   <td>FL</td>
                   <td>
                     <Row>
@@ -162,7 +178,11 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                 </tr>
               )}
               {loadingPolePosition ? null : (
-                <tr className="align-middle">
+                <tr
+                  className="align-middle"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => rowClick(polePosition.Driver.driverId)}
+                >
                   <td>PP</td>
                   <td>
                     <Row>
