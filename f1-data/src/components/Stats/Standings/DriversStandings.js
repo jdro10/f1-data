@@ -46,7 +46,7 @@ const DriversStandings = ({ style, driversStandings }) => {
               <td className="hideXS">{driver.Driver.permanentNumber}</td>
               <td>
                 <Row className="g-0">
-                  <Col xs={2} className="align-self-center">
+                  <Col xs={2} lg={1} className="align-self-center">
                     <CircleFlag
                       countryCode={CountriesCodeNationality[
                         driver.Driver.nationality
@@ -54,7 +54,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
-                  <Col xs={1}>
+                  <Col xs={2} lg={1}>
                     <TeamColor
                       constructorId={driver.Constructors[0].constructorId}
                       height="42px"
