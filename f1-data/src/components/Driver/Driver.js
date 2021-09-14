@@ -9,6 +9,11 @@ import { BsPersonFill } from "react-icons/bs";
 import "../SharedStyles/Table.css";
 import TeamColor from "../TeamColor/TeamColor";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
+import { FaClock } from "react-icons/fa";
+import { GiPodium } from "react-icons/gi";
+import { GiPodiumWinner } from "react-icons/gi";
+import { SiFastly } from "react-icons/si";
+import { GiRaceCar } from "react-icons/gi";
 
 const boldFont = {
   fontWeight: "600",
@@ -223,37 +228,37 @@ const Driver = ({ driverId }) => {
                   <tr>
                     <td style={boldFont}>Wins</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.wins}
+                      {driverStats.wins} <GiPodiumWinner />
                     </td>
                   </tr>
                   <tr>
                     <td style={boldFont}>Podiums</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.podiums}
+                      {driverStats.podiums} <GiPodium />
                     </td>
                   </tr>
                   <tr>
                     <td style={boldFont}>Fastest laps</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.totalFastestLaps}
+                      {driverStats.totalFastestLaps} <FaClock />
                     </td>
                   </tr>
                   <tr>
                     <td style={boldFont}>Pole positions</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.poles}
+                      {driverStats.poles} <SiFastly />
                     </td>
                   </tr>
                   <tr>
                     <td style={boldFont}>Total points</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.totalPoints}
+                      {driverStats.totalPoints} <GiRaceCar size={30} />
                     </td>
                   </tr>
                   <tr>
                     <td style={boldFont}>Total GPs entered</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.totalGrandPrix}
+                      {driverStats.totalGrandPrix} <GiRaceCar size={30} />
                     </td>
                   </tr>
                   <tr>
@@ -273,7 +278,7 @@ const Driver = ({ driverId }) => {
                   <tr>
                     <td style={boldFont}>Total laps raced</td>
                     <td className="text-end" style={fontSize}>
-                      {driverStats.totalLapsRaced}
+                      {driverStats.totalLapsRaced} <GiRaceCar size={30} />
                     </td>
                   </tr>
                 </tbody>
