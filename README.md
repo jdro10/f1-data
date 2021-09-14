@@ -1,11 +1,12 @@
 # f1-data
 
-Progressive Web App all about Formula One data. (https://jdro10.github.io/f1-data)
+Progressive Web App (offline first) all about Formula One data. (https://jdro10.github.io/f1-data)
 
 ### API
 
 * [Ergast API](http://ergast.com/mrd/) - Formula One data.
 * [REST Countries API](https://restcountries.eu/) - Countries' data.
+* [Wikipedia API](https://en.wikipedia.org/w/api.php) - Some drivers' and circuits' information.
 
 ### Technology 
 
