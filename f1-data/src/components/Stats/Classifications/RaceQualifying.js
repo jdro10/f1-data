@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import "../Styles/Table.css";
+import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TeamColor from "../../TeamColor/TeamColor";

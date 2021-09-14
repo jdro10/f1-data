@@ -4,7 +4,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import { CircleFlag } from "react-circle-flags";
 import Table from "react-bootstrap/Table";
 import TeamColor from "../../TeamColor/TeamColor";
-import "../Styles/Table.css";
+import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
