@@ -22,8 +22,8 @@ const Standings = () => {
     useState(true);
 
   useEffect(() => {
-    const driverStandings = sessionStorage.getItem("driverStandings" + season);
-    const constructorStandings = sessionStorage.getItem(
+    const driverStandings = localStorage.getItem("driverStandings" + season);
+    const constructorStandings = localStorage.getItem(
       "constructorStandings" + season
     );
 
@@ -39,7 +39,7 @@ const Standings = () => {
               result.MRData.StandingsTable.StandingsLists[0]
                 .ConstructorStandings
             );
-            sessionStorage.setItem(
+            localStorage.setItem(
               "constructorStandings" + season,
               JSON.stringify(
                 result.MRData.StandingsTable.StandingsLists[0]
@@ -62,7 +62,7 @@ const Standings = () => {
           setDriversStandings(
             result.MRData.StandingsTable.StandingsLists[0].DriverStandings
           );
-          sessionStorage.setItem(
+          localStorage.setItem(
             "driverStandings" + season,
             JSON.stringify(
               result.MRData.StandingsTable.StandingsLists[0].DriverStandings
@@ -83,10 +83,10 @@ const Standings = () => {
 
     if (driverStandings && constructorStandings) {
       setDriversStandings(
-        JSON.parse(sessionStorage.getItem("driverStandings" + season))
+        JSON.parse(localStorage.getItem("driverStandings" + season))
       );
       setConstructorsStandings(
-        JSON.parse(sessionStorage.getItem("constructorStandings" + season))
+        JSON.parse(localStorage.getItem("constructorStandings" + season))
       );
       setLoadingDriversStandings(false);
       setLoadingConstructorsStandings(false);
