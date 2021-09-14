@@ -7,6 +7,8 @@ const TeamColor = ({ constructorId, height = "27px" }) => {
       style={{
         width: "3px",
         height: height,
+        display: "table",
+        margin: "0 auto",
         backgroundColor: TeamColors.hasOwnProperty(constructorId)
           ? TeamColors[constructorId]
           : "#000000",

@@ -4,6 +4,7 @@ import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TeamColor from "../../TeamColor/TeamColor";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -13,8 +14,14 @@ const boldFont = {
 };
 
 const RaceQualifying = ({ raceQualifying }) => {
+  const history = useHistory();
+
+  const rowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
+
   return (
-    <Table responsive="sm">
+    <Table responsive="sm" className="table-hover">
       <thead>
         <tr>
           <th>POS</th>
@@ -28,7 +35,11 @@ const RaceQualifying = ({ raceQualifying }) => {
       </thead>
       <tbody>
         {raceQualifying.map((driver, index) => (
-          <tr key={index}>
+          <tr
+            key={index}
+            style={{ cursor: "pointer" }}
+            onClick={() => rowClick(driver.Driver.driverId)}
+          >
             <td>{driver.position}</td>
             <td className="hideXS">{driver.number}</td>
             <td className="hideXS">

@@ -34,13 +34,13 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                         height={20}
                       />
                     </Col>
-                    <Col xs={1}>
+                    <Col xs={2} lg={1}>
                       <TeamColor
                         constructorId={constructor.Constructor.constructorId}
                       />
                     </Col>
                     <Col xs={8} className="text-start">
-                      {constructor.Constructor.name.toUpperCase()}
+                      <Row>{constructor.Constructor.name.toUpperCase()}</Row>
                     </Col>
                   </Row>
                 </td>

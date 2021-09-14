@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../../SharedStyles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -13,9 +14,19 @@ const boldFont = {
   display: "inline",
 };
 const RaceClassification = ({ raceClassification }) => {
+  const history = useHistory();
+
+  const rowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
+
   return (
     <div>
-      <Table responsive="sm">
+      <Table
+        className="table-hover"
+        responsive="sm"
+        style={{ overflow: "hidden" }}
+      >
         <thead>
           <tr>
             <th>POS</th>
@@ -25,22 +36,27 @@ const RaceClassification = ({ raceClassification }) => {
             <th className="hideXS">LAPS</th>
             <th>TIME/RETIRED</th>
             <th>PTS</th>
+            <th className="hideXS">+/-</th>
           </tr>
         </thead>
         <tbody>
           {raceClassification.map((driver, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              style={{ cursor: "pointer" }}
+              onClick={() => rowClick(driver.Driver.driverId)}
+            >
               <td>{driver.position}</td>
               <td className="hideXS">{driver.number}</td>
               <td>
                 <Row className="g-2">
-                  <Col xs={2} md={2} className="showXS">
+                  <Col xs={1} className="showXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                       height="45px"
                     />
                   </Col>
-                  <Col xs={2} className="hideXS">
+                  <Col xs={1} className="hideXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                     />
@@ -65,7 +81,7 @@ const RaceClassification = ({ raceClassification }) => {
               {driver.FastestLap && driver.FastestLap.rank === "1" ? (
                 <td>
                   <Row>
-                    <Col>{driver.points}</Col>
+                    <Col xs={2}>{driver.points}</Col>
                     <Col>
                       <FaStopwatch />
                     </Col>
@@ -74,6 +90,7 @@ const RaceClassification = ({ raceClassification }) => {
               ) : (
                 <td>{driver.points}</td>
               )}
+              <td className="hideXS">{driver.grid - driver.position}</td>
             </tr>
           ))}
         </tbody>
