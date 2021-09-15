@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Alert from "react-bootstrap/Alert";
-import { getLocalRaceDate } from "../../helpers/Helpers";
+import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceInfo = ({ race }) => {
@@ -53,7 +53,7 @@ const RaceInfo = ({ race }) => {
         <h5>{race.Circuit.circuitName}</h5>
       </Col>
       <Col xs={12} md={12} lg={3} className="center-xs center">
-        <h5>{race.date}</h5>
+        <h5>{convertDate(race.date)}</h5>
         <h5>
           {race.hasOwnProperty("time")
             ? getLocalRaceDate(race.date, race.time)

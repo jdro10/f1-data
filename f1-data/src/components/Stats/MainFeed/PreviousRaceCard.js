@@ -3,7 +3,7 @@ import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
-import { getLocalRaceDate } from "../../../helpers/Helpers";
+import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
 
 const boldFont = {
   fontWeight: 600,
@@ -38,7 +38,7 @@ const PreviousRaceCard = ({ lastRace }) => {
             {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
           </h1>
           <h5>{lastRace.MRData.RaceTable.Races[0].Circuit.circuitName}</h5>
-          <h6>{lastRace.MRData.RaceTable.Races[0].date}</h6>
+          <h6>{convertDate(lastRace.MRData.RaceTable.Races[0].date)}</h6>
           <h6>
             {getLocalRaceDate(
               lastRace.MRData.RaceTable.Races[0].date,

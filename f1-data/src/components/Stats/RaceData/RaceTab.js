@@ -1,6 +1,7 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
+import { convertDate } from "../../../helpers/Helpers";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
   const getLocalRaceDate = (date, time) => {
@@ -21,7 +22,7 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>{raceInfo.date}</h3>
+          <h3>{convertDate(raceInfo.date)}</h3>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
