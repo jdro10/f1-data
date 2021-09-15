@@ -28,7 +28,7 @@ function App() {
 
       if (
         nextUpdateDate &&
-        todayDate.getTime() > new Date(nextUpdateDate).getTime()
+        todayDate.getTime() >= new Date(nextUpdateDate).getTime()
       ) {
         localStorage.clear();
         localStorage.setItem("nextUpdate", tomorrowDate);
