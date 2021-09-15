@@ -6,3 +6,9 @@ export function getLocalRaceDate(date, time) {
 
   return hours + ":" + minutes + ":00";
 }
+
+export function convertDate(dateToConvert) {
+  const date = dateToConvert.split("-");
+
+  return `${date[2]}/${date[1]}/${date[0]}`;
+}
