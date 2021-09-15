@@ -12,15 +12,18 @@ const DriverPage = lazy(() => import("./pages/DriverPage"));
 
 function App() {
   useEffect(() => {
-    function refreshLocalStorage() {
+    function refreshCache() {
       const todayDate = new Date();
       todayDate.setHours(0, 0, 0, 0);
 
-      const nextFriday = nextDay(5);
+      const tomorrowDate = new Date(todayDate);
+      tomorrowDate.setDate(todayDate.getDate() + 1);
+      tomorrowDate.setHours(0, 0, 0, 0);
+
       const nextUpdateDate = localStorage.getItem("nextUpdate");
 
       if (!nextUpdateDate) {
-        localStorage.setItem("nextUpdate", nextFriday);
+        localStorage.setItem("nextUpdate", tomorrowDate);
       }
 
       if (
@@ -28,7 +31,7 @@ function App() {
         todayDate.getTime() > new Date(nextUpdateDate).getTime()
       ) {
         localStorage.clear();
-        localStorage.setItem("nextUpdate", nextFriday);
+        localStorage.setItem("nextUpdate", tomorrowDate);
         caches.keys().then(function (cacheNames) {
           cacheNames.forEach(function (cacheName) {
             caches.delete(cacheName);
@@ -37,14 +40,7 @@ function App() {
       }
     }
 
-    function nextDay(x) {
-      var now = new Date();
-      now.setDate(now.getDate() + ((x + (7 - now.getDay())) % 7));
-      now.setHours(0, 0, 0, 0);
-      return now;
-    }
-
-    refreshLocalStorage();
+    refreshCache();
   }, []);
 
   return (
