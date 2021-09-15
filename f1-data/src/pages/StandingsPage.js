@@ -5,11 +5,11 @@ import Standings from "../components/Stats/Standings/Standings";
 
 const StandingsPage = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <Standings />
       <Footer />
-    </div>
+    </>
   );
 };
 

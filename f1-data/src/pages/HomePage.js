@@ -6,11 +6,11 @@ import MainFeed from "../components/Stats/MainFeed/MainFeed";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <MainFeed />
       <Footer />
-    </div>
+    </>
   );
 };
 

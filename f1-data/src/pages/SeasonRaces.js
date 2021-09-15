@@ -5,11 +5,11 @@ import Races from "../components/Races/Races";
 
 const SeasonSchedule = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <Races />
       <Footer />
-    </div>
+    </>
   );
 };
 

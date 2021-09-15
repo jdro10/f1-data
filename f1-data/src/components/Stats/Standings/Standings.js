@@ -74,7 +74,7 @@ const Standings = () => {
   };
 
   return (
-    <Container>
+    <>
       {loadingConstructorsStandings || loadingDriversStandings ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
@@ -83,7 +83,7 @@ const Standings = () => {
           </Row>
         </Container>
       ) : (
-        <Container style={{ minHeight: "700px" }}>
+        <Container>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>{season} FORMULA ONE</h1>
@@ -135,7 +135,7 @@ const Standings = () => {
           </Row>
         </Container>
       )}
-    </Container>
+    </>
   );
 };
 
