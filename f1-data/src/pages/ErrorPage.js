@@ -5,11 +5,11 @@ import Footer from "../components/Footer/Footer";
 
 const ErrorPage = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <Error />
       <Footer />
-    </div>
+    </>
   );
 };
 

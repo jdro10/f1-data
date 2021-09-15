@@ -9,11 +9,11 @@ const RaceResult = () => {
   const { round } = useParams();
 
   return (
-    <div>
+    <>
       <NavBar />
       <Race season={season} round={round} />
       <Footer />
-    </div>
+    </>
   );
 };
 

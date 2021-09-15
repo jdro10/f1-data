@@ -45,7 +45,7 @@ const Races = () => {
   };
 
   return (
-    <Container>
+    <>
       {loadingSeasonSchedule ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
@@ -54,7 +54,7 @@ const Races = () => {
           </Row>
         </Container>
       ) : (
-        <Container style={{ minHeight: "500px" }}>
+        <Container>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>FORMULA ONE - {season} SEASON</h1>
@@ -91,7 +91,7 @@ const Races = () => {
           </ListGroup>
         </Container>
       )}
-    </Container>
+    </>
   );
 };
 

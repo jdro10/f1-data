@@ -8,11 +8,11 @@ const DriverPage = () => {
   const { driverId } = useParams();
 
   return (
-    <div>
+    <>
       <NavBar />
       <Driver driverId={driverId} />
       <Footer />
-    </div>
+    </>
   );
 };
 
