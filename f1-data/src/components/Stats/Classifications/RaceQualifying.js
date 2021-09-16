@@ -23,7 +23,11 @@ const RaceQualifying = ({ raceQualifying }) => {
   };
 
   return (
-    <Table responsive="sm" className="table-hover" variant={theme}>
+    <Table
+      responsive="sm"
+      className="table-hover standings-table"
+      variant={theme}
+    >
       <thead>
         <tr>
           <th>POS</th>

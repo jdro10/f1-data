@@ -14,7 +14,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
   return (
     <div style={style}>
       {constructorsStandings !== null ? (
-        <Table responsive="sm" variant={theme}>
+        <Table className="standings-table" responsive="sm" variant={theme}>
           <thead>
             <tr>
               <th>POS</th>

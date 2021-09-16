@@ -16,9 +16,7 @@
   }
 }
 
-@media only screen and (min-width: 501px) {
-  .table-width {
-    width: 75%;
-    margin: auto;
-  }
+.standings-table {
+  overflow: hidden;
+  border-radius: 5px;
 }

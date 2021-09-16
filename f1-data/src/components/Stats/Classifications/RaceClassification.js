@@ -25,7 +25,7 @@ const RaceClassification = ({ raceClassification }) => {
   return (
     <div>
       <Table
-        className="table-hover"
+        className="table-hover standings-table"
         responsive="sm"
         style={{ overflow: "hidden" }}
         variant={theme}

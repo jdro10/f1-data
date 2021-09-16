@@ -6,6 +6,7 @@ import RaceInfo from "./RaceInfo";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Races.css";
+import "../SharedStyles/Table.css";
 import Table from "react-bootstrap/Table";
 import { ThemeContext } from "../../helpers/ThemeContext";
 
@@ -85,7 +86,7 @@ const Races = () => {
             </Col>
           </Row>
           <Row>
-            <Table responsive variant={theme}>
+            <Table className="standings-table" responsive variant={theme}>
               <tbody>
                 {seasonSchedule.map((race, index) => (
                   <tr>
