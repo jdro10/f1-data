@@ -15,6 +15,7 @@ const boldFont = {
 };
 const RaceClassification = ({ raceClassification }) => {
   const history = useHistory();
+  const theme = localStorage.getItem("theme");
 
   const rowClick = (driverId) => {
     history.push(`/driver/${driverId}`);
@@ -26,6 +27,7 @@ const RaceClassification = ({ raceClassification }) => {
         className="table-hover"
         responsive="sm"
         style={{ overflow: "hidden" }}
+        variant={theme}
       >
         <thead>
           <tr>

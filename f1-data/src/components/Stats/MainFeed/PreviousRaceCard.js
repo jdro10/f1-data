@@ -10,6 +10,7 @@ const boldFont = {
 };
 
 const PreviousRaceCard = ({ lastRace }) => {
+  const theme = localStorage.getItem("theme");
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
 
@@ -66,11 +67,12 @@ const PreviousRaceCard = ({ lastRace }) => {
         <Link
           to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
         >
-          <Button variant="dark">Full race result</Button>
+          <Button variant={theme === "light" ? "dark" : "light"}>
+            Full race result
+          </Button>
         </Link>
       }
       cardHeight="34rem"
-      variant="light"
     />
   );
 };

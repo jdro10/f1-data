@@ -19,10 +19,12 @@ const fontSize = {
 };
 
 const ProfileStats = ({ stats, firstGP, lastGP }) => {
+  const theme = localStorage.getItem("theme");
+
   return (
     <div>
       <Row className="justify-content-center">
-        <Table responsive className="table-width">
+        <Table responsive className="table-width" variant={theme}>
           <tbody>
             <tr>
               <td style={boldFont}>Current/Last team</td>

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
 
 const ConstructorsStandingsCard = ({ constructorsStandings }) => {
+  const theme = localStorage.getItem("theme");
+  
   return (
     <GenericCard
       cardTitle="CONSTRUCTORS' STANDINGS"
@@ -20,11 +22,10 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
       }
       cardFooter={
         <Link to="/standings">
-          <Button variant="dark">Full standings</Button>
+          <Button variant={theme === "light" ? "dark" : "light"}>Full standings</Button>
         </Link>
       }
       cardHeight="34rem"
-      variant="light"
     />
   );
 };

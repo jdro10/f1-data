@@ -24,6 +24,7 @@ const driverName = {
 };
 
 const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
+  const theme = localStorage.getItem("theme");
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
   const [loadingPolePosition, setLoadingPolePosition] = useState(true);
@@ -71,7 +72,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
       cardBody={
         <div>
           <h4 style={driverName}>PODIUM</h4>
-          <Table responsive className="table-hover">
+          <Table responsive className="table-hover" variant={theme}>
             <tbody className="justify-content-center">
               {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
                 (driver, index) => (
@@ -127,7 +128,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
             </tbody>
           </Table>
           <h4 style={boldFont}>FASTEST LAP / POLE POSITION</h4>
-          <Table responsive className="table-hover">
+          <Table responsive className="table-hover" variant={theme}>
             <tbody>
               {fastestLap === null ? null : (
                 <tr
@@ -235,7 +236,6 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
         </h4>
       }
       cardHeight="34rem"
-      variant="light"
     />
   );
 };

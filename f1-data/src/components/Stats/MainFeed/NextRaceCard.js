@@ -12,6 +12,7 @@ const boldFont = {
 };
 
 const NextRaceCard = ({ nextRace }) => {
+  const theme = localStorage.getItem("theme");
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
 
@@ -57,11 +58,12 @@ const NextRaceCard = ({ nextRace }) => {
       }
       cardFooter={
         <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-          <Button variant="dark">Race information</Button>
+          <Button variant={theme === "light" ? "dark" : "light"}>
+            Race information
+          </Button>
         </Link>
       }
       cardHeight="32rem"
-      variant="light"
     />
   );
 };
