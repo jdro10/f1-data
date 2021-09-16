@@ -17,6 +17,7 @@ const boldFont = {
 
 const DriversStandings = ({ style, driversStandings }) => {
   const history = useHistory();
+  const theme = localStorage.getItem("theme");
 
   const rowClick = (driverId) => {
     history.push(`/driver/${driverId}`);
@@ -24,7 +25,11 @@ const DriversStandings = ({ style, driversStandings }) => {
 
   return (
     <div style={style}>
-      <Table className="table-hover" responsive="xs">
+      <Table
+        className="table-hover"
+        responsive="xs"
+        variant={theme}
+      >
         <thead>
           <tr>
             <th>POS</th>

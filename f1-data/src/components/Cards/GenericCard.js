@@ -2,19 +2,15 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 
-const GenericCard = ({
-  cardTitle,
-  cardBody,
-  cardFooter,
-  cardHeight,
-  variant,
-}) => {
+const GenericCard = ({ cardTitle, cardBody, cardFooter, cardHeight }) => {
+  const theme = localStorage.getItem("theme");
+
   return (
     <Card
       style={{ height: cardHeight }}
       className="text-center"
-      bg={variant}
-      text={variant === "light" ? "dark" : "white"}
+      bg={theme}
+      text={theme === "light" ? "dark" : "light"}
     >
       <Card.Header>
         <b>{cardTitle}</b>

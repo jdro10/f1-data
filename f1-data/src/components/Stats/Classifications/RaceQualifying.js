@@ -15,13 +15,18 @@ const boldFont = {
 
 const RaceQualifying = ({ raceQualifying }) => {
   const history = useHistory();
+  const theme = localStorage.getItem("theme");
 
   const rowClick = (driverId) => {
     history.push(`/driver/${driverId}`);
   };
 
   return (
-    <Table responsive="sm" className="table-hover">
+    <Table
+      responsive="sm"
+      className="table-hover"
+      variant={theme}
+    >
       <thead>
         <tr>
           <th>POS</th>

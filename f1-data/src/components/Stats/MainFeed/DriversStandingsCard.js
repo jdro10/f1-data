@@ -5,6 +5,8 @@ import DriversStandings from "../Standings/DriversStandings";
 import Button from "react-bootstrap/Button";
 
 const DriversStandingsCard = ({ driversStandings }) => {
+  const theme = localStorage.getItem("theme");
+
   return (
     <GenericCard
       cardTitle="DRIVERS' STANDINGS"
@@ -19,10 +21,11 @@ const DriversStandingsCard = ({ driversStandings }) => {
         />
       }
       cardHeight="34rem"
-      variant="light"
       cardFooter={
         <Link to="/standings">
-          <Button variant="dark">Full standings</Button>
+          <Button variant={theme === "light" ? "dark" : "light"}>
+            Full standings
+          </Button>
         </Link>
       }
     />

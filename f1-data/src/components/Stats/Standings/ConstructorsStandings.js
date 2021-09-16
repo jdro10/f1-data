@@ -8,10 +8,12 @@ import "../../SharedStyles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
+  const theme = localStorage.getItem("theme");
+
   return (
     <div style={style}>
       {constructorsStandings !== null ? (
-        <Table responsive="sm">
+        <Table responsive="sm" variant={theme}>
           <thead>
             <tr>
               <th>POS</th>

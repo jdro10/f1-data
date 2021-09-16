@@ -44,7 +44,9 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
 
           {raceClassification != null ? (
-            <RaceClassification raceClassification={raceClassification} />
+            <div style={{ marginTop: "20px" }}>
+              <RaceClassification raceClassification={raceClassification} />
+            </div>
           ) : (
             <Row className="justify-content-center text-center">
               <p></p>

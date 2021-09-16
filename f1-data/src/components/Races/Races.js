@@ -6,9 +6,10 @@ import RaceInfo from "./RaceInfo";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Races.css";
-import ListGroup from "react-bootstrap/ListGroup";
+import Table from "react-bootstrap/Table";
 
 const Races = () => {
+  const theme = localStorage.getItem("theme");
   const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
     sessionStorage.getItem("seasonScheduleInput") !== null
@@ -82,13 +83,19 @@ const Races = () => {
               </Dropdown>
             </Col>
           </Row>
-          <ListGroup>
-            {seasonSchedule.map((race, index) => (
-              <ListGroup.Item key={index}>
-                <RaceInfo race={race} />
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
+          <Row>
+            <Table responsive variant={theme}>
+              <tbody>
+                {seasonSchedule.map((race, index) => (
+                  <tr>
+                    <td>
+                      <RaceInfo race={race} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Row>
         </Container>
       )}
     </>

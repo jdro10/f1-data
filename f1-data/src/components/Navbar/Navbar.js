@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { ThemeContext } from "../../helpers/ThemeContext";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import "./Navbar.css";
@@ -7,6 +8,18 @@ import { AiFillGithub } from "react-icons/ai";
 import { GiCheckeredFlag } from "react-icons/gi";
 
 const NavBar = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const themeToggler = () => {
+    const toggle = theme === "light" ? "dark" : "light";
+    setTheme(toggle);
+    localStorage.setItem("theme", toggle);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <Navbar className="navbar" bg="dark" variant="dark">
       <Container>
@@ -23,6 +36,7 @@ const NavBar = () => {
           <Navbar.Brand>Standings</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
+          <button onClick={() => themeToggler()}>change theme</button>
           <Navbar.Brand href="https://github.com/jdro10" aria-label="Github">
             <AiFillGithub size={25} />
           </Navbar.Brand>
