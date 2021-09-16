@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
@@ -6,13 +6,14 @@ import Button from "react-bootstrap/Button";
 import ClockCoutdown from "../../Countdown/ClockCountdown";
 import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
 };
 
 const NextRaceCard = ({ nextRace }) => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
   const [countryCode, setCountryCode] = useState(null);
   const [loadingCountryCode, setLoadingCountryCode] = useState(true);
 

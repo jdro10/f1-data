@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const GenericCard = ({ cardTitle, cardBody, cardFooter, cardHeight }) => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Card

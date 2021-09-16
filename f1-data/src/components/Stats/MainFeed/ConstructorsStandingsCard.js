@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const ConstructorsStandingsCard = ({ constructorsStandings }) => {
-  const theme = localStorage.getItem("theme");
-  
+  const { theme } = useContext(ThemeContext);
+
   return (
     <GenericCard
       cardTitle="CONSTRUCTORS' STANDINGS"
@@ -22,7 +23,9 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
       }
       cardFooter={
         <Link to="/standings">
-          <Button variant={theme === "light" ? "dark" : "light"}>Full standings</Button>
+          <Button variant={theme === "light" ? "dark" : "light"}>
+            Full standings
+          </Button>
         </Link>
       }
       cardHeight="34rem"

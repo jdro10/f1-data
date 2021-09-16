@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import DriversStandings from "../Standings/DriversStandings";
 import Button from "react-bootstrap/Button";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const DriversStandingsCard = ({ driversStandings }) => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
 
   return (
     <GenericCard

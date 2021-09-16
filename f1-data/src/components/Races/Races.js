@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,9 +7,10 @@ import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Races.css";
 import Table from "react-bootstrap/Table";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const Races = () => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
   const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
     sessionStorage.getItem("seasonScheduleInput") !== null
