@@ -114,24 +114,12 @@ const Standings = () => {
             </Col>
           </Row>
           <Row className="justify-content-center text-center">
-            <Col md="auto">
-              <h2>CONSTRUCTORS' STANDINGS</h2>
-            </Col>
-            <Row>
-              <Col>
-                <ConstructorsStandings
-                  constructorsStandings={constructorsStandings}
-                />
-              </Col>
-            </Row>
-            <Col md="auto">
-              <h2>DRIVERS' STANDINGS</h2>
-            </Col>
-            <Row>
-              <Col>
-                <DriversStandings driversStandings={driversStandings} />
-              </Col>
-            </Row>
+            <h2>CONSTRUCTORS' STANDINGS</h2>
+            <ConstructorsStandings
+              constructorsStandings={constructorsStandings}
+            />
+            <h2>DRIVERS' STANDINGS</h2>
+            <DriversStandings driversStandings={driversStandings} />
           </Row>
         </Container>
       )}

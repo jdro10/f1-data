@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import TeamColor from "../TeamColor/TeamColor";
 import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
@@ -8,6 +8,8 @@ import { GiPodium } from "react-icons/gi";
 import { GiPodiumWinner } from "react-icons/gi";
 import { SiFastly } from "react-icons/si";
 import { GiRaceCar } from "react-icons/gi";
+import { ThemeContext } from "../../helpers/ThemeContext";
+import "../SharedStyles/Table.css";
 
 const boldFont = {
   fontWeight: "600",
@@ -19,12 +21,12 @@ const fontSize = {
 };
 
 const ProfileStats = ({ stats, firstGP, lastGP }) => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div>
       <Row className="justify-content-center">
-        <Table responsive className="table-width" variant={theme}>
+        <Table responsive className="standings-table" variant={theme}>
           <tbody>
             <tr>
               <td style={boldFont}>Current/Last team</td>

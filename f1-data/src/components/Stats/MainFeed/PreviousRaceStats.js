@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import { CircleFlag } from "react-circle-flags";
@@ -8,6 +8,7 @@ import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
@@ -24,7 +25,7 @@ const driverName = {
 };
 
 const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
   const [loadingPolePosition, setLoadingPolePosition] = useState(true);

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Table from "react-bootstrap/Table";
 import "../../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import TeamColor from "../../TeamColor/TeamColor";
 import { useHistory } from "react-router-dom";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
@@ -15,7 +16,7 @@ const boldFont = {
 
 const RaceQualifying = ({ raceQualifying }) => {
   const history = useHistory();
-  const theme = localStorage.getItem("theme");
+  const { theme } = useContext(ThemeContext);
 
   const rowClick = (driverId) => {
     history.push(`/driver/${driverId}`);
@@ -24,7 +25,7 @@ const RaceQualifying = ({ raceQualifying }) => {
   return (
     <Table
       responsive="sm"
-      className="table-hover"
+      className="table-hover standings-table"
       variant={theme}
     >
       <thead>
