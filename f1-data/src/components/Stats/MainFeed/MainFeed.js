@@ -14,7 +14,7 @@ const cardsSpacing = {
 };
 
 const MainFeed = () => {
-  const TOTAL_NUMBER_OF_RACES = "23";
+  const TOTAL_NUMBER_OF_RACES = "22";
   const [nextRace, setNextRace] = useState(null);
   const [lastRace, setLastRace] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
