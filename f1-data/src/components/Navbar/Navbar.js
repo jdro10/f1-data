@@ -33,10 +33,10 @@ const NavBar = () => {
         </Link>
 
         <Link to="/schedule" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>Races</Navbar.Brand>
+          <Navbar.Brand>RACES</Navbar.Brand>
         </Link>
         <Link to="/standings" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>Standings</Navbar.Brand>
+          <Navbar.Brand>STANDINGS</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
           <Row className="g-2">

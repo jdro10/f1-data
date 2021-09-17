@@ -32,4 +32,16 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  .tab-style {
+    color: ${(props) => props.theme.fontColor};
+  }
+
+  .tab-style:hover {
+    color: ${(props) => props.theme.fontColor};
+  }
+
+  tab-style:active {
+      color: black !important;
+  }
 `;

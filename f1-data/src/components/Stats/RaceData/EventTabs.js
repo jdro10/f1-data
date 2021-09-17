@@ -40,7 +40,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         id="uncontrolled-tab-example"
         className="mb-3"
       >
-        <Tab eventKey="race" title="Race">
+        <Tab tabClassName="tab-style" eventKey="race" title="RACE">
           <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
 
           {raceClassification != null ? (
@@ -55,12 +55,16 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           )}
         </Tab>
 
-        <Tab eventKey="circuit" title="Circuit">
+        <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
           <CircuitTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
         </Tab>
 
         {raceQualifying != null ? (
-          <Tab eventKey="qualifying" title="Qualifying">
+          <Tab
+            tabClassName="tab-style"
+            eventKey="qualifying"
+            title="QUALIFYING"
+          >
             <RaceQualifying raceQualifying={raceQualifying} />
           </Tab>
         ) : null}
