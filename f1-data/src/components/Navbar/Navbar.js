@@ -27,16 +27,16 @@ const NavBar = () => {
     <Navbar className="navbar" bg="dark" variant="dark">
       <Container style={{ minHeight: "40px" }}>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>
+          <Navbar.Brand className="icon-link">
             <GiCheckeredFlag size={30} />
           </Navbar.Brand>
         </Link>
 
         <Link to="/schedule" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>RACES</Navbar.Brand>
+          <Navbar.Brand className="text-link">RACES</Navbar.Brand>
         </Link>
         <Link to="/standings" style={{ textDecoration: "none" }}>
-          <Navbar.Brand>STANDINGS</Navbar.Brand>
+          <Navbar.Brand className="text-link">STANDINGS</Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
           <Row className="g-2">
@@ -48,7 +48,7 @@ const NavBar = () => {
               />
             </Col>
             <Col>
-              <Navbar.Brand
+              <Navbar.Brand className="icon-link"
                 href="https://github.com/jdro10"
                 aria-label="Github"
               >
