@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ConstructorsStandings from "./ConstructorsStandings";
 import DriversStandings from "./DriversStandings";
 import Container from "react-bootstrap/Container";
@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const Standings = () => {
   const FIRST_SEASON = 1950;
@@ -20,6 +21,7 @@ const Standings = () => {
   const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
   const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
     useState(true);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const fetchConstructorsStandings = async () => {
@@ -95,7 +97,10 @@ const Standings = () => {
           >
             <Col>
               <Dropdown>
-                <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                <Dropdown.Toggle
+                  variant={theme === "dark" ? "light" : "dark "}
+                  id="dropdown-basic"
+                >
                   {season}
                 </Dropdown.Toggle>
                 <Dropdown.Menu
