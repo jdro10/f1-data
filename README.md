@@ -1,9 +1,5 @@
 <h1 align="center"># F1 Data</h1>
 
-<div align="center">
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jorgedroliveira10/)
- </div>
-
 Progressive Web App (offline first) all about Formula 1 data. (https://jdro10.github.io/f1-data)
 
 ### Features
@@ -45,7 +41,9 @@ npm start
 
 ### Developer
 
-* Jorge Oliveira
+* Jorge Oliveira 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jorgedroliveira10/)
+</div>
 
 ### License
 
