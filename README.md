@@ -1,4 +1,4 @@
-<h1 align="center"># F1 Data</h1>
+<h1 align="center">F1 Data</h1>
 
 Progressive Web App (offline first) all about Formula 1 data. (https://jdro10.github.io/f1-data)
 
