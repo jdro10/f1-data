@@ -17,7 +17,9 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
     <div>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h1>{raceInfo.raceName.toUpperCase()}</h1>
+          <a className="race-link" href={raceInfo.url}>
+            <h1>{raceInfo.raceName.toUpperCase()}</h1>
+          </a>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">

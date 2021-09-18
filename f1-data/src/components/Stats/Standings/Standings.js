@@ -46,7 +46,9 @@ const Standings = () => {
 
     const fetchDriversStandings = async () => {
       setLoadingDriversStandings(true);
-      await fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
+      await fetch(
+        `https://ergast.com/api/f1/${season}/driverStandings.json?limit=50`
+      )
         .then((res) => res.json())
         .then((result) => {
           setDriversStandings(
