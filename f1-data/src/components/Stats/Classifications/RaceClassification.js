@@ -93,7 +93,11 @@ const RaceClassification = ({ raceClassification }) => {
               ) : (
                 <td>{driver.points}</td>
               )}
-              <td className="hideXS">{driver.grid - driver.position}</td>
+              <td className="hideXS">
+                {driver.grid === "0"
+                  ? 20 - driver.position
+                  : driver.grid - driver.position}
+              </td>
             </tr>
           ))}
         </tbody>

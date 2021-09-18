@@ -7,7 +7,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  body: "#000",
+  body: "#000000",
   fontColor: "#fff",
   scrollColor: "#212529",
 };
@@ -44,5 +44,16 @@ export const GlobalStyles = createGlobalStyle`
 
   tab-style:active {
       color: black !important;
+  }
+
+  .race-link {
+    text-decoration: none;
+    color: ${(props) => props.theme.fontColor};
+  }
+
+  .race-link:hover{
+    color: ${(props) => props.theme.fontColor};
+    opacity: 0.5;
+    display: block;
   }
 `;
