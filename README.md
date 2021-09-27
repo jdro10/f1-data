@@ -30,7 +30,6 @@ npm start
 ### API
 
 * [Ergast API](http://ergast.com/mrd/) - Formula One data.
-* [REST Countries API](https://restcountries.eu/) - Countries' data.
 * [Wikipedia API](https://en.wikipedia.org/w/api.php) - Some drivers' and circuits' information.
 
 ### Technology 
