@@ -29,6 +29,22 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
         <Table responsive className="standings-table" variant={theme}>
           <tbody>
             <tr>
+              <td style={boldFont}>First team</td>
+              <td className="text-end" style={fontSize}>
+                <Row className="justify-content-end text-end">
+                  <Col xs={1}>
+                    <TeamColor
+                      constructorId={
+                        firstGP.Results[0].Constructor.constructorId
+                      }
+                      height="42px"
+                    />
+                  </Col>
+                  <Col xs="auto">{firstGP.Results[0].Constructor.name}</Col>
+                </Row>
+              </td>
+            </tr>
+            <tr>
               <td style={boldFont}>Current/Last team</td>
               <td className="text-end" style={fontSize}>
                 <Row className="justify-content-end text-end">
