@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
@@ -8,37 +8,13 @@ import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceInfo = ({ race }) => {
-  const [countryCode, setCountryCode] = useState(null);
-  const [loadigCountryCode, setLoadingCountryCode] = useState(true);
-
-  useEffect(() => {
-    const fetchCountryCode = async () => {
-      await fetch(
-        `https://restcountries.eu/rest/v2/name/${race.Circuit.Location.country}?fullText=true`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setCountryCode(result[0].alpha2Code.toLowerCase());
-          setLoadingCountryCode(false);
-        })
-        .catch((error) => {
-          setCountryCode(
-            CountriesCodeNationality[
-              race.Circuit.Location.country
-            ].toLowerCase()
-          );
-          setLoadingCountryCode(false);
-        });
-    };
-
-    fetchCountryCode();
-  }, [race.Circuit.Location.country]);
-
   return (
     <Row className="center-xs justify-content-between">
       <Col xs={12} md={12} lg="auto" className="text-center">
         <CircleFlag
-          countryCode={loadigCountryCode ? null : countryCode}
+          countryCode={CountriesCodeNationality[
+            race.Circuit.Location.country
+          ].toLowerCase()}
           height={80}
           style={{ marginBottom: "2%" }}
         />

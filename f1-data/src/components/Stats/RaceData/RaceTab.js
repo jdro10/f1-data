@@ -2,6 +2,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
 import { convertDate } from "../../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
   const getLocalRaceDate = (date, time) => {
@@ -38,7 +39,12 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <CircleFlag countryCode={eventCountryCode} height="100" />
+          <CircleFlag
+            countryCode={CountriesCodeNationality[
+              eventCountryCode
+            ].toLowerCase()}
+            height="100"
+          />
         </Col>
       </Row>
     </div>
