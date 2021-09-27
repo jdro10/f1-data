@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
@@ -7,32 +7,8 @@ import RaceTab from "./RaceTab";
 import CircuitTab from "./CircuitTab";
 import Row from "react-bootstrap/Row";
 import ClockCountdown from "../../Countdown/ClockCountdown";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
-  const [eventCountryCode, setEventCountryCode] = useState(null);
-
-  useEffect(() => {
-    const fetchCountryCode = async () => {
-      await fetch(
-        `https://restcountries.eu/rest/v2/name/${raceInfo.Circuit.Location.country}?fullText=true`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setEventCountryCode(result[0].alpha2Code.toLowerCase());
-        })
-        .catch((error) => {
-          setEventCountryCode(
-            CountriesCodeNationality[
-              raceInfo.Circuit.Location.country
-            ].toLowerCase()
-          );
-        });
-    };
-
-    fetchCountryCode();
-  }, [raceInfo.Circuit.Location.country]);
-
   return (
     <div>
       <Tabs
@@ -41,7 +17,10 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab tabClassName="tab-style" eventKey="race" title="RACE">
-          <RaceTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
+          <RaceTab
+            raceInfo={raceInfo}
+            eventCountryCode={raceInfo.Circuit.Location.country}
+          />
 
           {raceClassification != null ? (
             <div style={{ marginTop: "20px" }}>
@@ -56,7 +35,10 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         </Tab>
 
         <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
-          <CircuitTab raceInfo={raceInfo} eventCountryCode={eventCountryCode} />
+          <CircuitTab
+            raceInfo={raceInfo}
+            eventCountryCode={raceInfo.Circuit.Location.country}
+          />
         </Tab>
 
         {raceQualifying != null ? (

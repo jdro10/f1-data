@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
@@ -14,31 +14,6 @@ const boldFont = {
 
 const NextRaceCard = ({ nextRace }) => {
   const { theme } = useContext(ThemeContext);
-  const [countryCode, setCountryCode] = useState(null);
-  const [loadingCountryCode, setLoadingCountryCode] = useState(true);
-
-  useEffect(() => {
-    const fetchCountryCode = async () => {
-      await fetch(
-        `https://restcountries.eu/rest/v2/name/${nextRace.Circuit.Location.country}?fullText=true`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setCountryCode(result[0].alpha2Code);
-          setLoadingCountryCode(false);
-        })
-        .catch((error) => {
-          setCountryCode(
-            CountriesCodeNationality[
-              nextRace.Circuit.Location.country
-            ].toLowerCase()
-          );
-          setLoadingCountryCode(false);
-        });
-    };
-
-    fetchCountryCode();
-  }, [nextRace.Circuit.Location.country]);
 
   return (
     <GenericCard
@@ -50,9 +25,12 @@ const NextRaceCard = ({ nextRace }) => {
           <h5>{nextRace.Circuit.circuitName}</h5>
           <h6>{convertDate(nextRace.date)}</h6>
           <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
-          {loadingCountryCode ? null : (
-            <CircleFlag countryCode={countryCode.toLowerCase()} height={100} />
-          )}
+          <CircleFlag
+            countryCode={CountriesCodeNationality[
+              nextRace.Circuit.Location.country
+            ].toLowerCase()}
+            height={100}
+          />
           <p></p>
           <ClockCoutdown date={nextRace.date} time={nextRace.time} />
         </>

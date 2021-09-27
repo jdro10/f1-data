@@ -67,15 +67,6 @@ const Footer = () => {
         </Row>
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
-            Countries' data is obtained through{" "}
-            <a href="https://restcountries.eu/" style={{ color: "white" }}>
-              REST Countries API
-            </a>
-            .
-          </Col>
-        </Row>
-        <Row className="justify-content-md-center">
-          <Col md="auto" style={{ textAlign: "center" }}>
             Some drivers' and circuits' information are obtained through{" "}
             <a
               href="https://en.wikipedia.org/w/api.php"
@@ -89,7 +80,7 @@ const Footer = () => {
         <br />
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
-            <h5>Disclaimer</h5>
+            <h5>DISCLAIMER</h5>
           </Col>
         </Row>
         <Row className="justify-content-md-center">

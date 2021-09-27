@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
 import { ThemeContext } from "../../../helpers/ThemeContext";
+import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const boldFont = {
   fontWeight: 600,
@@ -12,23 +13,6 @@ const boldFont = {
 
 const PreviousRaceCard = ({ lastRace }) => {
   const { theme } = useContext(ThemeContext);
-  const [countryCode, setCountryCode] = useState(null);
-  const [loadingCountryCode, setLoadingCountryCode] = useState(true);
-
-  useEffect(() => {
-    const fetchCountryCode = async () => {
-      await fetch(
-        `https://restcountries.eu/rest/v2/name/${lastRace.MRData.RaceTable.Races[0].Circuit.Location.country}?fullText=true`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setCountryCode(result[0].alpha2Code);
-          setLoadingCountryCode(false);
-        });
-    };
-
-    fetchCountryCode();
-  }, [lastRace.MRData.RaceTable.Races]);
 
   return (
     <GenericCard
@@ -47,15 +31,15 @@ const PreviousRaceCard = ({ lastRace }) => {
               lastRace.MRData.RaceTable.Races[0].time
             )}
           </h6>
-          {loadingCountryCode ? null : (
-            <>
-              <br />
-              <CircleFlag
-                countryCode={countryCode.toLowerCase()}
-                height={120}
-              />
-            </>
-          )}
+          <>
+            <br />
+            <CircleFlag
+              countryCode={CountriesCodeNationality[
+                lastRace.MRData.RaceTable.Races[0].Circuit.Location.country
+              ].toLowerCase()}
+              height={120}
+            />
+          </>
           <h5 style={{ marginTop: "5%" }}>
             {lastRace.MRData.RaceTable.Races[0].Circuit.Location.country}
           </h5>

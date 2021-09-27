@@ -76,7 +76,12 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
       <Row className="text-center">
         <h1>{raceInfo.Circuit.circuitName}</h1>
         <h3>
-          <CircleFlag countryCode={eventCountryCode} height="30" />{" "}
+          <CircleFlag
+            countryCode={CountriesCodeNationality[
+              eventCountryCode
+            ].toLowerCase()}
+            height="30"
+          />{" "}
           {raceInfo.Circuit.Location.country}
         </h3>
         <h3>{raceInfo.Circuit.Location.locality}</h3>
