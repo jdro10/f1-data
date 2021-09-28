@@ -57,6 +57,7 @@ export const CountriesCodeNationality = {
   Italy: "IT",
   Japan: "JP",
   Malyasia: "MY",
+  Malaysian: "MY",
   Mexico: "MX",
   Monaco: "MC",
   Morocco: "MA",
