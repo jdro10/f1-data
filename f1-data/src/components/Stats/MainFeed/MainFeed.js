@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -8,6 +8,10 @@ import Spinner from "react-bootstrap/Spinner";
 import PreviousRaceStats from "./PreviousRaceStats";
 import DriversStandingsCard from "./DriversStandingsCard";
 import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
+import { FiRefreshCcw } from "react-icons/fi";
+import Button from "react-bootstrap/Button";
+import { ThemeContext } from "../../../helpers/ThemeContext";
+import "./Styles.css";
 
 const cardsSpacing = {
   marginBottom: "10px",
@@ -15,6 +19,7 @@ const cardsSpacing = {
 
 const MainFeed = () => {
   const TOTAL_NUMBER_OF_RACES = "22";
+  const { theme } = useContext(ThemeContext);
   const [nextRace, setNextRace] = useState(null);
   const [lastRace, setLastRace] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
@@ -71,14 +76,32 @@ const MainFeed = () => {
     fetchConstructorsStandings();
   }, []);
 
+  const refreshCache = () => {
+    caches.keys().then(function (cacheNames) {
+      cacheNames.forEach(function (cacheName) {
+        caches.delete(cacheName);
+      });
+    });
+
+    window.location.reload();
+  };
+
   return (
     <Container style={{ minHeight: "500px" }}>
       <Row className="justify-content-center text-center">
-        <Col md="auto">
+        <Col xs={{ span: 8, offset: 2 }}>
           <h1>
             {loadingLastRace ? null : lastRace.MRData.RaceTable.season} FORMULA
             ONE
           </h1>
+        </Col>
+        <Col xs={2} className="refresh-button text-end">
+          <Button
+            onClick={() => refreshCache()}
+            variant={theme === "dark" ? "light" : "dark"}
+          >
+            <FiRefreshCcw />
+          </Button>
         </Col>
       </Row>
       {loadingLastRace || loadingNextRace ? (

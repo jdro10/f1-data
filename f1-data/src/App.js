@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
@@ -25,37 +25,6 @@ function App() {
       ? localStorage.getItem("theme")
       : "light"
   );
-
-  useEffect(() => {
-    function refreshCache() {
-      const todayDate = new Date();
-      todayDate.setHours(0, 0, 0, 0);
-
-      const tomorrowDate = new Date(todayDate);
-      tomorrowDate.setDate(todayDate.getDate() + 1);
-      tomorrowDate.setHours(0, 0, 0, 0);
-
-      const nextUpdateDate = localStorage.getItem("nextUpdate");
-
-      if (!nextUpdateDate) {
-        localStorage.setItem("nextUpdate", tomorrowDate);
-      }
-
-      if (
-        nextUpdateDate &&
-        todayDate.getTime() >= new Date(nextUpdateDate).getTime()
-      ) {
-        localStorage.setItem("nextUpdate", tomorrowDate);
-        caches.keys().then(function (cacheNames) {
-          cacheNames.forEach(function (cacheName) {
-            caches.delete(cacheName);
-          });
-        });
-      }
-    }
-
-    refreshCache();
-  }, []);
 
   return (
     <Suspense fallback={null}>
