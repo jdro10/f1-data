@@ -13,10 +13,6 @@ import Button from "react-bootstrap/Button";
 import { ThemeContext } from "../../../helpers/ThemeContext";
 import "./Styles.css";
 
-const cardsSpacing = {
-  marginBottom: "10px",
-};
-
 const MainFeed = () => {
   const TOTAL_NUMBER_OF_RACES = "22";
   const { theme } = useContext(ThemeContext);
@@ -110,14 +106,14 @@ const MainFeed = () => {
         </Row>
       ) : (
         <>
-          <Row className="justify-content-center text-center">
-            <Col lg={12} style={cardsSpacing}>
+          <Row className="justify-content-center text-center g-2">
+            <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
             </Col>
-            <Col xs={12} lg={6} style={cardsSpacing}>
+            <Col xs={12} lg={6}>
               <PreviousRaceCard lastRace={lastRace} />
             </Col>
-            <Col xs={12} lg={6} style={cardsSpacing}>
+            <Col xs={12} lg={6}>
               <PreviousRaceStats
                 lastRace={lastRace}
                 numberOfRaces={TOTAL_NUMBER_OF_RACES}
@@ -129,11 +125,11 @@ const MainFeed = () => {
               <Spinner animation="border" />
             </Row>
           ) : (
-            <Row>
-              <Col style={cardsSpacing}>
+            <Row className="g-2" style={{ marginTop: "1px" }}>
+              <Col>
                 <DriversStandingsCard driversStandings={driversStandings} />
               </Col>
-              <Col style={cardsSpacing}>
+              <Col>
                 <ConstructorsStandingsCard
                   constructorsStandings={constructorsStandings}
                 />
