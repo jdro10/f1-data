@@ -7,8 +7,8 @@ const ClockCountdown = ({ date, time }) => {
     if (completed) {
       return (
         <Col>
-          <h1>Race in progress</h1>
-          <h5>Waiting for race results</h5>
+          <h1>RACE IN PROGRESS</h1>
+          <h5>WAITING FOR RACE RESULTS</h5>
         </Col>
       );
     } else {
