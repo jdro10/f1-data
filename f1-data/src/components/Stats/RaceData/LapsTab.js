@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
 import { LineColors } from "../../../data/LineColors";
 import MediaQuery from "react-responsive";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const LapsTab = ({ season, round }) => {
+  const { theme } = useContext(ThemeContext);
   const [data, setData] = useState({ labels: null, datasets: null });
   const [loadingLaps, setLoadingLaps] = useState(true);
 
@@ -18,6 +20,35 @@ const LapsTab = ({ season, round }) => {
 
     fetchLaps();
   }, [season, round]);
+
+  const options = {
+    plugins: { legend: { display: true, position: "bottom" } },
+    layout: { padding: { bottom: 25 } },
+    scales: {
+      y: {
+        ticks: {
+          color: theme === "dark" ? "white" : "dark",
+          font: {
+            size: 20,
+          },
+        },
+        grid: {
+          color: "#777",
+        },
+      },
+      x: {
+        ticks: {
+          color: theme === "dark" ? "white" : "dark",
+          font: {
+            size: 20,
+          },
+        },
+        grid: {
+          color: "#777",
+        },
+      },
+    },
+  };
 
   const lapsPerDriver = (laps) => {
     const lapsObj = {};
@@ -60,10 +91,10 @@ const LapsTab = ({ season, round }) => {
       {loadingLaps ? null : (
         <>
           <MediaQuery minWidth={1224}>
-            <Line data={data} height={325} width={500} />
+            <Line data={data} height={325} width={500} options={options} />
           </MediaQuery>
           <MediaQuery maxWidth={1224}>
-            <Line data={data} height={700} width={500} />
+            <Line data={data} height={700} width={500} options={options} />
           </MediaQuery>
         </>
       )}
