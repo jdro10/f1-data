@@ -8,6 +8,13 @@ import "../../SharedStyles/Table.css";
 import TeamColor from "../../TeamColor/TeamColor";
 import { ThemeContext } from "../../../helpers/ThemeContext";
 
+const boldFont = {
+  fontWeight: 600,
+  margin: "0px",
+  padding: "0px",
+  display: "inline",
+};
+
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
   const { theme } = useContext(ThemeContext);
 
@@ -43,7 +50,11 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                       />
                     </Col>
                     <Col xs={8} className="text-start">
-                      <Row>{constructor.Constructor.name.toUpperCase()}</Row>
+                      <Row>
+                        <p style={boldFont}>
+                          {constructor.Constructor.name.toUpperCase()}
+                        </p>
+                      </Row>
                     </Col>
                   </Row>
                 </td>
