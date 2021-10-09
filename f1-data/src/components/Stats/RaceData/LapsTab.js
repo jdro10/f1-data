@@ -1,0 +1,74 @@
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import { LineColors } from "../../../data/LineColors";
+import MediaQuery from "react-responsive";
+
+const LapsTab = ({ season, round }) => {
+  const [data, setData] = useState({ labels: null, datasets: null });
+  const [loadingLaps, setLoadingLaps] = useState(true);
+
+  useEffect(() => {
+    const fetchLaps = async () => {
+      await fetch(
+        `https://ergast.com/api/f1/${season}/${round}/laps.json?limit=2000`
+      )
+        .then((res) => res.json())
+        .then((result) => lapsPerDriver(result.MRData.RaceTable.Races[0].Laps));
+    };
+
+    fetchLaps();
+  }, [season, round]);
+
+  const lapsPerDriver = (laps) => {
+    const lapsObj = {};
+    const lapsNumber = [];
+
+    laps.forEach((lap) => {
+      lapsNumber.push(parseInt(lap.number));
+
+      lap.Timings.forEach((driver) => {
+        if (!lapsObj[driver.driverId]) {
+          lapsObj[driver.driverId] = [];
+        }
+
+        lapsObj[driver.driverId].push(driver.position);
+      });
+    });
+
+    const datasets = [];
+    var position = 1;
+
+    for (const [key, value] of Object.entries(lapsObj)) {
+      const data = {
+        label: key,
+        data: value,
+        fill: false,
+        backgroundColor: LineColors[position],
+        borderColor: LineColors[position],
+      };
+
+      datasets.push(data);
+      position++;
+    }
+
+    setData({ labels: lapsNumber, datasets: datasets });
+    setLoadingLaps(false);
+  };
+
+  return (
+    <>
+      {loadingLaps ? null : (
+        <>
+          <MediaQuery minWidth={1224}>
+            <Line data={data} height={325} width={500} />
+          </MediaQuery>
+          <MediaQuery maxWidth={1224}>
+            <Line data={data} height={700} width={500} />
+          </MediaQuery>
+        </>
+      )}
+    </>
+  );
+};
+
+export default LapsTab;

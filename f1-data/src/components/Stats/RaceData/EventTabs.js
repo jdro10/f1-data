@@ -7,6 +7,7 @@ import RaceTab from "./RaceTab";
 import CircuitTab from "./CircuitTab";
 import Row from "react-bootstrap/Row";
 import ClockCountdown from "../../Countdown/ClockCountdown";
+import LapsTab from "./LapsTab";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   return (
@@ -34,12 +35,13 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
           )}
         </Tab>
 
-        <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
-          <CircuitTab
-            raceInfo={raceInfo}
-            eventCountryCode={raceInfo.Circuit.Location.country}
-          />
-        </Tab>
+        {raceClassification != null && raceInfo.season >= 1996 ? (
+          <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
+            <div style={{ minHeight: "300px" }}>
+              <LapsTab season={raceInfo.season} round={raceInfo.round} />
+            </div>
+          </Tab>
+        ) : null}
 
         {raceQualifying != null ? (
           <Tab
@@ -50,6 +52,13 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
             <RaceQualifying raceQualifying={raceQualifying} />
           </Tab>
         ) : null}
+
+        <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
+          <CircuitTab
+            raceInfo={raceInfo}
+            eventCountryCode={raceInfo.Circuit.Location.country}
+          />
+        </Tab>
       </Tabs>
     </div>
   );
