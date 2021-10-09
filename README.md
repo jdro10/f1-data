@@ -8,7 +8,7 @@ Progressive Web App (offline first) all about Formula 1 data. (https://jdro10.gi
 * Previous race quick statistics (podium, pole position, the fastest lap of the race)
 * Drivers' and constructors' standings (since 1950)
 * Race calendar (since 1950)
-* Full race results (race classification, lap history, circuit information and map, qualifying classification)
+* Full race results (race classification, lap history chart, circuit information and map, qualifying classification)
 * Drivers' profile (biography from Wikipedia)
 * Drivers statistics (wins, pole positions, podiums, first and last grand prix, number of grands prix participated, total points earned and total laps raced)
 * Progressive Web App (offline first)
