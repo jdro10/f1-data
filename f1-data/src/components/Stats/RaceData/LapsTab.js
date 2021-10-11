@@ -56,6 +56,41 @@ const LapsTab = ({ season, round }) => {
     },
   };
 
+  const optionsMobile = {
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+      },
+    },
+    scales: {
+      y: {
+        reverse: true,
+        ticks: {
+          color: theme === "dark" ? "white" : "dark",
+          font: {
+            size: 10,
+          },
+          stepSize: 1,
+        },
+        grid: {
+          color: "#777",
+        },
+      },
+      x: {
+        ticks: {
+          color: theme === "dark" ? "white" : "dark",
+          font: {
+            size: 10,
+          },
+        },
+        grid: {
+          color: "#777",
+        },
+      },
+    },
+  };
+
   const lapsPerDriver = (laps) => {
     const lapsObj = {};
     const lapsNumber = [];
@@ -100,7 +135,7 @@ const LapsTab = ({ season, round }) => {
             <Line data={data} height={325} width={500} options={options} />
           </MediaQuery>
           <MediaQuery maxWidth={1224}>
-            <Line data={data} height={850} width={500} options={options} />
+            <Line data={data} height={850} width={500} options={optionsMobile} />
           </MediaQuery>
         </>
       )}
