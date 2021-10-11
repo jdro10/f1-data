@@ -31,35 +31,40 @@ function App() {
       const todayDate = new Date();
       todayDate.setHours(0, 0, 0, 0);
 
-      const nextMonday = nextDay(1);
+      const date = nextMonday();
       const nextUpdateDate = localStorage.getItem("nextUpdate");
 
       if (!nextUpdateDate) {
-        localStorage.setItem("nextUpdate", nextMonday);
+        localStorage.setItem("nextUpdate", date);
       }
 
       if (
         nextUpdateDate &&
-        todayDate.getTime() > new Date(nextUpdateDate).getTime()
+        todayDate.getTime() >= new Date(nextUpdateDate).getTime()
       ) {
-        localStorage.setItem("nextUpdate", nextMonday);
+        localStorage.setItem("nextUpdate", date);
+
         caches.keys().then(function (cacheNames) {
           cacheNames.forEach(function (cacheName) {
             caches.delete(cacheName);
           });
         });
+
+        window.location.reload();
       }
+    }
+
+    function nextMonday() {
+      var date = new Date();
+
+      date.setDate(date.getDate() + ((7 - date.getDay()) % 7) + 1);
+      date.setHours(0, 0, 0, 0);
+
+      return date;
     }
 
     refreshCache();
   }, []);
-
-  function nextDay(x) {
-    var now = new Date();
-    now.setDate(now.getDate() + ((x + (7 - now.getDay())) % 7));
-    now.setHours(0, 0, 0, 0);
-    return now;
-  }
 
   return (
     <Suspense fallback={null}>
