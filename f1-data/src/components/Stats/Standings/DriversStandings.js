@@ -27,7 +27,7 @@ const DriversStandings = ({ style, driversStandings }) => {
   return (
     <div style={style}>
       <Table
-        className="table-hover standings-table"
+        className="table-hover table-striped standings-table"
         responsive="xs"
         variant={theme}
       >

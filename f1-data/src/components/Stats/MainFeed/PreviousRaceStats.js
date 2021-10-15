@@ -9,6 +9,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
 import { ThemeContext } from "../../../helpers/ThemeContext";
+import { GiPodiumWinner } from "react-icons/gi";
+import { GiPodiumSecond } from "react-icons/gi";
+import { GiPodiumThird } from "react-icons/gi";
+import { FaStopwatch } from "react-icons/fa";
+import { AiFillThunderbolt } from "react-icons/ai";
 
 const boldFont = {
   fontWeight: 600,
@@ -83,7 +88,21 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     style={{ cursor: "pointer" }}
                     onClick={() => rowClick(driver.Driver.driverId)}
                   >
-                    <td>{driver.position}</td>
+                    {driver.position === "1" ? (
+                      <td>
+                        <GiPodiumWinner size={23} />
+                      </td>
+                    ) : driver.position === "2" ? (
+                      <td>
+                        <GiPodiumSecond size={23} />
+                      </td>
+                    ) : driver.position === "3" ? (
+                      <td>
+                        <GiPodiumThird size={23} />
+                      </td>
+                    ) : (
+                      <td>{driver.position}</td>
+                    )}
                     <td>
                       <Row>
                         <Col xs={2} lg={1} className="align-self-center">
@@ -137,7 +156,9 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => rowClick(fastestLap.Driver.driverId)}
                 >
-                  <td>FL</td>
+                  <td>
+                    <FaStopwatch size={20} />
+                  </td>
                   <td>
                     <Row>
                       <Col xs={2} lg={1} className="align-self-center">
@@ -185,7 +206,9 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => rowClick(polePosition.Driver.driverId)}
                 >
-                  <td>PP</td>
+                  <td>
+                    <AiFillThunderbolt size={21} />
+                  </td>
                   <td>
                     <Row>
                       <Col xs={2} lg={1} className="align-self-center">

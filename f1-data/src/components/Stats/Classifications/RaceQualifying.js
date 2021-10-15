@@ -25,7 +25,7 @@ const RaceQualifying = ({ raceQualifying }) => {
   return (
     <Table
       responsive="sm"
-      className="table-hover standings-table"
+      className="table-hover table-striped standings-table"
       variant={theme}
     >
       <thead>
