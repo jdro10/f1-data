@@ -155,9 +155,11 @@ const Driver = ({ driverId }) => {
             </Col>
             <Col xs={12} lg="auto" style={{ marginBottom: "20px" }}>
               <CircleFlag
-                countryCode={CountriesCodeNationality[
-                  driverNationality
-                ].toLowerCase()}
+                countryCode={
+                  CountriesCodeNationality[driverNationality] !== undefined
+                    ? CountriesCodeNationality[driverNationality].toLowerCase()
+                    : null
+                }
                 height={66}
               />
             </Col>

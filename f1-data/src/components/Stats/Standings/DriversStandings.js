@@ -54,9 +54,15 @@ const DriversStandings = ({ style, driversStandings }) => {
                 <Row className="g-0">
                   <Col xs={2} lg={1} className="align-self-center">
                     <CircleFlag
-                      countryCode={CountriesCodeNationality[
-                        driver.Driver.nationality
-                      ].toLowerCase()}
+                      countryCode={
+                        CountriesCodeNationality[
+                          driver.Driver.nationality
+                        ] !== undefined
+                          ? CountriesCodeNationality[
+                              driver.Driver.nationality
+                            ].toLowerCase()
+                          : null
+                      }
                       height={20}
                     />
                   </Col>
