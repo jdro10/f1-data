@@ -33,6 +33,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
   const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
+  const [poleTime, setPoleTime] = useState(null);
+  const [loadingPoleTime, setLoadingPoleTime] = useState(true);
   const [loadingPolePosition, setLoadingPolePosition] = useState(true);
 
   const history = useHistory();
@@ -51,21 +53,30 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
       });
     };
 
-    const fetchPolePosition = async () => {
-      await fetch(
-        `https://ergast.com/api/f1/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}/qualifying.json`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setPolePosition(
-            result.MRData.RaceTable.Races[0].QualifyingResults[0]
-          );
+    const getPolePosition = () => {
+      lastRace.MRData.RaceTable.Races[0].Results.forEach((result) => {
+        if (result.grid === "1") {
+          setPolePosition(result);
           setLoadingPolePosition(false);
-        });
+
+          fetch(
+            `https://ergast.com/api/f1/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}/drivers/${result.Driver.driverId}/qualifying.json`
+          )
+            .then((res) => res.json())
+            .then((result) => {
+              setPoleTime(
+                result.MRData.RaceTable.Races[0].QualifyingResults[0].Q3
+              );
+              setLoadingPoleTime(false);
+            });
+
+          return;
+        }
+      });
     };
 
-    fetchPolePosition();
     getFastestLap();
+    getPolePosition();
   }, [
     lastRace.MRData.RaceTable.season,
     lastRace.MRData.RaceTable.round,
@@ -200,7 +211,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   <td>{fastestLap.FastestLap.Time.time}</td>
                 </tr>
               )}
-              {loadingPolePosition ? null : (
+              {loadingPolePosition || loadingPoleTime ? null : (
                 <tr
                   className="align-middle"
                   style={{ cursor: "pointer" }}
@@ -247,7 +258,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                       </Col>
                     </Row>
                   </td>
-                  <td>{polePosition.Q3}</td>
+                  <td>{poleTime}</td>
                 </tr>
               )}
             </tbody>
