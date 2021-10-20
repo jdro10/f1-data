@@ -89,7 +89,7 @@ const Races = () => {
             </Col>
           </Row>
           <Row>
-            <Table className="standings-table" responsive variant={theme}>
+            <Table className="standings-table table-striped" responsive variant={theme}>
               <tbody>
                 {seasonSchedule.map((race, index) => (
                   <tr key={index}>

@@ -13,7 +13,7 @@ import { GiPodiumWinner } from "react-icons/gi";
 import { GiPodiumSecond } from "react-icons/gi";
 import { GiPodiumThird } from "react-icons/gi";
 import { FaStopwatch } from "react-icons/fa";
-import { AiFillThunderbolt } from "react-icons/ai";
+import { SiFastly } from "react-icons/si";
 
 const boldFont = {
   fontWeight: 600,
@@ -218,7 +218,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   onClick={() => rowClick(polePosition.Driver.driverId)}
                 >
                   <td>
-                    <AiFillThunderbolt size={21} />
+                    <SiFastly size={21} />
                   </td>
                   <td>
                     <Row>
