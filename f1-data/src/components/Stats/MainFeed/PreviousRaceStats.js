@@ -267,7 +267,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
       }
       cardFooter={
         <h4>
-          Round: {lastRace.MRData.RaceTable.round} / {numberOfRaces}
+          ROUND: {lastRace.MRData.RaceTable.round}/{numberOfRaces}
         </h4>
       }
       cardHeight="34rem"

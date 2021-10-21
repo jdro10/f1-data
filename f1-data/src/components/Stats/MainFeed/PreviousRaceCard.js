@@ -19,7 +19,7 @@ const PreviousRaceCard = ({ lastRace }) => {
       cardTitle="PREVIOUS RACE"
       cardBody={
         <div>
-          <h5>Round {lastRace.MRData.RaceTable.round}</h5>
+          <h5>ROUND {lastRace.MRData.RaceTable.round}</h5>
           <h1 style={boldFont}>
             {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
           </h1>

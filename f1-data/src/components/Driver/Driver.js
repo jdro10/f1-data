@@ -98,7 +98,7 @@ const Driver = ({ driverId }) => {
         ).length;
 
         const totalPoints = driverRaces.reduce(
-          (acc, current) => acc + parseInt(current.Results[0].points),
+          (acc, current) => acc + parseFloat(current.Results[0].points),
           0
         );
 
@@ -183,8 +183,9 @@ const Driver = ({ driverId }) => {
                 <a
                   href={`https://en.wikipedia.org/wiki/${driverInformation[wikiPageId]["title"]}`}
                 >
-                  Wikipedia)
+                  Wikipedia
                 </a>
+                )
               </p>
             </Col>
           </Row>

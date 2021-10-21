@@ -1,19 +1,10 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
-import { convertDate } from "../../../helpers/Helpers";
+import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
-  const getLocalRaceDate = (date, time) => {
-    const raceDate = new Date(date + "T" + time);
-    const hours = (raceDate.getHours() < 10 ? "0" : "") + raceDate.getHours();
-    const minutes =
-      (raceDate.getMinutes() < 10 ? "0" : "") + raceDate.getMinutes();
-
-    return hours + ":" + minutes + ":00";
-  };
-
   return (
     <div>
       <Row className="justify-content-center text-center">

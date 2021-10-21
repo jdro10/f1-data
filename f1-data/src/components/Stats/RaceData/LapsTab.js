@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2";
 import { LineColors } from "../../../data/LineColors";
 import MediaQuery from "react-responsive";
 import { ThemeContext } from "../../../helpers/ThemeContext";
+import Row from "react-bootstrap/Row";
 
 const LapsTab = ({ season, round }) => {
   const { theme } = useContext(ThemeContext);
@@ -131,11 +132,19 @@ const LapsTab = ({ season, round }) => {
     <>
       {loadingLaps ? null : (
         <>
+          <Row className="text-center">
+            <h1>Driver position by lap number</h1>
+          </Row>
           <MediaQuery minWidth={1224}>
             <Line data={data} height={325} width={500} options={options} />
           </MediaQuery>
           <MediaQuery maxWidth={1224}>
-            <Line data={data} height={850} width={500} options={optionsMobile} />
+            <Line
+              data={data}
+              height={850}
+              width={500}
+              options={optionsMobile}
+            />
           </MediaQuery>
         </>
       )}
