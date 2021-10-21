@@ -38,7 +38,7 @@ const NextRaceCard = ({ nextRace }) => {
       cardFooter={
         <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
           <Button variant={theme === "light" ? "dark" : "light"}>
-            Race information
+            RACE INFORMATION
           </Button>
         </Link>
       }
