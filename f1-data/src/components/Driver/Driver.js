@@ -183,8 +183,9 @@ const Driver = ({ driverId }) => {
                 <a
                   href={`https://en.wikipedia.org/wiki/${driverInformation[wikiPageId]["title"]}`}
                 >
-                  Wikipedia)
+                  Wikipedia
                 </a>
+                )
               </p>
             </Col>
           </Row>

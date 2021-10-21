@@ -13,9 +13,7 @@ const GenericCard = ({ cardTitle, cardBody, cardFooter, cardHeight }) => {
       bg={theme}
       text={theme === "light" ? "dark" : "light"}
     >
-      <Card.Header>
-        <b>{cardTitle}</b>
-      </Card.Header>
+      <Card.Header>{cardTitle}</Card.Header>
       <Card.Body>
         <Row className="justify-content-md-center">{cardBody}</Row>
       </Card.Body>

@@ -121,7 +121,10 @@ const MainFeed = () => {
             </Col>
           </Row>
           {loadingDriversStandings || loadingTeamsStandings ? (
-            <Row className="justify-content-center text-center">
+            <Row
+              className="justify-content-center text-center"
+              style={{ marginTop: "10px" }}
+            >
               <Spinner animation="border" />
             </Row>
           ) : (

@@ -82,7 +82,7 @@ const Standings = () => {
       {loadingConstructorsStandings || loadingDriversStandings ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
-            <h1 style={{ marginBottom: "3%" }}>FORMULA ONE</h1>
+            <h1>FORMULA ONE</h1>
             <Spinner animation="border" />
           </Row>
         </Container>

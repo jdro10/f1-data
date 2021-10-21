@@ -20,7 +20,7 @@ const NextRaceCard = ({ nextRace }) => {
       cardTitle="NEXT RACE"
       cardBody={
         <>
-          <h5>Round {nextRace.round}</h5>
+          <h5>ROUND {nextRace.round}</h5>
           <h1 style={boldFont}>{nextRace.raceName.toUpperCase()}</h1>
           <h5>{nextRace.Circuit.circuitName}</h5>
           <h6>{convertDate(nextRace.date)}</h6>

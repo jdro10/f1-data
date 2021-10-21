@@ -32,7 +32,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               <td style={boldFont}>First team</td>
               <td className="text-end" style={fontSize}>
                 <Row className="justify-content-end text-end">
-                  <Col xs={1}>
+                  <Col xs="auto">
                     <TeamColor
                       constructorId={
                         firstGP.Results[0].Constructor.constructorId
@@ -48,7 +48,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               <td style={boldFont}>Current/Last team</td>
               <td className="text-end" style={fontSize}>
                 <Row className="justify-content-end text-end">
-                  <Col xs={1}>
+                  <Col xs="auto">
                     <TeamColor
                       constructorId={
                         lastGP.Results[0].Constructor.constructorId

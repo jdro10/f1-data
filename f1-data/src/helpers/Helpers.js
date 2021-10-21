@@ -4,7 +4,7 @@ export function getLocalRaceDate(date, time) {
   const minutes =
     (raceDate.getMinutes() < 10 ? "0" : "") + raceDate.getMinutes();
 
-  return hours + ":" + minutes + ":00";
+  return hours + ":" + minutes;
 }
 
 export function convertDate(dateToConvert) {
