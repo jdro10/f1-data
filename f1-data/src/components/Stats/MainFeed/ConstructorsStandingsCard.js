@@ -24,7 +24,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
       cardFooter={
         <Link to="/standings">
           <Button variant={theme === "light" ? "dark" : "light"}>
-            Full standings
+            FULL STANDINGS
           </Button>
         </Link>
       }

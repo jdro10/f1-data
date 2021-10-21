@@ -53,7 +53,7 @@ const PreviousRaceCard = ({ lastRace }) => {
           to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
         >
           <Button variant={theme === "light" ? "dark" : "light"}>
-            Full race result
+            FULL RACE RESULT
           </Button>
         </Link>
       }

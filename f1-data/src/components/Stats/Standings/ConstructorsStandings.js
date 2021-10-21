@@ -18,10 +18,18 @@ const boldFont = {
 const ConstructorsStandings = ({ style, constructorsStandings }) => {
   const { theme } = useContext(ThemeContext);
 
+  const rowClick = (wikiConstructorLink) => {
+    window.open(wikiConstructorLink, "_blank");
+  };
+
   return (
     <div style={style}>
       {constructorsStandings !== null ? (
-        <Table className="standings-table table-striped" responsive="sm" variant={theme}>
+        <Table
+          className="table-hover standings-table table-striped"
+          responsive="sm"
+          variant={theme}
+        >
           <thead>
             <tr>
               <th>POS</th>
@@ -32,7 +40,11 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
           </thead>
           <tbody>
             {constructorsStandings.map((constructor, index) => (
-              <tr key={index}>
+              <tr
+                key={index}
+                style={{ cursor: "pointer" }}
+                onClick={() => rowClick(constructor.Constructor.url)}
+              >
                 <td>{constructor.position}</td>
                 <td>
                   <Row>
