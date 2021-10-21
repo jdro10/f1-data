@@ -98,7 +98,7 @@ const Driver = ({ driverId }) => {
         ).length;
 
         const totalPoints = driverRaces.reduce(
-          (acc, current) => acc + parseInt(current.Results[0].points),
+          (acc, current) => acc + parseFloat(current.Results[0].points),
           0
         );
 
