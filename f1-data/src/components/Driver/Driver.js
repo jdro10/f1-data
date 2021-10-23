@@ -13,6 +13,7 @@ const Driver = ({ driverId }) => {
   const [lastGP, setLastGP] = useState(null);
   const [firstGP, setFirstGP] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [name, setName] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
   const [driverRaces, setDriverRaces] = useState(null);
   const [driverPhoto, setDriverPhoto] = useState(null);
@@ -37,6 +38,11 @@ const Driver = ({ driverId }) => {
         .then((result) => {
           const driverURL = result.MRData.DriverTable.Drivers[0].url;
           const driverName = driverURL.split("/")[4];
+          setName(
+            result.MRData.DriverTable.Drivers[0].givenName +
+              " " +
+              result.MRData.DriverTable.Drivers[0].familyName
+          );
           setDriverNationality(
             result.MRData.DriverTable.Drivers[0].nationality
           );
@@ -150,7 +156,7 @@ const Driver = ({ driverId }) => {
                   fontSize: "60px",
                 }}
               >
-                {driverInformation[wikiPageId]["title"]}{" "}
+                {name}
               </h1>
             </Col>
             <Col xs={12} lg="auto" style={{ marginBottom: "20px" }}>

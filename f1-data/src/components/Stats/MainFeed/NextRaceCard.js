@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
@@ -6,15 +6,12 @@ import Button from "react-bootstrap/Button";
 import ClockCoutdown from "../../Countdown/ClockCountdown";
 import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
-import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
 };
 
 const NextRaceCard = ({ nextRace }) => {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <GenericCard
       cardTitle="NEXT RACE"
@@ -37,9 +34,7 @@ const NextRaceCard = ({ nextRace }) => {
       }
       cardFooter={
         <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-          <Button variant={theme === "light" ? "dark" : "light"}>
-            RACE INFORMATION
-          </Button>
+          <Button className="red-btn">RACE INFORMATION</Button>
         </Link>
       }
       cardHeight="32rem"

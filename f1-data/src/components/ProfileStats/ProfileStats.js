@@ -26,7 +26,11 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
   return (
     <div>
       <Row className="justify-content-center">
-        <Table responsive className="standings-table" variant={theme}>
+        <Table
+          responsive
+          className="standings-table table-striped"
+          variant={theme}
+        >
           <tbody>
             <tr>
               <td style={boldFont}>First team</td>

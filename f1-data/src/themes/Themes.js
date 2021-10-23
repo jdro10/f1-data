@@ -53,7 +53,22 @@ export const GlobalStyles = createGlobalStyle`
 
   .race-link:hover{
     color: ${(props) => props.theme.fontColor};
-    opacity: 0.5;
+    text-decoration: underline;
+    text-decoration-color: #e10600;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
     display: block;
+  }
+
+  .red-btn{
+    background-color: #e10600;
+    border-color: #e10600;
+    font-weight: 600;
+  }
+
+  .red-btn:hover{
+    opacity: 0.5;
+    background-color: #e10600;
+    border-color: #e10600;
   }
 `;

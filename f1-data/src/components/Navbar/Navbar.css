@@ -3,7 +3,9 @@
 }
 
 .text-link:hover {
-  opacity: 0.5;
+  text-decoration: underline;
+  text-decoration-color: #e10600;
+  text-decoration-thickness: 3px;
 }
 
 .icon-link:hover {

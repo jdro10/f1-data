@@ -70,7 +70,8 @@ const Races = () => {
             <Col>
               <Dropdown>
                 <Dropdown.Toggle
-                  variant={theme === "dark" ? "light" : "dark "}
+                  variant="danger"
+                  className="red-btn"
                   id="dropdown-basic"
                 >
                   {season}
@@ -89,7 +90,11 @@ const Races = () => {
             </Col>
           </Row>
           <Row>
-            <Table className="standings-table table-striped" responsive variant={theme}>
+            <Table
+              className="standings-table table-striped"
+              responsive
+              variant={theme}
+            >
               <tbody>
                 {seasonSchedule.map((race, index) => (
                   <tr key={index}>
