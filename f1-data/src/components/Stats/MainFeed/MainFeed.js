@@ -13,6 +13,7 @@ import Button from "react-bootstrap/Button";
 import "./Styles.css";
 
 const MainFeed = () => {
+  const CURRENT_SEASON = "2021";
   const TOTAL_NUMBER_OF_RACES = "22";
   const [nextRace, setNextRace] = useState(null);
   const [lastRace, setLastRace] = useState(null);
@@ -82,14 +83,11 @@ const MainFeed = () => {
 
   return (
     <Container style={{ minHeight: "500px" }}>
-      <Row className="justify-content-center text-center">
+      <Row className="justify-content-center text-center title">
         <Col xs={{ span: 8, offset: 2 }}>
-          <h1>
-            {loadingLastRace ? null : lastRace.MRData.RaceTable.season} FORMULA
-            ONE
-          </h1>
+          <h1>{CURRENT_SEASON} FORMULA 1</h1>
         </Col>
-        <Col xs={2} className="refresh-button text-end">
+        <Col xs={2} className="text-end">
           <Button onClick={() => refreshCache()} className="red-btn">
             <FiRefreshCcw />
           </Button>
