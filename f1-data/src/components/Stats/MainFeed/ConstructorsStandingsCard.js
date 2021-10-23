@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import GenericCard from "../../Cards/GenericCard";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
-import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const ConstructorsStandingsCard = ({ constructorsStandings }) => {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <GenericCard
       cardTitle="CONSTRUCTORS' STANDINGS"
@@ -23,9 +20,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
       }
       cardFooter={
         <Link to="/standings">
-          <Button variant={theme === "light" ? "dark" : "light"}>
-            FULL STANDINGS
-          </Button>
+          <Button className="red-btn">FULL STANDINGS</Button>
         </Link>
       }
       cardHeight="34rem"

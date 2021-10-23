@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import GenericCard from "../../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
 import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
-import { ThemeContext } from "../../../helpers/ThemeContext";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 
 const boldFont = {
@@ -12,8 +11,6 @@ const boldFont = {
 };
 
 const PreviousRaceCard = ({ lastRace }) => {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <GenericCard
       cardTitle="PREVIOUS RACE"
@@ -52,9 +49,7 @@ const PreviousRaceCard = ({ lastRace }) => {
         <Link
           to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
         >
-          <Button variant={theme === "light" ? "dark" : "light"}>
-            FULL RACE RESULT
-          </Button>
+          <Button className="red-btn">FULL RACE RESULT</Button>
         </Link>
       }
       cardHeight="34rem"

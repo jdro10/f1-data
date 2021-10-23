@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -10,12 +10,10 @@ import DriversStandingsCard from "./DriversStandingsCard";
 import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
 import { FiRefreshCcw } from "react-icons/fi";
 import Button from "react-bootstrap/Button";
-import { ThemeContext } from "../../../helpers/ThemeContext";
 import "./Styles.css";
 
 const MainFeed = () => {
   const TOTAL_NUMBER_OF_RACES = "22";
-  const { theme } = useContext(ThemeContext);
   const [nextRace, setNextRace] = useState(null);
   const [lastRace, setLastRace] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
@@ -92,10 +90,7 @@ const MainFeed = () => {
           </h1>
         </Col>
         <Col xs={2} className="refresh-button text-end">
-          <Button
-            onClick={() => refreshCache()}
-            variant={theme === "dark" ? "light" : "dark"}
-          >
+          <Button onClick={() => refreshCache()} className="red-btn">
             <FiRefreshCcw />
           </Button>
         </Col>
