@@ -52,7 +52,7 @@ const Races = () => {
       {loadingSeasonSchedule ? (
         <Container style={{ minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
-            <h1>FORMULA ONE</h1>
+            <h1>{season} FORMULA 1</h1>
             <Spinner animation="border" />
           </Row>
         </Container>
@@ -60,7 +60,7 @@ const Races = () => {
         <Container>
           <Row className="justify-content-center text-center">
             <Col>
-              <h1>FORMULA ONE - {season} SEASON</h1>
+              <h1>{season} FORMULA 1</h1>
             </Col>
           </Row>
           <Row

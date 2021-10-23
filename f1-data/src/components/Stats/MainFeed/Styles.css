@@ -1,11 +1,6 @@
 @media only screen and (max-width: 500px) {
-  .refresh-button {
-    margin-top: 15px;
-  }
-}
-
-@media only screen and (min-width: 501px) {
-  .refresh-button {
-    margin-top: 5px;
+  .title {
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
 }
