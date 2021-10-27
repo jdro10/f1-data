@@ -7,6 +7,7 @@ import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import TeamColor from "../../TeamColor/TeamColor";
 import Table from "react-bootstrap/Table";
 import { ThemeContext } from "../../../helpers/ThemeContext";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -15,11 +16,8 @@ const boldFont = {
   display: "inline",
 };
 
-const fontSize = {
-  fontSize: "25px",
-};
-
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
+  const history = useHistory();
   const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [firstGrandPrix, setFirstGrandPrix] = useState(null);
@@ -28,6 +26,14 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
   const [loadingWikiData, setLoadingWikiData] = useState(true);
   const [loadingFastestLap, setLoadingFastestLap] = useState(true);
   const [loadingFirstGrandPrix, setLoadingFirstGrandPrix] = useState(true);
+
+  const driverRowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
+
+  const constructorRowClick = (wikiConstructorLink) => {
+    window.open(wikiConstructorLink, "_blank");
+  };
 
   useEffect(() => {
     const fetchCircuitFastestLap = () => {
@@ -78,6 +84,20 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
     fetchCircuitFirstGP();
   }, [raceInfo.Circuit.circuitId, raceInfo.Circuit.circuitName]);
 
+  const calculateCircuitLength = (speed, time) => {
+    const timeSplitted = time.split(":");
+    const secondsSplitted = time.split(".");
+    const timeInSeconds =
+      parseInt(timeSplitted[0] * 60) +
+      parseInt(timeSplitted[1]) +
+      parseFloat(secondsSplitted[1] / 1000);
+    const metersPerSecond = (parseFloat(speed) * 1000) / 3600;
+
+    const length = (metersPerSecond * timeInSeconds) / 1000;
+
+    return Math.round(length * 1000) / 1000;
+  };
+
   return (
     <div>
       <Row className="text-center">
@@ -120,34 +140,51 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
       {loadingFastestLap || loadingFirstGrandPrix ? null : (
         <Table
           responsive
-          className="standings-table table-striped"
+          className="standings-table table-striped table-hover"
           variant={theme}
           style={{ marginTop: "15px" }}
         >
           <tbody>
             <tr>
-              <td style={fontSize}>First grand prix</td>
-              <td style={fontSize} className="text-end">
-                {firstGrandPrix}
-              </td>
+              <td className="row-stats">First grand prix</td>
+              <td className="text-end row-stats">{firstGrandPrix}</td>
             </tr>
             {fastestLap === undefined ? null : (
               <>
                 <tr>
-                  <td style={fontSize}>Lap record</td>
-                  <td style={fontSize} className="text-end">
-                    {fastestLap.Results[0].FastestLap.Time.time}
+                  <td className="row-stats">Lap record (All track layouts)</td>
+                  <td className="text-end row-stats">
+                    {fastestLap.Results[0].FastestLap.Time.time} (
+                    {fastestLap.season})
                   </td>
                 </tr>
                 <tr>
-                  <td style={fontSize}>Average speed</td>
-                  <td style={fontSize} className="text-end">
+                  <td className="row-stats">Average speed</td>
+                  <td className="text-end row-stats">
                     {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h
                   </td>
                 </tr>
                 <tr>
-                  <td style={fontSize}>Driver</td>
-                  <td style={fontSize} className="text-end">
+                  <td className="row-stats">Length</td>
+                  <td className="text-end row-stats">
+                    ~{" "}
+                    {calculateCircuitLength(
+                      parseFloat(
+                        fastestLap.Results[0].FastestLap.AverageSpeed.speed
+                      ),
+                      fastestLap.Results[0].FastestLap.Time.time
+                    )}{" "}
+                    km
+                  </td>
+                </tr>
+                <tr>
+                  <td className="row-stats">Driver</td>
+                  <td
+                    className="clickable-row text-end"
+                    onClick={() =>
+                      driverRowClick(fastestLap.Results[0].Driver.driverId)
+                    }
+                  >
                     {fastestLap.Results[0].Driver.givenName}{" "}
                     <p style={boldFont}>
                       {fastestLap.Results[0].Driver.familyName.toUpperCase()}
@@ -155,8 +192,13 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
                   </td>
                 </tr>
                 <tr>
-                  <td style={fontSize}>Team</td>
-                  <td style={fontSize} className="text-end">
+                  <td className="row-stats">Team</td>
+                  <td
+                    className="clickable-row text-end"
+                    onClick={() =>
+                      constructorRowClick(fastestLap.Results[0].Constructor.url)
+                    }
+                  >
                     <Row className="justify-content-end text-end">
                       <Col xs="auto">
                         <TeamColor

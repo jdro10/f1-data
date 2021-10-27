@@ -20,3 +20,12 @@
   overflow: hidden;
   border-radius: 5px;
 }
+
+.row-stats {
+  font-size: 25px;
+}
+
+.clickable-row {
+    font-size: 25px;
+    cursor: pointer;
+}
