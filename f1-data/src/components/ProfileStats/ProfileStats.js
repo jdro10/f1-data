@@ -11,15 +11,6 @@ import { ThemeContext } from "../../helpers/ThemeContext";
 import { FaStopwatch } from "react-icons/fa";
 import "../SharedStyles/Table.css";
 
-const boldFont = {
-  fontWeight: "600",
-  fontSize: "25px",
-};
-
-const fontSize = {
-  fontSize: "25px",
-};
-
 const ProfileStats = ({ stats, firstGP, lastGP }) => {
   const { theme } = useContext(ThemeContext);
 
@@ -33,8 +24,8 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
         >
           <tbody>
             <tr>
-              <td style={boldFont}>First team</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">First team</td>
+              <td className="text-end row-stats">
                 <Row className="justify-content-end text-end">
                   <Col xs="auto">
                     <TeamColor
@@ -49,8 +40,8 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Current/Last team</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Current/Last team</td>
+              <td className="text-end row-stats">
                 <Row className="justify-content-end text-end">
                   <Col xs="auto">
                     <TeamColor
@@ -65,56 +56,56 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Wins</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Wins</td>
+              <td className="text-end row-stats">
                 {stats.wins} <GiPodiumWinner />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Podiums</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Podiums</td>
+              <td className="text-end row-stats">
                 {stats.podiums} <GiPodium />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Fastest laps</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Fastest laps</td>
+              <td className="text-end row-stats">
                 {stats.totalFastestLaps} <FaStopwatch />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Pole positions</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Pole positions</td>
+              <td className="text-end row-stats">
                 {stats.poles} <SiFastly />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Total points</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Total points</td>
+              <td className="text-end row-stats">
                 {stats.totalPoints} <GiRaceCar size={30} />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Total GPs entered</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Total GPs entered</td>
+              <td className="text-end row-stats">
                 {stats.totalGrandPrix} <GiRaceCar size={30} />
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>First GP</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">First GP</td>
+              <td className="text-end row-stats">
                 {firstGP.raceName} {firstGP.season}
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Last GP</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Last GP</td>
+              <td className="text-end row-stats">
                 {lastGP.raceName + " " + lastGP.season}
               </td>
             </tr>
             <tr>
-              <td style={boldFont}>Total laps raced</td>
-              <td className="text-end" style={fontSize}>
+              <td className="row-stats">Total laps raced</td>
+              <td className="text-end row-stats">
                 {stats.totalLapsRaced} <GiRaceCar size={30} />
               </td>
             </tr>

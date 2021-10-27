@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Map from "../../Map/Map";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import TeamColor from "../../TeamColor/TeamColor";
+import Table from "react-bootstrap/Table";
+import { ThemeContext } from "../../../helpers/ThemeContext";
+import { useHistory } from "react-router-dom";
 
 const boldFont = {
   fontWeight: 600,
@@ -14,6 +17,8 @@ const boldFont = {
 };
 
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
+  const history = useHistory();
+  const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [firstGrandPrix, setFirstGrandPrix] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
@@ -21,6 +26,14 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
   const [loadingWikiData, setLoadingWikiData] = useState(true);
   const [loadingFastestLap, setLoadingFastestLap] = useState(true);
   const [loadingFirstGrandPrix, setLoadingFirstGrandPrix] = useState(true);
+
+  const driverRowClick = (driverId) => {
+    history.push(`/driver/${driverId}`);
+  };
+
+  const constructorRowClick = (wikiConstructorLink) => {
+    window.open(wikiConstructorLink, "_blank");
+  };
 
   useEffect(() => {
     const fetchCircuitFastestLap = () => {
@@ -71,6 +84,20 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
     fetchCircuitFirstGP();
   }, [raceInfo.Circuit.circuitId, raceInfo.Circuit.circuitName]);
 
+  const calculateCircuitLength = (speed, time) => {
+    const timeSplitted = time.split(":");
+    const secondsSplitted = time.split(".");
+    const timeInSeconds =
+      parseInt(timeSplitted[0] * 60) +
+      parseInt(timeSplitted[1]) +
+      parseFloat(secondsSplitted[1] / 1000);
+    const metersPerSecond = (parseFloat(speed) * 1000) / 3600;
+
+    const length = (metersPerSecond * timeInSeconds) / 1000;
+
+    return Math.round(length * 1000) / 1000;
+  };
+
   return (
     <div>
       <Row className="text-center">
@@ -101,69 +128,97 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
         </Row>
       )}
 
-      <Row>
-        <Col>
-          <Map
-            coordinates={[
-              raceInfo.Circuit.Location.lat,
-              raceInfo.Circuit.Location.long,
-            ]}
-            circuitName={raceInfo.Circuit.circuitName}
-            mapHeight={{ height: "700px" }}
-          />
-        </Col>
-        <Col style={{ marginTop: "5%" }}>
-          {loadingFastestLap || loadingFirstGrandPrix ? null : (
-            <>
-              <Row className="text-center">
-                <h5 style={{ fontSize: "30px" }}>First Grand Prix</h5>
-                <h5>{firstGrandPrix}</h5>
-              </Row>
-              {fastestLap === undefined ? null : (
-                <div>
-                  <Row className="text-center">
-                    <h5 style={{ fontSize: "30px" }}>Lap record</h5>
-                    <h5>{fastestLap.Results[0].FastestLap.Time.time}</h5>
-                    <h5 style={{ fontSize: "25px" }}>{fastestLap.season}</h5>
-                  </Row>
-                  <Row className="justify-content-center text-center">
-                    <Col xs="auto">
-                      <TeamColor
-                        constructorId={
-                          fastestLap.Results[0].Constructor.constructorId
-                        }
-                        height="50px"
-                      />
-                    </Col>
-                    <Col xs={4}>
-                      <h5 style={{ fontSize: "20px" }}>
-                        {fastestLap.Results[0].Driver.givenName}{" "}
-                        <p style={boldFont}>
-                          {fastestLap.Results[0].Driver.familyName.toUpperCase()}
-                        </p>
-                      </h5>
-                    </Col>
-                    <Col xs={2}>
-                      <CircleFlag
-                        countryCode={CountriesCodeNationality[
-                          fastestLap.Results[0].Driver.nationality
-                        ].toLowerCase()}
-                        height={40}
-                        width={50}
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="text-center">
-                    <h5 style={{ fontSize: "25px" }}>
-                      {fastestLap.Results[0].Constructor.name}{" "}
-                    </h5>
-                  </Row>
-                </div>
-              )}
-            </>
-          )}
-        </Col>
-      </Row>
+      <Map
+        coordinates={[
+          raceInfo.Circuit.Location.lat,
+          raceInfo.Circuit.Location.long,
+        ]}
+        circuitName={raceInfo.Circuit.circuitName}
+        mapHeight={{ height: "700px" }}
+      />
+
+      {loadingFastestLap || loadingFirstGrandPrix ? null : (
+        <Table
+          responsive
+          className="standings-table table-striped table-hover"
+          variant={theme}
+          style={{ marginTop: "15px" }}
+        >
+          <tbody>
+            <tr>
+              <td className="row-stats">First grand prix</td>
+              <td className="text-end row-stats">{firstGrandPrix}</td>
+            </tr>
+            {fastestLap === undefined ? null : (
+              <>
+                <tr>
+                  <td className="row-stats">Lap record (All track layouts)</td>
+                  <td className="text-end row-stats">
+                    {fastestLap.Results[0].FastestLap.Time.time} (
+                    {fastestLap.season})
+                  </td>
+                </tr>
+                <tr>
+                  <td className="row-stats">Average speed</td>
+                  <td className="text-end row-stats">
+                    {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h
+                  </td>
+                </tr>
+                <tr>
+                  <td className="row-stats">Length</td>
+                  <td className="text-end row-stats">
+                    ~{" "}
+                    {calculateCircuitLength(
+                      parseFloat(
+                        fastestLap.Results[0].FastestLap.AverageSpeed.speed
+                      ),
+                      fastestLap.Results[0].FastestLap.Time.time
+                    )}{" "}
+                    km
+                  </td>
+                </tr>
+                <tr>
+                  <td className="row-stats">Driver</td>
+                  <td
+                    className="clickable-row text-end"
+                    onClick={() =>
+                      driverRowClick(fastestLap.Results[0].Driver.driverId)
+                    }
+                  >
+                    {fastestLap.Results[0].Driver.givenName}{" "}
+                    <p style={boldFont}>
+                      {fastestLap.Results[0].Driver.familyName.toUpperCase()}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="row-stats">Team</td>
+                  <td
+                    className="clickable-row text-end"
+                    onClick={() =>
+                      constructorRowClick(fastestLap.Results[0].Constructor.url)
+                    }
+                  >
+                    <Row className="justify-content-end text-end">
+                      <Col xs="auto">
+                        <TeamColor
+                          constructorId={
+                            fastestLap.Results[0].Constructor.constructorId
+                          }
+                          height="35px"
+                        />
+                      </Col>
+                      <Col xs="auto">
+                        {fastestLap.Results[0].Constructor.name}
+                      </Col>
+                    </Row>
+                  </td>
+                </tr>
+              </>
+            )}
+          </tbody>
+        </Table>
+      )}
     </div>
   );
 };
