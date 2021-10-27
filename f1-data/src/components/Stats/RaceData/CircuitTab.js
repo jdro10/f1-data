@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Map from "../../Map/Map";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
 import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
 import TeamColor from "../../TeamColor/TeamColor";
+import Table from "react-bootstrap/Table";
+import { ThemeContext } from "../../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
@@ -13,7 +15,12 @@ const boldFont = {
   display: "inline",
 };
 
+const fontSize = {
+  fontSize: "25px",
+};
+
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
+  const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [firstGrandPrix, setFirstGrandPrix] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
@@ -101,69 +108,75 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
         </Row>
       )}
 
-      <Row>
-        <Col>
-          <Map
-            coordinates={[
-              raceInfo.Circuit.Location.lat,
-              raceInfo.Circuit.Location.long,
-            ]}
-            circuitName={raceInfo.Circuit.circuitName}
-            mapHeight={{ height: "700px" }}
-          />
-        </Col>
-        <Col style={{ marginTop: "5%" }}>
-          {loadingFastestLap || loadingFirstGrandPrix ? null : (
-            <>
-              <Row className="text-center">
-                <h5 style={{ fontSize: "30px" }}>First Grand Prix</h5>
-                <h5>{firstGrandPrix}</h5>
-              </Row>
-              {fastestLap === undefined ? null : (
-                <div>
-                  <Row className="text-center">
-                    <h5 style={{ fontSize: "30px" }}>Lap record</h5>
-                    <h5>{fastestLap.Results[0].FastestLap.Time.time}</h5>
-                    <h5 style={{ fontSize: "25px" }}>{fastestLap.season}</h5>
-                  </Row>
-                  <Row className="justify-content-center text-center">
-                    <Col xs="auto">
-                      <TeamColor
-                        constructorId={
-                          fastestLap.Results[0].Constructor.constructorId
-                        }
-                        height="50px"
-                      />
-                    </Col>
-                    <Col xs={4}>
-                      <h5 style={{ fontSize: "20px" }}>
-                        {fastestLap.Results[0].Driver.givenName}{" "}
-                        <p style={boldFont}>
-                          {fastestLap.Results[0].Driver.familyName.toUpperCase()}
-                        </p>
-                      </h5>
-                    </Col>
-                    <Col xs={2}>
-                      <CircleFlag
-                        countryCode={CountriesCodeNationality[
-                          fastestLap.Results[0].Driver.nationality
-                        ].toLowerCase()}
-                        height={40}
-                        width={50}
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="text-center">
-                    <h5 style={{ fontSize: "25px" }}>
-                      {fastestLap.Results[0].Constructor.name}{" "}
-                    </h5>
-                  </Row>
-                </div>
-              )}
-            </>
-          )}
-        </Col>
-      </Row>
+      <Map
+        coordinates={[
+          raceInfo.Circuit.Location.lat,
+          raceInfo.Circuit.Location.long,
+        ]}
+        circuitName={raceInfo.Circuit.circuitName}
+        mapHeight={{ height: "700px" }}
+      />
+
+      {loadingFastestLap || loadingFirstGrandPrix ? null : (
+        <Table
+          responsive
+          className="standings-table table-striped"
+          variant={theme}
+          style={{ marginTop: "15px" }}
+        >
+          <tbody>
+            <tr>
+              <td style={fontSize}>First grand prix</td>
+              <td style={fontSize} className="text-end">
+                {firstGrandPrix}
+              </td>
+            </tr>
+            {fastestLap === undefined ? null : (
+              <>
+                <tr>
+                  <td style={fontSize}>Lap record</td>
+                  <td style={fontSize} className="text-end">
+                    {fastestLap.Results[0].FastestLap.Time.time}
+                  </td>
+                </tr>
+                <tr>
+                  <td style={fontSize}>Average speed</td>
+                  <td style={fontSize} className="text-end">
+                    {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h
+                  </td>
+                </tr>
+                <tr>
+                  <td style={fontSize}>Driver</td>
+                  <td style={fontSize} className="text-end">
+                    {fastestLap.Results[0].Driver.givenName}{" "}
+                    <p style={boldFont}>
+                      {fastestLap.Results[0].Driver.familyName.toUpperCase()}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style={fontSize}>Team</td>
+                  <td style={fontSize} className="text-end">
+                    <Row className="justify-content-end text-end">
+                      <Col xs="auto">
+                        <TeamColor
+                          constructorId={
+                            fastestLap.Results[0].Constructor.constructorId
+                          }
+                          height="35px"
+                        />
+                      </Col>
+                      <Col xs="auto">
+                        {fastestLap.Results[0].Constructor.name}
+                      </Col>
+                    </Row>
+                  </td>
+                </tr>
+              </>
+            )}
+          </tbody>
+        </Table>
+      )}
     </div>
   );
 };
