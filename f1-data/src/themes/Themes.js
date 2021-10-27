@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  body: "#F4F4F4",
+  body: "#FFFFFF",
   fontColor: "#000",
-  scrollColor: "#F4F4F4",
+  scrollColor: "#FFFFFF",
 };
 
 export const darkTheme = {
