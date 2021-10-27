@@ -19,6 +19,7 @@ const boldFont = {
 const CircuitTab = ({ raceInfo, eventCountryCode }) => {
   const history = useHistory();
   const { theme } = useContext(ThemeContext);
+  const [lastGP, setLastGP] = useState(null);
   const [fastestLap, setFastestLap] = useState(null);
   const [firstGrandPrix, setFirstGrandPrix] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
@@ -53,6 +54,11 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
             }
           });
 
+          setLastGP(
+            result.MRData.RaceTable.Races[
+              result.MRData.RaceTable.Races.length - 1
+            ]
+          );
           setFastestLap(bestLap);
           setLoadingFastestLap(false);
         });
@@ -152,6 +158,18 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
             {fastestLap === undefined ? null : (
               <>
                 <tr>
+                  <td className="row-stats">Current layout length</td>
+                  <td className="text-end row-stats">
+                    {calculateCircuitLength(
+                      parseFloat(
+                        lastGP.Results[0].FastestLap.AverageSpeed.speed
+                      ),
+                      lastGP.Results[0].FastestLap.Time.time
+                    )}{" "}
+                    km
+                  </td>
+                </tr>
+                <tr>
                   <td className="row-stats">Lap record (All track layouts)</td>
                   <td className="text-end row-stats">
                     {fastestLap.Results[0].FastestLap.Time.time} (
@@ -167,7 +185,6 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
                 <tr>
                   <td className="row-stats">Length</td>
                   <td className="text-end row-stats">
-                    ~{" "}
                     {calculateCircuitLength(
                       parseFloat(
                         fastestLap.Results[0].FastestLap.AverageSpeed.speed
