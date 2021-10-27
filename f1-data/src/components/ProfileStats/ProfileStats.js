@@ -24,7 +24,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
         >
           <tbody>
             <tr>
-              <td className="row-stats">First team</td>
+              <td className="row-stats">Former team</td>
               <td className="text-end row-stats">
                 <Row className="justify-content-end text-end">
                   <Col xs="auto">
@@ -32,7 +32,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
                       constructorId={
                         firstGP.Results[0].Constructor.constructorId
                       }
-                      height="42px"
+                      height="30px"
                     />
                   </Col>
                   <Col xs="auto">{firstGP.Results[0].Constructor.name}</Col>
@@ -40,7 +40,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Current/Last team</td>
+              <td className="row-stats">Team</td>
               <td className="text-end row-stats">
                 <Row className="justify-content-end text-end">
                   <Col xs="auto">
@@ -48,7 +48,7 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
                       constructorId={
                         lastGP.Results[0].Constructor.constructorId
                       }
-                      height="42px"
+                      height="30px"
                     />
                   </Col>
                   <Col xs="auto">{lastGP.Results[0].Constructor.name}</Col>
@@ -86,19 +86,19 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Total GPs entered</td>
+              <td className="row-stats">Grands Prix entered</td>
               <td className="text-end row-stats">
                 {stats.totalGrandPrix} <GiRaceCar size={30} />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">First GP</td>
+              <td className="row-stats">First race</td>
               <td className="text-end row-stats">
                 {firstGP.raceName} {firstGP.season}
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Last GP</td>
+              <td className="row-stats">Last race</td>
               <td className="text-end row-stats">
                 {lastGP.raceName + " " + lastGP.season}
               </td>

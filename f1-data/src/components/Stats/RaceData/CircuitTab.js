@@ -222,7 +222,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
                           constructorId={
                             fastestLap.Results[0].Constructor.constructorId
                           }
-                          height="35px"
+                          height="30px"
                         />
                       </Col>
                       <Col xs="auto">

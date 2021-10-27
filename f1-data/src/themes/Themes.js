@@ -64,6 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #e10600;
     border-color: #e10600;
     font-weight: 600;
+    border-radius: 15px;
   }
 
   .red-btn:hover{

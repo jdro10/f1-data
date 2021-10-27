@@ -174,7 +174,7 @@ const Driver = ({ driverId }) => {
             <Col xs={12} lg={3} style={{ marginBottom: "10px" }}>
               {driverPhoto[wikiPageId].hasOwnProperty("original") ? (
                 <img
-                  style={{ borderRadius: "10px" }}
+                  style={{ borderRadius: "15px" }}
                   src={driverPhoto[wikiPageId]["original"]["source"]}
                   width="250px"
                   alt="driver"
