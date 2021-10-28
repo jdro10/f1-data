@@ -54,9 +54,9 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
     >
       <tbody>
         <tr>
-          <td className="row-stats align-middle">First Grand Prix:</td>
+          <td className="row-stats">First Grand Prix:</td>
           <td
-            className=" text-end clickable-row"
+            className=" text-end clickable-row no-wrap"
             onClick={() => raceRowClick(firstGP.season, firstGP.round)}
           >
             {firstGP.season} {firstGP.raceName}

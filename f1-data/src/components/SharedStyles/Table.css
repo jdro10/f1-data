@@ -38,3 +38,7 @@
   overflow: hidden;
   border-radius: 15px;
 }
+
+.no-wrap {
+  white-space: nowrap;
+}

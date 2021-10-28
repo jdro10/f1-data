@@ -113,7 +113,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
             <tr>
               <td className="row-stats">First race:</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row no-wrap"
                 onClick={() => raceRowClick(firstGP.season, firstGP.round)}
               >
                 {firstGP.raceName} {firstGP.season}
@@ -122,7 +122,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
             <tr>
               <td className="row-stats">Last race:</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row no-wrap"
                 onClick={() => raceRowClick(lastGP.season, lastGP.round)}
               >
                 {lastGP.raceName + " " + lastGP.season}
