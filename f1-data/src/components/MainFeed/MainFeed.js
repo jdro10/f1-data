@@ -88,7 +88,11 @@ const MainFeed = () => {
           <h1>{CURRENT_SEASON} FORMULA 1</h1>
         </Col>
         <Col xs={2} className="text-end">
-          <Button onClick={() => refreshCache()} className="red-btn">
+          <Button
+            onClick={() => refreshCache()}
+            className="red-btn"
+            variant="danger"
+          >
             <FiRefreshCcw />
           </Button>
         </Col>
