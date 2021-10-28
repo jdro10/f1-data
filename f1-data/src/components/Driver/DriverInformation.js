@@ -11,7 +11,7 @@ import { ThemeContext } from "../../helpers/ThemeContext";
 import { FaStopwatch } from "react-icons/fa";
 import "../SharedStyles/Table.css";
 
-const ProfileStats = ({ stats, firstGP, lastGP }) => {
+const DriverInformation = ({ stats, firstGP, lastGP }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -116,4 +116,4 @@ const ProfileStats = ({ stats, firstGP, lastGP }) => {
   );
 };
 
-export default ProfileStats;
+export default DriverInformation;

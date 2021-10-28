@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import EventTabs from "./EventTabs";
+import Event from "./Event";
 import { Redirect } from "react-router-dom";
 
 const FutureRace = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
-  const [raceQualifying, setRaceQualifying] = useState(null);
+  const [qualifying, setQualifying] = useState(null);
   const [loadingRaceInfo, setLoadingRaceInfo] = useState(true);
-  const [loadingRaceQualifying, setLoadingRaceQualifying] = useState(true);
+  const [loadingQualifying, setLoadingQualifying] = useState(true);
 
   useEffect(() => {
     const fetchRaceInfo = async () => {
@@ -24,38 +24,36 @@ const FutureRace = ({ season, round }) => {
       setLoadingRaceInfo(false);
     };
 
-    const fetchRaceQualifying = async () => {
+    const fetchQualifying = async () => {
       await fetch(
         `https://ergast.com/api/f1/${season}/${round}/qualifying.json`
       )
         .then((res) => res.json())
         .then((result) => {
           if (result.MRData.RaceTable.Races[0] !== undefined) {
-            setRaceQualifying(
-              result.MRData.RaceTable.Races[0].QualifyingResults
-            );
+            setQualifying(result.MRData.RaceTable.Races[0].QualifyingResults);
           }
         });
 
-      setLoadingRaceQualifying(false);
+      setLoadingQualifying(false);
     };
 
     fetchRaceInfo();
-    fetchRaceQualifying();
+    fetchQualifying();
   }, [season, round]);
 
   return (
     <div>
       <Container fluid="md" style={{ minHeight: "500px" }}>
-        {loadingRaceInfo || loadingRaceQualifying ? null : raceInfo === null ? (
+        {loadingRaceInfo || loadingQualifying ? null : raceInfo === null ? (
           <Redirect to="/error" />
         ) : (
           <div>
-            <EventTabs
+            <Event
               season={season}
               round={round}
               raceInfo={raceInfo}
-              raceQualifying={raceQualifying}
+              qualifyingClassification={qualifying}
             />
           </div>
         )}

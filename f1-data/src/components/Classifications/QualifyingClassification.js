@@ -14,7 +14,7 @@ const boldFont = {
   display: "inline",
 };
 
-const RaceQualifying = ({ raceQualifying }) => {
+const QualifyingClassification = ({ qualifyingClassification }) => {
   const history = useHistory();
   const { theme } = useContext(ThemeContext);
 
@@ -40,7 +40,7 @@ const RaceQualifying = ({ raceQualifying }) => {
         </tr>
       </thead>
       <tbody>
-        {raceQualifying.map((driver, index) => (
+        {qualifyingClassification.map((driver, index) => (
           <tr
             key={index}
             style={{ cursor: "pointer" }}
@@ -92,4 +92,4 @@ const RaceQualifying = ({ raceQualifying }) => {
   );
 };
 
-export default RaceQualifying;
+export default QualifyingClassification;

@@ -4,7 +4,7 @@ import { CircleFlag } from "react-circle-flags";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
-const RaceTab = ({ raceInfo, eventCountryCode }) => {
+const RaceInformation = ({ raceInfo, eventCountryCode }) => {
   return (
     <div>
       <Row className="justify-content-center text-center">
@@ -42,4 +42,4 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
   );
 };
 
-export default RaceTab;
+export default RaceInformation;
