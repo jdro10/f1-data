@@ -131,13 +131,12 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
                   constructorRowClick(fastestLap.Results[0].Constructor.url)
                 }
               >
-                <Row className="justify-content-end text-end">
-                  <Col xs="auto">
+                <Row className="justify-content-end text-end g-2">
+                  <Col className="align-self-center" xs="auto">
                     <TeamColor
                       constructorId={
                         fastestLap.Results[0].Constructor.constructorId
                       }
-                      height="30px"
                     />
                   </Col>
                   <Col xs="auto">{fastestLap.Results[0].Constructor.name}</Col>

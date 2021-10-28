@@ -2,11 +2,29 @@
   .hideXS {
     display: none;
   }
+
+  .row-stats {
+    font-size: 17px;
+  }
+
+  .clickable-row {
+    font-size: 17px;
+    cursor: pointer;
+  }
 }
 
 @media only screen and (min-width: 481px) {
   .showXS {
     display: none;
+  }
+
+  .row-stats {
+    font-size: 25px;
+  }
+
+  .clickable-row {
+    font-size: 25px;
+    cursor: pointer;
   }
 }
 
@@ -19,26 +37,4 @@
 .standings-table {
   overflow: hidden;
   border-radius: 15px;
-}
-
-@media only screen and (max-width: 480px) {
-  .row-stats {
-    font-size: 17px;
-  }
-
-  .clickable-row {
-    font-size: 17px;
-    cursor: pointer;
-  }
-}
-
-@media only screen and (min-width: 481px) {
-  .row-stats {
-    font-size: 25px;
-  }
-
-  .clickable-row {
-    font-size: 25px;
-    cursor: pointer;
-  }
 }

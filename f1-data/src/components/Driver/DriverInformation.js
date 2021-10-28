@@ -39,13 +39,12 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 className="text-end clickable-row"
                 onClick={() => teamRowClick(firstGP.Results[0].Constructor.url)}
               >
-                <Row className="justify-content-end text-end">
-                  <Col xs="auto">
+                <Row className="justify-content-end text-end g-2">
+                  <Col className="align-self-center" xs="auto">
                     <TeamColor
                       constructorId={
                         firstGP.Results[0].Constructor.constructorId
                       }
-                      height="30px"
                     />
                   </Col>
                   <Col xs="auto">{firstGP.Results[0].Constructor.name}</Col>
@@ -58,8 +57,8 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 className="text-end clickable-row"
                 onClick={() => teamRowClick(lastGP.Results[0].Constructor.url)}
               >
-                <Row className="justify-content-end text-end">
-                  <Col xs="auto">
+                <Row className="justify-content-end text-end g-2">
+                  <Col className="align-self-center" xs="auto">
                     <TeamColor
                       constructorId={
                         lastGP.Results[0].Constructor.constructorId
