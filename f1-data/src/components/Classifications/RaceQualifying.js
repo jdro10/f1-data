@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Table from "react-bootstrap/Table";
-import "../../SharedStyles/Table.css";
+import "../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import TeamColor from "../../TeamColor/TeamColor";
+import TeamColor from "../TeamColor/TeamColor";
 import { useHistory } from "react-router-dom";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,

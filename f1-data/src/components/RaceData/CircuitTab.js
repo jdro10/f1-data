@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import Map from "../../Map/Map";
+import Map from "../Map/Map";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
-import TeamColor from "../../TeamColor/TeamColor";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
+import TeamColor from "../TeamColor/TeamColor";
 import Table from "react-bootstrap/Table";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 import { useHistory } from "react-router-dom";
 
 const boldFont = {

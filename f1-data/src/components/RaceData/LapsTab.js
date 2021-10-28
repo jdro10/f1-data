@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
-import { LineColors } from "../../../data/LineColors";
+import { LineColors } from "../../data/LineColors";
 import MediaQuery from "react-responsive";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 import Row from "react-bootstrap/Row";
 
 const LapsTab = ({ season, round }) => {

@@ -9,7 +9,7 @@ import { lightTheme, darkTheme, GlobalStyles } from "./themes/Themes";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const RaceResult = lazy(() => import("./pages/RaceResult"));
-const SeasonRaces = lazy(() => import("./pages/SeasonRaces"));
+const SeasonRaces = lazy(() => import("./pages/SeasonCalendar"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const StandingsPage = lazy(() => import("./pages/StandingsPage"));
 const DriverPage = lazy(() => import("./pages/DriverPage"));

@@ -6,7 +6,7 @@ import RaceQualifying from "../Classifications/RaceQualifying";
 import RaceTab from "./RaceTab";
 import CircuitTab from "./CircuitTab";
 import Row from "react-bootstrap/Row";
-import ClockCountdown from "../../Countdown/ClockCountdown";
+import ClockCountdown from "../Countdown/ClockCountdown";
 import LapsTab from "./LapsTab";
 
 const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {

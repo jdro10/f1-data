@@ -1,11 +1,11 @@
 import React from "react";
-import GenericCard from "../../Cards/GenericCard";
+import GenericCard from "../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import Button from "react-bootstrap/Button";
-import ClockCoutdown from "../../Countdown/ClockCountdown";
-import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import ClockCoutdown from "../Countdown/ClockCountdown";
+import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const boldFont = {
   fontWeight: 600,

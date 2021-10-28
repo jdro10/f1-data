@@ -1,8 +1,8 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
-import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceTab = ({ raceInfo, eventCountryCode }) => {
   return (

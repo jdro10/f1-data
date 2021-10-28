@@ -7,7 +7,7 @@ import Alert from "react-bootstrap/Alert";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
-const RaceInfo = ({ race }) => {
+const RaceInformation = ({ race }) => {
   return (
     <Row className="center-xs justify-content-between">
       <Col xs={12} md={12} lg="auto" className="text-center">
@@ -40,4 +40,4 @@ const RaceInfo = ({ race }) => {
   );
 };
 
-export default RaceInfo;
+export default RaceInformation;

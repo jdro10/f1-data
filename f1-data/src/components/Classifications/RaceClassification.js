@@ -3,10 +3,10 @@ import Table from "react-bootstrap/Table";
 import { FaStopwatch } from "react-icons/fa";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../SharedStyles/Table.css";
-import TeamColor from "../../TeamColor/TeamColor";
+import "../SharedStyles/Table.css";
+import TeamColor from "../TeamColor/TeamColor";
 import { useHistory } from "react-router-dom";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,

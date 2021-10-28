@@ -1,5 +1,5 @@
 import React from "react";
-import GenericCard from "../../Cards/GenericCard";
+import GenericCard from "../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import DriversStandings from "../Standings/DriversStandings";
 import Button from "react-bootstrap/Button";

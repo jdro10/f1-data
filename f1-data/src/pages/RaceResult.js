@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Race from "../components/Stats/RaceData/Race";
+import Race from "../components/RaceData/Race";
 import { useParams } from "react-router-dom";
 
 const RaceResult = () => {
