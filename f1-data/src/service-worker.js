@@ -3,6 +3,12 @@ import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
+import { setCacheNameDetails } from "workbox-core";
+
+setCacheNameDetails({
+  prefix: "f1-data",
+  suffix: "v1",
+});
 
 var CACHE_NAME = "v1.0";
 var URLS_TO_CACHE = ["/"];
@@ -12,7 +18,6 @@ self.addEventListener("install", function (event) {
 
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      console.log("Opened cache", CACHE_NAME);
       return cache.addAll(URLS_TO_CACHE);
     })
   );
@@ -26,7 +31,6 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         keyList.map((key) => {
           if (cacheKeeplist.indexOf(key) === -1) {
-            console.log("deleted ", key);
             return caches.delete(key);
           }
         })
