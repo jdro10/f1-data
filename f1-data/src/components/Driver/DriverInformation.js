@@ -34,7 +34,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
         >
           <tbody>
             <tr>
-              <td className="row-stats">Former team</td>
+              <td className="row-stats">Former team:</td>
               <td
                 className="text-end clickable-row"
                 onClick={() => teamRowClick(firstGP.Results[0].Constructor.url)}
@@ -52,7 +52,11 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Team</td>
+              <td className="row-stats">
+                {parseInt(lastGP.season) !== new Date().getFullYear()
+                  ? "Last team:"
+                  : "Current team:"}
+              </td>
               <td
                 className="text-end clickable-row"
                 onClick={() => teamRowClick(lastGP.Results[0].Constructor.url)}
@@ -71,43 +75,43 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Wins</td>
+              <td className="row-stats">Wins:</td>
               <td className="text-end row-stats">
                 {stats.wins} <GiPodiumWinner />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Podiums</td>
+              <td className="row-stats">Podiums:</td>
               <td className="text-end row-stats">
                 {stats.podiums} <GiPodium />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Fastest laps</td>
+              <td className="row-stats">Fastest laps:</td>
               <td className="text-end row-stats">
                 {stats.totalFastestLaps} <FaStopwatch />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Pole positions</td>
+              <td className="row-stats">Pole positions:</td>
               <td className="text-end row-stats">
                 {stats.poles} <SiFastly />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Total points</td>
+              <td className="row-stats">Total points:</td>
               <td className="text-end row-stats">
                 {stats.totalPoints} <GiRaceCar size={30} />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Grands Prix entered</td>
+              <td className="row-stats">Grands Prix entered:</td>
               <td className="text-end row-stats">
                 {stats.totalGrandPrix} <GiRaceCar size={30} />
               </td>
             </tr>
             <tr>
-              <td className="row-stats">First race</td>
+              <td className="row-stats">First race:</td>
               <td
                 className="text-end clickable-row"
                 onClick={() => raceRowClick(firstGP.season, firstGP.round)}
@@ -116,7 +120,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Last race</td>
+              <td className="row-stats">Last race:</td>
               <td
                 className="text-end clickable-row"
                 onClick={() => raceRowClick(lastGP.season, lastGP.round)}
@@ -125,7 +129,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Total laps raced</td>
+              <td className="row-stats">Total laps raced:</td>
               <td className="text-end row-stats">
                 {stats.totalLapsRaced} <GiRaceCar size={30} />
               </td>

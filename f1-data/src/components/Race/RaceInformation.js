@@ -16,16 +16,21 @@ const RaceInformation = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>{convertDate(raceInfo.date)}</h3>
+          <h3>ROUND {raceInfo.round}</h3>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>
+          <h5>{convertDate(raceInfo.date)}</h5>
+        </Col>
+      </Row>
+      <Row className="justify-content-center text-center">
+        <Col md="auto">
+          <h5>
             {raceInfo.hasOwnProperty("time")
               ? getLocalRaceDate(raceInfo.date, raceInfo.time)
               : null}
-          </h3>
+          </h5>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">

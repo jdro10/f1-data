@@ -54,7 +54,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
     >
       <tbody>
         <tr>
-          <td className="row-stats align-middle">First grand prix</td>
+          <td className="row-stats align-middle">First Grand Prix:</td>
           <td
             className=" text-end clickable-row"
             onClick={() => raceRowClick(firstGP.season, firstGP.round)}
@@ -65,7 +65,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
         {fastestLap === undefined ? null : (
           <>
             <tr>
-              <td className="row-stats">Current layout length</td>
+              <td className="row-stats">Current circuit layout length:</td>
               <td className="text-end row-stats">
                 {calculateCircuitLength(
                   parseFloat(lastGP.Results[0].FastestLap.AverageSpeed.speed),
@@ -75,7 +75,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Lap record (All track layouts)</td>
+              <td className="row-stats">Lap record (All circuit's layouts):</td>
               <td
                 className="text-end clickable-row"
                 onClick={() =>
@@ -87,7 +87,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Average speed</td>
+              <td className="row-stats">Average speed:</td>
               <td
                 className="text-end clickable-row"
                 onClick={() =>
@@ -98,7 +98,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Length</td>
+              <td className="row-stats">Circuit length:</td>
               <td className="text-end row-stats">
                 {calculateCircuitLength(
                   parseFloat(
@@ -110,7 +110,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Driver</td>
+              <td className="row-stats">Driver:</td>
               <td
                 className="clickable-row text-end"
                 onClick={() =>
@@ -124,7 +124,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Team</td>
+              <td className="row-stats">Team:</td>
               <td
                 className="clickable-row text-end"
                 onClick={() =>
