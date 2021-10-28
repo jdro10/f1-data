@@ -4,16 +4,35 @@ import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
 
-const CACHE_NAME = "f1-data";
-const CACHE_URLS = ["/f1-data", "/f1-data/schedule", "/f1-data/standings"];
+var CACHE_NAME = "v1.0";
+var URLS_TO_CACHE = ["/"];
 
-self.addEventListener("install", async (event) => {
-  const cache = await caches.open(CACHE_NAME);
-  try {
-    await cache.addAll(CACHE_URLS);
-  } catch (e) {
-    console.log(e);
-  }
+self.addEventListener("install", function (event) {
+  self.skipWaiting();
+
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log("Opened cache", CACHE_NAME);
+      return cache.addAll(URLS_TO_CACHE);
+    })
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  var cacheKeeplist = [CACHE_NAME];
+
+  event.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (cacheKeeplist.indexOf(key) === -1) {
+            console.log("deleted ", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
 });
 
 self.addEventListener("fetch", function (event) {
