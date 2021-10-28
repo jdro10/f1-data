@@ -48,7 +48,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                 <td>{constructor.position}</td>
                 <td>
                   <Row>
-                    <Col xs={2}>
+                    <Col xs={2} lg={1} className="align-self-center">
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
                           constructor.Constructor.nationality
