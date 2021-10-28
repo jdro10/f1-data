@@ -25,6 +25,11 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
     window.open(wikiConstructorLink, "_blank");
   };
 
+  const raceRowClick = (season, round) => {
+    history.push(`/race/${season}/${round}`);
+    window.location.reload();
+  };
+
   const calculateCircuitLength = (speed, time) => {
     const timeSplitted = time.split(":");
     const secondsSplitted = time.split(".");
@@ -50,7 +55,10 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
       <tbody>
         <tr>
           <td className="row-stats align-middle">First grand prix</td>
-          <td className="row-stats text-end">
+          <td
+            className=" text-end clickable-row"
+            onClick={() => raceRowClick(firstGP.season, firstGP.round)}
+          >
             {firstGP.season} {firstGP.raceName}
           </td>
         </tr>
@@ -68,14 +76,24 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
             </tr>
             <tr>
               <td className="row-stats">Lap record (All track layouts)</td>
-              <td className="text-end row-stats">
+              <td
+                className="text-end clickable-row"
+                onClick={() =>
+                  raceRowClick(fastestLap.season, fastestLap.round)
+                }
+              >
                 {fastestLap.Results[0].FastestLap.Time.time} (
                 {fastestLap.season})
               </td>
             </tr>
             <tr>
               <td className="row-stats">Average speed</td>
-              <td className="text-end row-stats">
+              <td
+                className="text-end clickable-row"
+                onClick={() =>
+                  raceRowClick(fastestLap.season, fastestLap.round)
+                }
+              >
                 {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h
               </td>
             </tr>
