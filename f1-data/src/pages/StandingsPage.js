@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/Navbar/Navbar";
-import Standings from "../components/Stats/Standings/Standings";
+import Standings from "../components/Standings/Standings";
 
 const StandingsPage = () => {
   return (

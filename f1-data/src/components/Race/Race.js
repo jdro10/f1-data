@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import EventTabs from "./EventTabs";
+import Event from "./Event";
 import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row";
 import FutureRace from "./FutureRace";
@@ -8,9 +8,9 @@ import FutureRace from "./FutureRace";
 const Race = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
   const [raceClassification, setRaceClassification] = useState(null);
-  const [raceQualifying, setRaceQualifying] = useState(null);
+  const [qualifying, setQualifying] = useState(null);
   const [loadingRaceResult, setLoadingRaceResult] = useState(true);
-  const [loadingRaceQualifying, setLoadingRaceQualifying] = useState(true);
+  const [loadingQualifying, setLoadingQualifying] = useState(true);
 
   useEffect(() => {
     const fetchRaceResult = async () => {
@@ -33,13 +33,11 @@ const Race = ({ season, round }) => {
         .then((res) => res.json())
         .then((result) => {
           if (result.MRData.RaceTable.Races[0] !== undefined) {
-            setRaceQualifying(
-              result.MRData.RaceTable.Races[0].QualifyingResults
-            );
+            setQualifying(result.MRData.RaceTable.Races[0].QualifyingResults);
           }
         });
 
-      setLoadingRaceQualifying(false);
+      setLoadingQualifying(false);
     };
 
     fetchRaceResult();
@@ -49,7 +47,7 @@ const Race = ({ season, round }) => {
   return (
     <div>
       <Container fluid="md">
-        {loadingRaceResult || loadingRaceQualifying ? (
+        {loadingRaceResult || loadingQualifying ? (
           <Container style={{ marginTop: "5%", minHeight: "500px" }}>
             <Row className="justify-content-center text-center">
               <Spinner animation="border" />
@@ -58,10 +56,10 @@ const Race = ({ season, round }) => {
         ) : raceClassification == null ? (
           <FutureRace season={season} round={round} />
         ) : (
-          <EventTabs
+          <Event
             raceInfo={raceInfo}
             raceClassification={raceClassification}
-            raceQualifying={raceQualifying}
+            qualifyingClassification={qualifying}
           />
         )}
       </Container>

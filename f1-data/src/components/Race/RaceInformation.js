@@ -1,10 +1,10 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CircleFlag } from "react-circle-flags";
-import { convertDate, getLocalRaceDate } from "../../../helpers/Helpers";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
-const RaceTab = ({ raceInfo, eventCountryCode }) => {
+const RaceInformation = ({ raceInfo, eventCountryCode }) => {
   return (
     <div>
       <Row className="justify-content-center text-center">
@@ -16,16 +16,21 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>{convertDate(raceInfo.date)}</h3>
+          <h3>ROUND {raceInfo.round}</h3>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
         <Col md="auto">
-          <h3>
+          <h5>{convertDate(raceInfo.date)}</h5>
+        </Col>
+      </Row>
+      <Row className="justify-content-center text-center">
+        <Col md="auto">
+          <h5>
             {raceInfo.hasOwnProperty("time")
               ? getLocalRaceDate(raceInfo.date, raceInfo.time)
               : null}
-          </h3>
+          </h5>
         </Col>
       </Row>
       <Row className="justify-content-center text-center">
@@ -42,4 +47,4 @@ const RaceTab = ({ raceInfo, eventCountryCode }) => {
   );
 };
 
-export default RaceTab;
+export default RaceInformation;

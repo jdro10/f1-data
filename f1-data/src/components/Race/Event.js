@@ -2,14 +2,14 @@ import React from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
-import RaceQualifying from "../Classifications/RaceQualifying";
-import RaceTab from "./RaceTab";
-import CircuitTab from "./CircuitTab";
+import QualifyingClassification from "../Classifications/QualifyingClassification";
+import RaceInformation from "./RaceInformation";
+import Circuit from "../Circuit/Circuit";
 import Row from "react-bootstrap/Row";
-import ClockCountdown from "../../Countdown/ClockCountdown";
-import LapsTab from "./LapsTab";
+import ClockCountdown from "../Countdown/ClockCountdown";
+import Laps from "../Laps/Laps";
 
-const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
+const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
     <div>
       <Tabs
@@ -18,7 +18,7 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         className="mb-3"
       >
         <Tab tabClassName="tab-style" eventKey="race" title="RACE">
-          <RaceTab
+          <RaceInformation
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
@@ -38,23 +38,25 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
         {raceClassification != null && raceInfo.season >= 1996 ? (
           <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
             <div style={{ minHeight: "300px" }}>
-              <LapsTab season={raceInfo.season} round={raceInfo.round} />
+              <Laps season={raceInfo.season} round={raceInfo.round} />
             </div>
           </Tab>
         ) : null}
 
-        {raceQualifying != null ? (
+        {qualifyingClassification != null ? (
           <Tab
             tabClassName="tab-style"
             eventKey="qualifying"
             title="QUALIFYING"
           >
-            <RaceQualifying raceQualifying={raceQualifying} />
+            <QualifyingClassification
+              qualifyingClassification={qualifyingClassification}
+            />
           </Tab>
         ) : null}
 
         <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
-          <CircuitTab
+          <Circuit
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
@@ -64,4 +66,4 @@ const EventTabs = ({ raceInfo, raceClassification, raceQualifying }) => {
   );
 };
 
-export default EventTabs;
+export default Event;

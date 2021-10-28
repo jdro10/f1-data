@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
-import { LineColors } from "../../../data/LineColors";
+import { LineColors } from "../../data/LineColors";
 import MediaQuery from "react-responsive";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 import Row from "react-bootstrap/Row";
 
-const LapsTab = ({ season, round }) => {
+const Laps = ({ season, round }) => {
   const { theme } = useContext(ThemeContext);
   const [data, setData] = useState({ labels: null, datasets: null });
   const [loadingLaps, setLoadingLaps] = useState(true);
@@ -152,4 +152,4 @@ const LapsTab = ({ season, round }) => {
   );
 };
 
-export default LapsTab;
+export default Laps;

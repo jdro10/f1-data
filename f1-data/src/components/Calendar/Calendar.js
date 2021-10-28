@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import RaceInfo from "./RaceInfo";
+import RaceInformation from "./RaceInformation";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
-import "./Races.css";
+import "./Styles.css";
 import "../SharedStyles/Table.css";
 import Table from "react-bootstrap/Table";
 import { ThemeContext } from "../../helpers/ThemeContext";
 
-const Races = () => {
+const Calendar = () => {
   const { theme } = useContext(ThemeContext);
   const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
@@ -99,7 +99,7 @@ const Races = () => {
                 {seasonSchedule.map((race, index) => (
                   <tr key={index}>
                     <td>
-                      <RaceInfo race={race} />
+                      <RaceInformation race={race} />
                     </td>
                   </tr>
                 ))}
@@ -112,4 +112,4 @@ const Races = () => {
   );
 };
 
-export default Races;
+export default Calendar;

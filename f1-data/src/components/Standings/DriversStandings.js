@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import Table from "react-bootstrap/Table";
 import { CircleFlag } from "react-circle-flags";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../SharedStyles/Table.css";
-import TeamColor from "../../TeamColor/TeamColor";
+import "../SharedStyles/Table.css";
+import TeamColor from "../TeamColor/TeamColor";
 import { useHistory } from "react-router-dom";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,

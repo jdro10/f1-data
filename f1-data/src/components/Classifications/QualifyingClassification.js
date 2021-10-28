@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Table from "react-bootstrap/Table";
-import "../../SharedStyles/Table.css";
+import "../SharedStyles/Table.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import TeamColor from "../../TeamColor/TeamColor";
+import TeamColor from "../TeamColor/TeamColor";
 import { useHistory } from "react-router-dom";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
@@ -14,7 +14,7 @@ const boldFont = {
   display: "inline",
 };
 
-const RaceQualifying = ({ raceQualifying }) => {
+const QualifyingClassification = ({ qualifyingClassification }) => {
   const history = useHistory();
   const { theme } = useContext(ThemeContext);
 
@@ -40,7 +40,7 @@ const RaceQualifying = ({ raceQualifying }) => {
         </tr>
       </thead>
       <tbody>
-        {raceQualifying.map((driver, index) => (
+        {qualifyingClassification.map((driver, index) => (
           <tr
             key={index}
             style={{ cursor: "pointer" }}
@@ -92,4 +92,4 @@ const RaceQualifying = ({ raceQualifying }) => {
   );
 };
 
-export default RaceQualifying;
+export default QualifyingClassification;

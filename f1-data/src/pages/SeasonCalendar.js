@@ -1,13 +1,13 @@
 import React from "react";
 import NavBar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Races from "../components/Races/Races";
+import Calendar from "../components/Calendar/Calendar";
 
 const SeasonSchedule = () => {
   return (
     <>
       <NavBar />
-      <Races />
+      <Calendar />
       <Footer />
     </>
   );

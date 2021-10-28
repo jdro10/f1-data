@@ -7,7 +7,7 @@ import { CircleFlag } from "react-circle-flags";
 import { BsPersonFill } from "react-icons/bs";
 import "../SharedStyles/Table.css";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
-import ProfileStats from "../ProfileStats/ProfileStats";
+import DriverInformation from "./DriverInformation";
 
 const Driver = ({ driverId }) => {
   const [lastGP, setLastGP] = useState(null);
@@ -200,7 +200,7 @@ const Driver = ({ driverId }) => {
               <Spinner animation="border" />
             </Row>
           ) : (
-            <ProfileStats
+            <DriverInformation
               stats={driverStats}
               firstGP={firstGP}
               lastGP={lastGP}

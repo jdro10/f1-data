@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import Table from "react-bootstrap/Table";
 import { CircleFlag } from "react-circle-flags";
-import { CountriesCodeNationality } from "../../../data/CountryCodeNationality";
+import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../SharedStyles/Table.css";
-import TeamColor from "../../TeamColor/TeamColor";
-import { ThemeContext } from "../../../helpers/ThemeContext";
+import "../SharedStyles/Table.css";
+import TeamColor from "../TeamColor/TeamColor";
+import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
   fontWeight: 600,
@@ -48,7 +48,7 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                 <td>{constructor.position}</td>
                 <td>
                   <Row>
-                    <Col xs={2}>
+                    <Col xs={2} lg={1} className="align-self-center">
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
                           constructor.Constructor.nationality
