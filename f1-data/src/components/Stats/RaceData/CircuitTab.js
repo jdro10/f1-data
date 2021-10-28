@@ -70,7 +70,7 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
       )
         .then((res) => res.json())
         .then((result) => {
-          setFirstGrandPrix(result.MRData.RaceTable.Races[0].season);
+          setFirstGrandPrix(result.MRData.RaceTable.Races[0]);
           setLoadingFirstGrandPrix(false);
 
           return fetch(
@@ -152,8 +152,10 @@ const CircuitTab = ({ raceInfo, eventCountryCode }) => {
         >
           <tbody>
             <tr>
-              <td className="row-stats">First grand prix</td>
-              <td className="text-end row-stats">{firstGrandPrix}</td>
+              <td className="row-stats align-middle">First grand prix</td>
+              <td className="row-stats text-end">
+                {firstGrandPrix.season} {firstGrandPrix.raceName}
+              </td>
             </tr>
             {fastestLap === undefined ? null : (
               <>
