@@ -7,11 +7,11 @@ import { setCacheNameDetails } from "workbox-core";
 
 setCacheNameDetails({
   prefix: "f1-data",
-  suffix: "v1",
+  suffix: "v1.0",
 });
 
 var CACHE_NAME = "v1.0";
-var URLS_TO_CACHE = ["/"];
+var URLS_TO_CACHE = ["/f1-data", "/f1-data/schedule", "/f1-data/standings"];
 
 self.addEventListener("install", function (event) {
   self.skipWaiting();
