@@ -9,6 +9,7 @@ import { SiFastly } from "react-icons/si";
 import { GiRaceCar } from "react-icons/gi";
 import { ThemeContext } from "../../helpers/ThemeContext";
 import { FaStopwatch } from "react-icons/fa";
+import { GiCheckeredFlag } from "react-icons/gi";
 import "../SharedStyles/Table.css";
 import { useHistory } from "react-router-dom";
 
@@ -93,7 +94,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Pole positions:</td>
+              <td className="row-stats no-wrap">Pole positions:</td>
               <td className="text-end row-stats">
                 {stats.poles} <SiFastly />
               </td>
@@ -105,15 +106,15 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Grands Prix entered:</td>
+              <td className="row-stats">Grands Prix:</td>
               <td className="text-end row-stats">
-                {stats.totalGrandPrix} <GiRaceCar size={30} />
+                {stats.totalGrandPrix} <GiCheckeredFlag size={25} />
               </td>
             </tr>
             <tr>
               <td className="row-stats">First race:</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row no-wrap"
                 onClick={() => raceRowClick(firstGP.season, firstGP.round)}
               >
                 {firstGP.raceName} {firstGP.season}
@@ -122,14 +123,14 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
             <tr>
               <td className="row-stats">Last race:</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row no-wrap"
                 onClick={() => raceRowClick(lastGP.season, lastGP.round)}
               >
                 {lastGP.raceName + " " + lastGP.season}
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Total laps raced:</td>
+              <td className="row-stats">Laps raced:</td>
               <td className="text-end row-stats">
                 {stats.totalLapsRaced} <GiRaceCar size={30} />
               </td>

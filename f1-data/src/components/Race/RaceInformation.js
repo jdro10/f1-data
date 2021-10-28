@@ -6,7 +6,7 @@ import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceInformation = ({ raceInfo, eventCountryCode }) => {
   return (
-    <div>
+    <>
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <a className="race-link" href={raceInfo.url}>
@@ -43,7 +43,7 @@ const RaceInformation = ({ raceInfo, eventCountryCode }) => {
           />
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 

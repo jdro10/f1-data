@@ -54,9 +54,9 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
     >
       <tbody>
         <tr>
-          <td className="row-stats align-middle">First Grand Prix:</td>
+          <td className="row-stats">First Grand Prix:</td>
           <td
-            className=" text-end clickable-row"
+            className=" text-end clickable-row no-wrap"
             onClick={() => raceRowClick(firstGP.season, firstGP.round)}
           >
             {firstGP.season} {firstGP.raceName}
@@ -65,7 +65,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
         {fastestLap === undefined ? null : (
           <>
             <tr>
-              <td className="row-stats">Current circuit layout length:</td>
+              <td className="row-stats">Circuit length:</td>
               <td className="text-end row-stats">
                 {calculateCircuitLength(
                   parseFloat(lastGP.Results[0].FastestLap.AverageSpeed.speed),
@@ -77,7 +77,7 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
             <tr>
               <td className="row-stats">Lap record (All circuit's layouts):</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row align-middle"
                 onClick={() =>
                   raceRowClick(fastestLap.season, fastestLap.round)
                 }
@@ -89,24 +89,19 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
             <tr>
               <td className="row-stats">Average speed:</td>
               <td
-                className="text-end clickable-row"
+                className="text-end clickable-row no-wrap"
                 onClick={() =>
                   raceRowClick(fastestLap.season, fastestLap.round)
                 }
               >
-                {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h
-              </td>
-            </tr>
-            <tr>
-              <td className="row-stats">Circuit length:</td>
-              <td className="text-end row-stats">
+                {fastestLap.Results[0].FastestLap.AverageSpeed.speed} km/h (
                 {calculateCircuitLength(
                   parseFloat(
                     fastestLap.Results[0].FastestLap.AverageSpeed.speed
                   ),
                   fastestLap.Results[0].FastestLap.Time.time
                 )}{" "}
-                km
+                km)
               </td>
             </tr>
             <tr>

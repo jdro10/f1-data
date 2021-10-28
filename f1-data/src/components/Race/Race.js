@@ -45,25 +45,23 @@ const Race = ({ season, round }) => {
   }, [season, round]);
 
   return (
-    <div>
-      <Container fluid="md">
-        {loadingRaceResult || loadingQualifying ? (
-          <Container style={{ marginTop: "5%", minHeight: "500px" }}>
-            <Row className="justify-content-center text-center">
-              <Spinner animation="border" />
-            </Row>
-          </Container>
-        ) : raceClassification == null ? (
-          <FutureRace season={season} round={round} />
-        ) : (
-          <Event
-            raceInfo={raceInfo}
-            raceClassification={raceClassification}
-            qualifyingClassification={qualifying}
-          />
-        )}
-      </Container>
-    </div>
+    <Container fluid="md">
+      {loadingRaceResult || loadingQualifying ? (
+        <Container style={{ marginTop: "5%", minHeight: "500px" }}>
+          <Row className="justify-content-center text-center">
+            <Spinner animation="border" />
+          </Row>
+        </Container>
+      ) : raceClassification == null ? (
+        <FutureRace season={season} round={round} />
+      ) : (
+        <Event
+          raceInfo={raceInfo}
+          raceClassification={raceClassification}
+          qualifyingClassification={qualifying}
+        />
+      )}
+    </Container>
   );
 };
 

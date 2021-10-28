@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import Event from "./Event";
 import { Redirect } from "react-router-dom";
 
@@ -43,21 +42,17 @@ const FutureRace = ({ season, round }) => {
   }, [season, round]);
 
   return (
-    <div>
-      <Container fluid="md" style={{ minHeight: "500px" }}>
-        {loadingRaceInfo || loadingQualifying ? null : raceInfo === null ? (
-          <Redirect to="/error" />
-        ) : (
-          <div>
-            <Event
-              season={season}
-              round={round}
-              raceInfo={raceInfo}
-              qualifyingClassification={qualifying}
-            />
-          </div>
-        )}
-      </Container>
+    <div style={{ minHeight: "500px" }}>
+      {loadingRaceInfo || loadingQualifying ? null : raceInfo === null ? (
+        <Redirect to="/error" />
+      ) : (
+        <Event
+          season={season}
+          round={round}
+          raceInfo={raceInfo}
+          qualifyingClassification={qualifying}
+        />
+      )}
     </div>
   );
 };

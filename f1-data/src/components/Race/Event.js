@@ -11,58 +11,52 @@ import Laps from "../Laps/Laps";
 
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
-    <div>
-      <Tabs
-        defaultActiveKey="race"
-        id="uncontrolled-tab-example"
-        className="mb-3"
-      >
-        <Tab tabClassName="tab-style" eventKey="race" title="RACE">
-          <RaceInformation
-            raceInfo={raceInfo}
-            eventCountryCode={raceInfo.Circuit.Location.country}
-          />
+    <Tabs
+      defaultActiveKey="race"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+    >
+      <Tab tabClassName="tab-style" eventKey="race" title="RACE">
+        <RaceInformation
+          raceInfo={raceInfo}
+          eventCountryCode={raceInfo.Circuit.Location.country}
+        />
 
-          {raceClassification != null ? (
-            <div style={{ marginTop: "20px" }}>
-              <RaceClassification raceClassification={raceClassification} />
-            </div>
-          ) : (
-            <Row className="justify-content-center text-center">
-              <p></p>
-              <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
-            </Row>
-          )}
+        {raceClassification != null ? (
+          <div style={{ marginTop: "20px" }}>
+            <RaceClassification raceClassification={raceClassification} />
+          </div>
+        ) : (
+          <Row className="justify-content-center text-center">
+            <p></p>
+            <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
+          </Row>
+        )}
+      </Tab>
+
+      {raceClassification != null && raceInfo.season >= 1996 ? (
+        <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
+          <div style={{ minHeight: "300px" }}>
+            <Laps season={raceInfo.season} round={raceInfo.round} />
+          </div>
         </Tab>
+      ) : null}
 
-        {raceClassification != null && raceInfo.season >= 1996 ? (
-          <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
-            <div style={{ minHeight: "300px" }}>
-              <Laps season={raceInfo.season} round={raceInfo.round} />
-            </div>
-          </Tab>
-        ) : null}
-
-        {qualifyingClassification != null ? (
-          <Tab
-            tabClassName="tab-style"
-            eventKey="qualifying"
-            title="QUALIFYING"
-          >
-            <QualifyingClassification
-              qualifyingClassification={qualifyingClassification}
-            />
-          </Tab>
-        ) : null}
-
-        <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
-          <Circuit
-            raceInfo={raceInfo}
-            eventCountryCode={raceInfo.Circuit.Location.country}
+      {qualifyingClassification != null ? (
+        <Tab tabClassName="tab-style" eventKey="qualifying" title="QUALIFYING">
+          <QualifyingClassification
+            qualifyingClassification={qualifyingClassification}
           />
         </Tab>
-      </Tabs>
-    </div>
+      ) : null}
+
+      <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
+        <Circuit
+          raceInfo={raceInfo}
+          eventCountryCode={raceInfo.Circuit.Location.country}
+        />
+      </Tab>
+    </Tabs>
   );
 };
 
