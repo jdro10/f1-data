@@ -13,7 +13,7 @@ const boldFont = {
   display: "inline",
 };
 
-const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
+const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
   const history = useHistory();
   const { theme } = useContext(ThemeContext);
 
@@ -62,8 +62,37 @@ const CircuitInformation = ({ firstGP, lastGP, fastestLap }) => {
             {firstGP.season} {firstGP.raceName}
           </td>
         </tr>
+
         {fastestLap === undefined ? null : (
           <>
+            <tr>
+              <td className="row-stats">Last race:</td>
+              <td
+                className="text-end clickable-row no-wrap"
+                onClick={() =>
+                  raceRowClick(lastGPDetails.season, lastGPDetails.round)
+                }
+              >
+                {lastGPDetails.season} {lastGPDetails.raceName}
+              </td>
+            </tr>
+            <tr>
+              <td className="row-stats">Laps:</td>
+              <td className="text-end row-stats">
+                {lastGPDetails.Results[0].laps} ({lastGPDetails.season})
+              </td>
+            </tr>
+            <tr>
+              <td className="row-stats">Race distance:</td>
+              <td className="text-end row-stats">
+                {parseInt(lastGPDetails.Results[0].laps) *
+                  calculateCircuitLength(
+                    parseFloat(lastGP.Results[0].FastestLap.AverageSpeed.speed),
+                    lastGP.Results[0].FastestLap.Time.time
+                  )}{" "}
+                km ({lastGPDetails.season})
+              </td>
+            </tr>
             <tr>
               <td className="row-stats">Circuit length:</td>
               <td className="text-end row-stats">
