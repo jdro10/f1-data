@@ -25,6 +25,10 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
     history.push(`/race/${season}/${round}`);
   };
 
+  const getPercentage = (number, total) => {
+    return Math.round((number / total) * 100 * 100) / 100;
+  };
+
   return (
     <div>
       <Row className="justify-content-center">
@@ -76,39 +80,53 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
+              <td className="row-stats">Grands Prix:</td>
+              <td className="text-end row-stats">
+                {stats.totalGrandPrix} <GiCheckeredFlag size={25} />
+              </td>
+            </tr>
+            <tr>
               <td className="row-stats">Wins:</td>
               <td className="text-end row-stats">
-                {stats.wins} <GiPodiumWinner />
+                {stats.wins} ({getPercentage(stats.wins, stats.totalGrandPrix)}
+                %) <GiPodiumWinner />
               </td>
             </tr>
             <tr>
               <td className="row-stats">Podiums:</td>
               <td className="text-end row-stats">
-                {stats.podiums} <GiPodium />
+                {stats.podiums} (
+                {getPercentage(stats.podiums, stats.totalGrandPrix)}%){" "}
+                <GiPodium />
               </td>
             </tr>
             <tr>
               <td className="row-stats">Fastest laps:</td>
               <td className="text-end row-stats">
-                {stats.totalFastestLaps} <FaStopwatch />
+                {stats.totalFastestLaps} (
+                {getPercentage(stats.totalFastestLaps, stats.totalGrandPrix)}%)
+                <FaStopwatch />
               </td>
             </tr>
             <tr>
               <td className="row-stats no-wrap">Pole positions:</td>
               <td className="text-end row-stats">
-                {stats.poles} <SiFastly />
+                {stats.poles} (
+                {getPercentage(stats.poles, stats.totalGrandPrix)}
+                %) <SiFastly />
+              </td>
+            </tr>
+            <tr>
+              <td className="row-stats">Retirements:</td>
+              <td className="text-end row-stats">
+                {stats.dnf} ({getPercentage(stats.dnf, stats.totalGrandPrix)}
+                %) <GiRaceCar size={22} />
               </td>
             </tr>
             <tr>
               <td className="row-stats">Total points:</td>
               <td className="text-end row-stats">
-                {stats.totalPoints} <GiRaceCar size={30} />
-              </td>
-            </tr>
-            <tr>
-              <td className="row-stats">Grands Prix:</td>
-              <td className="text-end row-stats">
-                {stats.totalGrandPrix} <GiCheckeredFlag size={25} />
+                {stats.totalPoints} <GiRaceCar size={22} />
               </td>
             </tr>
             <tr>
@@ -132,7 +150,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
             <tr>
               <td className="row-stats">Laps raced:</td>
               <td className="text-end row-stats">
-                {stats.totalLapsRaced} <GiRaceCar size={30} />
+                {stats.totalLapsRaced} <GiRaceCar size={22} />
               </td>
             </tr>
           </tbody>

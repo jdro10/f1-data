@@ -10,12 +10,14 @@ import CircuitInformation from "./CircuitInformation";
 const Circuit = ({ raceInfo, eventCountryCode }) => {
   const [firstGP, setFirstGP] = useState(null);
   const [lastGP, setLastGP] = useState(null);
+  const [lastGPDetails, setLastGPDetails] = useState(null);
   const [fastestLap, setFastestLap] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
   const [circuitInformation, setCircuitInformation] = useState(null);
   const [loadingWikiData, setLoadingWikiData] = useState(true);
   const [loadingFirstGP, setLoadingFirstGP] = useState(true);
   const [loadingFastestLap, setLoadingFastestLap] = useState(true);
+  const [loadingLastGPDetails, setLoadingLastGPDetails] = useState(true);
 
   useEffect(() => {
     const fetchCircuitFastestLap = () => {
@@ -67,8 +69,24 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
         });
     };
 
+    const fetchCircuitLastRaceDetails = () => {
+      fetch(
+        `https://ergast.com/api/f1/circuits/${raceInfo.Circuit.circuitId}/results/1.json?limit=100`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setLastGPDetails(
+            result.MRData.RaceTable.Races[
+              result.MRData.RaceTable.Races.length - 1
+            ]
+          );
+          setLoadingLastGPDetails(false);
+        });
+    };
+
     fetchCircuitFastestLap();
     fetchCircuitFirstGP();
+    fetchCircuitLastRaceDetails();
   }, [raceInfo.Circuit.circuitId, raceInfo.Circuit.circuitName]);
 
   return (
@@ -110,14 +128,18 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
         mapHeight={{ height: "700px" }}
       />
 
-      {loadingFastestLap || loadingFirstGP ? (
-        <Row className="justify-content-center text-center">
+      {loadingFastestLap || loadingFirstGP || loadingLastGPDetails ? (
+        <Row
+          className="justify-content-center text-center"
+          style={{ marginTop: "15px" }}
+        >
           <Spinner animation="border" />
         </Row>
       ) : (
         <CircuitInformation
           firstGP={firstGP}
           lastGP={lastGP}
+          lastGPDetails={lastGPDetails}
           fastestLap={fastestLap}
         />
       )}

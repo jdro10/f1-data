@@ -28,6 +28,7 @@ const Driver = ({ driverId }) => {
     totalPoints: 0,
     totalFastestLaps: 0,
     totalLapsRaced: 0,
+    dnf: 0,
     totalGrandPrix: 0,
   });
 
@@ -119,6 +120,13 @@ const Driver = ({ driverId }) => {
           0
         );
 
+        const dnf = driverRaces.filter(
+          (race) =>
+            race.Results[0].status === "Finished" ||
+            race.Results[0].status.includes("Lap") ||
+            race.Results[0].status.includes("Laps")
+        ).length;
+
         setDriverStats({
           wins: wins,
           podiums: podiums,
@@ -126,6 +134,7 @@ const Driver = ({ driverId }) => {
           totalPoints: totalPoints,
           totalFastestLaps: totalFastestLaps,
           totalLapsRaced: totalLapsRaced,
+          dnf: driverRaces.length - dnf,
           totalGrandPrix: driverRaces.length,
         });
         setLoadingDriverStats(false);
