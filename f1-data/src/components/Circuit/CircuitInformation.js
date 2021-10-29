@@ -85,11 +85,16 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
             <tr>
               <td className="row-stats">Race distance:</td>
               <td className="text-end row-stats">
-                {parseInt(lastGPDetails.Results[0].laps) *
-                  calculateCircuitLength(
-                    parseFloat(lastGP.Results[0].FastestLap.AverageSpeed.speed),
-                    lastGP.Results[0].FastestLap.Time.time
-                  )}{" "}
+                {Math.round(
+                  parseInt(lastGPDetails.Results[0].laps) *
+                    calculateCircuitLength(
+                      parseFloat(
+                        lastGP.Results[0].FastestLap.AverageSpeed.speed
+                      ),
+                      lastGP.Results[0].FastestLap.Time.time
+                    ) *
+                    1000
+                ) / 1000}{" "}
                 km ({lastGPDetails.season})
               </td>
             </tr>

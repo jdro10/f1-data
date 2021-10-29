@@ -129,7 +129,10 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
       />
 
       {loadingFastestLap || loadingFirstGP || loadingLastGPDetails ? (
-        <Row className="justify-content-center text-center">
+        <Row
+          className="justify-content-center text-center"
+          style={{ marginTop: "15px" }}
+        >
           <Spinner animation="border" />
         </Row>
       ) : (
