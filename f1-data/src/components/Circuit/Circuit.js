@@ -90,7 +90,7 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
   }, [raceInfo.Circuit.circuitId, raceInfo.Circuit.circuitName]);
 
   return (
-    <div>
+    <>
       <Row className="text-center">
         <h1>{raceInfo.Circuit.circuitName}</h1>
         <h3>
@@ -100,21 +100,22 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
             ].toLowerCase()}
             height="30"
           />{" "}
-          {raceInfo.Circuit.Location.country}
+          {raceInfo.Circuit.Location.country} (
+          {raceInfo.Circuit.Location.locality})
         </h3>
-        <h3>{raceInfo.Circuit.Location.locality}</h3>
       </Row>
 
       {loadingWikiData ? null : (
         <Row>
           <p style={{ textAlign: "justify" }}>
-            {circuitInformation[wikiPageId]["extract"]} (Source:{" "}
+            {circuitInformation[wikiPageId]["extract"]}
+            <br/>
+            Source:{" "}
             <a
               href={`https://en.wikipedia.org/wiki/${circuitInformation[wikiPageId]["title"]}`}
             >
               Wikipedia
             </a>
-            )
           </p>
         </Row>
       )}
@@ -143,7 +144,7 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
           fastestLap={fastestLap}
         />
       )}
-    </div>
+    </>
   );
 };
 

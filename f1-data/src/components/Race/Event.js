@@ -23,9 +23,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         />
 
         {raceClassification != null ? (
-          <div style={{ marginTop: "20px" }}>
-            <RaceClassification raceClassification={raceClassification} />
-          </div>
+          <RaceClassification raceClassification={raceClassification} />
         ) : (
           <Row className="justify-content-center text-center">
             <p></p>
@@ -36,6 +34,10 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
 
       {raceClassification != null && raceInfo.season >= 1996 ? (
         <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
+          <RaceInformation
+            raceInfo={raceInfo}
+            eventCountryCode={raceInfo.Circuit.Location.country}
+          />
           <div style={{ minHeight: "300px" }}>
             <Laps season={raceInfo.season} round={raceInfo.round} />
           </div>
@@ -44,6 +46,10 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
 
       {qualifyingClassification != null ? (
         <Tab tabClassName="tab-style" eventKey="qualifying" title="QUALIFYING">
+          <RaceInformation
+            raceInfo={raceInfo}
+            eventCountryCode={raceInfo.Circuit.Location.country}
+          />
           <QualifyingClassification
             qualifyingClassification={qualifyingClassification}
           />

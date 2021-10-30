@@ -27,6 +27,7 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
       responsive="sm"
       className="table-hover table-striped standings-table"
       variant={theme}
+      style={{ marginTop: "10px" }}
     >
       <thead>
         <tr>
