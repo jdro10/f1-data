@@ -63,19 +63,22 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
           </td>
         </tr>
 
+        {lastGPDetails === undefined ? null : (
+          <tr>
+            <td className="row-stats">Latest Grand Prix:</td>
+            <td
+              className="text-end clickable-row no-wrap"
+              onClick={() =>
+                raceRowClick(lastGPDetails.season, lastGPDetails.round)
+              }
+            >
+              {lastGPDetails.season} {lastGPDetails.raceName}
+            </td>
+          </tr>
+        )}
+
         {fastestLap === undefined ? null : (
           <>
-            <tr>
-              <td className="row-stats">Last race:</td>
-              <td
-                className="text-end clickable-row no-wrap"
-                onClick={() =>
-                  raceRowClick(lastGPDetails.season, lastGPDetails.round)
-                }
-              >
-                {lastGPDetails.season} {lastGPDetails.raceName}
-              </td>
-            </tr>
             <tr>
               <td className="row-stats">Laps:</td>
               <td className="text-end row-stats">

@@ -194,13 +194,14 @@ const Driver = ({ driverId }) => {
             </Col>
             <Col xs={12} lg={9}>
               <p style={{ textAlign: "justify" }}>
-                {driverInformation[wikiPageId]["extract"]} (Source:{" "}
+                {driverInformation[wikiPageId]["extract"]}
+                <br />
+                Source:{" "}
                 <a
                   href={`https://en.wikipedia.org/wiki/${driverInformation[wikiPageId]["title"]}`}
                 >
                   Wikipedia
                 </a>
-                )
               </p>
             </Col>
           </Row>

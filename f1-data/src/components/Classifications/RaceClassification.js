@@ -27,7 +27,7 @@ const RaceClassification = ({ raceClassification }) => {
       <Table
         className="table-hover table-striped standings-table"
         responsive="sm"
-        style={{ overflow: "hidden" }}
+        style={{ overflow: "hidden", marginTop: "10px" }}
         variant={theme}
       >
         <thead>

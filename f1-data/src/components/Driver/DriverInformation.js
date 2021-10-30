@@ -139,7 +139,11 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
               </td>
             </tr>
             <tr>
-              <td className="row-stats">Last race:</td>
+              <td className="row-stats">
+                {parseInt(lastGP.season) !== new Date().getFullYear()
+                  ? "Last race:"
+                  : "Latest race:"}
+              </td>
               <td
                 className="text-end clickable-row no-wrap"
                 onClick={() => raceRowClick(lastGP.season, lastGP.round)}
