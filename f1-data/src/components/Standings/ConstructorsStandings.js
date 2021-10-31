@@ -49,7 +49,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
               >
                 <td>{constructor.position}</td>
                 <td>
-                  <Row className="g-3">
+                  <Row className="g-0">
                     <Col xs={2} lg={1} className="align-self-center">
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
@@ -70,23 +70,27 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                     </Col>
                     <Col xs={8} className="text-start">
                       <Row>
-                        <p style={boldFont}>
-                          {constructor.Constructor.name.toUpperCase()}
-                        </p>
+                        <Col>
+                          <p style={boldFont}>
+                            {constructor.Constructor.name.toUpperCase()}
+                          </p>
+                        </Col>
                       </Row>
                       {ConstructorLineup.hasOwnProperty(season) ? (
                         <Row style={{ fontSize: "13px" }}>
-                          {
-                            ConstructorLineup[season][
-                              constructor.Constructor.constructorId
-                            ][0]
-                          }{" "}
-                          /{" "}
-                          {
-                            ConstructorLineup[season][
-                              constructor.Constructor.constructorId
-                            ][1]
-                          }
+                          <Col>
+                            {
+                              ConstructorLineup[season][
+                                constructor.Constructor.constructorId
+                              ][0]
+                            }{" "}
+                            /{" "}
+                            {
+                              ConstructorLineup[season][
+                                constructor.Constructor.constructorId
+                              ][1]
+                            }
+                          </Col>
                         </Row>
                       ) : null}
                     </Col>
