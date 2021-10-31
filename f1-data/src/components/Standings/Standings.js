@@ -71,6 +71,7 @@ const Standings = () => {
   }, [season]);
 
   const seasonYearChange = (text) => {
+    setLoadingConstructorsStandings(true);
     setSeason(text);
     sessionStorage.setItem("seasonStandingsInput", text);
   };
@@ -123,6 +124,7 @@ const Standings = () => {
             <h2>CONSTRUCTORS' STANDINGS</h2>
             <ConstructorsStandings
               constructorsStandings={constructorsStandings}
+              season={season}
             />
             <h2>DRIVERS' STANDINGS</h2>
             <DriversStandings driversStandings={driversStandings} />

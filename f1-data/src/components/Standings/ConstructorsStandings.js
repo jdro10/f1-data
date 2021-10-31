@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../SharedStyles/Table.css";
 import TeamColor from "../TeamColor/TeamColor";
+import { ConstructorLineup } from "../../data/ConstructorLineup";
 import { ThemeContext } from "../../helpers/ThemeContext";
 
 const boldFont = {
@@ -15,7 +16,7 @@ const boldFont = {
   display: "inline",
 };
 
-const ConstructorsStandings = ({ style, constructorsStandings }) => {
+const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
   const { theme } = useContext(ThemeContext);
 
   const rowClick = (wikiConstructorLink) => {
@@ -44,10 +45,11 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                 key={index}
                 style={{ cursor: "pointer" }}
                 onClick={() => rowClick(constructor.Constructor.url)}
+                className="align-middle"
               >
                 <td>{constructor.position}</td>
                 <td>
-                  <Row>
+                  <Row className="g-3">
                     <Col xs={2} lg={1} className="align-self-center">
                       <CircleFlag
                         countryCode={CountriesCodeNationality[
@@ -59,6 +61,11 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                     <Col xs={2} lg={1}>
                       <TeamColor
                         constructorId={constructor.Constructor.constructorId}
+                        height={
+                          ConstructorLineup.hasOwnProperty(season)
+                            ? "43px"
+                            : "27px"
+                        }
                       />
                     </Col>
                     <Col xs={8} className="text-start">
@@ -67,6 +74,21 @@ const ConstructorsStandings = ({ style, constructorsStandings }) => {
                           {constructor.Constructor.name.toUpperCase()}
                         </p>
                       </Row>
+                      {ConstructorLineup.hasOwnProperty(season) ? (
+                        <Row style={{ fontSize: "13px" }}>
+                          {
+                            ConstructorLineup[season][
+                              constructor.Constructor.constructorId
+                            ][0]
+                          }{" "}
+                          /{" "}
+                          {
+                            ConstructorLineup[season][
+                              constructor.Constructor.constructorId
+                            ][1]
+                          }
+                        </Row>
+                      ) : null}
                     </Col>
                   </Row>
                 </td>

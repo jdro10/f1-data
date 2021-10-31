@@ -1,0 +1,26 @@
+export const ConstructorLineup = {
+  2020: {
+    red_bull: ["Verstappen", "Albon"],
+    williams: ["Russell", "Latifi"],
+    mercedes: ["Hamilton", "Bottas"],
+    mclaren: ["Norris", "Sainz"],
+    racing_point: ["Pérez", "Stroll"],
+    alphatauri: ["Gasly", "Kvyat"],
+    renault: ["Ricciardo", "Ocon"],
+    ferrari: ["Vettel", "Leclerc"],
+    haas: ["Grosjean", "Magnussen"],
+    alfa: ["Räikkönen", "Giovinazzi"],
+  },
+  2021: {
+    red_bull: ["Verstappen", "Pérez"],
+    williams: ["Russell", "Latifi"],
+    mercedes: ["Hamilton", "Bottas"],
+    mclaren: ["Norris", "Ricciardo"],
+    aston_martin: ["Vettel", "Stroll"],
+    alphatauri: ["Gasly", "Tsunoda"],
+    alpine: ["Alonso", "Ocon"],
+    ferrari: ["Leclerc", "Sainz"],
+    haas: ["Schumacher", "Mazepin"],
+    alfa: ["Räikkönen", "Giovinazzi"],
+  },
+};
