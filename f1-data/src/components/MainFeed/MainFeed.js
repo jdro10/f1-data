@@ -107,10 +107,10 @@ const MainFeed = () => {
             <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
             </Col>
-            <Col xs={12} lg={6}>
+            <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
             </Col>
-            <Col xs={12} lg={6}>
+            <Col xs={12} xl={6}>
               <PreviousRaceStats
                 lastRace={lastRace}
                 numberOfRaces={TOTAL_NUMBER_OF_RACES}
@@ -126,10 +126,10 @@ const MainFeed = () => {
             </Row>
           ) : (
             <Row className="g-2" style={{ marginTop: "1px" }}>
-              <Col>
+              <Col xs={12} xl={6}>
                 <DriversStandingsCard driversStandings={driversStandings} />
               </Col>
-              <Col>
+              <Col xs={12} xl={6}>
                 <ConstructorsStandingsCard
                   constructorsStandings={constructorsStandings}
                   season={CURRENT_SEASON}

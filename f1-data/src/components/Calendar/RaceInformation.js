@@ -9,26 +9,26 @@ import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const RaceInformation = ({ race }) => {
   return (
-    <Row className="center-xs justify-content-between">
-      <Col xs={12} md={12} lg="auto" className="text-center">
+    <Row className="center-xs justify-content-between g-0">
+      <Col xs={12} lg="auto" className="text-center">
         <CircleFlag
           countryCode={CountriesCodeNationality[
             race.Circuit.Location.country
           ].toLowerCase()}
-          height={80}
+          height={75}
           style={{ marginBottom: "2%" }}
         />
       </Col>
-      <Col xs={12} md={12} lg="auto">
-        <Link to={"/race/" + race.season + "/" + race.round}>
+      <Col xs={12} lg="auto" className="align-self-center">
+        <Link to={`/race/${race.season}/${race.round}`}>
           <Alert variant="primary">Round #{race.round}</Alert>
         </Link>
       </Col>
-      <Col xs={12} md={12} lg={6} className="center-xs">
+      <Col xs={12} lg={6} className="center-xs align-self-center">
         <h3>{race.raceName.toUpperCase()}</h3>
         <h5>{race.Circuit.circuitName}</h5>
       </Col>
-      <Col xs={12} md={12} lg={3} className="center-xs center">
+      <Col xs={12} lg={3} className="center-xs center align-self-center">
         <h5>{convertDate(race.date)}</h5>
         <h5>
           {race.hasOwnProperty("time")

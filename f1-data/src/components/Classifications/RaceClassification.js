@@ -23,7 +23,7 @@ const RaceClassification = ({ raceClassification }) => {
   };
 
   return (
-    <div>
+    <>
       <Table
         className="table-hover table-striped standings-table"
         responsive="sm"
@@ -102,10 +102,8 @@ const RaceClassification = ({ raceClassification }) => {
           ))}
         </tbody>
       </Table>
-      <p>
-        <FaStopwatch /> - Fastest lap of the race
-      </p>
-    </div>
+      <FaStopwatch /> - Fastest lap of the race
+    </>
   );
 };
 

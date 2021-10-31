@@ -3,13 +3,13 @@
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 991px) {
   .center-xs {
     text-align: center;
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
   .center {
     text-align: right;
   }
