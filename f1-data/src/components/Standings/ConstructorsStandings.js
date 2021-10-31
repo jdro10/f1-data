@@ -68,7 +68,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                         }
                       />
                     </Col>
-                    <Col xs={8} className="text-start">
+                    <Col xs={8} className="text-start no-wrap">
                       <Row>
                         <Col>
                           <p style={boldFont}>
