@@ -132,6 +132,7 @@ const MainFeed = () => {
               <Col>
                 <ConstructorsStandingsCard
                   constructorsStandings={constructorsStandings}
+                  season={CURRENT_SEASON}
                 />
               </Col>
             </Row>

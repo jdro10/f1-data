@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import ConstructorsStandings from "../Standings/ConstructorsStandings";
 
-const ConstructorsStandingsCard = ({ constructorsStandings }) => {
+const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
   return (
     <GenericCard
       cardTitle="CONSTRUCTORS' STANDINGS"
@@ -16,6 +16,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings }) => {
             height: "415px",
           }}
           constructorsStandings={constructorsStandings}
+          season={season}
         />
       }
       cardFooter={
