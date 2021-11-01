@@ -115,8 +115,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                       <td>{driver.position}</td>
                     )}
                     <td>
-                      <Row>
-                        <Col xs={2} lg={1} className="align-self-center">
+                      <Row className="g-0 text-start">
+                        <Col xs="auto" className="align-self-center">
                           <CircleFlag
                             countryCode={CountriesCodeNationality[
                               driver.Driver.nationality
@@ -124,7 +124,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                             height={20}
                           />
                         </Col>
-                        <Col xs={1}>
+                        <Col xs={2} sm={1}>
                           <TeamColor
                             constructorId={driver.Constructor.constructorId}
                             height="42px"
@@ -171,8 +171,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     <FaStopwatch size={20} />
                   </td>
                   <td>
-                    <Row>
-                      <Col xs={2} lg={1} className="align-self-center">
+                    <Row className="g-0 text-start">
+                      <Col xs="auto" className="align-self-center">
                         <CircleFlag
                           countryCode={CountriesCodeNationality[
                             fastestLap.Driver.nationality
@@ -180,7 +180,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                           height={20}
                         />
                       </Col>
-                      <Col xs={1}>
+                      <Col xs={2} sm={1}>
                         <TeamColor
                           constructorId={fastestLap.Constructor.constructorId}
                           height="42px"
@@ -221,8 +221,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     <SiFastly size={21} />
                   </td>
                   <td>
-                    <Row>
-                      <Col xs={2} lg={1} className="align-self-center">
+                    <Row className="g-0 text-start">
+                      <Col xs="auto" className="align-self-center">
                         <CircleFlag
                           countryCode={CountriesCodeNationality[
                             polePosition.Driver.nationality
@@ -230,13 +230,13 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                           height={20}
                         />
                       </Col>
-                      <Col xs={1}>
+                      <Col xs={2} sm={1}>
                         <TeamColor
                           constructorId={polePosition.Constructor.constructorId}
                           height="42px"
                         />
                       </Col>
-                      <Col xs={8} className="text-start">
+                      <Col xs={8}>
                         <Row>
                           <Col className="hideXS">
                             {polePosition.Driver.givenName}{" "}
