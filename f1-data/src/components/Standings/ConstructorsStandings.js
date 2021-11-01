@@ -32,7 +32,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
           variant={theme}
         >
           <thead>
-            <tr>
+            <tr className="text-center">
               <th>POS</th>
               <th>NAME</th>
               <th className="hideXS">WINS</th>
@@ -45,7 +45,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                 key={index}
                 style={{ cursor: "pointer" }}
                 onClick={() => rowClick(constructor.Constructor.url)}
-                className="align-middle"
+                className="align-middle text-center"
               >
                 <td>{constructor.position}</td>
                 <td>

@@ -6,6 +6,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
 
 const Standings = () => {
   const FIRST_SEASON = 1950;
@@ -94,7 +96,7 @@ const Standings = () => {
           </Row>
           <Row
             className="justify-content-center text-center"
-            style={{ marginBottom: "2%" }}
+            style={{ marginBottom: "5px" }}
           >
             <Col>
               <Dropdown>
@@ -120,15 +122,26 @@ const Standings = () => {
               </Dropdown>
             </Col>
           </Row>
-          <Row className="justify-content-center text-center">
-            <h2>CONSTRUCTORS' STANDINGS</h2>
-            <ConstructorsStandings
-              constructorsStandings={constructorsStandings}
-              season={season}
-            />
-            <h2>DRIVERS' STANDINGS</h2>
-            <DriversStandings driversStandings={driversStandings} />
-          </Row>
+
+          <Tabs
+            defaultActiveKey="drivers"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+          >
+            <Tab tabClassName="tab-style" eventKey="drivers" title="DRIVERS">
+              <DriversStandings driversStandings={driversStandings} />
+            </Tab>
+            <Tab
+              tabClassName="tab-style"
+              eventKey="constructors"
+              title="CONSTRUCTORS"
+            >
+              <ConstructorsStandings
+                constructorsStandings={constructorsStandings}
+                season={season}
+              />
+            </Tab>
+          </Tabs>
         </Container>
       )}
     </>
