@@ -38,6 +38,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
+
           <div style={{ minHeight: "300px" }}>
             <Laps season={raceInfo.season} round={raceInfo.round} />
           </div>
@@ -50,6 +51,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
+
           <QualifyingClassification
             qualifyingClassification={qualifyingClassification}
           />

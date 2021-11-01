@@ -14,16 +14,19 @@ const RaceInformation = ({ raceInfo, eventCountryCode }) => {
           </a>
         </Col>
       </Row>
+
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <h3>ROUND {raceInfo.round}</h3>
         </Col>
       </Row>
+
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <h5>{convertDate(raceInfo.date)}</h5>
         </Col>
       </Row>
+
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <h5>
@@ -33,6 +36,7 @@ const RaceInformation = ({ raceInfo, eventCountryCode }) => {
           </h5>
         </Col>
       </Row>
+
       <Row className="justify-content-center text-center">
         <Col md="auto">
           <CircleFlag

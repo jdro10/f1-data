@@ -124,12 +124,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                             height={20}
                           />
                         </Col>
+
                         <Col xs={2} sm={1}>
                           <TeamColor
                             constructorId={driver.Constructor.constructorId}
                             height="42px"
                           />
                         </Col>
+
                         <Col xs={8} className="text-start">
                           <Row>
                             <Col className="hideXS">
@@ -138,12 +140,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                                 {driver.Driver.familyName.toUpperCase()}
                               </p>
                             </Col>
+
                             <Col className="showXS">
                               <p style={driverName}>
                                 {driver.Driver.familyName.toUpperCase()}
                               </p>
                             </Col>
                           </Row>
+
                           <Row>
                             <Col style={{ fontSize: "13px" }}>
                               {driver.Constructor.name}
@@ -180,12 +184,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                           height={20}
                         />
                       </Col>
+
                       <Col xs={2} sm={1}>
                         <TeamColor
                           constructorId={fastestLap.Constructor.constructorId}
                           height="42px"
                         />
                       </Col>
+
                       <Col xs={8} className="text-start">
                         <Row>
                           <Col className="hideXS">
@@ -194,12 +200,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                               {fastestLap.Driver.familyName.toUpperCase()}
                             </p>
                           </Col>
+
                           <Col className="showXS">
                             <p style={driverName}>
                               {fastestLap.Driver.familyName.toUpperCase()}
                             </p>
                           </Col>
                         </Row>
+
                         <Row>
                           <Col style={{ fontSize: "13px" }}>
                             {fastestLap.Constructor.name}
@@ -230,12 +238,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                           height={20}
                         />
                       </Col>
+
                       <Col xs={2} sm={1}>
                         <TeamColor
                           constructorId={polePosition.Constructor.constructorId}
                           height="42px"
                         />
                       </Col>
+
                       <Col xs={8}>
                         <Row>
                           <Col className="hideXS">
@@ -244,12 +254,14 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                               {polePosition.Driver.familyName.toUpperCase()}
                             </p>
                           </Col>
+
                           <Col className="showXS">
                             <p style={driverName}>
                               {polePosition.Driver.familyName.toUpperCase()}
                             </p>
                           </Col>
                         </Row>
+
                         <Row>
                           <Col style={{ fontSize: "13px" }}>
                             {polePosition.Constructor.name}

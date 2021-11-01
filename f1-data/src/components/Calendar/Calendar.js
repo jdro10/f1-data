@@ -48,24 +48,23 @@ const Calendar = () => {
   };
 
   return (
-    <>
+    <Container style={{ minHeight: "500px" }}>
       {loadingSeasonSchedule ? (
-        <Container style={{ minHeight: "500px" }}>
-          <Row className="justify-content-center text-center">
-            <h1>{season} FORMULA 1</h1>
-            <Spinner animation="border" />
-          </Row>
-        </Container>
+        <Row className="justify-content-center text-center">
+          <h1>{season} FORMULA 1</h1>
+          <Spinner animation="border" />
+        </Row>
       ) : (
-        <Container>
+        <>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>{season} FORMULA 1</h1>
             </Col>
           </Row>
+
           <Row
             className="justify-content-center text-center"
-            style={{ marginBottom: "2%" }}
+            style={{ marginBottom: "5px" }}
           >
             <Col>
               <Dropdown>
@@ -89,6 +88,7 @@ const Calendar = () => {
               </Dropdown>
             </Col>
           </Row>
+
           <Row>
             <Table
               className="standings-table table-striped"
@@ -106,9 +106,9 @@ const Calendar = () => {
               </tbody>
             </Table>
           </Row>
-        </Container>
+        </>
       )}
-    </>
+    </Container>
   );
 };
 

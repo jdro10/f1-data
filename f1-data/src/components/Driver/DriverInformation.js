@@ -52,6 +52,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                       }
                     />
                   </Col>
+
                   <Col xs="auto">{firstGP.Results[0].Constructor.name}</Col>
                 </Row>
               </td>
@@ -75,6 +76,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                       height="30px"
                     />
                   </Col>
+                  
                   <Col xs="auto">{lastGP.Results[0].Constructor.name}</Col>
                 </Row>
               </td>

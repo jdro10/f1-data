@@ -75,23 +75,28 @@ function App() {
             <Router basename="/">
               <Switch>
                 <Route path="/" exact={true} component={HomePage} />
+
                 <Route
                   path="/race/:season/:round"
                   exact={true}
                   component={RaceResult}
                 />
+
                 <Route
                   path="/driver/:driverId"
                   exact={true}
                   component={DriverPage}
                 />
                 <Route path="/schedule" exact={true} component={SeasonRaces} />
+
                 <Route path="/error" exact={true} component={ErrorPage} />
+
                 <Route
                   path="/standings"
                   exact={true}
                   component={StandingsPage}
                 />
+
                 <Route component={ErrorPage} />
               </Switch>
             </Router>
