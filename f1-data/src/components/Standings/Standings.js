@@ -123,8 +123,9 @@ const Standings = () => {
 
           <Tabs
             defaultActiveKey="drivers"
-            id="uncontrolled-tab-example"
             className="mb-3"
+            transition={true}
+            fill
           >
             <Tab tabClassName="tab-style" eventKey="drivers" title="DRIVERS">
               <DriversStandings driversStandings={driversStandings} />
@@ -133,7 +134,6 @@ const Standings = () => {
               tabClassName="tab-style"
               eventKey="constructors"
               title="CONSTRUCTORS"
-              style={{ minHeight: "500px" }}
             >
               <ConstructorsStandings
                 constructorsStandings={constructorsStandings}

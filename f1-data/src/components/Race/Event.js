@@ -11,11 +11,7 @@ import Laps from "../Laps/Laps";
 
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
-    <Tabs
-      defaultActiveKey="race"
-      id="uncontrolled-tab-example"
-      className="mb-3"
-    >
+    <Tabs defaultActiveKey="race" className="mb-3 tabs" transition={true} fill>
       <Tab tabClassName="tab-style" eventKey="race" title="RACE">
         <RaceInformation
           raceInfo={raceInfo}
