@@ -65,12 +65,14 @@ const DriversStandings = ({ style, driversStandings }) => {
                       height={20}
                     />
                   </Col>
+
                   <Col xs={2} lg={1}>
                     <TeamColor
                       constructorId={driver.Constructors[0].constructorId}
                       height="42px"
                     />
                   </Col>
+
                   <Col xs={8} className="text-start">
                     <Row>
                       <Col className="showXS">
@@ -78,6 +80,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                           {driver.Driver.familyName.toUpperCase()}
                         </p>
                       </Col>
+
                       <Col className="hideXS">
                         {driver.Driver.givenName}{" "}
                         <p style={boldFont}>
@@ -85,6 +88,7 @@ const DriversStandings = ({ style, driversStandings }) => {
                         </p>
                       </Col>
                     </Row>
+
                     <Row>
                       <Col style={{ fontSize: "13px" }}>
                         {driver.Constructors[0].name}

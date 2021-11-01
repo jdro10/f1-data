@@ -39,6 +39,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
               <th>POINTS</th>
             </tr>
           </thead>
+
           <tbody>
             {constructorsStandings.map((constructor, index) => (
               <tr
@@ -58,6 +59,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                         height={20}
                       />
                     </Col>
+
                     <Col xs={2} lg={1}>
                       <TeamColor
                         constructorId={constructor.Constructor.constructorId}
@@ -68,6 +70,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                         }
                       />
                     </Col>
+
                     <Col xs={8} className="text-start no-wrap">
                       <Row>
                         <Col>
@@ -76,6 +79,7 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                           </p>
                         </Col>
                       </Row>
+
                       {ConstructorLineup.hasOwnProperty(season) ? (
                         <Row style={{ fontSize: "13px" }}>
                           <Col>

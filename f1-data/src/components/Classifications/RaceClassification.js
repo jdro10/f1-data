@@ -42,6 +42,7 @@ const RaceClassification = ({ raceClassification }) => {
             <th className="hideXS">+/-</th>
           </tr>
         </thead>
+
         <tbody>
           {raceClassification.map((driver, index) => (
             <tr
@@ -59,11 +60,13 @@ const RaceClassification = ({ raceClassification }) => {
                       height="45px"
                     />
                   </Col>
+
                   <Col xs={1} className="hideXS">
                     <TeamColor
                       constructorId={driver.Constructor.constructorId}
                     />
                   </Col>
+
                   <Col xs={6} md={10}>
                     {driver.Driver.givenName}{" "}
                     <p style={boldFont}>
@@ -81,10 +84,12 @@ const RaceClassification = ({ raceClassification }) => {
                     : driver.status
                   : driver.status}
               </td>
+
               {driver.FastestLap && driver.FastestLap.rank === "1" ? (
                 <td>
                   <Row>
                     <Col xs={2}>{driver.points}</Col>
+
                     <Col>
                       <FaStopwatch />
                     </Col>

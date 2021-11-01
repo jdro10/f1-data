@@ -40,6 +40,7 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
           <th>Q3</th>
         </tr>
       </thead>
+
       <tbody>
         {qualifyingClassification.map((driver, index) => (
           <tr
@@ -54,6 +55,7 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
                 <Col xs={1}>
                   <TeamColor constructorId={driver.Constructor.constructorId} />
                 </Col>
+
                 <Col>
                   {driver.Driver.givenName}{" "}
                   <p style={boldFont}>
@@ -67,6 +69,7 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
                 <Col xs={1}>
                   <TeamColor constructorId={driver.Constructor.constructorId} />
                 </Col>
+
                 <Col xs={6}>
                   <p style={boldFont}>
                     {!driver.Driver.hasOwnProperty("code")

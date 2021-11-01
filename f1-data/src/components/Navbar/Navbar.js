@@ -35,9 +35,11 @@ const NavBar = () => {
         <Link to="/schedule" style={{ textDecoration: "none" }}>
           <Navbar.Brand className="text-link">RACES</Navbar.Brand>
         </Link>
+
         <Link to="/standings" style={{ textDecoration: "none" }}>
           <Navbar.Brand className="text-link">STANDINGS</Navbar.Brand>
         </Link>
+
         <Navbar.Collapse className="justify-content-end">
           <Row className="g-2">
             <Col style={{ marginTop: "15px" }}>
@@ -47,8 +49,10 @@ const NavBar = () => {
                 size={20}
               />
             </Col>
+
             <Col>
-              <Navbar.Brand className="icon-link"
+              <Navbar.Brand
+                className="icon-link"
                 href="https://github.com/jdro10"
                 aria-label="Github"
               >

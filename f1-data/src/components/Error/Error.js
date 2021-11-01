@@ -14,11 +14,13 @@ const Error = () => {
           <BiError size={300} />
         </Col>
       </Row>
+
       <Row className="justify-content-md-center">
         <Col md="auto">
           <h1>Ups... Something went wrong!</h1>
         </Col>
       </Row>
+      
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Link to="">

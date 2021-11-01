@@ -11,11 +11,7 @@ import Laps from "../Laps/Laps";
 
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
-    <Tabs
-      defaultActiveKey="race"
-      id="uncontrolled-tab-example"
-      className="mb-3"
-    >
+    <Tabs defaultActiveKey="race" className="mb-3 tabs" transition={true} fill>
       <Tab tabClassName="tab-style" eventKey="race" title="RACE">
         <RaceInformation
           raceInfo={raceInfo}
@@ -38,6 +34,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
+
           <div style={{ minHeight: "300px" }}>
             <Laps season={raceInfo.season} round={raceInfo.round} />
           </div>
@@ -50,6 +47,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
+
           <QualifyingClassification
             qualifyingClassification={qualifyingClassification}
           />

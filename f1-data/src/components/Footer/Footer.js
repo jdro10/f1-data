@@ -22,40 +22,51 @@ const Footer = () => {
           <Col>
             <GiCheckeredFlag size={40} />
           </Col>
+
           <Col>
             <FaGithub size={40} />
           </Col>
+
           <Col>
             <FaReact size={40} />
           </Col>
           <Col>
             <IoLogoJavascript size={40} />
           </Col>
+
           <Col>
             <FaHtml5 size={40} />
           </Col>
+
           <Col>
             <FaCss3Alt size={40} />
           </Col>
+
           <Col>
             <BsBootstrap size={40} />
           </Col>
+
           <Col>
             <SiLeaflet size={40} />
           </Col>
+
           <Col>
             <IoLogoNpm size={40} />
           </Col>
+
           <Col>
             <SiVisualstudiocode size={40} />
           </Col>
         </Row>
+
         <Row className="justify-content-md-center" xs="auto" id="lastRow" />
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             <h5>API</h5>
           </Col>
         </Row>
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             All racing data is obtained through{" "}
@@ -65,6 +76,7 @@ const Footer = () => {
             .
           </Col>
         </Row>
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             Some drivers' and circuits' information are obtained through{" "}
@@ -77,31 +89,38 @@ const Footer = () => {
             .
           </Col>
         </Row>
+
         <br />
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             <h5>DISCLAIMER</h5>
           </Col>
         </Row>
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             This website was developed for learning and educational purposes
             only.
           </Col>
         </Row>
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             Data displayed may be inaccurate. By using this website you
             acknowledge this.
           </Col>
         </Row>
+
         <Row className="justify-content-md-center">
           <Col md="auto" style={{ textAlign: "center" }}>
             The author disclaims all responsibility for any loss or damage
             arising from the use of this website.
           </Col>
         </Row>
+
         <br />
+
         <Row className="justify-content-md-center">
           <Col md={7}>
             <p style={{ textAlign: "center" }}>

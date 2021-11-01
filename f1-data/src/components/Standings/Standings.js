@@ -79,16 +79,14 @@ const Standings = () => {
   };
 
   return (
-    <>
+    <Container style={{ minHeight: "500px" }}>
       {loadingConstructorsStandings || loadingDriversStandings ? (
-        <Container style={{ minHeight: "500px" }}>
-          <Row className="justify-content-center text-center">
-            <h1>{season} FORMULA 1</h1>
-            <Spinner animation="border" />
-          </Row>
-        </Container>
+        <Row className="justify-content-center text-center">
+          <h1>{season} FORMULA 1</h1>
+          <Spinner animation="border" />
+        </Row>
       ) : (
-        <Container>
+        <>
           <Row className="justify-content-center text-center">
             <Col>
               <h1>{season} FORMULA 1</h1>
@@ -125,8 +123,9 @@ const Standings = () => {
 
           <Tabs
             defaultActiveKey="drivers"
-            id="uncontrolled-tab-example"
             className="mb-3"
+            transition={true}
+            fill
           >
             <Tab tabClassName="tab-style" eventKey="drivers" title="DRIVERS">
               <DriversStandings driversStandings={driversStandings} />
@@ -142,9 +141,9 @@ const Standings = () => {
               />
             </Tab>
           </Tabs>
-        </Container>
+        </>
       )}
-    </>
+    </Container>
   );
 };
 

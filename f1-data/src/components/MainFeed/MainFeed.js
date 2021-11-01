@@ -87,10 +87,11 @@ const MainFeed = () => {
         <Col xs={{ span: 8, offset: 2 }}>
           <h1>{CURRENT_SEASON} FORMULA 1</h1>
         </Col>
+
         <Col xs={2} className="text-end">
           <Button
             onClick={() => refreshCache()}
-            className="red-btn"
+            className="red-btn title"
             variant="danger"
           >
             <FiRefreshCcw />
@@ -107,9 +108,11 @@ const MainFeed = () => {
             <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
             </Col>
+
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
             </Col>
+
             <Col xs={12} xl={6}>
               <PreviousRaceStats
                 lastRace={lastRace}
@@ -129,6 +132,7 @@ const MainFeed = () => {
               <Col xs={12} xl={6}>
                 <DriversStandingsCard driversStandings={driversStandings} />
               </Col>
+
               <Col xs={12} xl={6}>
                 <ConstructorsStandingsCard
                   constructorsStandings={constructorsStandings}

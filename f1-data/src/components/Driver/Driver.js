@@ -168,6 +168,7 @@ const Driver = ({ driverId }) => {
                 {name}
               </h1>
             </Col>
+
             <Col xs={12} lg="auto" style={{ marginBottom: "20px" }}>
               <CircleFlag
                 countryCode={
@@ -179,6 +180,7 @@ const Driver = ({ driverId }) => {
               />
             </Col>
           </Row>
+
           <Row className="justify-content-center text-center">
             <Col xs={12} lg={3} style={{ marginBottom: "10px" }}>
               {driverPhoto[wikiPageId].hasOwnProperty("original") ? (
@@ -192,6 +194,7 @@ const Driver = ({ driverId }) => {
                 <BsPersonFill size={150} />
               )}
             </Col>
+
             <Col xs={12} lg={9}>
               <p style={{ textAlign: "justify" }}>
                 {driverInformation[wikiPageId]["extract"]}

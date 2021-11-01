@@ -171,6 +171,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                       }
                     />
                   </Col>
+
                   <Col xs="auto">{fastestLap.Results[0].Constructor.name}</Col>
                 </Row>
               </td>

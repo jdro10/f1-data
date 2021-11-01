@@ -134,6 +134,7 @@ const Laps = ({ season, round }) => {
           <MediaQuery minWidth={1224}>
             <Line data={data} height={325} width={500} options={options} />
           </MediaQuery>
+
           <MediaQuery maxWidth={1224}>
             <Line
               data={data}
