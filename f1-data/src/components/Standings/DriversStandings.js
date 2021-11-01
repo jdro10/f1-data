@@ -32,7 +32,7 @@ const DriversStandings = ({ style, driversStandings }) => {
         variant={theme}
       >
         <thead>
-          <tr>
+          <tr className="text-center">
             <th>POS</th>
             <th className="hideXS">NO</th>
             <th>NAME/TEAM</th>
@@ -44,7 +44,7 @@ const DriversStandings = ({ style, driversStandings }) => {
           {driversStandings.map((driver, index) => (
             <tr
               key={index}
-              className="align-middle"
+              className="align-middle text-center"
               style={{ cursor: "pointer" }}
               onClick={() => rowClick(driver.Driver.driverId)}
             >
