@@ -20,7 +20,9 @@ const PreviousRaceCard = ({ lastRace }) => {
           <h1 style={boldFont}>
             {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
           </h1>
-          <h5>{lastRace.MRData.RaceTable.Races[0].Circuit.circuitName.toUpperCase()}</h5>
+          <h5>
+            {lastRace.MRData.RaceTable.Races[0].Circuit.circuitName.toUpperCase()}
+          </h5>
           <h6>{convertDate(lastRace.MRData.RaceTable.Races[0].date)}</h6>
           <h6>
             {getLocalRaceDate(
@@ -28,16 +30,14 @@ const PreviousRaceCard = ({ lastRace }) => {
               lastRace.MRData.RaceTable.Races[0].time
             )}
           </h6>
-          <>
-            <br />
-            <CircleFlag
-              countryCode={CountriesCodeNationality[
-                lastRace.MRData.RaceTable.Races[0].Circuit.Location.country
-              ].toLowerCase()}
-              height={120}
-            />
-          </>
-          <h5 style={{ marginTop: "5%" }}>
+          <CircleFlag
+            countryCode={CountriesCodeNationality[
+              lastRace.MRData.RaceTable.Races[0].Circuit.Location.country
+            ].toLowerCase()}
+            height={120}
+            style={{ marginTop: "10px" }}
+          />
+          <h5 style={{ marginTop: "27px" }}>
             {lastRace.MRData.RaceTable.Races[0].Circuit.Location.country}
           </h5>
           <h5>

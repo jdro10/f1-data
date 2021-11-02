@@ -10,7 +10,7 @@ import Laps from "../Laps/Laps";
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
     <>
-      <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+      <ul class="nav nav-pills nav-fill mb-2" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
