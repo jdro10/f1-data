@@ -79,12 +79,10 @@ export const GlobalStyles = createGlobalStyle`
       props.theme.body === "#FFFFFF" ? "#212529" : "#fff"};
     border-radius: 15px !important;
     color: ${(props) => (props.theme.body === "#FFFFFF" ? "#fff" : "#000")};
-    margin-bottom: 10px;
   }
 
   .nav-link, .nav-link:hover {
     border-radius: 10px !important;
     color: ${(props) => props.theme.fontColor};
-    margin-bottom: 10px;
   }
 `;

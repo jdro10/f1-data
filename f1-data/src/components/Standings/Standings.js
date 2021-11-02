@@ -119,7 +119,7 @@ const Standings = () => {
             </Col>
           </Row>
 
-          <ul class="nav nav-pills nav-fill mb-3" role="tablist">
+          <ul class="nav nav-pills nav-fill mb-2" role="tablist">
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link active"
