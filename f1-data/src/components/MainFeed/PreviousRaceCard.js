@@ -20,7 +20,7 @@ const PreviousRaceCard = ({ lastRace }) => {
           <h1 style={boldFont}>
             {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
           </h1>
-          <h5>{lastRace.MRData.RaceTable.Races[0].Circuit.circuitName}</h5>
+          <h5>{lastRace.MRData.RaceTable.Races[0].Circuit.circuitName.toUpperCase()}</h5>
           <h6>{convertDate(lastRace.MRData.RaceTable.Races[0].date)}</h6>
           <h6>
             {getLocalRaceDate(

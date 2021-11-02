@@ -72,4 +72,19 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #e10600;
     border-color: #e10600;
   }
+
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #F0F8FF;
+    background-color: ${(props) =>
+      props.theme.body === "#FFFFFF" ? "#212529" : "#fff"};
+    border-radius: 15px !important;
+    color: ${(props) => (props.theme.body === "#FFFFFF" ? "#fff" : "#000")};
+    margin-bottom: 10px;
+  }
+
+  .nav-link, .nav-link:hover {
+    border-radius: 10px !important;
+    color: ${(props) => props.theme.fontColor};
+    margin-bottom: 10px;
+  }
 `;

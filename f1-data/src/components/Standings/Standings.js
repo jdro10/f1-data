@@ -6,8 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
 
 const Standings = () => {
   const FIRST_SEASON = 1950;
@@ -121,26 +119,57 @@ const Standings = () => {
             </Col>
           </Row>
 
-          <Tabs
-            defaultActiveKey="drivers"
-            className="mb-3"
-            transition={true}
-            fill
-          >
-            <Tab tabClassName="tab-style" eventKey="drivers" title="DRIVERS">
+          <ul class="nav nav-pills nav-fill mb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="driver-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#driver"
+                type="button"
+                role="tab"
+                aria-controls="driver"
+                aria-selected="true"
+              >
+                DRIVERS
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="constructor-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#constructor"
+                type="button"
+                role="tab"
+                aria-controls="constructor"
+                aria-selected="false"
+              >
+                CONSTRUCTORS
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="driver"
+              role="tabpanel"
+              aria-labelledby="driver-tab"
+            >
               <DriversStandings driversStandings={driversStandings} />
-            </Tab>
-            <Tab
-              tabClassName="tab-style"
-              eventKey="constructors"
-              title="CONSTRUCTORS"
+            </div>
+            <div
+              class="tab-pane fade"
+              id="constructor"
+              role="tabpanel"
+              aria-labelledby="constructor-tab"
             >
               <ConstructorsStandings
                 constructorsStandings={constructorsStandings}
                 season={season}
               />
-            </Tab>
-          </Tabs>
+            </div>
+          </div>
         </>
       )}
     </Container>

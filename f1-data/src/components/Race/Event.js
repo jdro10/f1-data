@@ -1,6 +1,4 @@
 import React from "react";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
 import RaceClassification from "../Classifications/RaceClassification";
 import QualifyingClassification from "../Classifications/QualifyingClassification";
 import RaceInformation from "./RaceInformation";
@@ -11,56 +9,147 @@ import Laps from "../Laps/Laps";
 
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
-    <Tabs defaultActiveKey="race" className="mb-3 tabs" transition={true} fill>
-      <Tab tabClassName="tab-style" eventKey="race" title="RACE">
-        <RaceInformation
-          raceInfo={raceInfo}
-          eventCountryCode={raceInfo.Circuit.Location.country}
-        />
+    <>
+      <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="race-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#race"
+            type="button"
+            role="tab"
+            aria-controls="race"
+            aria-selected="true"
+          >
+            RACE
+          </button>
+        </li>
 
-        {raceClassification != null ? (
-          <RaceClassification raceClassification={raceClassification} />
-        ) : (
-          <Row className="justify-content-center text-center">
-            <p></p>
-            <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
-          </Row>
-        )}
-      </Tab>
+        {raceClassification != null && raceInfo.season >= 1996 ? (
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="laps-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#laps"
+              type="button"
+              role="tab"
+              aria-controls="laps"
+              aria-selected="false"
+            >
+              LAPS
+            </button>
+          </li>
+        ) : null}
 
-      {raceClassification != null && raceInfo.season >= 1996 ? (
-        <Tab tabClassName="tab-style" eventKey="laps" title="LAPS">
+        {qualifyingClassification != null ? (
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="qualifying-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#qualifying"
+              type="button"
+              role="tab"
+              aria-controls="qualifying"
+              aria-selected="false"
+            >
+              QUALIFYING
+            </button>
+          </li>
+        ) : null}
+
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="circuit-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#circuit"
+            type="button"
+            role="tab"
+            aria-controls="circuit"
+            aria-selected="false"
+          >
+            CIRCUIT
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div
+          class="tab-pane active"
+          id="race"
+          role="tabpanel"
+          aria-labelledby="race-tab"
+        >
           <RaceInformation
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
 
-          <div style={{ minHeight: "300px" }}>
-            <Laps season={raceInfo.season} round={raceInfo.round} />
-          </div>
-        </Tab>
-      ) : null}
+          {raceClassification != null ? (
+            <RaceClassification raceClassification={raceClassification} />
+          ) : (
+            <Row className="justify-content-center text-center">
+              <p></p>
+              <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
+            </Row>
+          )}
+        </div>
 
-      {qualifyingClassification != null ? (
-        <Tab tabClassName="tab-style" eventKey="qualifying" title="QUALIFYING">
-          <RaceInformation
+        <div
+          class="tab-pane"
+          id="laps"
+          role="tabpanel"
+          aria-labelledby="laps-tab"
+        >
+          {raceClassification != null && raceInfo.season >= 1996 ? (
+            <>
+              <RaceInformation
+                raceInfo={raceInfo}
+                eventCountryCode={raceInfo.Circuit.Location.country}
+              />
+              <div style={{ minHeight: "300px" }}>
+                <Laps season={raceInfo.season} round={raceInfo.round} />
+              </div>
+            </>
+          ) : null}
+        </div>
+
+        <div
+          class="tab-pane"
+          id="qualifying"
+          role="tabpanel"
+          aria-labelledby="qualifying-tab"
+        >
+          {qualifyingClassification != null ? (
+            <>
+              <RaceInformation
+                raceInfo={raceInfo}
+                eventCountryCode={raceInfo.Circuit.Location.country}
+              />
+
+              <QualifyingClassification
+                qualifyingClassification={qualifyingClassification}
+              />
+            </>
+          ) : null}
+        </div>
+
+        <div
+          class="tab-pane"
+          id="circuit"
+          role="tabpanel"
+          aria-labelledby="circuit-tab"
+        >
+          <Circuit
             raceInfo={raceInfo}
             eventCountryCode={raceInfo.Circuit.Location.country}
           />
-
-          <QualifyingClassification
-            qualifyingClassification={qualifyingClassification}
-          />
-        </Tab>
-      ) : null}
-
-      <Tab tabClassName="tab-style" eventKey="circuit" title="CIRCUIT">
-        <Circuit
-          raceInfo={raceInfo}
-          eventCountryCode={raceInfo.Circuit.Location.country}
-        />
-      </Tab>
-    </Tabs>
+        </div>
+      </div>
+    </>
   );
 };
 
