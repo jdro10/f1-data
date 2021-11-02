@@ -19,7 +19,7 @@ const NextRaceCard = ({ nextRace }) => {
         <>
           <h5>ROUND {nextRace.round}</h5>
           <h1 style={boldFont}>{nextRace.raceName.toUpperCase()}</h1>
-          <h5>{nextRace.Circuit.circuitName}</h5>
+          <h5>{nextRace.Circuit.circuitName.toUpperCase()}</h5>
           <h6>{convertDate(nextRace.date)}</h6>
           <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
           <CircleFlag

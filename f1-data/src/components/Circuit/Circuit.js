@@ -92,7 +92,7 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
   return (
     <>
       <Row className="text-center">
-        <h1>{raceInfo.Circuit.circuitName}</h1>
+        <h1>{raceInfo.Circuit.circuitName.toUpperCase()}</h1>
         <h3>
           <CircleFlag
             countryCode={CountriesCodeNationality[
@@ -109,7 +109,7 @@ const Circuit = ({ raceInfo, eventCountryCode }) => {
         <Row>
           <p style={{ textAlign: "justify" }}>
             {circuitInformation[wikiPageId]["extract"]}
-            <br/>
+            <br />
             Source:{" "}
             <a
               href={`https://en.wikipedia.org/wiki/${circuitInformation[wikiPageId]["title"]}`}
