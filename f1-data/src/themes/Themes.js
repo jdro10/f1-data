@@ -81,8 +81,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${(props) => (props.theme.body === "#FFFFFF" ? "#fff" : "#000")};
   }
 
-  .nav-link, .nav-link:hover {
-    border-radius: 10px !important;
+  .nav-link, .nav-link:hover, .nav-link:not(:active) {
+    border-radius: 15px !important;
     color: ${(props) => props.theme.fontColor};
+    background-color: ${(props) =>
+      props.theme.body === "#FFFFFF" ? "#C0C0C0;" : "#303030"};
   }
 `;
