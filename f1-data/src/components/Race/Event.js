@@ -10,7 +10,12 @@ import Laps from "../Laps/Laps";
 const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
     <>
-      <ul class="nav nav-pills nav-fill mb-2" id="myTab" role="tablist">
+      <ul
+        class="nav nav-pills nav-fill mb-2"
+        id="myTab"
+        role="tablist"
+        style={{ marginTop: "10px" }}
+      >
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
@@ -78,7 +83,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
 
       <div class="tab-content">
         <div
-          class="tab-pane active"
+          class="tab-pane fade show active"
           id="race"
           role="tabpanel"
           aria-labelledby="race-tab"
@@ -99,7 +104,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane"
+          class="tab-pane fade"
           id="laps"
           role="tabpanel"
           aria-labelledby="laps-tab"
@@ -118,7 +123,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane"
+          class="tab-pane fade"
           id="qualifying"
           role="tabpanel"
           aria-labelledby="qualifying-tab"
@@ -138,7 +143,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane"
+          class="tab-pane fade"
           id="circuit"
           role="tabpanel"
           aria-labelledby="circuit-tab"
