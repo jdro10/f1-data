@@ -32,8 +32,8 @@ const RaceClassification = ({ raceClassification }) => {
       >
         <thead>
           <tr>
-            <th>POS</th>
-            <th className="hideXS">NUMBER</th>
+            <th className="text-center">POS</th>
+            <th className="hideXS text-center">NUMBER</th>
             <th>DRIVER</th>
             <th className="hideXS">TEAM</th>
             <th className="hideXS">LAPS</th>
@@ -49,9 +49,10 @@ const RaceClassification = ({ raceClassification }) => {
               key={index}
               style={{ cursor: "pointer" }}
               onClick={() => rowClick(driver.Driver.driverId)}
+              className="align-middle"
             >
-              <td>{driver.position}</td>
-              <td className="hideXS">{driver.number}</td>
+              <td className="text-center">{driver.position}</td>
+              <td className="hideXS text-center">{driver.number}</td>
               <td>
                 <Row className="g-2">
                   <Col xs={1} className="showXS">

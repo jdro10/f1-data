@@ -4,7 +4,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
 
-const CACHE_NAME = "v1.61";
+const CACHE_NAME = "v1.7";
 const CACHE_URLS = ["/f1-data", "/f1-data/schedule", "/f1-data/standings"];
 
 self.addEventListener("install", async (event) => {
@@ -14,6 +14,8 @@ self.addEventListener("install", async (event) => {
   } catch (e) {
     console.log(e);
   }
+
+  return self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
