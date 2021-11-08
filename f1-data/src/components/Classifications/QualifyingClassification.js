@@ -31,13 +31,13 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
     >
       <thead>
         <tr>
-          <th>POS</th>
-          <th className="hideXS">NUMBER</th>
+          <th className="text-center">POS</th>
+          <th className="hideXS text-center">NUMBER</th>
           <th>DRIVER</th>
           <th className="hideXS">TEAM</th>
-          <th>Q1</th>
-          <th>Q2</th>
-          <th>Q3</th>
+          <th className="text-center">Q1</th>
+          <th className="text-center">Q2</th>
+          <th className="text-center">Q3</th>
         </tr>
       </thead>
 
@@ -48,8 +48,8 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
             style={{ cursor: "pointer" }}
             onClick={() => rowClick(driver.Driver.driverId)}
           >
-            <td>{driver.position}</td>
-            <td className="hideXS">{driver.number}</td>
+            <td className="text-center">{driver.position}</td>
+            <td className="hideXS text-center">{driver.number}</td>
             <td className="hideXS">
               <Row className="g-2">
                 <Col xs={1}>
@@ -80,15 +80,19 @@ const QualifyingClassification = ({ qualifyingClassification }) => {
               </Row>
             </td>
             <td className="hideXS">{driver.Constructor.name}</td>
-            <td>
+            <td className="text-center">
               {driver.hasOwnProperty("Q1")
                 ? driver.Q1 === ""
                   ? "-"
                   : driver.Q1
                 : "-"}
             </td>
-            <td>{driver.hasOwnProperty("Q2") ? driver.Q2 : "-"}</td>
-            <td>{driver.hasOwnProperty("Q3") ? driver.Q3 : "-"}</td>
+            <td className="text-center">
+              {driver.hasOwnProperty("Q2") ? driver.Q2 : "-"}
+            </td>
+            <td className="text-center">
+              {driver.hasOwnProperty("Q3") ? driver.Q3 : "-"}
+            </td>
           </tr>
         ))}
       </tbody>

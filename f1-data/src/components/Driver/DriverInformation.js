@@ -73,7 +73,6 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                       constructorId={
                         lastGP.Results[0].Constructor.constructorId
                       }
-                      height="30px"
                     />
                   </Col>
                   

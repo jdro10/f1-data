@@ -15,12 +15,6 @@ import { GiPodiumThird } from "react-icons/gi";
 import { FaStopwatch } from "react-icons/fa";
 import { SiFastly } from "react-icons/si";
 
-const boldFont = {
-  fontWeight: 600,
-  marginTop: "15px",
-  marginBottom: "10px",
-};
-
 const driverName = {
   fontWeight: 600,
   margin: "0px",
@@ -87,8 +81,8 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
     <GenericCard
       cardTitle="PREVIOUS RACE"
       cardBody={
-        <div>
-          <h4 style={driverName}>PODIUM</h4>
+        <>
+          <h4>PODIUM</h4>
           <Table responsive className="table-hover" variant={theme}>
             <tbody className="justify-content-center">
               {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
@@ -99,21 +93,15 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     style={{ cursor: "pointer" }}
                     onClick={() => rowClick(driver.Driver.driverId)}
                   >
-                    {driver.position === "1" ? (
-                      <td>
+                    <td>
+                      {driver.position === "1" ? (
                         <GiPodiumWinner size={23} />
-                      </td>
-                    ) : driver.position === "2" ? (
-                      <td>
+                      ) : driver.position === "2" ? (
                         <GiPodiumSecond size={23} />
-                      </td>
-                    ) : driver.position === "3" ? (
-                      <td>
+                      ) : driver.position === "3" ? (
                         <GiPodiumThird size={23} />
-                      </td>
-                    ) : (
-                      <td>{driver.position}</td>
-                    )}
+                      ) : null}
+                    </td>
                     <td>
                       <Row className="g-0 text-start">
                         <Col xs="auto" className="align-self-center">
@@ -162,7 +150,9 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
               )}
             </tbody>
           </Table>
-          <h4 style={boldFont}>FASTEST LAP / POLE POSITION</h4>
+
+          <h4>FASTEST LAP / POLE POSITION</h4>
+
           <Table responsive className="table-hover" variant={theme}>
             <tbody>
               {fastestLap === null ? null : (
@@ -219,6 +209,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   <td>{fastestLap.FastestLap.Time.time}</td>
                 </tr>
               )}
+
               {loadingPolePosition || loadingPoleTime ? null : (
                 <tr
                   className="align-middle"
@@ -275,7 +266,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
               )}
             </tbody>
           </Table>
-        </div>
+        </>
       }
       cardFooter={
         <h4>
