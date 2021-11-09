@@ -42,3 +42,7 @@
 .no-wrap {
   white-space: nowrap;
 }
+
+.countdown-font {
+  font-size: 65px;
+}

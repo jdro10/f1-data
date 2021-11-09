@@ -98,7 +98,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
           ) : (
             <Row className="justify-content-center text-center">
               <p></p>
-              <ClockCountdown date={raceInfo.date} time={raceInfo.time} />
+              <ClockCountdown date={raceInfo.date} time={raceInfo.time} size="big" />
             </Row>
           )}
         </div>

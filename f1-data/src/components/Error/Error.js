@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
-    <Container style={{ minHeight: "500px" }}>
+    <Container style={{ minHeight: "550px" }}>
       <Row className="justify-content-md-center">
         <Col md="auto">
           <BiError size={300} />

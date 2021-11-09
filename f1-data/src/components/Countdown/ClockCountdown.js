@@ -2,7 +2,7 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Countdown from "react-countdown";
 
-const ClockCountdown = ({ date, time }) => {
+const ClockCountdown = ({ date, time, size }) => {
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
@@ -14,25 +14,51 @@ const ClockCountdown = ({ date, time }) => {
     } else {
       return (
         <>
-          <Col xs={3} lg={1}>
-            <h1>{days}</h1>
-            <h5>DAYS</h5>
-          </Col>
+          {size === "big" ? (
+            <>
+              <Col xs={3} lg={2}>
+                <h1 className="countdown-font">{days}</h1>
+                <h1>DAYS</h1>
+              </Col>
 
-          <Col xs={3} lg={1}>
-            <h1>{hours}</h1>
-            <h5>HRS</h5>
-          </Col>
+              <Col xs={3} lg={2}>
+                <h1 className="countdown-font">{hours}</h1>
+                <h1>HRS</h1>
+              </Col>
 
-          <Col xs={3} lg={1}>
-            <h1>{minutes}</h1>
-            <h5>MIN</h5>
-          </Col>
+              <Col xs={3} lg={2}>
+                <h1 className="countdown-font">{minutes}</h1>
+                <h1>MIN</h1>
+              </Col>
 
-          <Col xs={3} lg={1}>
-            <h1>{seconds}</h1>
-            <h5>SEC</h5>
-          </Col>
+              <Col xs={3} lg={2}>
+                <h1 className="countdown-font">{seconds}</h1>
+                <h1>SEC</h1>
+              </Col>
+            </>
+          ) : (
+            <>
+              <Col xs={3} lg={1}>
+                <h1>{days}</h1>
+                <h5>DAYS</h5>
+              </Col>
+
+              <Col xs={3} lg={1}>
+                <h1>{hours}</h1>
+                <h5>HRS</h5>
+              </Col>
+
+              <Col xs={3} lg={1}>
+                <h1>{minutes}</h1>
+                <h5>MIN</h5>
+              </Col>
+
+              <Col xs={3} lg={1}>
+                <h1>{seconds}</h1>
+                <h5>SEC</h5>
+              </Col>
+            </>
+          )}
         </>
       );
     }
