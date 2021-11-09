@@ -93,7 +93,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                     style={{ cursor: "pointer" }}
                     onClick={() => rowClick(driver.Driver.driverId)}
                   >
-                    <td>
+                    <td className="icon">
                       {driver.position === "1" ? (
                         <GiPodiumWinner size={23} />
                       ) : driver.position === "2" ? (
@@ -144,7 +144,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                         </Col>
                       </Row>
                     </td>
-                    <td>+{driver.points}</td>
+                    <td className="third-info">+{driver.points}</td>
                   </tr>
                 )
               )}
@@ -161,7 +161,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => rowClick(fastestLap.Driver.driverId)}
                 >
-                  <td>
+                  <td className="icon">
                     <FaStopwatch size={20} />
                   </td>
                   <td>
@@ -206,7 +206,9 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                       </Col>
                     </Row>
                   </td>
-                  <td>{fastestLap.FastestLap.Time.time}</td>
+                  <td className="third-info">
+                    {fastestLap.FastestLap.Time.time}
+                  </td>
                 </tr>
               )}
 
@@ -261,7 +263,7 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
                       </Col>
                     </Row>
                   </td>
-                  <td>{poleTime}</td>
+                  <td className="third-info">{poleTime}</td>
                 </tr>
               )}
             </tbody>
