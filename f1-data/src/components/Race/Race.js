@@ -45,7 +45,7 @@ const Race = ({ season, round }) => {
   }, [season, round]);
 
   return (
-    <Container fluid="md" style={{ minHeight: "550px" }}>
+    <Container fluid="md" style={{ minHeight: "600px" }}>
       {loadingRaceResult || loadingQualifying ? (
         <Container style={{ marginTop: "5%", minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
