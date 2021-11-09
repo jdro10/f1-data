@@ -48,7 +48,7 @@ const Calendar = () => {
   };
 
   return (
-    <Container style={{ minHeight: "500px" }}>
+    <Container style={{ minHeight: "650px" }}>
       {loadingSeasonSchedule ? (
         <Row className="justify-content-center text-center">
           <h1>{season} FORMULA 1</h1>

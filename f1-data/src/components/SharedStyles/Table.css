@@ -46,3 +46,15 @@
 .countdown-font {
   font-size: 65px;
 }
+
+@media only screen and (min-width: 501px) {
+  .countdown-font {
+    font-size: 65px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .countdown-font {
+    font-size: 45px;
+  }
+}

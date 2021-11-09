@@ -42,7 +42,7 @@ const FutureRace = ({ season, round }) => {
   }, [season, round]);
 
   return (
-    <div style={{ minHeight: "500px" }}>
+    <div style={{ minHeight: "600px" }}>
       {loadingRaceInfo || loadingQualifying ? null : raceInfo === null ? (
         <Redirect to="/error" />
       ) : (
