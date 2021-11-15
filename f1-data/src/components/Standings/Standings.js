@@ -119,10 +119,10 @@ const Standings = () => {
             </Col>
           </Row>
 
-          <ul class="nav nav-pills nav-fill mb-2" role="tablist">
-            <li class="nav-item" role="presentation">
+          <ul className="nav nav-pills nav-fill mb-2" role="tablist">
+            <li className="nav-item" role="presentation">
               <button
-                class="nav-link active"
+                className="nav-link active"
                 id="driver-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#driver"
@@ -134,9 +134,9 @@ const Standings = () => {
                 DRIVERS
               </button>
             </li>
-            <li class="nav-item" role="presentation">
+            <li className="nav-item" role="presentation">
               <button
-                class="nav-link"
+                className="nav-link"
                 id="constructor-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#constructor"
@@ -149,9 +149,9 @@ const Standings = () => {
               </button>
             </li>
           </ul>
-          <div class="tab-content" id="myTabContent">
+          <div className="tab-content" id="myTabContent">
             <div
-              class="tab-pane fade show active"
+              className="tab-pane fade show active"
               id="driver"
               role="tabpanel"
               aria-labelledby="driver-tab"
@@ -159,7 +159,7 @@ const Standings = () => {
               <DriversStandings driversStandings={driversStandings} />
             </div>
             <div
-              class="tab-pane fade"
+              className="tab-pane fade"
               id="constructor"
               role="tabpanel"
               aria-labelledby="constructor-tab"
