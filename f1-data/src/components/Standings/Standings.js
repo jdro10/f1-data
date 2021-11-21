@@ -167,6 +167,7 @@ const Standings = () => {
               <ConstructorsStandings
                 constructorsStandings={constructorsStandings}
                 season={season}
+                showEngine={true}
               />
             </div>
           </div>

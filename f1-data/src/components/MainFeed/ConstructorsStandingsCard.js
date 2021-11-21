@@ -17,6 +17,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
           }}
           constructorsStandings={constructorsStandings}
           season={season}
+          showEngine={false}
         />
       }
       cardFooter={
