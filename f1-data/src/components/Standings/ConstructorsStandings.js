@@ -16,7 +16,7 @@ const boldFont = {
   display: "inline",
 };
 
-const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
+const ConstructorsStandings = ({ style, constructorsStandings, season, showEngine }) => {
   const { theme } = useContext(ThemeContext);
 
   const rowClick = (wikiConstructorLink) => {
@@ -35,6 +35,9 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
             <tr className="text-center">
               <th>POS</th>
               <th>NAME</th>
+              {ConstructorLineup.hasOwnProperty(season) && showEngine ? (
+                <th className="text-start hideXS">ENGINE</th>
+              ) : null}
               <th className="hideXS">WINS</th>
               <th>POINTS</th>
             </tr>
@@ -100,6 +103,17 @@ const ConstructorsStandings = ({ style, constructorsStandings, season }) => {
                     </Col>
                   </Row>
                 </td>
+                {ConstructorLineup.hasOwnProperty(season) && showEngine ? (
+                  <td className="text-start hideXS">
+                    <p style={boldFont}>
+                      {
+                        ConstructorLineup[season][
+                          constructor.Constructor.constructorId
+                        ][2]
+                      }
+                    </p>
+                  </td>
+                ) : null}
                 <td className="hideXS">{constructor.wins}</td>
                 <td>{constructor.points}</td>
               </tr>
