@@ -91,7 +91,9 @@ const DriversStandings = ({ style, driversStandings }) => {
 
                     <Row>
                       <Col style={{ fontSize: "13px" }}>
-                        {driver.Constructors[0].name}
+                        {driver.Constructors[0].name !== undefined
+                          ? driver.Constructors[0].name
+                          : "-"}
                       </Col>
                     </Row>
                   </Col>
