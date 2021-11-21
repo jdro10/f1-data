@@ -6,10 +6,19 @@ const ClockCountdown = ({ date, time, size }) => {
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       return (
-        <Col>
-          <h1>RACE IN PROGRESS</h1>
-          <h5>WAITING FOR RACE RESULTS</h5>
-        </Col>
+        <>
+          {size === "big" ? (
+            <Col>
+              <h1 className="countdown-font">RACE IN PROGRESS</h1>
+              <h5 className="countdown-font">WAITING FOR RACE RESULTS</h5>
+            </Col>
+          ) : (
+            <Col>
+              <h1>RACE IN PROGRESS</h1>
+              <h5>WAITING FOR RACE RESULTS</h5>
+            </Col>
+          )}
+        </>
       );
     } else {
       return (

@@ -11,14 +11,14 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
   return (
     <>
       <ul
-        class="nav nav-pills nav-fill mb-2"
+        className="nav nav-pills nav-fill mb-2"
         id="myTab"
         role="tablist"
         style={{ marginTop: "10px" }}
       >
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link active"
+            className="nav-link active"
             id="race-tab"
             data-bs-toggle="tab"
             data-bs-target="#race"
@@ -32,9 +32,9 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </li>
 
         {raceClassification != null && raceInfo.season >= 1996 ? (
-          <li class="nav-item" role="presentation">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link"
+              className="nav-link"
               id="laps-tab"
               data-bs-toggle="tab"
               data-bs-target="#laps"
@@ -49,9 +49,9 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         ) : null}
 
         {qualifyingClassification != null ? (
-          <li class="nav-item" role="presentation">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link"
+              className="nav-link"
               id="qualifying-tab"
               data-bs-toggle="tab"
               data-bs-target="#qualifying"
@@ -65,9 +65,9 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
           </li>
         ) : null}
 
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="circuit-tab"
             data-bs-toggle="tab"
             data-bs-target="#circuit"
@@ -81,9 +81,9 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </li>
       </ul>
 
-      <div class="tab-content">
+      <div className="tab-content">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="race"
           role="tabpanel"
           aria-labelledby="race-tab"
@@ -104,7 +104,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="laps"
           role="tabpanel"
           aria-labelledby="laps-tab"
@@ -123,7 +123,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="qualifying"
           role="tabpanel"
           aria-labelledby="qualifying-tab"
@@ -143,7 +143,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
         </div>
 
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="circuit"
           role="tabpanel"
           aria-labelledby="circuit-tab"

@@ -4,7 +4,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
 
-const CACHE_NAME = "V2021.19.02";
+const CACHE_NAME = "V2021.21.01";
 const CACHE_URLS = ["/f1-data", "/f1-data/schedule", "/f1-data/standings"];
 
 self.addEventListener("install", async (event) => {

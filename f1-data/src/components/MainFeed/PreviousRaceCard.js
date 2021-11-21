@@ -38,10 +38,10 @@ const PreviousRaceCard = ({ lastRace }) => {
             style={{ marginTop: "10px" }}
           />
           <h5 style={{ marginTop: "27px" }}>
-            {lastRace.MRData.RaceTable.Races[0].Circuit.Location.country}
+            {lastRace.MRData.RaceTable.Races[0].Circuit.Location.country.toUpperCase()}
           </h5>
           <h5>
-            {lastRace.MRData.RaceTable.Races[0].Circuit.Location.locality}
+            {lastRace.MRData.RaceTable.Races[0].Circuit.Location.locality.toUpperCase()}
           </h5>
         </div>
       }
