@@ -21,7 +21,9 @@ const DriversStandingsCard = ({ driversStandings }) => {
       cardHeight="34rem"
       cardFooter={
         <Link to="/standings">
-          <Button className="red-btn">FULL STANDINGS</Button>
+          <Button className="red-btn" variant="danger">
+            FULL STANDINGS
+          </Button>
         </Link>
       }
     />
