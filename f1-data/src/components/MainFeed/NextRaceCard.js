@@ -17,9 +17,9 @@ const NextRaceCard = ({ nextRace }) => {
       cardTitle="NEXT RACE"
       cardBody={
         <>
-          <h5>ROUND {nextRace.round}</h5>
           <h1 style={boldFont}>{nextRace.raceName.toUpperCase()}</h1>
           <h5>{nextRace.Circuit.circuitName.toUpperCase()}</h5>
+          <h5>ROUND {nextRace.round}</h5>
           <h6>{convertDate(nextRace.date)}</h6>
           <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
           <CircleFlag
@@ -34,7 +34,9 @@ const NextRaceCard = ({ nextRace }) => {
       }
       cardFooter={
         <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-          <Button className="red-btn">RACE INFORMATION</Button>
+          <Button className="red-btn" variant="danger">
+            RACE INFORMATION
+          </Button>
         </Link>
       }
       cardHeight="32rem"

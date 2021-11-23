@@ -22,7 +22,9 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
       }
       cardFooter={
         <Link to="/standings">
-          <Button className="red-btn">FULL STANDINGS</Button>
+          <Button className="red-btn" variant="danger">
+            FULL STANDINGS
+          </Button>
         </Link>
       }
       cardHeight="34rem"
