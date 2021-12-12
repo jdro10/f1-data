@@ -105,9 +105,11 @@ const MainFeed = () => {
       ) : (
         <>
           <Row className="justify-content-center text-center g-2">
-            <Col lg={12}>
-              <NextRaceCard nextRace={nextRace} />
-            </Col>
+            {nextRace === undefined ? null : (
+              <Col lg={12}>
+                <NextRaceCard nextRace={nextRace} />
+              </Col>
+            )}
 
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
