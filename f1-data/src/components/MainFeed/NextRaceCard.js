@@ -17,27 +17,53 @@ const NextRaceCard = ({ nextRace }) => {
       cardTitle="NEXT RACE"
       cardBody={
         <>
-          <h1 style={boldFont}>{nextRace.raceName.toUpperCase()}</h1>
-          <h5>{nextRace.Circuit.circuitName.toUpperCase()}</h5>
-          <h5>ROUND {nextRace.round}</h5>
-          <h6>{convertDate(nextRace.date)}</h6>
-          <h6>{getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
+          <h1 style={boldFont}>
+            {nextRace === undefined
+              ? "TBA GRAND PRIX"
+              : nextRace.raceName.toUpperCase()}
+          </h1>
+          <h5>
+            {nextRace === undefined
+              ? "TBA"
+              : nextRace.Circuit.circuitName.toUpperCase()}
+          </h5>
+          <h5>
+            {nextRace === undefined ? "ROUND 1" : "ROUND " + nextRace.round}
+          </h5>
+          <h6>{nextRace === undefined ? "TBA" : convertDate(nextRace.date)}</h6>
+          <h6>
+            {nextRace === undefined
+              ? "TBA"
+              : getLocalRaceDate(nextRace.date, nextRace.time)}
+          </h6>
           <CircleFlag
-            countryCode={CountriesCodeNationality[
-              nextRace.Circuit.Location.country
-            ].toLowerCase()}
+            countryCode={
+              nextRace === undefined
+                ? null
+                : CountriesCodeNationality[
+                    nextRace.Circuit.Location.country
+                  ].toLowerCase()
+            }
             height={100}
           />
           <p></p>
-          <ClockCoutdown date={nextRace.date} time={nextRace.time} />
+          {nextRace === undefined ? (
+            <ClockCoutdown date="2022-03-20" time="15:00:00" />
+          ) : (
+            <ClockCoutdown date={nextRace.date} time={nextRace.time} />
+          )}
         </>
       }
       cardFooter={
-        <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-          <Button className="red-btn" variant="danger">
-            RACE INFORMATION
-          </Button>
-        </Link>
+        nextRace === undefined ? (
+          "-"
+        ) : (
+          <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
+            <Button className="red-btn" variant="danger">
+              RACE INFORMATION
+            </Button>
+          </Link>
+        )
       }
       cardHeight="32rem"
     />
