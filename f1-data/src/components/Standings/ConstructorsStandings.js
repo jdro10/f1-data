@@ -16,7 +16,12 @@ const boldFont = {
   display: "inline",
 };
 
-const ConstructorsStandings = ({ style, constructorsStandings, season, showEngine }) => {
+const ConstructorsStandings = ({
+  style,
+  constructorsStandings,
+  constructorSeason,
+  showEngine,
+}) => {
   const { theme } = useContext(ThemeContext);
 
   const rowClick = (wikiConstructorLink) => {
@@ -35,7 +40,8 @@ const ConstructorsStandings = ({ style, constructorsStandings, season, showEngin
             <tr className="text-center">
               <th>POS</th>
               <th>NAME</th>
-              {ConstructorLineup.hasOwnProperty(season) && showEngine ? (
+              {ConstructorLineup.hasOwnProperty(parseInt(constructorSeason)) &&
+              showEngine ? (
                 <th className="text-start hideXS">ENGINE</th>
               ) : null}
               <th className="hideXS">WINS</th>
@@ -67,7 +73,9 @@ const ConstructorsStandings = ({ style, constructorsStandings, season, showEngin
                       <TeamColor
                         constructorId={constructor.Constructor.constructorId}
                         height={
-                          ConstructorLineup.hasOwnProperty(season)
+                          ConstructorLineup.hasOwnProperty(
+                            parseInt(constructorSeason)
+                          )
                             ? "43px"
                             : "27px"
                         }
@@ -83,17 +91,19 @@ const ConstructorsStandings = ({ style, constructorsStandings, season, showEngin
                         </Col>
                       </Row>
 
-                      {ConstructorLineup.hasOwnProperty(season) ? (
+                      {ConstructorLineup.hasOwnProperty(
+                        parseInt(constructorSeason)
+                      ) ? (
                         <Row style={{ fontSize: "13px" }}>
                           <Col>
                             {
-                              ConstructorLineup[season][
+                              ConstructorLineup[parseInt(constructorSeason)][
                                 constructor.Constructor.constructorId
                               ][0]
                             }{" "}
                             /{" "}
                             {
-                              ConstructorLineup[season][
+                              ConstructorLineup[parseInt(constructorSeason)][
                                 constructor.Constructor.constructorId
                               ][1]
                             }
@@ -103,11 +113,13 @@ const ConstructorsStandings = ({ style, constructorsStandings, season, showEngin
                     </Col>
                   </Row>
                 </td>
-                {ConstructorLineup.hasOwnProperty(season) && showEngine ? (
+                {ConstructorLineup.hasOwnProperty(
+                  parseInt(constructorSeason)
+                ) && showEngine ? (
                   <td className="text-start hideXS">
                     <p style={boldFont}>
                       {
-                        ConstructorLineup[season][
+                        ConstructorLineup[parseInt(constructorSeason)][
                           constructor.Constructor.constructorId
                         ][2]
                       }

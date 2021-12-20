@@ -8,15 +8,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "./Styles.css";
 import "../SharedStyles/Table.css";
 import Table from "react-bootstrap/Table";
+import { config } from "../../data/config";
 import { ThemeContext } from "../../helpers/ThemeContext";
 
 const Calendar = () => {
   const { theme } = useContext(ThemeContext);
-  const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
     sessionStorage.getItem("seasonScheduleInput") !== null
       ? sessionStorage.getItem("seasonScheduleInput")
-      : "2021"
+      : config.current_season
   );
   const [seasonSchedule, setSeasonSchedule] = useState(null);
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
@@ -34,9 +34,9 @@ const Calendar = () => {
 
     fetchSeasonSchedule();
     setSeasonsYearsList(
-      Array("2021" - FIRST_SEASON + 1)
+      Array(config.current_season - config.first_season + 1)
         .fill()
-        .map((_, i) => FIRST_SEASON + i)
+        .map((_, i) => config.first_season + i)
         .reverse()
     );
   }, [season]);
