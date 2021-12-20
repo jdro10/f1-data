@@ -11,10 +11,9 @@ import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
 import { FiRefreshCcw } from "react-icons/fi";
 import Button from "react-bootstrap/Button";
 import "./Styles.css";
+import { config } from "../../data/config";
 
 const MainFeed = () => {
-  const CURRENT_SEASON = "2021";
-  const TOTAL_NUMBER_OF_RACES = "22";
   const [nextRace, setNextRace] = useState(null);
   const [lastRace, setLastRace] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
@@ -48,7 +47,7 @@ const MainFeed = () => {
         .then((res) => res.json())
         .then((result) => {
           setConstructorsStandings(
-            result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+            result.MRData.StandingsTable.StandingsLists[0]
           );
           setLoadingTeamsStandings(false);
         });
@@ -85,7 +84,7 @@ const MainFeed = () => {
     <Container style={{ minHeight: "600px" }}>
       <Row className="justify-content-center text-center title">
         <Col xs={{ span: 8, offset: 2 }}>
-          <h1>{CURRENT_SEASON} FORMULA 1</h1>
+          <h1>{config.current_season} FORMULA 1</h1>
         </Col>
 
         <Col xs={2} className="text-end">
@@ -114,10 +113,7 @@ const MainFeed = () => {
             </Col>
 
             <Col xs={12} xl={6}>
-              <PreviousRaceStats
-                lastRace={lastRace}
-                numberOfRaces={TOTAL_NUMBER_OF_RACES}
-              />
+              <PreviousRaceStats lastRace={lastRace} />
             </Col>
           </Row>
           {loadingDriversStandings || loadingTeamsStandings ? (
@@ -135,8 +131,10 @@ const MainFeed = () => {
 
               <Col xs={12} xl={6}>
                 <ConstructorsStandingsCard
-                  constructorsStandings={constructorsStandings}
-                  season={CURRENT_SEASON}
+                  constructorsStandings={
+                    constructorsStandings.ConstructorStandings
+                  }
+                  season={constructorsStandings.season}
                 />
               </Col>
             </Row>

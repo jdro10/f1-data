@@ -16,7 +16,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
             height: "415px",
           }}
           constructorsStandings={constructorsStandings}
-          season={season}
+          constructorSeason={season}
           showEngine={false}
         />
       }

@@ -72,5 +72,7 @@ export const CountriesCodeNationality = {
   Turkey: "TR",
   UK: "GB",
   USA: "US",
-  Qatar: "QA"
+  "United States": "US",
+  Qatar: "QA",
+  Chinese: "CN"
 };

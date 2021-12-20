@@ -6,13 +6,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
+import { config } from "../../data/config";
 
 const Standings = () => {
-  const FIRST_SEASON = 1950;
   const [season, setSeason] = useState(
     sessionStorage.getItem("seasonStandingsInput") !== null
       ? sessionStorage.getItem("seasonStandingsInput")
-      : "2021"
+      : config.current_season
   );
   const [seasonsYearsList, setSeasonsYearsList] = useState(null);
   const [driversStandings, setDriversStandings] = useState(null);
@@ -32,7 +32,6 @@ const Standings = () => {
           if (result.MRData.StandingsTable.StandingsLists[0] !== undefined) {
             setConstructorsStandings(
               result.MRData.StandingsTable.StandingsLists[0]
-                .ConstructorStandings
             );
           } else {
             setConstructorsStandings(null);
@@ -67,7 +66,7 @@ const Standings = () => {
 
     fetchConstructorsStandings();
     fetchDriversStandings();
-    fillArrayBetweenTwoNumbers(FIRST_SEASON, new Date().getFullYear());
+    fillArrayBetweenTwoNumbers(config.first_season, config.current_season);
   }, [season]);
 
   const seasonYearChange = (text) => {
@@ -165,8 +164,11 @@ const Standings = () => {
               aria-labelledby="constructor-tab"
             >
               <ConstructorsStandings
-                constructorsStandings={constructorsStandings}
-                season={season}
+                style={null}
+                constructorsStandings={
+                  constructorsStandings.ConstructorStandings
+                }
+                constructorSeason={constructorsStandings.season}
                 showEngine={true}
               />
             </div>

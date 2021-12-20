@@ -68,7 +68,11 @@ const DriversStandings = ({ style, driversStandings }) => {
 
                   <Col xs={2} lg={1}>
                     <TeamColor
-                      constructorId={driver.Constructors[0].constructorId}
+                      constructorId={
+                        driver.Constructors.length > 0
+                          ? driver.Constructors[0].constructorId
+                          : null
+                      }
                       height="42px"
                     />
                   </Col>
@@ -91,7 +95,7 @@ const DriversStandings = ({ style, driversStandings }) => {
 
                     <Row>
                       <Col style={{ fontSize: "13px" }}>
-                        {driver.Constructors[0].name !== undefined
+                        {driver.Constructors.length > 0
                           ? driver.Constructors[0].name
                           : "-"}
                       </Col>

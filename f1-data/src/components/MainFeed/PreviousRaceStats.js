@@ -14,6 +14,7 @@ import { GiPodiumSecond } from "react-icons/gi";
 import { GiPodiumThird } from "react-icons/gi";
 import { FaStopwatch } from "react-icons/fa";
 import { SiFastly } from "react-icons/si";
+import { config } from "../../data/config";
 
 const driverName = {
   fontWeight: 600,
@@ -23,7 +24,7 @@ const driverName = {
   marginTop: "50px",
 };
 
-const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
+const PreviousRaceStats = ({ lastRace }) => {
   const { theme } = useContext(ThemeContext);
   const [fastestLap, setFastestLap] = useState(null);
   const [polePosition, setPolePosition] = useState(null);
@@ -272,7 +273,10 @@ const PreviousRaceStats = ({ lastRace, numberOfRaces }) => {
       }
       cardFooter={
         <h4>
-          ROUND: {lastRace.MRData.RaceTable.round}/{numberOfRaces}
+          ROUND: {lastRace.MRData.RaceTable.round}/
+          {lastRace.season === config.current_season
+            ? config.current_season_n_races
+            : config.previous_season_n_races}
         </h4>
       }
       cardHeight="34rem"
