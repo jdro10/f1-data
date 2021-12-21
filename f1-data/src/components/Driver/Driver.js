@@ -91,7 +91,7 @@ const Driver = ({ driverId }) => {
     };
 
     const driverStats = () => {
-      if (!loadingDriverRaces) {
+      if (!loadingDriverRaces && firstGP !== undefined) {
         const wins = driverRaces.filter(
           (race) => race.Results[0].position === "1"
         ).length;
@@ -147,7 +147,7 @@ const Driver = ({ driverId }) => {
     }
 
     driverStats();
-  }, [driverId, loading, driverRaces, loadingDriverRaces]);
+  }, [driverId, loading, driverRaces, loadingDriverRaces, firstGP]);
 
   return (
     <Container style={{ minHeight: "500px" }}>
@@ -208,17 +208,17 @@ const Driver = ({ driverId }) => {
               </p>
             </Col>
           </Row>
-          {loadingDriverStats ? (
+          {loadingDriverStats && firstGP !== undefined ? (
             <Row className="justify-content-center text-center">
               <Spinner animation="border" />
             </Row>
-          ) : (
+          ) : firstGP !== undefined ? (
             <DriverInformation
               stats={driverStats}
               firstGP={firstGP}
               lastGP={lastGP}
             />
-          )}
+          ) : null}
         </>
       )}
     </Container>
