@@ -12,6 +12,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 import Button from "react-bootstrap/Button";
 import "./Styles.css";
 import { config } from "../../data/config";
+import PreSeasonTesting from "./PreSeasonTesting";
 
 const MainFeed = () => {
   const [nextRace, setNextRace] = useState(null);
@@ -104,6 +105,10 @@ const MainFeed = () => {
       ) : (
         <>
           <Row className="justify-content-center text-center g-2">
+            <Col lg={12}>
+              <PreSeasonTesting />
+            </Col>
+
             <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
             </Col>
