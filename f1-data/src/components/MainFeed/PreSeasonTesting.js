@@ -18,8 +18,8 @@ const PreSeasonTesting = () => {
       cardBody={
         <>
           <h1 style={boldFont}>{preSeasonInformation.name}</h1>
-          <h5>{preSeasonInformation.circuit_name}</h5>
-          <h5>ROUND {preSeasonInformation.round}</h5>
+          <h5>{preSeasonInformation.circuit_name.toUpperCase()}</h5>
+          <h5>ROUND {preSeasonInformation.round}/3</h5>
           <h6>{convertDate(preSeasonInformation.date)}</h6>
           <h6>
             {getLocalRaceDate(
