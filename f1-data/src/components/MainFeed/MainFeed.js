@@ -109,9 +109,9 @@ const MainFeed = () => {
               <PreSeasonTesting />
             </Col>
 
-            <Col lg={12}>
+            {/* <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
-            </Col>
+            </Col> */}
 
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
