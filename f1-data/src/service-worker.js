@@ -4,8 +4,8 @@ import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
 
-const CACHE_NAME = "V2022.01.04";
-const CACHE_URLS = ["/f1-data", "/f1-data/schedule", "/f1-data/standings"];
+const CACHE_NAME = "f1-data";
+const CACHE_URLS = ["/", "/f1-data", "/schedule", "/standings"];
 
 self.addEventListener("install", async (event) => {
   const cache = await caches.open(CACHE_NAME);
@@ -16,45 +16,27 @@ self.addEventListener("install", async (event) => {
   }
 });
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    (async () => {
-      const keys = await caches.keys();
-      return keys.map(async (cache) => {
-        if (cache !== CACHE_NAME) {
-          return await caches.delete(cache);
-        }
-      });
-    })()
-  );
-});
+async function networkFirst(req) {
+  const cache = await caches.open(CACHE_NAME);
+  try {
+    const fresh = await fetch(req);
+    cache.put(req, fresh.clone());
+    return fresh;
+  } catch (e) {
+    const cachedResponse = await cache.match(req);
+    return cachedResponse;
+  }
+}
 
-self.addEventListener("fetch", function (event) {
+self.addEventListener("fetch", (event) => {
   if (
     event.request.cache === "only-if-cached" &&
     event.request.mode !== "same-origin"
-  ) {
+  )
     return;
-  }
 
-  if (!(event.request.url.indexOf("http") === 0)) {
-    return;
-  }
-
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      if (response) {
-        return response;
-      } else {
-        return fetch(event.request).then(function (res) {
-          return caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(event.request.url, res.clone());
-            return res;
-          });
-        });
-      }
-    })
-  );
+  const req = event.request;
+  event.respondWith(networkFirst(req));
 });
 
 clientsClaim();
