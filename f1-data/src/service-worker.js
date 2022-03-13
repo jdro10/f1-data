@@ -7,15 +7,6 @@ import { StaleWhileRevalidate } from "workbox-strategies";
 const CACHE_NAME = "f1-data";
 const CACHE_URLS = ["/", "/f1-data", "/schedule", "/standings"];
 
-self.addEventListener("install", async (event) => {
-  const cache = await caches.open(CACHE_NAME);
-  try {
-    await cache.addAll(CACHE_URLS);
-  } catch (e) {
-    console.log(e);
-  }
-});
-
 async function networkFirst(req) {
   const cache = await caches.open(CACHE_NAME);
   try {
@@ -28,13 +19,16 @@ async function networkFirst(req) {
   }
 }
 
-self.addEventListener("fetch", (event) => {
-  if (
-    event.request.cache === "only-if-cached" &&
-    event.request.mode !== "same-origin"
-  )
-    return;
+self.addEventListener('install', async event => {
+  const cache = await caches.open(CACHE_NAME);
+  try {
+    await cache.addAll(CACHE_URLS);
+  } catch (e) {
+    console.log(e);
+  }
+});
 
+self.addEventListener('fetch', event => {
   const req = event.request;
   event.respondWith(networkFirst(req));
 });
