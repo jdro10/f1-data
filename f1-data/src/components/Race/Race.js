@@ -9,8 +9,10 @@ const Race = ({ season, round }) => {
   const [raceInfo, setRaceInfo] = useState(null);
   const [raceClassification, setRaceClassification] = useState(null);
   const [qualifying, setQualifying] = useState(null);
+  const [sprintQualifying, setSprintQualifying] = useState(null);
   const [loadingRaceResult, setLoadingRaceResult] = useState(true);
   const [loadingQualifying, setLoadingQualifying] = useState(true);
+  const [loadingSprintQualifying, setLoadingSprintQualifying] = useState(true);
 
   useEffect(() => {
     const fetchRaceResult = async () => {
@@ -40,13 +42,26 @@ const Race = ({ season, round }) => {
       setLoadingQualifying(false);
     };
 
+    const fetchRaceSprintQualifying = async () => {
+      await fetch(`https://ergast.com/api/f1/${season}/${round}/sprint.json`)
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.MRData.RaceTable.Races[0] !== undefined) {
+            setSprintQualifying(result.MRData.RaceTable.Races[0].SprintResults);
+          }
+        });
+
+      setLoadingSprintQualifying(false);
+    };
+
     fetchRaceResult();
     fetchRaceQualifying();
+    fetchRaceSprintQualifying();
   }, [season, round]);
 
   return (
     <Container fluid="md" style={{ minHeight: "600px" }}>
-      {loadingRaceResult || loadingQualifying ? (
+      {loadingRaceResult || loadingQualifying || loadingSprintQualifying ? (
         <Container style={{ marginTop: "5%", minHeight: "500px" }}>
           <Row className="justify-content-center text-center">
             <Spinner animation="border" />
@@ -59,6 +74,7 @@ const Race = ({ season, round }) => {
           raceInfo={raceInfo}
           raceClassification={raceClassification}
           qualifyingClassification={qualifying}
+          sprintClassification={sprintQualifying}
         />
       )}
     </Container>

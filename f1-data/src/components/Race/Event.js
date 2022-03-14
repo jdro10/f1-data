@@ -7,7 +7,12 @@ import Row from "react-bootstrap/Row";
 import ClockCountdown from "../Countdown/ClockCountdown";
 import Laps from "../Laps/Laps";
 
-const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
+const Event = ({
+  raceInfo,
+  raceClassification,
+  qualifyingClassification,
+  sprintClassification,
+}) => {
   return (
     <>
       <ul
@@ -98,7 +103,11 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
           ) : (
             <Row className="justify-content-center text-center">
               <p></p>
-              <ClockCountdown date={raceInfo.date} time={raceInfo.time} size="big" />
+              <ClockCountdown
+                date={raceInfo.date}
+                time={raceInfo.time}
+                size="big"
+              />
             </Row>
           )}
         </div>
@@ -137,6 +146,7 @@ const Event = ({ raceInfo, raceClassification, qualifyingClassification }) => {
 
               <QualifyingClassification
                 qualifyingClassification={qualifyingClassification}
+                sprintClassification={sprintClassification}
               />
             </>
           ) : null}
