@@ -1,10 +1,10 @@
 <h1 align="center">F1 Data</h1>
 
-Progressive Web App (offline first) all about Formula 1 data. (https://jdro10.github.io/f1-data)
+Progressive Web App (network first) all about Formula 1 data. (https://jdro10.github.io/f1-data)
 
 ### Features
 * Pre-season information if applicable (event name, date, time countdown)
-* Next race information (event name, date, time countdown and circuit information)
+* Next race information (event name, date, time countdown, circuit information, free practice 1/2/3 schedule, qualifying schedule and sprint schedule (if available))
 * Previous race information (event name, date, time)
 * Previous race quick statistics (podium, pole position, the fastest lap of the race)
 * Drivers' and constructors' standings (since 1950)
