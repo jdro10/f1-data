@@ -85,11 +85,10 @@ const MainFeed = () => {
               <NextRaceCard nextRace={nextRace} />
             </Col>
 
-            <Col style={{ marginBottom: "10px" }}>
+            <Col lg={12}>
               <NextEventInformation nextEvent={nextRace} />
             </Col>
-          </Row>
-          <Row>
+
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
             </Col>

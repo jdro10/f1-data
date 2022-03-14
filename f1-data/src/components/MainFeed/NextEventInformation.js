@@ -13,10 +13,10 @@ const NextEventInformation = ({ nextEvent }) => {
   };
 
   return (
-    <Row>
+    <Row className="justify-content-center text-center g-2">
       {nextEvent.Sprint === undefined ? (
         <>
-          <Col xs={12} sm="3" className="upcoming-events-small">
+          <Col xs="12" xl="3" className="upcoming-events-small">
             <GenericCard
               cardTitle={
                 <>
@@ -42,7 +42,7 @@ const NextEventInformation = ({ nextEvent }) => {
               cardHeight={cardHeight}
             />
           </Col>
-          <Col xs={12} sm="3" className="upcoming-events-small">
+          <Col xs="12" xl="3" className="upcoming-events-small">
             <GenericCard
               cardTitle={
                 <>
@@ -68,7 +68,7 @@ const NextEventInformation = ({ nextEvent }) => {
               cardHeight={cardHeight}
             />
           </Col>
-          <Col xs={12} sm="3" className="upcoming-events-small">
+          <Col xs="12" xl="3" className="upcoming-events-small">
             <GenericCard
               cardTitle={
                 <>
@@ -94,7 +94,7 @@ const NextEventInformation = ({ nextEvent }) => {
               cardHeight={cardHeight}
             />
           </Col>
-          <Col xs={12} sm="3">
+          <Col xs="12" xl="3">
             <GenericCard
               cardTitle={
                 <>

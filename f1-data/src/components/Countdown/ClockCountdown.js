@@ -52,11 +52,11 @@ const ClockCountdown = ({ date, time, size }) => {
           ) : size === "small" ? (
             <>
               <Col>
-                <h1 className="countdown-font-small">{days} d</h1>
+                <h1 className="countdown-font-small">{days} days</h1>
               </Col>
 
               <Col>
-                <h1 className="countdown-font-small">{hours} hr</h1>
+                <h1 className="countdown-font-small">{hours} hrs</h1>
               </Col>
 
               <Col>
