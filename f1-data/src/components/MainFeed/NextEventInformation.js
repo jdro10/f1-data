@@ -1,0 +1,236 @@
+import React from "react";
+import GenericCard from "../Cards/GenericCard";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ClockCountdown from "../Countdown/ClockCountdown";
+import { FaFlagCheckered } from "react-icons/fa";
+import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
+
+const NextEventInformation = ({ nextEvent }) => {
+  var cardHeight = "7rem";
+  var smallFont = {
+    fontSize: "14px",
+  };
+
+  return (
+    <Row>
+      {nextEvent.Sprint === undefined ? (
+        <>
+          <Col xs={12} sm="3" className="upcoming-events-small">
+            <GenericCard
+              cardTitle={
+                <>
+                  FP1 <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.FirstPractice.date}
+                    time={nextEvent.FirstPractice.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.FirstPractice.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.FirstPractice.date,
+                      nextEvent.FirstPractice.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col xs={12} sm="3" className="upcoming-events-small">
+            <GenericCard
+              cardTitle={
+                <>
+                  FP2 <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.SecondPractice.date}
+                    time={nextEvent.SecondPractice.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.SecondPractice.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.SecondPractice.date,
+                      nextEvent.SecondPractice.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col xs={12} sm="3" className="upcoming-events-small">
+            <GenericCard
+              cardTitle={
+                <>
+                  FP3 <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.ThirdPractice.date}
+                    time={nextEvent.ThirdPractice.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.ThirdPractice.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.ThirdPractice.date,
+                      nextEvent.ThirdPractice.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col xs={12} sm="3">
+            <GenericCard
+              cardTitle={
+                <>
+                  QUALIFYING <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.Qualifying.date}
+                    time={nextEvent.Qualifying.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.Qualifying.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.Qualifying.date,
+                      nextEvent.Qualifying.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+        </>
+      ) : (
+        <>
+          <Col>
+            <GenericCard
+              cardTitle={
+                <>
+                  FP1 <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.FirstPractice.date}
+                    time={nextEvent.FirstPractice.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.FirstPractice.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.FirstPractice.date,
+                      nextEvent.FirstPractice.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col>
+            <GenericCard
+              cardTitle={
+                <>
+                  QUALIFYING <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.Qualifying.date}
+                    time={nextEvent.Qualifying.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.Qualifying.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.Qualifying.date,
+                      nextEvent.Qualifying.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col>
+            <GenericCard
+              cardTitle={
+                <>
+                  FP2 <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.SecondPractice.date}
+                    time={nextEvent.SecondPractice.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.SecondPractice.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.SecondPractice.date,
+                      nextEvent.SecondPractice.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+          <Col>
+            <GenericCard
+              cardTitle={
+                <>
+                  SPRINT QUALIFYING <FaFlagCheckered />
+                </>
+              }
+              cardBody={
+                <>
+                  <ClockCountdown
+                    date={nextEvent.Sprint.date}
+                    time={nextEvent.Sprint.time}
+                    size="small"
+                  />
+                  <p style={smallFont}>
+                    {convertDate(nextEvent.Sprint.date)} -{" "}
+                    {getLocalRaceDate(
+                      nextEvent.Sprint.date,
+                      nextEvent.Sprint.time
+                    )}
+                  </p>
+                </>
+              }
+              cardHeight={cardHeight}
+            />
+          </Col>
+        </>
+      )}
+    </Row>
+  );
+};
+
+export default NextEventInformation;

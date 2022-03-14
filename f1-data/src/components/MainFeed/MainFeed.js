@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "./NextRaceCard";
+import NextEventInformation from "./NextEventInformation";
 import Spinner from "react-bootstrap/Spinner";
 import PreviousRaceStats from "./PreviousRaceStats";
 import DriversStandingsCard from "./DriversStandingsCard";
@@ -84,6 +85,11 @@ const MainFeed = () => {
               <NextRaceCard nextRace={nextRace} />
             </Col>
 
+            <Col style={{ marginBottom: "10px" }}>
+              <NextEventInformation nextEvent={nextRace} />
+            </Col>
+          </Row>
+          <Row>
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
             </Col>

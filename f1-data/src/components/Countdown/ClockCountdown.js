@@ -12,9 +12,13 @@ const ClockCountdown = ({ date, time, size }) => {
               <h1 className="countdown-font">EVENT IN PROGRESS</h1>
               <h5 className="countdown-font">WAITING FOR RESULTS</h5>
             </Col>
+          ) : size === "small" ? (
+            <Col>
+              <h1 className="countdown-font-small">EVENT HAS FINISHED</h1>
+            </Col>
           ) : (
             <Col>
-              <h1>EVENT IN PROGRESS</h1>
+              <h1>EVENT HAS FINISHED</h1>
               <h5>WAITING FOR RESULTS</h5>
             </Col>
           )}
@@ -43,6 +47,24 @@ const ClockCountdown = ({ date, time, size }) => {
               <Col xs={3} lg={2}>
                 <h1 className="countdown-font">{seconds}</h1>
                 <h1>SEC</h1>
+              </Col>
+            </>
+          ) : size === "small" ? (
+            <>
+              <Col>
+                <h1 className="countdown-font-small">{days} d</h1>
+              </Col>
+
+              <Col>
+                <h1 className="countdown-font-small">{hours} hr</h1>
+              </Col>
+
+              <Col>
+                <h1 className="countdown-font-small">{minutes} min</h1>
+              </Col>
+
+              <Col>
+                <h1 className="countdown-font-small">{seconds} sec</h1>
               </Col>
             </>
           ) : (

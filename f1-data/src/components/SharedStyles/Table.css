@@ -47,6 +47,16 @@
   font-size: 65px;
 }
 
+.countdown-font-small {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .upcoming-events-small {
+    margin-bottom: 10px;
+  }
+}
+
 @media only screen and (min-width: 769px) {
   .countdown-font {
     font-size: 65px;
