@@ -101,8 +101,10 @@ const Event = ({
           {raceClassification != null ? (
             <RaceClassification raceClassification={raceClassification} />
           ) : (
-            <Row className="justify-content-center text-center">
-              <p></p>
+            <Row
+              className="justify-content-center text-center"
+              style={{ marginTop: "75px" }}
+            >
               <ClockCountdown
                 date={raceInfo.date}
                 time={raceInfo.time}
