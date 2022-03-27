@@ -27,7 +27,7 @@ const QualifyingClassification = ({
 
   return (
     <>
-      {sprintClassification !== undefined ? (
+      {sprintClassification !== null && sprintClassification !== undefined ? (
         <>
           <h2 className="text-center">SPRINT QUALYFING</h2>
           <Table
