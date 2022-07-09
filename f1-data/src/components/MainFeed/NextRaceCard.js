@@ -1,4 +1,5 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
 import GenericCard from "../Cards/GenericCard";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
@@ -52,20 +53,23 @@ const NextRaceCard = ({ nextRace }) => {
           ) : (
             <ClockCoutdown date={nextRace.date} time={nextRace.time} />
           )}
+          <Row>
+            {nextRace === undefined ? (
+              "-"
+            ) : (
+              <Link
+                style={{ marginTop: "20px" }}
+                to={`/race/${nextRace.season}/${nextRace.round}`}
+              >
+                <Button className="red-btn" variant="danger">
+                  RACE INFORMATION
+                </Button>
+              </Link>
+            )}
+          </Row>
         </>
       }
-      cardFooter={
-        nextRace === undefined ? (
-          "-"
-        ) : (
-          <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-            <Button className="red-btn" variant="danger">
-              RACE INFORMATION
-            </Button>
-          </Link>
-        )
-      }
-      cardHeight="32rem"
+      cardHeight="29rem"
     />
   );
 };

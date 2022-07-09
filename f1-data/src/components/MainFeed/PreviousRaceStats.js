@@ -94,7 +94,7 @@ const PreviousRaceStats = ({ lastRace }) => {
                     style={{ cursor: "pointer" }}
                     onClick={() => rowClick(driver.Driver.driverId)}
                   >
-                    <td className="icon">
+                    <td className="icon info-row">
                       {driver.position === "1" ? (
                         <GiPodiumWinner size={23} />
                       ) : driver.position === "2" ? (
@@ -103,7 +103,7 @@ const PreviousRaceStats = ({ lastRace }) => {
                         <GiPodiumThird size={23} />
                       ) : null}
                     </td>
-                    <td>
+                    <td className="info-row">
                       <Row className="g-0 text-start">
                         <Col xs="auto" className="align-self-center">
                           <CircleFlag
@@ -145,7 +145,7 @@ const PreviousRaceStats = ({ lastRace }) => {
                         </Col>
                       </Row>
                     </td>
-                    <td className="third-info">+{driver.points}</td>
+                    <td className="third-info info-row">+{driver.points}</td>
                   </tr>
                 )
               )}
@@ -162,10 +162,10 @@ const PreviousRaceStats = ({ lastRace }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => rowClick(fastestLap.Driver.driverId)}
                 >
-                  <td className="icon">
+                  <td className="icon info-row">
                     <FaStopwatch size={20} />
                   </td>
-                  <td>
+                  <td className="info-row">
                     <Row className="g-0 text-start">
                       <Col xs="auto" className="align-self-center">
                         <CircleFlag
@@ -207,7 +207,7 @@ const PreviousRaceStats = ({ lastRace }) => {
                       </Col>
                     </Row>
                   </td>
-                  <td className="third-info">
+                  <td className="third-info info-row">
                     {fastestLap.FastestLap.Time.time}
                   </td>
                 </tr>
@@ -219,10 +219,10 @@ const PreviousRaceStats = ({ lastRace }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => rowClick(polePosition.Driver.driverId)}
                 >
-                  <td>
+                  <td className="info-row">
                     <SiFastly size={21} />
                   </td>
-                  <td>
+                  <td className="info-row">
                     <Row className="g-0 text-start">
                       <Col xs="auto" className="align-self-center">
                         <CircleFlag
@@ -264,22 +264,20 @@ const PreviousRaceStats = ({ lastRace }) => {
                       </Col>
                     </Row>
                   </td>
-                  <td className="third-info">{poleTime}</td>
+                  <td className="third-info info-row">{poleTime}</td>
                 </tr>
               )}
             </tbody>
           </Table>
-        </>
-      }
-      cardFooter={
-        <h4>
+          <h4>
           ROUND: {lastRace.MRData.RaceTable.round}/
           {lastRace.season === config.current_season
             ? config.current_season_n_races
             : config.previous_season_n_races}
         </h4>
+        </>
       }
-      cardHeight="34rem"
+      cardHeight="29rem"
     />
   );
 };

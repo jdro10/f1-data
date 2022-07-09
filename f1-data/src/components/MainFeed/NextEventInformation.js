@@ -7,7 +7,7 @@ import { FaFlagCheckered } from "react-icons/fa";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 
 const NextEventInformation = ({ nextEvent }) => {
-  var cardHeight = "9rem";
+  var cardHeight = "8rem";
   var smallFont = {
     fontSize: "16px",
   };
@@ -18,43 +18,56 @@ const NextEventInformation = ({ nextEvent }) => {
         <>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  FREE PRACTICE 1 <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.FirstPractice.date}
-                  time={nextEvent.FirstPractice.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.FirstPractice.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.FirstPractice.date,
-                    nextEvent.FirstPractice.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>FREE PRACTICE 1</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.FirstPractice.date}
+                      time={nextEvent.FirstPractice.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.FirstPractice.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.FirstPractice.date,
+                        nextEvent.FirstPractice.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  FREE PRACTICE 2 <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.SecondPractice.date}
-                  time={nextEvent.SecondPractice.time}
-                  size="small"
-                />
+                <>
+                  <Row>
+                    <h4>FREE PRACTICE 2</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.SecondPractice.date}
+                      time={nextEvent.SecondPractice.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.SecondPractice.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.SecondPractice.date,
+                        nextEvent.SecondPractice.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardFooter={
                 <p style={smallFont}>
@@ -70,52 +83,56 @@ const NextEventInformation = ({ nextEvent }) => {
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  FREE PRACTICE 3 <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.ThirdPractice.date}
-                  time={nextEvent.ThirdPractice.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.ThirdPractice.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.ThirdPractice.date,
-                    nextEvent.ThirdPractice.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>FREE PRACTICE 3</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.ThirdPractice.date}
+                      time={nextEvent.ThirdPractice.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.ThirdPractice.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.ThirdPractice.date,
+                        nextEvent.ThirdPractice.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  QUALIFYING <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.Qualifying.date}
-                  time={nextEvent.Qualifying.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.Qualifying.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.Qualifying.date,
-                    nextEvent.Qualifying.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>QUALIFYING</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.Qualifying.date}
+                      time={nextEvent.Qualifying.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.Qualifying.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.Qualifying.date,
+                        nextEvent.Qualifying.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
@@ -125,78 +142,84 @@ const NextEventInformation = ({ nextEvent }) => {
         <>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  FREE PRACTICE 1 <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.FirstPractice.date}
-                  time={nextEvent.FirstPractice.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.FirstPractice.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.FirstPractice.date,
-                    nextEvent.FirstPractice.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>FREE PRACTICE 1</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.FirstPractice.date}
+                      time={nextEvent.FirstPractice.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.FirstPractice.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.FirstPractice.date,
+                        nextEvent.FirstPractice.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  QUALIFYING <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.Qualifying.date}
-                  time={nextEvent.Qualifying.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.Qualifying.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.Qualifying.date,
-                    nextEvent.Qualifying.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>QUALIFYING</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.Qualifying.date}
+                      time={nextEvent.Qualifying.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.Qualifying.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.Qualifying.date,
+                        nextEvent.Qualifying.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  FREE PRACTICE 2 <FaFlagCheckered />
-                </>
-              }
               cardBody={
-                <ClockCountdown
-                  date={nextEvent.SecondPractice.date}
-                  time={nextEvent.SecondPractice.time}
-                  size="small"
-                />
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.SecondPractice.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.SecondPractice.date,
-                    nextEvent.SecondPractice.time
-                  )}
-                </p>
+                <>
+                  <Row>
+                    <h4>FREE PRACTICE 2</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.SecondPractice.date}
+                      time={nextEvent.SecondPractice.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.SecondPractice.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.SecondPractice.date,
+                        nextEvent.SecondPractice.time
+                      )}
+                    </p>
+                  </Row>
+                </>
               }
               cardHeight={cardHeight}
             />
@@ -210,21 +233,26 @@ const NextEventInformation = ({ nextEvent }) => {
               }
               cardBody={
                 <>
-                  <ClockCountdown
-                    date={nextEvent.Sprint.date}
-                    time={nextEvent.Sprint.time}
-                    size="small"
-                  />
+                  <Row>
+                    <h4>SPRINT QUALIFYING</h4>
+                  </Row>
+                  <Row>
+                    <ClockCountdown
+                      date={nextEvent.Sprint.date}
+                      time={nextEvent.Sprint.time}
+                      size="small"
+                    />
+                  </Row>
+                  <Row>
+                    <p style={smallFont}>
+                      {convertDate(nextEvent.Sprint.date)} -{" "}
+                      {getLocalRaceDate(
+                        nextEvent.Sprint.date,
+                        nextEvent.Sprint.time
+                      )}
+                    </p>
+                  </Row>
                 </>
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.Sprint.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.Sprint.date,
-                    nextEvent.Sprint.time
-                  )}
-                </p>
               }
               cardHeight={cardHeight}
             />

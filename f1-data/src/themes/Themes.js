@@ -1,15 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  body: "#FFFFFF",
+  body: "#dee3ed",
   fontColor: "#000",
   scrollColor: "#FFFFFF",
+  cardColor: "#f8f9fc"
 };
 
 export const darkTheme = {
-  body: "#181818",
+  body: "#1d1e20",
   fontColor: "#fff",
   scrollColor: "#212529",
+  cardColor: "#111213"
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -86,5 +88,13 @@ export const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.fontColor};
     background-color: ${(props) =>
       props.theme.body === "#FFFFFF" ? "#C0C0C0;" : "#303030"};
+  }
+
+  .generic-card {
+    background-color: ${(props) => props.theme.cardColor} !important;
+  }
+
+  .info-row{
+    background-color: ${(props) => props.theme.cardColor} !important;
   }
 `;

@@ -34,7 +34,7 @@ const PreviousRaceCard = ({ lastRace }) => {
             countryCode={CountriesCodeNationality[
               lastRace.MRData.RaceTable.Races[0].Circuit.Location.country
             ].toLowerCase()}
-            height={120}
+            height={100}
             style={{ marginTop: "10px" }}
           />
           <h5 style={{ marginTop: "27px" }}>
@@ -43,18 +43,16 @@ const PreviousRaceCard = ({ lastRace }) => {
           <h5>
             {lastRace.MRData.RaceTable.Races[0].Circuit.Location.locality.toUpperCase()}
           </h5>
+          <Link
+            to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
+          >
+            <Button style={{ marginTop: "20px" }} className="red-btn" variant="danger">
+              FULL RACE RESULT
+            </Button>
+          </Link>
         </>
       }
-      cardFooter={
-        <Link
-          to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
-        >
-          <Button className="red-btn" variant="danger">
-            FULL RACE RESULT
-          </Button>
-        </Link>
-      }
-      cardHeight="34rem"
+      cardHeight="29rem"
     />
   );
 };
