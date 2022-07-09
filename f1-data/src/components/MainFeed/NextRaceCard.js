@@ -61,7 +61,11 @@ const NextRaceCard = ({ nextRace }) => {
               "-"
             ) : (
               <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-                <Button className="red-btn" variant="danger">
+                <Button
+                  style={{ maxWidth: "100%" }}
+                  className="main-btn"
+                  variant="secondary"
+                >
                   RACE INFORMATION
                 </Button>
               </Link>

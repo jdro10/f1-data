@@ -39,7 +39,7 @@ const PreSeasonTesting = () => {
           </Row>
           <Row>
             <Link to="/schedule">
-              <Button className="red-btn" variant="danger">
+              <Button className="main-btn" variant="secondary">
                 2022 SEASON CALENDAR
               </Button>
             </Link>

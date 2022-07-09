@@ -95,10 +95,10 @@ const Standings = () => {
           >
             <Col>
               <Dropdown>
-                <Dropdown.Toggle
-                  variant="danger"
-                  className="red-btn"
+                <Dropdown.Toggle     
+                  className="main-btn"
                   id="dropdown-basic"
+                  variant="secondary"
                 >
                   {season}
                 </Dropdown.Toggle>

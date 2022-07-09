@@ -4,14 +4,14 @@ export const lightTheme = {
   body: "#dee3ed",
   fontColor: "#000",
   scrollColor: "#FFFFFF",
-  cardColor: "#f8f9fc"
+  cardColor: "#f8f9fc",
 };
 
 export const darkTheme = {
   body: "#1d1e20",
   fontColor: "#fff",
   scrollColor: "#212529",
-  cardColor: "#111213"
+  cardColor: "#111213",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -56,39 +56,40 @@ export const GlobalStyles = createGlobalStyle`
   .race-link:hover{
     color: ${(props) => props.theme.fontColor};
     text-decoration: underline;
-    text-decoration-color: #e10600;
+    text-decoration-color: #D3D3D3;
     text-decoration-thickness: 3px;
     text-underline-offset: 3px;
     display: block;
   }
 
-  .red-btn{
-    background-color: #e10600;
-    border-color: #e10600;
+  .main-btn{
+    color: ${(props) => (props.theme.body === "#1d1e20" ? "#111213" : "#fff")};
+    background-color: ${(props) =>
+      props.theme.body === "#1d1e20" ? "#fff" : "#000"};
     font-weight: 600;
-    border-radius: 15px;
+    border-radius: 65px;
     margin-top: 15px;
+    width: 100%;
   }
 
-  .red-btn:hover{
-    opacity: 0.5;
-    background-color: #e10600;
-    border-color: #e10600;
+  .main-btn:hover{
+    color: ${(props) => (props.theme.body === "#1d1e20" ? "#000" : "#fff")};
+    background-color: ${(props) =>
+      props.theme.body === "#1d1e20" ? "#E8E8E8" : "#282828"};
   }
 
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #F0F8FF;
     background-color: ${(props) =>
-      props.theme.body === "#1d1e20" ? "#dee3ed" : "#1d1e20"};
+      props.theme.body === "#1d1e20" ? "#f8f9fc" : "#1d1e20"};
     border-radius: 15px !important;
-    color: ${(props) => (props.theme.body === "#1d1e20" ? "#000" : "#fff")};
+    color: ${(props) => (props.theme.body === "#1d1e20" ? "#111213" : "#fff")};
   }
 
   .nav-link, .nav-link:hover, .nav-link:not(:active) {
     border-radius: 15px !important;
     color: ${(props) => props.theme.fontColor};
     background-color: ${(props) =>
-      props.theme.body === "#1d1e20" ? "#404040" : "#fff"};
+      props.theme.body === "#1d1e20" ? "#111213" : "#fff"};
   }
 
   .generic-card {

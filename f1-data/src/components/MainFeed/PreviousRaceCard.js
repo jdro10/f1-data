@@ -46,7 +46,7 @@ const PreviousRaceCard = ({ lastRace }) => {
           <Link
             to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
           >
-            <Button className="red-btn" variant="danger">
+            <Button className="main-btn" variant="secondary">
               FULL RACE RESULT
             </Button>
           </Link>

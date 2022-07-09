@@ -24,13 +24,10 @@ const DriversStandingsCard = ({ driversStandings }) => {
               driversStandings={driversStandings}
             />
           </Row>
-          
+
           <Row>
             <Link to="/standings">
-              <Button
-                className="red-btn"
-                variant="danger"
-              >
+              <Button className="main-btn" variant="secondary">
                 FULL STANDINGS
               </Button>
             </Link>

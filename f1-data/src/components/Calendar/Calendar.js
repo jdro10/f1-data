@@ -65,9 +65,9 @@ const Calendar = () => {
           >
             <Dropdown>
               <Dropdown.Toggle
-                variant="danger"
-                className="red-btn"
+                className="main-btn"
                 id="dropdown-basic"
+                variant="secondary"
               >
                 {season}
               </Dropdown.Toggle>
