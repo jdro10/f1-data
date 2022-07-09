@@ -98,4 +98,17 @@ export const GlobalStyles = createGlobalStyle`
   .info-row{
     background-color: ${(props) => props.theme.cardColor} !important;
   }
+
+  th {
+    background-color: ${(props) => props.theme.cardColor} !important;
+    color: ${(props) => props.theme.fontColor} !important;
+  } 
+
+  thead th {
+    background-color: ${(props) => props.theme.cardColor} !important;
+  }
+
+  tbody td {
+    background-color: ${(props) => props.theme.cardColor} !important;
+  }
 `;
