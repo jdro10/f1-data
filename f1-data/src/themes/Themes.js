@@ -79,16 +79,16 @@ export const GlobalStyles = createGlobalStyle`
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #F0F8FF;
     background-color: ${(props) =>
-      props.theme.body === "#FFFFFF" ? "#212529" : "#fff"};
+      props.theme.body === "#1d1e20" ? "#dee3ed" : "#1d1e20"};
     border-radius: 15px !important;
-    color: ${(props) => (props.theme.body === "#FFFFFF" ? "#fff" : "#000")};
+    color: ${(props) => (props.theme.body === "#1d1e20" ? "#000" : "#fff")};
   }
 
   .nav-link, .nav-link:hover, .nav-link:not(:active) {
     border-radius: 15px !important;
     color: ${(props) => props.theme.fontColor};
     background-color: ${(props) =>
-      props.theme.body === "#FFFFFF" ? "#C0C0C0;" : "#303030"};
+      props.theme.body === "#1d1e20" ? "#404040" : "#fff"};
   }
 
   .generic-card {
