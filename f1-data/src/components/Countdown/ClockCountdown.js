@@ -95,7 +95,6 @@ const ClockCountdown = ({ date, time, size }) => {
     }
   };
 
-  console.log("SUM", (parseInt(new Date(date).getTime()) + parseInt(time.split(":")[0] * 3600000) + parseInt(time.split(":")[1] * 60000)))
   return (
     <Countdown
       date={
