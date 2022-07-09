@@ -82,7 +82,7 @@ const PreviousRaceStats = ({ lastRace }) => {
     <GenericCard
       cardBody={
         <>
-          <h4>PODIUM</h4>
+          <h5>PODIUM</h5>
           <Table responsive className="table-hover" variant={theme}>
             <tbody className="justify-content-center">
               {lastRace.MRData.RaceTable.Races[0].Results.slice(0, 3).map(
@@ -151,7 +151,7 @@ const PreviousRaceStats = ({ lastRace }) => {
             </tbody>
           </Table>
 
-          <h4>FASTEST LAP / POLE POSITION</h4>
+          <h5>FASTEST LAP / POLE POSITION</h5>
 
           <Table responsive className="table-hover" variant={theme}>
             <tbody>
@@ -276,7 +276,6 @@ const PreviousRaceStats = ({ lastRace }) => {
         </h4>
         </>
       }
-      cardHeight="29rem"
     />
   );
 };

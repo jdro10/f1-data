@@ -73,7 +73,6 @@ const NextRaceCard = ({ nextRace }) => {
           </Row>
         </>
       }
-      cardHeight="29rem"
     />
   );
 };
