@@ -3,7 +3,6 @@ import GenericCard from "../Cards/GenericCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ClockCountdown from "../Countdown/ClockCountdown";
-import { FaFlagCheckered } from "react-icons/fa";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 
 const NextEventInformation = ({ nextEvent }) => {
@@ -68,15 +67,6 @@ const NextEventInformation = ({ nextEvent }) => {
                     </p>
                   </Row>
                 </>
-              }
-              cardFooter={
-                <p style={smallFont}>
-                  {convertDate(nextEvent.SecondPractice.date)} -{" "}
-                  {getLocalRaceDate(
-                    nextEvent.SecondPractice.date,
-                    nextEvent.SecondPractice.time
-                  )}
-                </p>
               }
               cardHeight={cardHeight}
             />
@@ -226,11 +216,6 @@ const NextEventInformation = ({ nextEvent }) => {
           </Col>
           <Col xs="12" xl="3">
             <GenericCard
-              cardTitle={
-                <>
-                  SPRINT QUALIFYING <FaFlagCheckered />
-                </>
-              }
               cardBody={
                 <>
                   <Row>

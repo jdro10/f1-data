@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import { ThemeContext } from "../../helpers/ThemeContext";
 
-const GenericCard = ({cardBody, cardHeight }) => {
+const GenericCard = ({ cardBody, cardHeight }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -14,7 +14,7 @@ const GenericCard = ({cardBody, cardHeight }) => {
       text={theme === "light" ? "dark" : "light"}
     >
       <Card.Body>
-        <Row className="justify-content-md-center">{cardBody}</Row>
+        <Container>{cardBody}</Container>
       </Card.Body>
     </Card>
   );

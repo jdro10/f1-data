@@ -57,6 +57,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 </Row>
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">
                 {parseInt(lastGP.season) !== new Date().getFullYear()
@@ -80,12 +81,14 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 </Row>
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Grands Prix:</td>
               <td className="text-end row-stats">
                 {stats.totalGrandPrix} <GiCheckeredFlag size={25} />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Wins:</td>
               <td className="text-end row-stats">
@@ -101,6 +104,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 <GiPodium />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Fastest laps:</td>
               <td className="text-end row-stats">
@@ -109,6 +113,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 <FaStopwatch />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats no-wrap">Pole positions:</td>
               <td className="text-end row-stats">
@@ -117,6 +122,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 %) <SiFastly />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Retirements:</td>
               <td className="text-end row-stats">
@@ -124,12 +130,14 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 %) <GiRaceCar size={22} />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Total points:</td>
               <td className="text-end row-stats">
                 {stats.totalPoints} <GiRaceCar size={22} />
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">First race:</td>
               <td
@@ -139,6 +147,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 {firstGP.raceName} {firstGP.season}
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">
                 {parseInt(lastGP.season) !== new Date().getFullYear()
@@ -152,6 +161,7 @@ const DriverInformation = ({ stats, firstGP, lastGP }) => {
                 {lastGP.raceName + " " + lastGP.season}
               </td>
             </tr>
+            
             <tr>
               <td className="row-stats">Laps raced:</td>
               <td className="text-end row-stats">

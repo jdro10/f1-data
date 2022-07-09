@@ -15,7 +15,6 @@ const boldFont = {
 const NextRaceCard = ({ nextRace }) => {
   return (
     <GenericCard
-      cardTitle="NEXT RACE"
       cardBody={
         <>
           <h1 style={boldFont}>
@@ -49,18 +48,19 @@ const NextRaceCard = ({ nextRace }) => {
           />
           <p></p>
           {nextRace === undefined ? (
-            <ClockCoutdown date="2022-03-20" time="15:00:00" />
+            <Row className="justify-content-center">
+              <ClockCoutdown date="2022-03-20" time="15:00:00" />
+            </Row>
           ) : (
-            <ClockCoutdown date={nextRace.date} time={nextRace.time} />
+            <Row className="justify-content-center">
+              <ClockCoutdown date={nextRace.date} time={nextRace.time} />
+            </Row>
           )}
           <Row>
             {nextRace === undefined ? (
               "-"
             ) : (
-              <Link
-                style={{ marginTop: "20px" }}
-                to={`/race/${nextRace.season}/${nextRace.round}`}
-              >
+              <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
                 <Button className="red-btn" variant="danger">
                   RACE INFORMATION
                 </Button>

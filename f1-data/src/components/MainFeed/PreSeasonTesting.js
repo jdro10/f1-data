@@ -14,33 +14,37 @@ const boldFont = {
 const PreSeasonTesting = () => {
   return (
     <GenericCard
-      cardTitle="PRE-SEASON TESTING"
       cardBody={
         <>
-          <h1 style={boldFont}>{preSeasonInformation.name}</h1>
-          <h5>{preSeasonInformation.circuit_name.toUpperCase()}</h5>
-          <h5>ROUND {preSeasonInformation.round}-3</h5>
-          <h6>{convertDate(preSeasonInformation.date)}</h6>
-          <h6>
-            {getLocalRaceDate(
-              preSeasonInformation.date,
-              preSeasonInformation.time
-            )}
-          </h6>
-          <CircleFlag countryCode={preSeasonInformation.country} height={100} />
-          <p></p>
-          <ClockCoutdown
-            date={preSeasonInformation.date}
-            time={preSeasonInformation.time}
-          />
+          <Row>
+            <h1 style={boldFont}>{preSeasonInformation.name}</h1>
+            <h5>{preSeasonInformation.circuit_name.toUpperCase()}</h5>
+            <h5>ROUND {preSeasonInformation.round}-3</h5>
+            <h6>{convertDate(preSeasonInformation.date)}</h6>
+            <h6>
+              {getLocalRaceDate(
+                preSeasonInformation.date,
+                preSeasonInformation.time
+              )}
+            </h6>
+            <CircleFlag
+              countryCode={preSeasonInformation.country}
+              height={100}
+            />
+            <p></p>
+            <ClockCoutdown
+              date={preSeasonInformation.date}
+              time={preSeasonInformation.time}
+            />
+          </Row>
+          <Row>
+            <Link to="/schedule">
+              <Button className="red-btn" variant="danger">
+                2022 SEASON CALENDAR
+              </Button>
+            </Link>
+          </Row>
         </>
-      }
-      cardFooter={
-        <Link to="/schedule">
-          <Button className="red-btn" variant="danger">
-            2022 SEASON CALENDAR
-          </Button>
-        </Link>
       }
       cardHeight="32rem"
     />

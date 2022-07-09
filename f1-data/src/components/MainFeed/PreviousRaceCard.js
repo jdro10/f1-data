@@ -13,7 +13,6 @@ const boldFont = {
 const PreviousRaceCard = ({ lastRace }) => {
   return (
     <GenericCard
-      cardTitle="PREVIOUS RACE"
       cardBody={
         <>
           <h1 style={boldFont}>
@@ -43,10 +42,11 @@ const PreviousRaceCard = ({ lastRace }) => {
           <h5>
             {lastRace.MRData.RaceTable.Races[0].Circuit.Location.locality.toUpperCase()}
           </h5>
+          
           <Link
             to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
           >
-            <Button style={{ marginTop: "20px" }} className="red-btn" variant="danger">
+            <Button className="red-btn" variant="danger">
               FULL RACE RESULT
             </Button>
           </Link>

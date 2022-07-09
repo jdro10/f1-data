@@ -80,7 +80,6 @@ const PreviousRaceStats = ({ lastRace }) => {
 
   return (
     <GenericCard
-      cardTitle="PREVIOUS RACE"
       cardBody={
         <>
           <h4>PODIUM</h4>

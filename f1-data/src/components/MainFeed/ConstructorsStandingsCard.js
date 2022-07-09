@@ -13,6 +13,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
               <Row className="text-center">
                 <h5>CONSTRUCTORS' STANDINGS</h5>
               </Row>
+
               <Row>
                 <ConstructorsStandings
                   style={{
@@ -25,8 +26,9 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
                   showEngine={false}
                 />
               </Row>
+
               <Row>
-                <Link style={{ marginTop: "20px" }} to="/standings">
+                <Link to="/standings">
                   <Button className="red-btn" variant="danger">
                     FULL STANDINGS
                   </Button>
@@ -34,7 +36,7 @@ const ConstructorsStandingsCard = ({ constructorsStandings, season }) => {
               </Row>
             </>
           }
-          cardHeight="34rem"
+          cardHeight="33rem"
         />
   );
 };

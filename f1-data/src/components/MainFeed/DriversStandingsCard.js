@@ -13,6 +13,7 @@ const DriversStandingsCard = ({ driversStandings }) => {
           <Row className="text-center">
             <h5>DRIVERS' STANDINGS</h5>
           </Row>
+
           <Row>
             <DriversStandings
               style={{
@@ -23,10 +24,10 @@ const DriversStandingsCard = ({ driversStandings }) => {
               driversStandings={driversStandings}
             />
           </Row>
+          
           <Row>
             <Link to="/standings">
               <Button
-                style={{ marginTop: "20px" }}
                 className="red-btn"
                 variant="danger"
               >
@@ -36,7 +37,7 @@ const DriversStandingsCard = ({ driversStandings }) => {
           </Row>
         </>
       }
-      cardHeight="34rem"
+      cardHeight="33rem"
     />
   );
 };

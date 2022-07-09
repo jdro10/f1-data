@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import RaceInformation from "./RaceInformation";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -57,36 +56,32 @@ const Calendar = () => {
       ) : (
         <>
           <Row className="justify-content-center text-center">
-            <Col>
-              <h1>{season} FORMULA 1</h1>
-            </Col>
+            <h1>{season} FORMULA 1</h1>
           </Row>
 
           <Row
             className="justify-content-center text-center"
             style={{ marginBottom: "5px" }}
           >
-            <Col>
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="danger"
-                  className="red-btn"
-                  id="dropdown-basic"
-                >
-                  {season}
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="dropdown-menu">
-                  {seasonsYearsList.map((season, index) => (
-                    <Dropdown.Item
-                      key={index}
-                      onClick={(e) => seasonYearChange(e.target.textContent)}
-                    >
-                      {season}
-                    </Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            </Col>
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="danger"
+                className="red-btn"
+                id="dropdown-basic"
+              >
+                {season}
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu">
+                {seasonsYearsList.map((season, index) => (
+                  <Dropdown.Item
+                    key={index}
+                    onClick={(e) => seasonYearChange(e.target.textContent)}
+                  >
+                    {season}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
           </Row>
 
           <Row>

@@ -85,6 +85,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 {lastGPDetails.Results[0].laps} ({lastGPDetails.season})
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Race distance:</td>
               <td className="text-end row-stats">
@@ -101,6 +102,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 km ({lastGPDetails.season})
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Circuit length:</td>
               <td className="text-end row-stats">
@@ -111,6 +113,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 km
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Lap record (All circuit's layouts):</td>
               <td
@@ -123,6 +126,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 {fastestLap.season})
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Average speed:</td>
               <td
@@ -141,6 +145,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 km)
               </td>
             </tr>
+
             <tr>
               <td className="row-stats">Driver:</td>
               <td
@@ -155,6 +160,7 @@ const CircuitInformation = ({ firstGP, lastGP, lastGPDetails, fastestLap }) => {
                 </p>
               </td>
             </tr>
+            
             <tr>
               <td className="row-stats">Team:</td>
               <td
