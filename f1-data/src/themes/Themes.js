@@ -112,4 +112,20 @@ export const GlobalStyles = createGlobalStyle`
   tbody td {
     background-color: ${(props) => props.theme.cardColor} !important;
   }
+
+  .btn-bottom{
+    position: absolute;
+    width: 95%;
+    bottom:10px;
+    border-radius: 65px;
+  }
+
+  .circle {
+    height: 100px;
+    width: 100px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 2%;
+  }
 `;

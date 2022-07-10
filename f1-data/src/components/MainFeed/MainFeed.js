@@ -5,11 +5,11 @@ import Container from "react-bootstrap/Container";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "./NextRaceCard";
 import NextEventInformation from "./NextEventInformation";
-import Spinner from "react-bootstrap/Spinner";
 import PreviousRaceStats from "./PreviousRaceStats";
 import DriversStandingsCard from "./DriversStandingsCard";
 import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
 import "./Styles.css";
+import LoadingCard from "../Cards/LoadingCard";
 import { config } from "../../data/config";
 
 const MainFeed = () => {
@@ -75,9 +75,52 @@ const MainFeed = () => {
         <h1>{config.current_season} FORMULA 1</h1>
       </Row>
       {loadingLastRace || loadingNextRace ? (
-        <Row className="justify-content-center text-center">
-          <Spinner animation="border" />
-        </Row>
+        <>
+          <Row className="justify-content-center text-center g-2">
+            <Col lg={12}>
+              <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
+            </Col>
+
+            <Col xs="12" xl="3">
+              <LoadingCard cardHeight="8rem" />
+            </Col>
+            <Col xs="12" xl="3">
+              <LoadingCard cardHeight="8rem" />
+            </Col>
+            <Col xs="12" xl="3">
+              <LoadingCard cardHeight="8rem" />
+            </Col>
+            <Col xs="12" xl="3">
+              <LoadingCard cardHeight="8rem" />
+            </Col>
+
+            <Col xs={12} xl={6}>
+              <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
+            </Col>
+
+            <Col xs={12} xl={6}>
+              <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
+            </Col>
+
+            <Row className="g-2" style={{ marginTop: "1px" }}>
+              <Col xs={12} xl={6}>
+                <LoadingCard
+                  cardHeight="28rem"
+                  hasButton={true}
+                  hasFlag={true}
+                />
+              </Col>
+
+              <Col xs={12} xl={6}>
+                <LoadingCard
+                  cardHeight="28rem"
+                  hasButton={true}
+                  hasFlag={true}
+                />
+              </Col>
+            </Row>
+          </Row>
+        </>
       ) : (
         <>
           <Row className="justify-content-center text-center g-2">
@@ -98,11 +141,14 @@ const MainFeed = () => {
             </Col>
           </Row>
           {loadingDriversStandings || loadingTeamsStandings ? (
-            <Row
-              className="justify-content-center text-center"
-              style={{ marginTop: "10px" }}
-            >
-              <Spinner animation="border" />
+            <Row className="g-2" style={{ marginTop: "1px" }}>
+              <Col xs={12} xl={6}>
+                <LoadingCard cardHeight="28rem" />
+              </Col>
+
+              <Col xs={12} xl={6}>
+                <LoadingCard cardHeight="28rem" />
+              </Col>
             </Row>
           ) : (
             <Row className="g-2" style={{ marginTop: "1px" }}>
