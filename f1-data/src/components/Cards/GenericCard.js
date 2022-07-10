@@ -8,7 +8,7 @@ const GenericCard = ({ cardBody, cardHeight }) => {
 
   return (
     <Card
-      style={{ height: cardHeight, borderRadius: "15px", overflow: "hidden" }}
+      style={{ height: cardHeight, borderRadius: "18px", overflow: "hidden" }}
       className="text-center generic-card"
       bg={theme}
       text={theme === "light" ? "dark" : "light"}

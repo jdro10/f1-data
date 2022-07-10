@@ -81,12 +81,12 @@ export const GlobalStyles = createGlobalStyle`
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: ${(props) =>
       props.theme.body === "#1d1e20" ? "#f8f9fc" : "#1d1e20"};
-    border-radius: 15px !important;
+    border-radius: 65px !important;
     color: ${(props) => (props.theme.body === "#1d1e20" ? "#111213" : "#fff")};
   }
 
   .nav-link, .nav-link:hover, .nav-link:not(:active) {
-    border-radius: 15px !important;
+    border-radius: 65px !important;
     color: ${(props) => props.theme.fontColor};
     background-color: ${(props) =>
       props.theme.body === "#1d1e20" ? "#111213" : "#fff"};
