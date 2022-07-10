@@ -7,17 +7,13 @@ import ClockCoutdown from "../Countdown/ClockCountdown";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { preSeasonInformation } from "../../data/PreSeasonInformation";
 
-const boldFont = {
-  fontWeight: 600,
-};
-
 const PreSeasonTesting = () => {
   return (
     <GenericCard
       cardBody={
         <>
           <Row>
-            <h1 style={boldFont}>{preSeasonInformation.name}</h1>
+            <h1>{preSeasonInformation.name}</h1>
             <h5>{preSeasonInformation.circuit_name.toUpperCase()}</h5>
             <h5>ROUND {preSeasonInformation.round}-3</h5>
             <h6>{convertDate(preSeasonInformation.date)}</h6>

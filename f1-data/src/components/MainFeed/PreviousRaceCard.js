@@ -6,18 +6,12 @@ import Button from "react-bootstrap/Button";
 import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
-const boldFont = {
-  fontWeight: 600,
-};
-
 const PreviousRaceCard = ({ lastRace }) => {
   return (
     <GenericCard
       cardBody={
         <>
-          <h1 style={boldFont}>
-            {lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}
-          </h1>
+          <h1>{lastRace.MRData.RaceTable.Races[0].raceName.toUpperCase()}</h1>
           <h5>
             {lastRace.MRData.RaceTable.Races[0].Circuit.circuitName.toUpperCase()}
           </h5>

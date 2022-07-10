@@ -9,7 +9,7 @@ import { convertDate, getLocalRaceDate } from "../../helpers/Helpers";
 import { CountriesCodeNationality } from "../../data/CountryCodeNationality";
 
 const boldFont = {
-  fontWeight: 600,
+  fontWeight: 100,
 };
 
 const NextRaceCard = ({ nextRace }) => {
