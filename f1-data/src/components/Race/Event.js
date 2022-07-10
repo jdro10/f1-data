@@ -3,9 +3,8 @@ import RaceClassification from "../Classifications/RaceClassification";
 import QualifyingClassification from "../Classifications/QualifyingClassification";
 import RaceInformation from "./RaceInformation";
 import Circuit from "../Circuit/Circuit";
-import Row from "react-bootstrap/Row";
-import ClockCountdown from "../Countdown/ClockCountdown";
 import Laps from "../Laps/Laps";
+import FutureRaceDetails from "../Race/FutureRaceDetails";
 
 const Event = ({
   raceInfo,
@@ -101,16 +100,7 @@ const Event = ({
           {raceClassification != null ? (
             <RaceClassification raceClassification={raceClassification} />
           ) : (
-            <Row
-              className="justify-content-center text-center"
-              style={{ marginTop: "75px" }}
-            >
-              <ClockCountdown
-                date={raceInfo.date}
-                time={raceInfo.time}
-                size="big"
-              />
-            </Row>
+            <FutureRaceDetails raceInfo={raceInfo} />
           )}
         </div>
 
