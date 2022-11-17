@@ -29,9 +29,9 @@ const ConstructorsStandings = ({
   };
 
   return (
-    <div>
+    <div style={style}>
       {constructorsStandings &&
-      constructorsStandings.keys(constructorsStandings).length === 0 ? (
+      constructorsStandings.keys(constructorsStandings).length !== 0 ? (
         <Table
           className="table-hover standings-table table-striped"
           responsive="sm"
