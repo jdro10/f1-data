@@ -12,7 +12,7 @@ Progressive Web App (network first) all about Formula 1 data. (https://jdro10.gi
 * Full race results (race classification, lap history chart, circuit information and map, qualifying classification and sprint classification)
 * Drivers' profile (biography from Wikipedia)
 * Drivers statistics (wins, pole positions, podiums, first and last grand prix, number of grands prix participated, total points earned and total laps raced)
-* Progressive Web App (offline first)
+* Progressive Web App (network first)
 * Dark mode option
 
 ### Install and run
