@@ -34,7 +34,7 @@ const Standings = () => {
               result.MRData.StandingsTable.StandingsLists[0]
             );
           } else {
-            setConstructorsStandings(null);
+            setConstructorsStandings({});
           }
         });
 
@@ -95,7 +95,7 @@ const Standings = () => {
           >
             <Col>
               <Dropdown>
-                <Dropdown.Toggle     
+                <Dropdown.Toggle
                   className="main-btn"
                   id="dropdown-basic"
                   variant="secondary"
@@ -164,7 +164,6 @@ const Standings = () => {
               aria-labelledby="constructor-tab"
             >
               <ConstructorsStandings
-                style={null}
                 constructorsStandings={
                   constructorsStandings.ConstructorStandings
                 }

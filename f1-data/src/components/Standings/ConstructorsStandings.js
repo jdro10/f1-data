@@ -29,8 +29,9 @@ const ConstructorsStandings = ({
   };
 
   return (
-    <div style={style}>
-      {constructorsStandings !== null ? (
+    <div>
+      {constructorsStandings &&
+      constructorsStandings.keys(constructorsStandings).length === 0 ? (
         <Table
           className="table-hover standings-table table-striped"
           responsive="sm"
@@ -133,7 +134,10 @@ const ConstructorsStandings = ({
           </tbody>
         </Table>
       ) : (
-        <Row className="justify-content-center text-center">
+        <Row
+          className="justify-content-center text-center"
+          style={{ marginTop: "2%" }}
+        >
           <Col md="auto">
             <h3>
               There's no constructors' standings data available for this season.
