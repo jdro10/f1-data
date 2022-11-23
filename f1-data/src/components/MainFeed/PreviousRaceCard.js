@@ -41,7 +41,7 @@ const PreviousRaceCard = ({ lastRace }) => {
             to={`/race/${lastRace.MRData.RaceTable.season}/${lastRace.MRData.RaceTable.round}`}
           >
             <Button
-              style={{ marginTop: "21px" }}
+              style={{ marginTop: "25px" }}
               className="main-btn"
               variant="secondary"
             >
@@ -50,6 +50,7 @@ const PreviousRaceCard = ({ lastRace }) => {
           </Link>
         </>
       }
+      cardHeight="29.5rem"
     />
   );
 };

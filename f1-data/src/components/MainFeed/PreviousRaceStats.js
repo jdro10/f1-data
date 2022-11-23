@@ -269,13 +269,14 @@ const PreviousRaceStats = ({ lastRace }) => {
             </tbody>
           </Table>
           <h4>
-          ROUND: {lastRace.MRData.RaceTable.round}/
-          {lastRace.season === config.current_season
-            ? config.current_season_n_races
-            : config.previous_season_n_races}
-        </h4>
+            ROUND: {lastRace.MRData.RaceTable.round}/
+            {lastRace.season === config.current_season
+              ? config.current_season_n_races
+              : config.previous_season_n_races}
+          </h4>
         </>
       }
+      cardHeight="29.5rem"
     />
   );
 };

@@ -47,19 +47,13 @@ const NextRaceCard = ({ nextRace }) => {
             height={100}
           />
           <p></p>
-          {nextRace === undefined ? (
-            <Row className="justify-content-center">
-              <ClockCoutdown date="2022-03-20" time="15:00:00" />
-            </Row>
-          ) : (
+          {nextRace === undefined ? null : (
             <Row className="justify-content-center">
               <ClockCoutdown date={nextRace.date} time={nextRace.time} />
             </Row>
           )}
           <Row>
-            {nextRace === undefined ? (
-              "-"
-            ) : (
+            {nextRace === undefined ? null : (
               <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
                 <Button
                   style={{ maxWidth: "100%" }}
