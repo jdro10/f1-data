@@ -128,9 +128,11 @@ const MainFeed = () => {
               <NextRaceCard nextRace={nextRace} />
             </Col>
 
-            <Col lg={12}>
-              <NextEventInformation nextEvent={nextRace} />
-            </Col>
+            {nextRace !== undefined ? (
+              <Col lg={12}>
+                <NextEventInformation nextEvent={nextRace} />
+              </Col>
+            ) : null}
 
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
