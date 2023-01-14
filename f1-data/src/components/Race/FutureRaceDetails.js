@@ -32,7 +32,7 @@ const FutureRaceDetails = ({ raceInfo }) => {
       responsive
       className="standings-table table-striped"
       variant={theme}
-      style={{ marginTop: "17%" }}
+      style={{ marginTop: "5%" }}
     >
       <tbody>
         <tr>
