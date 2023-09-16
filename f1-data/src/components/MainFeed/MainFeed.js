@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import PreviousRaceCard from "../MainFeed/PreviousRaceCard";
 import NextRaceCard from "./NextRaceCard";
-import NextEventInformation from "./NextEventInformation";
 import PreviousRaceStats from "./PreviousRaceStats";
 import DriversStandingsCard from "./DriversStandingsCard";
 import ConstructorsStandingsCard from "./ConstructorsStandingsCard";
@@ -45,9 +44,7 @@ const MainFeed = () => {
       await fetch(`https://ergast.com/api/f1/current/constructorStandings.json`)
         .then((res) => res.json())
         .then((result) => {
-          setConstructorsStandings(
-            result.MRData.StandingsTable.StandingsLists[0]
-          );
+          setConstructorsStandings(result.MRData.StandingsTable.StandingsLists[0]);
           setLoadingTeamsStandings(false);
         });
     };
@@ -56,9 +53,7 @@ const MainFeed = () => {
       await fetch(`https://ergast.com/api/f1/current/driverStandings.json`)
         .then((res) => res.json())
         .then((result) => {
-          setDriversStandings(
-            result.MRData.StandingsTable.StandingsLists[0].DriverStandings
-          );
+          setDriversStandings(result.MRData.StandingsTable.StandingsLists[0].DriverStandings);
           setLoadingDriversStandings(false);
         });
     };
@@ -81,19 +76,6 @@ const MainFeed = () => {
               <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
             </Col>
 
-            <Col xs="12" xl="3">
-              <LoadingCard cardHeight="8rem" />
-            </Col>
-            <Col xs="12" xl="3">
-              <LoadingCard cardHeight="8rem" />
-            </Col>
-            <Col xs="12" xl="3">
-              <LoadingCard cardHeight="8rem" />
-            </Col>
-            <Col xs="12" xl="3">
-              <LoadingCard cardHeight="8rem" />
-            </Col>
-
             <Col xs={12} xl={6}>
               <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
             </Col>
@@ -104,19 +86,11 @@ const MainFeed = () => {
 
             <Row className="g-2" style={{ marginTop: "1px" }}>
               <Col xs={12} xl={6}>
-                <LoadingCard
-                  cardHeight="28rem"
-                  hasButton={true}
-                  hasFlag={true}
-                />
+                <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
               </Col>
 
               <Col xs={12} xl={6}>
-                <LoadingCard
-                  cardHeight="28rem"
-                  hasButton={true}
-                  hasFlag={true}
-                />
+                <LoadingCard cardHeight="28rem" hasButton={true} hasFlag={true} />
               </Col>
             </Row>
           </Row>
@@ -127,12 +101,6 @@ const MainFeed = () => {
             <Col lg={12}>
               <NextRaceCard nextRace={nextRace} />
             </Col>
-
-            {nextRace !== undefined ? (
-              <Col lg={12}>
-                <NextEventInformation nextEvent={nextRace} />
-              </Col>
-            ) : null}
 
             <Col xs={12} xl={6}>
               <PreviousRaceCard lastRace={lastRace} />
@@ -160,9 +128,7 @@ const MainFeed = () => {
 
               <Col xs={12} xl={6}>
                 <ConstructorsStandingsCard
-                  constructorsStandings={
-                    constructorsStandings.ConstructorStandings
-                  }
+                  constructorsStandings={constructorsStandings.ConstructorStandings}
                   season={constructorsStandings.season}
                 />
               </Col>
