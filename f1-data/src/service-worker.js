@@ -19,7 +19,7 @@ async function networkFirst(req) {
   }
 }
 
-self.addEventListener('install', async event => {
+window.self.addEventListener("install", async (event) => {
   const cache = await caches.open(CACHE_NAME);
   try {
     await cache.addAll(CACHE_URLS);
@@ -28,14 +28,14 @@ self.addEventListener('install', async event => {
   }
 });
 
-self.addEventListener('fetch', event => {
+window.self.addEventListener("fetch", (event) => {
   const req = event.request;
   event.respondWith(networkFirst(req));
 });
 
 clientsClaim();
 
-precacheAndRoute(self.__WB_MANIFEST);
+precacheAndRoute(window.self.__WB_MANIFEST);
 
 const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
 registerRoute(({ request, url }) => {
@@ -55,16 +55,15 @@ registerRoute(({ request, url }) => {
 }, createHandlerBoundToURL(process.env.PUBLIC_URL + "/index.html"));
 
 registerRoute(
-  ({ url }) =>
-    url.origin === self.location.origin && url.pathname.endsWith(".png"),
+  ({ url }) => url.origin === window.self.location.origin && url.pathname.endsWith(".png"),
   new StaleWhileRevalidate({
     cacheName: "images",
     plugins: [new ExpirationPlugin({ maxEntries: 50 })],
   })
 );
 
-self.addEventListener("message", (event) => {
+window.self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
+    window.self.skipWaiting();
   }
 });
