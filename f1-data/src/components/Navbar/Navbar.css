@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .navbar {
   margin-bottom: 5px;
 }
@@ -10,4 +14,8 @@
 
 .icon-link:hover {
   opacity: 0.5;
+}
+
+.dark-mode-toggle {
+  margin-top: 15%;
 }
