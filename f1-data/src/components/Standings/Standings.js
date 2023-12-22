@@ -18,21 +18,16 @@ const Standings = () => {
   const [driversStandings, setDriversStandings] = useState(null);
   const [constructorsStandings, setConstructorsStandings] = useState(null);
   const [loadingDriversStandings, setLoadingDriversStandings] = useState(true);
-  const [loadingConstructorsStandings, setLoadingConstructorsStandings] =
-    useState(true);
+  const [loadingConstructorsStandings, setLoadingConstructorsStandings] = useState(true);
 
   useEffect(() => {
     const fetchConstructorsStandings = async () => {
       setLoadingConstructorsStandings(true);
-      await fetch(
-        `https://ergast.com/api/f1/${season}/constructorStandings.json`
-      )
+      await fetch(`https://ergast.com/api/f1/${season}/constructorStandings.json`)
         .then((res) => res.json())
         .then((result) => {
           if (result.MRData.StandingsTable.StandingsLists[0] !== undefined) {
-            setConstructorsStandings(
-              result.MRData.StandingsTable.StandingsLists[0]
-            );
+            setConstructorsStandings(result.MRData.StandingsTable.StandingsLists[0]);
           } else {
             setConstructorsStandings({});
           }
@@ -43,14 +38,12 @@ const Standings = () => {
 
     const fetchDriversStandings = async () => {
       setLoadingDriversStandings(true);
-      await fetch(
-        `https://ergast.com/api/f1/${season}/driverStandings.json?limit=50`
-      )
+      await fetch(`https://ergast.com/api/f1/${season}/driverStandings.json?limit=50`)
         .then((res) => res.json())
         .then((result) => {
-          setDriversStandings(
-            result.MRData.StandingsTable.StandingsLists[0].DriverStandings
-          );
+          if (result.MRData.StandingsTable.StandingsLists[0] !== undefined) {
+            setDriversStandings(result.MRData.StandingsTable.StandingsLists[0].DriverStandings);
+          }
           setLoadingDriversStandings(false);
         });
     };
@@ -89,27 +82,15 @@ const Standings = () => {
               <h1>{season} FORMULA 1</h1>
             </Col>
           </Row>
-          <Row
-            className="justify-content-center text-center"
-            style={{ marginBottom: "5px" }}
-          >
+          <Row className="justify-content-center text-center" style={{ marginBottom: "5px" }}>
             <Col>
               <Dropdown>
-                <Dropdown.Toggle
-                  className="main-btn"
-                  id="dropdown-basic"
-                  variant="secondary"
-                >
+                <Dropdown.Toggle className="main-btn" id="dropdown-basic" variant="secondary">
                   {season}
                 </Dropdown.Toggle>
-                <Dropdown.Menu
-                  style={{ maxHeight: "500px", overflowY: "scroll" }}
-                >
+                <Dropdown.Menu style={{ maxHeight: "500px", overflowY: "scroll" }}>
                   {seasonsYearsList.map((season, index) => (
-                    <Dropdown.Item
-                      key={index}
-                      onClick={(e) => seasonYearChange(e.target.textContent)}
-                    >
+                    <Dropdown.Item key={index} onClick={(e) => seasonYearChange(e.target.textContent)}>
                       {season}
                     </Dropdown.Item>
                   ))}
@@ -117,61 +98,56 @@ const Standings = () => {
               </Dropdown>
             </Col>
           </Row>
-
-          <ul className="nav nav-pills nav-fill mb-2" role="tablist">
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link active"
-                id="driver-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#driver"
-                type="button"
-                role="tab"
-                aria-controls="driver"
-                aria-selected="true"
-              >
-                DRIVERS
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="constructor-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#constructor"
-                type="button"
-                role="tab"
-                aria-controls="constructor"
-                aria-selected="false"
-              >
-                CONSTRUCTORS
-              </button>
-            </li>
-          </ul>
-          <div className="tab-content" id="myTabContent">
-            <div
-              className="tab-pane fade show active"
-              id="driver"
-              role="tabpanel"
-              aria-labelledby="driver-tab"
-            >
-              <DriversStandings driversStandings={driversStandings} />
-            </div>
-            <div
-              className="tab-pane fade"
-              id="constructor"
-              role="tabpanel"
-              aria-labelledby="constructor-tab"
-            >
-              <ConstructorsStandings
-                constructorsStandings={
-                  constructorsStandings.ConstructorStandings
-                }
-                constructorSeason={constructorsStandings.season}
-                showEngine={true}
-              />
-            </div>
-          </div>
+          {driversStandings !== null ? (
+            <>
+              <ul className="nav nav-pills nav-fill mb-2" role="tablist">
+                <li className="nav-item" role="presentation">
+                  <button
+                    className="nav-link active"
+                    id="driver-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#driver"
+                    type="button"
+                    role="tab"
+                    aria-controls="driver"
+                    aria-selected="true"
+                  >
+                    DRIVERS
+                  </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                  <button
+                    className="nav-link"
+                    id="constructor-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#constructor"
+                    type="button"
+                    role="tab"
+                    aria-controls="constructor"
+                    aria-selected="false"
+                  >
+                    CONSTRUCTORS
+                  </button>
+                </li>
+              </ul>
+              <div className="tab-content" id="myTabContent">
+                <div className="tab-pane fade show active" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+                  <DriversStandings driversStandings={driversStandings} />
+                </div>
+                <div className="tab-pane fade" id="constructor" role="tabpanel" aria-labelledby="constructor-tab">
+                  <ConstructorsStandings
+                    constructorsStandings={constructorsStandings.ConstructorStandings}
+                    constructorSeason={constructorsStandings.season}
+                    showEngine={true}
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <Row className="justify-content-center text-center">
+              <h2>{season} standings are not available.</h2>
+            </Row>
+          )}
         </>
       )}
     </Container>

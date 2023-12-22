@@ -17,37 +17,19 @@ const NextRaceCard = ({ nextRace }) => {
     <GenericCard
       cardBody={
         <>
-          <h1 style={boldFont}>
-            {nextRace === undefined
-              ? "TBA GRAND PRIX"
-              : nextRace.raceName.toUpperCase()}
-          </h1>
-          <h5>
-            {nextRace === undefined
-              ? "TBA"
-              : nextRace.Circuit.circuitName.toUpperCase()}
-          </h5>
-          <h5>
-            {nextRace === undefined ? "ROUND 1" : "ROUND " + nextRace.round}
-          </h5>
+          <h1 style={boldFont}>{nextRace === undefined ? "TBA GRAND PRIX" : nextRace.raceName.toUpperCase()}</h1>
+          <h5>{nextRace === undefined ? "TBA" : nextRace.Circuit.circuitName.toUpperCase()}</h5>
+          <h5>{nextRace === undefined ? "ROUND 1" : "ROUND " + nextRace.round}</h5>
           <h6>{nextRace === undefined ? "TBA" : convertDate(nextRace.date)}</h6>
-          <h6>
-            {nextRace === undefined
-              ? "TBA"
-              : getLocalRaceDate(nextRace.date, nextRace.time)}
-          </h6>
+          <h6>{nextRace.time === undefined ? null : getLocalRaceDate(nextRace.date, nextRace.time)}</h6>
           <CircleFlag
             countryCode={
-              nextRace === undefined
-                ? null
-                : CountriesCodeNationality[
-                    nextRace.Circuit.Location.country
-                  ].toLowerCase()
+              nextRace === undefined ? null : CountriesCodeNationality[nextRace.Circuit.Location.country].toLowerCase()
             }
             height={100}
           />
           <p></p>
-          {nextRace === undefined ? null : (
+          {nextRace.time === undefined ? null : (
             <Row className="justify-content-center">
               <ClockCoutdown date={nextRace.date} time={nextRace.time} />
             </Row>
@@ -55,11 +37,7 @@ const NextRaceCard = ({ nextRace }) => {
           <Row>
             {nextRace === undefined ? null : (
               <Link to={`/race/${nextRace.season}/${nextRace.round}`}>
-                <Button
-                  style={{ maxWidth: "100%" }}
-                  className="main-btn"
-                  variant="secondary"
-                >
+                <Button style={{ maxWidth: "100%" }} className="main-btn" variant="secondary">
                   RACE INFORMATION
                 </Button>
               </Link>
