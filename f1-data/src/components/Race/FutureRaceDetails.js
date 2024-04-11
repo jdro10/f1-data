@@ -23,9 +23,7 @@ const FutureRaceDetails = ({ raceInfo }) => {
           <td className="row-stats">RACE:</td>
           <td className="text-end row-stats">
             {eventStartDate(raceInfo.date)} {eventMonth(raceInfo.date)}{" "}
-            {isNaN(getLocalRaceDate(raceInfo.date, raceInfo.time))
-              ? null
-              : getLocalRaceDate(raceInfo.date, raceInfo.time)}
+            {getLocalRaceDate(raceInfo.date, raceInfo.time)}
           </td>
         </tr>
         {raceInfo.Sprint === undefined ? (

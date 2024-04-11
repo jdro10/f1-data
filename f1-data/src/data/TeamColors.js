@@ -18,4 +18,5 @@ export const TeamColors = {
   lotus_f1: "#FFB800",
   marussia: "#6E0000",
   caterham: "#0b361f",
+  rb: "#469BFF",
 };
