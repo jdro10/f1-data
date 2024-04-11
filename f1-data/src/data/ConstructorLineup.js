@@ -59,4 +59,16 @@ export const ConstructorLineup = {
     haas: ["Magnussen", "Hülkenberg", "FERRARI"],
     alfa: ["Bottas", "Zhou", "FERRARI"],
   },
+  2024: {
+    red_bull: ["Verstappen", "Pérez", "HONDA RBPT"],
+    williams: ["Albon", "Sargeant", "MERCEDES"],
+    mercedes: ["Hamilton", "Russell", "MERCEDES"],
+    mclaren: ["Norris", "Piastri", "MERCEDES"],
+    aston_martin: ["Alonso", "Stroll", "MERCEDES"],
+    rb: ["Tsunoda", "Ricciardo", "HONDA RBPT"],
+    alpine: ["Ocon", "Gasly", "RENAULT"],
+    ferrari: ["Leclerc", "Sainz", "MERCEDES"],
+    haas: ["Magnussen", "Hülkenberg", "FERRARI"],
+    sauber: ["Bottas", "Zhou", "FERRARI"],
+  },
 };
