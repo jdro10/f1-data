@@ -271,8 +271,8 @@ const PreviousRaceStats = ({ lastRace }) => {
           <h4>
             ROUND: {lastRace.MRData.RaceTable.round}/
             {lastRace.season === config.current_season
-              ? config.current_season_n_races
-              : config.previous_season_n_races}
+              ? config.previous_season_n_races
+              : config.current_season_n_races}
           </h4>
         </>
       }
