@@ -16,10 +16,12 @@ const Driver = ({ driverId }) => {
   const [name, setName] = useState(null);
   const [wikiPageId, setWikiPageId] = useState(null);
   const [driverRaces, setDriverRaces] = useState(null);
+  const [driverSprints, setDriverSprints] = useState(null);
   const [driverPhoto, setDriverPhoto] = useState(null);
   const [driverNationality, setDriverNationality] = useState(null);
   const [driverInformation, setDriverInformation] = useState(null);
   const [loadingDriverRaces, setLoadingDriverRaces] = useState(true);
+  const [loadingDriverSprints, setLoadingDriverSprints] = useState(true);
   const [loadingDriverStats, setLoadingDriverStats] = useState(true);
   const [driverStats, setDriverStats] = useState({
     wins: 0,
@@ -90,8 +92,23 @@ const Driver = ({ driverId }) => {
         });
     };
 
+    const fetchDriverSprintResults = async () => {
+      await fetch(
+        `https://ergast.com/api/f1/drivers/${driverId}/sprint.json?limit=1000`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setDriverSprints(result.MRData.RaceTable.Races);
+          setLoadingDriverSprints(false);
+        });
+    };
+
     const driverStats = () => {
-      if (!loadingDriverRaces && firstGP !== undefined) {
+      if (
+        !loadingDriverRaces &&
+        !loadingDriverSprints &&
+        firstGP !== undefined
+      ) {
         const wins = driverRaces.filter(
           (race) => race.Results[0].position === "1"
         ).length;
@@ -104,10 +121,15 @@ const Driver = ({ driverId }) => {
           (race) => race.Results[0].grid === "1"
         ).length;
 
-        const totalPoints = driverRaces.reduce(
-          (acc, current) => acc + parseFloat(current.Results[0].points),
-          0
-        );
+        const totalPoints =
+          driverRaces.reduce(
+            (acc, current) => acc + parseFloat(current.Results[0].points),
+            0
+          ) +
+          driverSprints.reduce(
+            (acc, current) => acc + parseFloat(current.SprintResults[0].points),
+            0
+          );
 
         const totalFastestLaps = driverRaces.filter(
           (race) =>
@@ -144,10 +166,11 @@ const Driver = ({ driverId }) => {
     if (loading) {
       fetchDriverInformation();
       fetchDriverResults();
+      fetchDriverSprintResults();
     }
 
     driverStats();
-  }, [driverId, loading, driverRaces, loadingDriverRaces, firstGP]);
+  }, [driverId, loading, driverRaces, loadingDriverRaces, firstGP, driverSprints, loadingDriverSprints]);
 
   return (
     <Container style={{ minHeight: "500px" }}>
