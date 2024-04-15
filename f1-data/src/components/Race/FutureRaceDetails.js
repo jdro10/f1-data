@@ -17,7 +17,12 @@ const FutureRaceDetails = ({ raceInfo }) => {
   };
 
   return (
-    <Table responsive className="standings-table table-striped" variant={theme} style={{ marginTop: "5%" }}>
+    <Table
+      responsive
+      className="standings-table table-striped"
+      variant={theme}
+      style={{ marginTop: "5%" }}
+    >
       <tbody>
         <tr>
           <td className="row-stats">RACE:</td>
@@ -34,8 +39,12 @@ const FutureRaceDetails = ({ raceInfo }) => {
                 <td className="text-end row-stats">-</td>
               ) : (
                 <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.Qualifying?.date)} {eventMonth(raceInfo.Qualifying.date)}{" "}
-                  {getLocalRaceDate(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}
+                  {eventStartDate(raceInfo.Qualifying?.date)}{" "}
+                  {eventMonth(raceInfo.Qualifying.date)}{" "}
+                  {getLocalRaceDate(
+                    raceInfo.Qualifying.date,
+                    raceInfo.Qualifying.time
+                  )}
                 </td>
               )}
             </tr>
@@ -45,8 +54,12 @@ const FutureRaceDetails = ({ raceInfo }) => {
                 <td className="text-end row-stats">-</td>
               ) : (
                 <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.ThirdPractice.date)} {eventMonth(raceInfo.ThirdPractice.date)}{" "}
-                  {getLocalRaceDate(raceInfo.ThirdPractice.date, raceInfo.ThirdPractice.time)}
+                  {eventStartDate(raceInfo.ThirdPractice.date)}{" "}
+                  {eventMonth(raceInfo.ThirdPractice.date)}{" "}
+                  {getLocalRaceDate(
+                    raceInfo.ThirdPractice.date,
+                    raceInfo.ThirdPractice.time
+                  )}
                 </td>
               )}
             </tr>
@@ -56,8 +69,12 @@ const FutureRaceDetails = ({ raceInfo }) => {
                 <td className="text-end row-stats">-</td>
               ) : (
                 <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.SecondPractice.date)} {eventMonth(raceInfo.SecondPractice.date)}{" "}
-                  {getLocalRaceDate(raceInfo.SecondPractice.date, raceInfo.SecondPractice.time)}
+                  {eventStartDate(raceInfo.SecondPractice.date)}{" "}
+                  {eventMonth(raceInfo.SecondPractice.date)}{" "}
+                  {getLocalRaceDate(
+                    raceInfo.SecondPractice.date,
+                    raceInfo.SecondPractice.time
+                  )}
                 </td>
               )}
             </tr>
@@ -70,19 +87,9 @@ const FutureRaceDetails = ({ raceInfo }) => {
                 <td className="text-end row-stats">-</td>
               ) : (
                 <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.Sprint.date)} {eventMonth(raceInfo.Sprint.date)}{" "}
+                  {eventStartDate(raceInfo.Sprint.date)}{" "}
+                  {eventMonth(raceInfo.Sprint.date)}{" "}
                   {getLocalRaceDate(raceInfo.Sprint.date, raceInfo.Sprint.time)}
-                </td>
-              )}
-            </tr>
-            <tr>
-              <td className="row-stats">FREE PRACTICE 2: </td>
-              {raceInfo.SecondPractice === undefined ? (
-                <td className="text-end row-stats">-</td>
-              ) : (
-                <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.SecondPractice.date)} {eventMonth(raceInfo.SecondPractice.date)}{" "}
-                  {getLocalRaceDate(raceInfo.SecondPractice.date, raceInfo.SecondPractice.time)}
                 </td>
               )}
             </tr>
@@ -92,8 +99,27 @@ const FutureRaceDetails = ({ raceInfo }) => {
                 <td className="text-end row-stats">-</td>
               ) : (
                 <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.Qualifying.date)} {eventMonth(raceInfo.Qualifying.date)}{" "}
-                  {getLocalRaceDate(raceInfo.Qualifying.date, raceInfo.Qualifying.time)}
+                  {eventStartDate(raceInfo.Qualifying.date)}{" "}
+                  {eventMonth(raceInfo.Qualifying.date)}{" "}
+                  {getLocalRaceDate(
+                    raceInfo.Qualifying.date,
+                    raceInfo.Qualifying.time
+                  )}
+                </td>
+              )}
+            </tr>
+            <tr>
+              <td className="row-stats">FREE PRACTICE 2: </td>
+              {raceInfo.SecondPractice === undefined ? (
+                <td className="text-end row-stats">-</td>
+              ) : (
+                <td className="text-end row-stats">
+                  {eventStartDate(raceInfo.SecondPractice.date)}{" "}
+                  {eventMonth(raceInfo.SecondPractice.date)}{" "}
+                  {getLocalRaceDate(
+                    raceInfo.SecondPractice.date,
+                    raceInfo.SecondPractice.time
+                  )}
                 </td>
               )}
             </tr>
@@ -105,8 +131,12 @@ const FutureRaceDetails = ({ raceInfo }) => {
             <td className="text-end row-stats">-</td>
           ) : (
             <td className="text-end row-stats">
-              {eventStartDate(raceInfo.FirstPractice.date)} {eventMonth(raceInfo.FirstPractice.date)}{" "}
-              {getLocalRaceDate(raceInfo.FirstPractice.date, raceInfo.FirstPractice.time)}
+              {eventStartDate(raceInfo.FirstPractice.date)}{" "}
+              {eventMonth(raceInfo.FirstPractice.date)}{" "}
+              {getLocalRaceDate(
+                raceInfo.FirstPractice.date,
+                raceInfo.FirstPractice.time
+              )}
             </td>
           )}
         </tr>
