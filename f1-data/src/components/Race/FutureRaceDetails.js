@@ -82,18 +82,6 @@ const FutureRaceDetails = ({ raceInfo }) => {
         ) : (
           <>
             <tr>
-              <td className="row-stats">SPRINT: </td>
-              {raceInfo.Sprint === undefined ? (
-                <td className="text-end row-stats">-</td>
-              ) : (
-                <td className="text-end row-stats">
-                  {eventStartDate(raceInfo.Sprint.date)}{" "}
-                  {eventMonth(raceInfo.Sprint.date)}{" "}
-                  {getLocalRaceDate(raceInfo.Sprint.date, raceInfo.Sprint.time)}
-                </td>
-              )}
-            </tr>
-            <tr>
               <td className="row-stats">QUALIFYING: </td>
               {raceInfo.Qualifying === undefined ? (
                 <td className="text-end row-stats">-</td>
@@ -109,7 +97,20 @@ const FutureRaceDetails = ({ raceInfo }) => {
               )}
             </tr>
             <tr>
-              <td className="row-stats">FREE PRACTICE 2: </td>
+              <td className="row-stats">SPRINT: </td>
+              {raceInfo.Sprint === undefined ? (
+                <td className="text-end row-stats">-</td>
+              ) : (
+                <td className="text-end row-stats">
+                  {eventStartDate(raceInfo.Sprint.date)}{" "}
+                  {eventMonth(raceInfo.Sprint.date)}{" "}
+                  {getLocalRaceDate(raceInfo.Sprint.date, raceInfo.Sprint.time)}
+                </td>
+              )}
+            </tr>
+
+            <tr>
+              <td className="row-stats">SPRINT QUALIFYING: </td>
               {raceInfo.SecondPractice === undefined ? (
                 <td className="text-end row-stats">-</td>
               ) : (
